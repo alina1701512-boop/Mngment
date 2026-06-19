@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Внедрение AmoCRM под ключ | SystemSales</title>
+    <link rel="stylesheet" href="/Mngment/style.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- JSON-LD микроразметка FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сколько стоит внедрение AmoCRM под ключ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Цена складывается из трёх компонентов: сложность воронок, число интеграций и объём переносимых данных. Базовый пакет (настройка воронки + интеграция с сайтом) — от XX XXX ₽. Комплексное внедрение с телефонией, чат-ботами и аналитикой — от XXX XXX ₽. Первый аудит — бесплатно."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "У нас уже есть AmoCRM, но менеджеры не хотят в ней работать. Поможете?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, это частая проблема. Мы настраиваем «принудительную» логику: нельзя двигать сделку без заполнения полей. Автоматизируем рутину (чтобы менеджеры меньше вбивали руками). Плюс — дашборд для руководителя, где видно, кто тормозит воронку."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли интегрировать AmoCRM с нашей 1С / складом / доставкой?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Мы пишем кастомные интеграции через API. Обмен данными в обе стороны: товары, остатки, счета, статусы доставки. Сроки и стоимость — после аудита вашего текущего контура."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+            <nav class="nav" id="mainNav">
+                <a href="/Mngment/#services">Услуги</a>
+                <a href="/Mngment/#cases">Кейсы</a>
+                <a href="/Mngment/#lead-magnet">Аудит</a>
+                <a href="/contacts" class="btn btn-ghost">Контакты</a>
+            </nav>
+            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ЭКРАН 1: ОФФЕР -->
+        <section class="hero-service">
+            <div class="container hero-service--centered">
+                <div class="hero-service__content">
+                    <h1>Внедрение AmoCRM под ключ: воронки, которые не вязнут, и аналитика, которая показывает правду</h1>
+                    <p class="hero-service__subtitle">Настраиваем цифровой конвейер: заявка с сайта → сделка в CRM → задача менеджеру → отчёт руководителю. Без «мы потом дозаполним».</p>
+                    <a href="#form" class="btn btn-primary cta-main">Аудит текущей CRM бесплатно</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 2: ДО/ПОСЛЕ -->
+        <section class="compare">
+            <div class="container">
+                <h2>Что меняется после настройки AmoCRM</h2>
+                <div class="compare-table">
+                    <div class="compare-row compare-header">
+                        <div>Критерий</div>
+                        <div>Было</div>
+                        <div>Стало</div>
+                    </div>
+                    <div class="compare-row">
+                        <div>Воронка</div>
+                        <div>«У нас есть CRM, но менеджеры не заполняют»</div>
+                        <div>Автоматическое создание сделок. Менеджер не может передвинуть сделку, не заполнив обязательные поля</div>
+                    </div>
+                    <div class="compare-row">
+                        <div>Заявки</div>
+                        <div>Теряются в почте, чатах, на бумажках</div>
+                        <div>Все каналы сливаются в один поток. Дублей нет. Источник заявки виден</div>
+                    </div>
+                    <div class="compare-row">
+                        <div>Контроль</div>
+                        <div>Руководитель спрашивает «как дела?» раз в неделю</div>
+                        <div>Дашборд с конверсией по этапам в реальном времени. Видно, кто сливает</div>
+                    </div>
+                    <div class="compare-row">
+                        <div>Интеграция</div>
+                        <div>Телефония отдельно, сайт отдельно, Excel отдельно</div>
+                        <div>Единая экосистема: звонок → карточка клиента → запись разговора → задача</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 3: ЧТО МЫ НАСТРАИВАЕМ -->
+        <section class="layers">
+            <div class="container">
+                <h2>6 слоёв AmoCRM, которые мы доводим до ума</h2>
+                <div class="layers-grid">
+                    <div class="layer-card">
+                        <span class="layer-icon">🔧</span>
+                        <h3>Кастомные воронки</h3>
+                        <p>Не «стандартная», а под ваш цикл сделки (B2B — длинные, B2C — быстрые)</p>
+                    </div>
+                    <div class="layer-card">
+                        <span class="layer-icon">🌐</span>
+                        <h3>Интеграция с сайтом</h3>
+                        <p>Формы захвата, квизы, калькуляторы → Webhook → сделка</p>
+                    </div>
+                    <div class="layer-card">
+                        <span class="layer-icon">📞</span>
+                        <h3>Телефония</h3>
+                        <p>Запись звонков, автоопределение клиента, исходящий в один клик</p>
+                    </div>
+                    <div class="layer-card">
+                        <span class="layer-icon">💬</span>
+                        <h3>Чат-боты</h3>
+                        <p>Передача диалога из WhatsApp/Telegram прямо в карточку сделки</p>
+                    </div>
+                    <div class="layer-card">
+                        <span class="layer-icon">📊</span>
+                        <h3>Аналитика</h3>
+                        <p>Сквозная отчётность: от источника трафика до денег в кассе</p>
+                    </div>
+                    <div class="layer-card">
+                        <span class="layer-icon">📋</span>
+                        <h3>Регламенты</h3>
+                        <p>Цифровые сценарии (кто, кому, когда звонит), автозадачи без участия РОПа</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 4: КЕЙС -->
+        <section class="case-full">
+            <div class="container">
+                <h2>Кейс: Как сервисный центр сократил время обработки лида с 45 минут до 2</h2>
+                <div class="case-grid">
+                    <div class="case-item">
+                        <strong>Клиент:</strong> Сеть сервисных центров по ремонту техники (4 точки)
+                    </div>
+                    <div class="case-item">
+                        <strong>Задача:</strong> Связать сайт, телефонию и работу мастеров в одной системе
+                    </div>
+                    <div class="case-item">
+                        <strong>Решение:</strong> Новый сайт с квиз-формой → AmoCRM (кастомная воронка) → телефония → SMS-уведомления клиенту
+                    </div>
+                    <div class="case-item">
+                        <strong>Результат:</strong> Время обработки лида — с 45 до 2 минут. Окупаемость — 2 месяца
+                    </div>
+                </div>
+                <div class="center-btn">
+                    <a href="#form" class="btn btn-primary">Хочу такую же настройку</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 5: FAQ -->
+        <section class="faq">
+            <div class="container">
+                <h2>Частые вопросы про внедрение AmoCRM</h2>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>Сколько стоит внедрение AmoCRM под ключ?</summary>
+                        <p>Цена складывается из трёх компонентов: сложность воронок, число интеграций и объём переносимых данных. Базовый пакет (настройка воронки + интеграция с сайтом) — от XX XXX ₽. Комплексное внедрение с телефонией, чат-ботами и аналитикой — от XXX XXX ₽. Первый аудит — бесплатно.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>У нас уже есть AmoCRM, но менеджеры не хотят в ней работать. Поможете?</summary>
+                        <p>Да, это частая проблема. Мы настраиваем «принудительную» логику: нельзя двигать сделку без заполнения полей. Автоматизируем рутину (чтобы менеджеры меньше вбивали руками). Плюс — дашборд для руководителя, где видно, кто тормозит воронку.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Можно ли интегрировать AmoCRM с нашей 1С / складом / доставкой?</summary>
+                        <p>Да. Мы пишем кастомные интеграции через API. Обмен данными в обе стороны: товары, остатки, счета, статусы доставки. Сроки и стоимость — после аудита вашего текущего контура.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 6: ФОРМА ЗАХВАТА -->
+        <section class="lead-magnet" id="form">
+            <div class="container">
+                <h2>Получите аудит текущей CRM бесплатно</h2>
+                <p class="lead-magnet__subtitle">Разберём ваши воронки, найдём утечки и покажем, что можно автоматизировать за 2 недели</p>
+                <form class="audit-form" action="/thank-you/" method="POST" novalidate>
+                    <input type="text" name="name" placeholder="Имя" required>
+                    <input type="text" name="phone" placeholder="Телефон / Telegram" required>
+                    <input type="text" name="business" placeholder="Сфера бизнеса">
+                    <select name="current_crm" required>
+                        <option value="" disabled selected>Какая CRM сейчас используется?</option>
+                        <option>AmoCRM (уже есть, но не настроена)</option>
+                        <option>Bitrix24</option>
+                        <option>Другая CRM</option>
+                        <option>Нет CRM</option>
+                    </select>
+                    
+                    <button type="submit" class="btn btn-primary btn-large">Записаться на бесплатный аудит</button>
+                    <p class="form-note">Аудит — 40 минут в Zoom. Вы получите чек-лист из 15 точек роста вашей CRM. Без предоплаты.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 SystemSales. Превращаем хаос в систему.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Мобильное меню
+            const burger = document.getElementById('burgerBtn');
+            const nav = document.getElementById('mainNav');
+            if (burger && nav) {
+                burger.addEventListener('click', function() {
+                    if (nav.style.display === 'flex') {
+                        nav.style.display = 'none';
+                    } else {
+                        nav.style.display = 'flex';
+                        nav.style.flexDirection = 'column';
+                        nav.style.position = 'absolute';
+                        nav.style.top = '70px';
+                        nav.style.left = '0';
+                        nav.style.background = 'white';
+                        nav.style.width = '100%';
+                        nav.style.padding = '20px';
+                        nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                    }
+                });
+            }
+
+            // Плавный скролл к форме
+            const ctaButtons = document.querySelectorAll('a[href="#form"]');
+            ctaButtons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const formSection = document.getElementById('form');
+                    if (formSection) {
+                        formSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
