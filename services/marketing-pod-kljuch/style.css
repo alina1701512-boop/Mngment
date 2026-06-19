@@ -1,0 +1,26 @@
+.hero-service--centered { text-align: center; max-width: 800px; margin: 0 auto; padding: 80px 20px; }
+.hero-service--centered h1 { font-size: 2.5rem; }
+.hero-service--centered .hero-service__subtitle { font-size: 1.2rem; margin-bottom: 35px; }
+
+.fullcycle-scheme { padding: 80px 0; background: #fcfcfc; }
+.scheme-steps { display: flex; align-items: flex-start; justify-content: center; gap: 0; flex-wrap: wrap; max-width: 1100px; margin: 0 auto; }
+.scheme-step { text-align: center; padding: 20px; flex: 1; min-width: 140px; }
+.scheme-icon { font-size: 2.5rem; display: block; margin-bottom: 15px; }
+.scheme-step h3 { font-size: 1.1rem; margin-bottom: 10px; color: #1a1a2e; }
+.scheme-step p { color: #666; font-size: 0.9rem; line-height: 1.5; }
+.scheme-arrow { font-size: 1.5rem; color: #FF4D01; padding-top: 45px; font-weight: 700; }
+
+.checkbox-group { border: none; padding: 10px 0; text-align: left; }
+.checkbox-group legend { width: 100%; margin-bottom: 10px; font-weight: 600; color: #fff; }
+.checkbox-group label { color: rgba(255,255,255,0.9); cursor: pointer; margin-right: 15px; font-size: 0.95rem; }
+.checkbox-group input[type="checkbox"] { margin-right: 5px; accent-color: #FF4D01; }
+
+.case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px; }
+.case-item { background: #fff; padding: 25px; border-radius: 12px; border-left: 4px solid #FF4D01; }
+.case-item strong { display: block; margin-bottom: 8px; font-size: 1.1rem; color: #1a1a2e; }
+
+@media (max-width: 768px) {
+    .hero-service--centered h1 { font-size: 1.8rem; }
+    .scheme-steps { flex-direction: column; align-items: center; }
+    .scheme-arrow { transform: rotate(90deg); padding-top: 0; margin: -5px 0; }
+}
