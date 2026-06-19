@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты и бриф | SystemSales</title>
+    <link rel="stylesheet" href="/Mngment/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+            <nav class="nav" id="mainNav">
+                <a href="/Mngment/#services">Услуги</a>
+                <a href="/Mngment/cases/">Кейсы</a>
+                <a href="/Mngment/blog/">Блог</a>
+                <a href="/Mngment/contacts/">Контакты</a>
+            </nav>
+            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="contacts-page">
+            <div class="container">
+                <div class="contacts-grid">
+                    <div class="contacts-info">
+                        <h1>Напишите, что болит — подскажем, чем помочь</h1>
+                        <p class="contacts-subtitle">Первая консультация — бесплатно. Разберём вашу ситуацию и предложим архитектуру решения</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <span class="contact-icon">📱</span>
+                                <div>
+                                    <strong>Telegram</strong>
+                                    <p><a href="https://t.me/your_username">@your_username</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <span class="contact-icon">💬</span>
+                                <div>
+                                    <strong>WhatsApp</strong>
+                                    <p><a href="https://wa.me/79991234567">+7 (999) 123-45-67</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <span class="contact-icon">📧</span>
+                                <div>
+                                    <strong>Email</strong>
+                                    <p><a href="mailto:info@systemsales.ru">info@systemsales.ru</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contacts-form-wrapper">
+                        <form class="brief-form" action="/Mngment/thank-you/" method="POST" novalidate>
+                            <h2>Бриф на проект</h2>
+                            <input type="text" name="name" placeholder="Имя" required>
+                            <input type="text" name="phone" placeholder="Телефон / Telegram" required>
+                            
+                            <select name="task" required>
+                                <option value="" disabled selected>Какая задача стоит?</option>
+                                <option>Нет лидов</option>
+                                <option>Не настроена CRM</option>
+                                <option>Нужен сайт</option>
+                                <option>Хочу автоматизировать поддержку</option>
+                                <option>Нужен комплекс</option>
+                                <option>Другое</option>
+                            </select>
+
+                            <textarea name="description" placeholder="Опишите ситуацию (необязательно)" rows="4"></textarea>
+
+                            <fieldset class="radio-group-dark">
+                                <legend>Бюджетная вилка</legend>
+                                <label><input type="radio" name="budget" value="up_to_50"> До 50 000 ₽</label>
+                                <label><input type="radio" name="budget" value="50_150"> 50-150 тыс ₽</label>
+                                <label><input type="radio" name="budget" value="150_500"> 150-500 тыс ₽</label>
+                                <label><input type="radio" name="budget" value="500_plus"> 500 тыс+ ₽</label>
+                                <label><input type="radio" name="budget" value="unknown" checked> Пока не знаю</label>
+                            </fieldset>
+
+                            <button type="submit" class="btn btn-primary btn-large">Отправить бриф</button>
+                            <p class="form-note-dark">Ответим в течение 2 часов в рабочее время</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const burger = document.getElementById('burgerBtn');
+            const nav = document.getElementById('mainNav');
+            if (burger && nav) {
+                burger.addEventListener('click', function() {
+                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                    if (nav.style.display === 'flex') {
+                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
+                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
+                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
