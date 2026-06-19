@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сквозная аналитика для малого бизнеса: пошаговая инструкция | SystemSales</title>
+    <link rel="stylesheet" href="/Mngment/style.css">
+    <style>
+        .article-page { display: grid; grid-template-columns: 1fr 300px; gap: 40px; padding: 60px 0; }
+        .article-content h1 { font-size: 2.2rem; margin-bottom: 20px; line-height: 1.3; }
+        .article-content h2 { font-size: 1.5rem; margin: 30px 0 15px; text-align: left; }
+        .article-content p { color: #444; line-height: 1.9; margin-bottom: 18px; }
+        .article-content ul, .article-content ol { margin: 15px 0 20px 25px; color: #444; line-height: 1.9; }
+        .article-content blockquote { background: #f0f4ff; padding: 20px 25px; border-left: 4px solid #1E88E5; margin: 25px 0; }
+        .sidebar { position: sticky; top: 90px; align-self: start; }
+        .sidebar-block { background: #fff; padding: 20px; border-radius: 14px; border: 1px solid #eee; margin-bottom: 20px; }
+        .sidebar-block h3 { font-size: 1.1rem; margin-bottom: 12px; }
+        .sidebar-block ul { list-style: none; padding: 0; }
+        .sidebar-block li { margin-bottom: 8px; }
+        .sidebar-block a { color: #FF4D01; text-decoration: none; }
+        .cta-article { background: #1a1a2e; color: #fff; padding: 25px; border-radius: 14px; text-align: center; margin-top: 20px; }
+        .cta-article h3 { color: #fff; margin-bottom: 8px; }
+        .cta-article p { color: rgba(255,255,255,0.7); margin-bottom: 18px; }
+        @media (max-width: 768px) {
+            .article-page { grid-template-columns: 1fr; }
+            .article-content h1 { font-size: 1.7rem; }
+            .sidebar { position: static; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+            <nav class="nav" id="mainNav">
+                <a href="/Mngment/#services">Услуги</a>
+                <a href="/Mngment/cases/">Кейсы</a>
+                <a href="/Mngment/blog/">Блог</a>
+                <a href="/Mngment/contacts/">Контакты</a>
+            </nav>
+            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="article-page">
+                <article class="article-content">
+                    <h1>Сквозная аналитика для малого бизнеса: пошаговая инструкция от счётчика до дашборда</h1>
+                    
+                    <p>«Сквозная аналитика» звучит как что-то сложное и дорогое. Для корпораций с бюджетами на IT. Но на самом деле базовую сквозную аналитику можно настроить за 3-5 дней даже для малого бизнеса. И это окупается в первый же месяц за счёт отключения неэффективных каналов.</p>
+                    <p>Даём пошаговую инструкцию: от установки счётчика до дашборда, который показывает ROI каждого рекламного канала.</p>
+
+                    <h2>Шаг 1: Установка счётчиков</h2>
+                    <p>Яндекс.Метрика и Google Analytics — обязательно. Код вставляется на все страницы сайта. Проверьте, что счётчики работают через режим «Карта кликов» в Метрике.</p>
+
+                    <h2>Шаг 2: Настройка целей</h2>
+                    <p>Цель — это действие, которое вы считаете конверсией: отправка формы, клик по телефону, переход в мессенджер, оформление заказа. Настройте цели в Метрике для каждой формы и кнопки на сайте.</p>
+
+                    <h2>Шаг 3: UTM-метки на всех рекламных каналах</h2>
+                    <p>UTM-метка — это хвостик URL, который говорит Метрике: «этот посетитель пришёл из Директа, кампания №5, объявление №3». Без меток вы видите только «трафик из Директа», но не знаете, какая именно кампания привела заявку.</p>
+
+                    <h2>Шаг 4: Интеграция CRM с Метрикой</h2>
+                    <p>Самое важное. В CRM (AmoCRM, Bitrix24) нужно передавать UTM-метку вместе с заявкой. Тогда вы увидите цепочку: источник → ключ → заявка → сделка → деньги. Это и есть сквозная аналитика.</p>
+
+                    <h2>Шаг 5: Дашборд для руководителя</h2>
+                    <p>Соберите ключевые метрики в одном месте (Data Studio, Power BI или просто Google-таблица):</p>
+                    <ul>
+                        <li>Количество заявок по каналам</li>
+                        <li>Цена заявки по каждому каналу</li>
+                        <li>Конверсия из заявки в сделку</li>
+                        <li>Средний чек по каналам</li>
+                        <li>ROI каждого канала</li>
+                    </ul>
+
+                    <blockquote>Результат: вы точно знаете, что Директ приносит 200 заявок по 500 ₽ с ROI 120%, а SMM — 30 заявок по 3000 ₽ с ROI −50%. И принимаете решения на основе цифр, а не интуиции.</blockquote>
+                </article>
+
+                <aside class="sidebar">
+                    <div class="sidebar-block">
+                        <h3>🛠️ Инструменты</h3>
+                        <ul>
+                            <li>Яндекс.Метрика</li>
+                            <li>AmoCRM</li>
+                            <li>UTM-метки</li>
+                            <li>Data Studio</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-block">
+                        <h3>🔗 Связанные услуги</h3>
+                        <ul>
+                            <li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li>
+                            <li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li>
+                        </ul>
+                    </div>
+                    <div class="cta-article">
+                        <h3>Настроим сквозную аналитику за 5 дней</h3>
+                        <p>От счётчика до дашборда. Покажем ROI каждого канала</p>
+                        <a href="/Mngment/services/veb-analitika/#form" class="btn btn-primary">Заказать настройку</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer"><div class="container"><p>© 2026 SystemSales</p></div></footer>
+
+    <script>
+        const b=document.getElementById('burgerBtn'),n=document.getElementById('mainNav');
+        b&&n&&b.addEventListener('click',()=>{n.style.display=n.style.display==='flex'?'none':'flex';if(n.style.display==='flex'){n.style.flexDirection='column';n.style.position='absolute';n.style.top='70px';n.style.left='0';n.style.background='white';n.style.width='100%';n.style.padding='20px';n.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)';}});
+    </script>
+</body>
+</html>
