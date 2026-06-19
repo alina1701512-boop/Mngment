@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог: гайды, кейсы и разборы | SystemSales</title>
+    <link rel="stylesheet" href="/Mngment/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+            <nav class="nav" id="mainNav">
+                <a href="/Mngment/#services">Услуги</a>
+                <a href="/Mngment/cases/">Кейсы</a>
+                <a href="/Mngment/blog/">Блог</a>
+                <a href="/Mngment/contacts/">Контакты</a>
+            </nav>
+            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Блог: гайды, кейсы и разборы по digital и автоматизации бизнеса</h1>
+                <p class="page-hero__subtitle">Проверенные методики, которые работают в 2026 году</p>
+            </div>
+        </section>
+
+        <section class="blog-hub">
+            <div class="container">
+                <div class="filters" id="filters">
+                    <button class="filter-btn active" data-filter="all">Все статьи</button>
+                    <button class="filter-btn" data-filter="parsing">Парсинг</button>
+                    <button class="filter-btn" data-filter="crm">CRM</button>
+                    <button class="filter-btn" data-filter="bots">Чат-боты</button>
+                    <button class="filter-btn" data-filter="ai">AI</button>
+                    <button class="filter-btn" data-filter="sites">Сайты</button>
+                    <button class="filter-btn" data-filter="fullcycle">Комплексное</button>
+                </div>
+
+                <div class="blog-grid">
+                    <article class="blog-card" data-category="parsing">
+                        <span class="blog-badge">Парсинг</span>
+                        <h3><a href="/Mngment/blog/kak-sobrat-bazu-kontaktov-bez-bana/">Как собрать B2B-базу контактов без бана аккаунта: полный гайд по парсингу в 2026</a></h3>
+                        <p>Разбираем легальные методы, источники и анти-бан защиту</p>
+                    </article>
+                    <article class="blog-card" data-category="crm">
+                        <span class="blog-badge">CRM</span>
+                        <h3><a href="/Mngment/blog/cheklist-crm-rabotaet-vkholostuyu/">Чек-лист: 10 признаков, что ваша CRM работает вхолостую</a></h3>
+                        <p>Как понять, что система не помогает, а мешает продажам</p>
+                    </article>
+                    <article class="blog-card" data-category="bots">
+                        <span class="blog-badge">Чат-боты</span>
+                        <h3><a href="/Mngment/blog/chat-bot-vs-menedzher-sravnenie/">Чат-бот vs Менеджер: сравнение затрат и эффективности</a></h3>
+                        <p>Считаем в деньгах: когда бот выгоднее человека</p>
+                    </article>
+                    <article class="blog-card" data-category="ai">
+                        <span class="blog-badge">AI</span>
+                        <h3><a href="/Mngment/blog/chto-takoe-rag-ai-opasnost/">Что такое RAG в AI-агентах и почему без него опасно</a></h3>
+                        <p>Как мы заставляем нейросеть говорить только правду</p>
+                    </article>
+                    <article class="blog-card" data-category="sites">
+                        <span class="blog-badge">Сайты</span>
+                        <h3><a href="/Mngment/blog/oshibki-lendinga-ubivayut-konversiyu/">7 ошибок лендинга, которые убивают конверсию</a></h3>
+                        <p>Разбор на реальных примерах: что поправить за 1 день</p>
+                    </article>
+                    <article class="blog-card" data-category="fullcycle">
+                        <span class="blog-badge">Комплексное</span>
+                        <h3><a href="/Mngment/blog/kak-svyazat-sajt-bota-crm/">Как связать сайт, бота и CRM в единую систему: пошаговый план</a></h3>
+                        <p>Архитектура digital-экосистемы для малого и среднего бизнеса</p>
+                    </article>
+                    <article class="blog-card" data-category="parsing">
+                        <span class="blog-badge">Парсинг</span>
+                        <h3><a href="/Mngment/blog/ruchnoj-sbor-lidov-excel-vred/">Почему ручной сбор лидов в Excel вредит вашему бизнесу</a></h3>
+                        <p>5 причин перейти на автоматический парсинг уже вчера</p>
+                    </article>
+                    <article class="blog-card" data-category="bots">
+                        <span class="blog-badge">Чат-боты</span>
+                        <h3><a href="/Mngment/blog/nochnye-lidy-poterya-zayavok/">Ночные лиды: как перестать терять 30% заявок</a></h3>
+                        <p>Настраиваем автозахват и прогрев, пока менеджеры спят</p>
+                    </article>
+                    <article class="blog-card" data-category="crm">
+                        <span class="blog-badge">CRM</span>
+                        <h3><a href="/Mngment/blog/integraciya-amocrm-whatsapp-sposoby/">Интеграция AmoCRM с WhatsApp: 3 способа без программиста</a></h3>
+                        <p>Сравнение сервисов и готовых решений</p>
+                    </article>
+                    <article class="blog-card" data-category="fullcycle">
+                        <span class="blog-badge">Комплексное</span>
+                        <h3><a href="/Mngment/blog/kejs-marketing-pod-kljuch-b2b/">Кейс: маркетинг под ключ для B2B — окупаемость за 2 месяца</a></h3>
+                        <p>Как сервисный центр оцифровал продажи с нуля</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const burger = document.getElementById('burgerBtn');
+            const nav = document.getElementById('mainNav');
+            if (burger && nav) {
+                burger.addEventListener('click', function() {
+                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                    if (nav.style.display === 'flex') {
+                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
+                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
+                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                    }
+                });
+            }
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    const filter = this.getAttribute('data-filter');
+                    blogCards.forEach(card => {
+                        card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? 'block' : 'none';
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
