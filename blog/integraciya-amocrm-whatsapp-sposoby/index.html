@@ -5,28 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Интеграция AmoCRM с WhatsApp: 3 способа без программиста | SystemSales</title>
     <link rel="stylesheet" href="/Mngment/style.css">
-    <style>
-        .article-page { display: grid; grid-template-columns: 1fr 300px; gap: 40px; padding: 60px 0; }
-        .article-content h1 { font-size: 2.2rem; margin-bottom: 20px; line-height: 1.3; }
-        .article-content h2 { font-size: 1.5rem; margin: 30px 0 15px; text-align: left; }
-        .article-content p { color: #444; line-height: 1.9; margin-bottom: 18px; }
-        .article-content ul, .article-content ol { margin: 15px 0 20px 25px; color: #444; line-height: 1.9; }
-        .article-content blockquote { background: #f0f4ff; padding: 20px 25px; border-left: 4px solid #25D366; margin: 25px 0; }
-        .sidebar { position: sticky; top: 90px; align-self: start; }
-        .sidebar-block { background: #fff; padding: 20px; border-radius: 14px; border: 1px solid #eee; margin-bottom: 20px; }
-        .sidebar-block h3 { font-size: 1.1rem; margin-bottom: 12px; }
-        .sidebar-block ul { list-style: none; padding: 0; }
-        .sidebar-block li { margin-bottom: 8px; }
-        .sidebar-block a { color: #FF4D01; text-decoration: none; }
-        .cta-article { background: #1a1a2e; color: #fff; padding: 25px; border-radius: 14px; text-align: center; margin-top: 20px; }
-        .cta-article h3 { color: #fff; margin-bottom: 8px; }
-        .cta-article p { color: rgba(255,255,255,0.7); margin-bottom: 18px; }
-        @media (max-width: 768px) {
-            .article-page { grid-template-columns: 1fr; }
-            .article-content h1 { font-size: 1.7rem; }
-            .sidebar { position: static; }
-        }
-    </style>
 </head>
 <body>
     <header class="header">
@@ -36,47 +14,70 @@
                 <a href="/Mngment/#services">Услуги</a>
                 <a href="/Mngment/cases/">Кейсы</a>
                 <a href="/Mngment/blog/">Блог</a>
-                <a href="/Mngment/contacts/">Контакты</a>
+                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
             </nav>
-            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
     </header>
+
     <main>
         <div class="container">
             <div class="article-page">
                 <article class="article-content">
                     <h1>Интеграция AmoCRM с WhatsApp: 3 способа без программиста</h1>
                     <p>Клиенты пишут в WhatsApp, а заявки падают в общий чат, где их никто не обрабатывает. Знакомо? Интеграция WhatsApp с AmoCRM решает эту проблему: сообщение → сделка → задача менеджеру. Разбираем 3 способа подключения.</p>
+                    
                     <h2>Способ 1: WhatsApp Business API через сервисы-коннекторы</h2>
                     <p>Самый надёжный способ. Сервисы вроде Wazzup, Chat2Desk, Umnico подключаются к WhatsApp Business API и передают сообщения в AmoCRM. Плюсы: стабильно, легально, запись переписки в карточке сделки. Минусы: платно (от 1000 ₽/мес).</p>
+                    
                     <h2>Способ 2: Чат-бот через Telegram как мост</h2>
                     <p>Делаете бота в Telegram, который принимает сообщения из WhatsApp и через API передаёт в AmoCRM. Плюсы: можно сделать бесплатно. Минусы: нужен программист для настройки, задержка в передаче сообщений.</p>
+                    
                     <h2>Способ 3: Готовые интеграции в AmoCRM</h2>
                     <p>В маркетплейсе AmoCRM есть готовые модули для WhatsApp. Установка в 1 клик. Плюсы: быстро, без программиста. Минусы: не все модули поддерживают новые номера WhatsApp.</p>
+                    
                     <blockquote>Вывод: интеграция WhatsApp с CRM перестаёт быть «хотелкой» и становится must-have для бизнеса, где клиенты пишут в мессенджеры. Заявка, упавшая в общий чат — это потерянные деньги.</blockquote>
                 </article>
+
                 <aside class="sidebar">
-                    <div class="sidebar-block"><h3>🛠️ Инструменты</h3><ul><li>AmoCRM</li><li>WhatsApp Business API</li><li>Wazzup / Chat2Desk</li><li>API-коннекторы</li></ul></div>
-                    <div class="sidebar-block"><h3>🔗 Связанные услуги</h3><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация</a></li></ul></div>
-                    <div class="cta-article"><h3>Настроим интеграцию WhatsApp + CRM</h3><p>Все заявки из мессенджеров — сразу в сделки</p><a href="/Mngment/services/vnedrenie-amocrm/#form" class="btn btn-primary">Обсудить настройку</a></div>
+                    <div class="sidebar-block">
+                        <h3>🛠️ Инструменты</h3>
+                        <ul>
+                            <li>AmoCRM</li>
+                            <li>WhatsApp Business API</li>
+                            <li>Wazzup / Chat2Desk</li>
+                            <li>API-коннекторы</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-block">
+                        <h3>🔗 Связанные услуги</h3>
+                        <ul>
+                            <li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li>
+                            <li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li>
+                        </ul>
+                    </div>
+                    <div class="cta-article">
+                        <h3>Настроим интеграцию WhatsApp + CRM</h3>
+                        <p>Все заявки из мессенджеров — сразу в сделки</p>
+                        <a href="/Mngment/services/vnedrenie-amocrm/#serviceForm" class="btn btn-primary">Обсудить настройку</a>
+                    </div>
                 </aside>
             </div>
         </div>
     </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекст</a></li><li><a href="/Mngment/services/smm-target/">SMM</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг</a></li></ul></div>
-                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Сайты</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг</a></li></ul></div>
-                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация</a></li><li><a href="/Mngment/services/ai-agenty/">AI</a></li></ul></div>
-                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплекс</a></li></ul></div>
+                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
             </div>
-            <div class="footer-bottom"><p>© 2026 SystemSales</p></div>
+            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
         </div>
     </footer>
-    <script>
-        const b=document.getElementById('burgerBtn'),n=document.getElementById('mainNav');
-        b&&n&&b.addEventListener('click',()=>{n.style.display=n.style.display==='flex'?'none':'flex';if(n.style.display==='flex'){n.style.flexDirection='column';n.style.position='absolute';n.style.top='70px';n.style.left='0';n.style.background='white';n.style.width='100%';n.style.padding='20px';n.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)';}});
-    </script>
+
+    <script src="/Mngment/script.js" defer></script>
 </body>
 </html>
