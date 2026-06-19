@@ -269,3 +269,60 @@ input[type=range] { width: 100%; padding: 0; background: transparent; }
 @media (max-width: 480px) {
     .footer-grid { grid-template-columns: 1fr; }
 }
+
+/* Мобильное меню */
+.nav--open {
+    display: flex !important;
+}
+
+.burger--active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger--active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger--active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Кнопка «Наверх» */
+#scrollToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #1a73e8;
+    color: white;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 999;
+}
+
+#scrollToTop.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Активная линия в схеме */
+.connector {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    transition: stroke-dashoffset 1.5s ease-in-out;
+}
+
+.connector.active {
+    stroke-dashoffset: 0;
+}
+
+/* Таймер */
+#countdown {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 2px;
+}
