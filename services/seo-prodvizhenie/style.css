@@ -1,0 +1,19 @@
+.hero-service .container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; padding: 70px 20px; }
+.hero-service__subtitle { font-size: 1.15rem; color: #666; margin: 20px 0 30px; line-height: 1.7; }
+.calculator--seo { background: #fff; border-radius: 16px; padding: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); border: 1px solid #eee; }
+.calculator--seo h3 { margin-bottom: 20px; text-align: center; }
+.calc-step { margin-bottom: 18px; }
+.calc-step label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; }
+.calc-input, .calc-select { width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1rem; }
+.calc-result { margin-top: 20px; padding: 20px; background: #f9f9f9; border-radius: 12px; line-height: 1.8; }
+.faq { padding: 80px 0; }
+.faq-list { max-width: 800px; margin: 0 auto; }
+.faq-item { background: #fff; border: 1px solid #eee; border-radius: 10px; margin-bottom: 15px; padding: 5px 25px; }
+.faq-item summary { font-weight: 600; padding: 18px 0; cursor: pointer; list-style: none; }
+.faq-item summary::after { content: '+'; float: right; font-size: 1.5rem; color: #4CAF50; }
+.faq-item[open] summary::after { content: '−'; }
+.faq-item p { padding-bottom: 20px; color: #555; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 768px) {
+    .hero-service .container { grid-template-columns: 1fr; }
+}
