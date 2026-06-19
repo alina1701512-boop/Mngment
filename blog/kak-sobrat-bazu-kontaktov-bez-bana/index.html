@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как собрать B2B-базу контактов без бана | SystemSales</title>
+    <link rel="stylesheet" href="/Mngment/style.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .article-page { display: grid; grid-template-columns: 1fr 300px; gap: 40px; padding: 60px 0; }
+        .article-content h1 { font-size: 2.5rem; margin-bottom: 25px; }
+        .article-content h2 { font-size: 1.6rem; margin: 35px 0 15px; text-align: left; }
+        .article-content p { color: #444; line-height: 1.9; margin-bottom: 20px; font-size: 1.05rem; }
+        .article-content ul, .article-content ol { margin: 15px 0 20px 25px; color: #444; line-height: 1.9; }
+        .article-content li { margin-bottom: 8px; }
+        .article-content blockquote { background: #f0f4ff; padding: 20px 25px; border-left: 4px solid #FF4D01; margin: 25px 0; font-style: italic; color: #555; }
+        .sidebar { position: sticky; top: 90px; align-self: start; }
+        .sidebar-block { background: #fff; padding: 25px; border-radius: 16px; border: 1px solid #eee; margin-bottom: 25px; }
+        .sidebar-block h3 { font-size: 1.1rem; margin-bottom: 15px; }
+        .sidebar-block ul { list-style: none; padding: 0; }
+        .sidebar-block li { margin-bottom: 10px; }
+        .sidebar-block a { color: #FF4D01; text-decoration: none; font-weight: 500; }
+        .sidebar-block a:hover { text-decoration: underline; }
+        .cta-article { background: #1a1a2e; color: #fff; padding: 30px; border-radius: 16px; text-align: center; margin-top: 20px; }
+        .cta-article h3 { color: #fff; margin-bottom: 10px; }
+        .cta-article p { color: rgba(255,255,255,0.7); margin-bottom: 20px; }
+        @media (max-width: 768px) {
+            .article-page { grid-template-columns: 1fr; }
+            .article-content h1 { font-size: 1.8rem; }
+            .sidebar { position: static; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+            <nav class="nav" id="mainNav">
+                <a href="/Mngment/#services">Услуги</a>
+                <a href="/Mngment/cases/">Кейсы</a>
+                <a href="/Mngment/blog/">Блог</a>
+                <a href="/Mngment/contacts/">Контакты</a>
+            </nav>
+            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="article-page">
+                <article class="article-content">
+                    <h1>Как собрать B2B-базу контактов без бана аккаунта: полный гайд по парсингу в 2026</h1>
+                    
+                    <p>Холодные продажи начинаются с базы контактов. Если база «дохлая» — менеджеры сливают время на автоответчики и неактуальные номера. Если база собрана с нарушением правил площадок — рискуете получить бан аккаунтов. Рассказываем, как собрать живую базу легально и без рисков.</p>
+
+                    <h2>Законно ли это?</h2>
+                    <p>Да. Сбор публично доступных данных компаний (название, телефон, email с официального сайта, ИНН из ЕГРЮЛ) не нарушает 152-ФЗ, потому что это данные юридических лиц, а не физических. Мы не собираем персональные данные частных лиц без их согласия. Все источники — из правового поля.</p>
+                    <blockquote>Важно: Не парсим соцсети в обход их API. За это действительно банят. Используем только открытые реестры и карты.</blockquote>
+
+                    <h2>Источники для сбора</h2>
+                    <ol>
+                        <li><strong>2ГИС и Яндекс Карты</strong> — контакты компаний с телефонами и сайтами</li>
+                        <li><strong>Google Maps</strong> — международный охват, отзывы, рейтинг</li>
+                        <li><strong>Тендерные площадки (ЕИС)</strong> — компании, которые прямо сейчас ищут подрядчиков</li>
+                        <li><strong>Официальные сайты компаний</strong> — разделы «Контакты» и «Реквизиты»</li>
+                        <li><strong>ЕГРЮЛ / ФНС</strong> — ИНН, ОГРН, юридический адрес, статус компании</li>
+                    </ol>
+
+                    <h2>Инструменты</h2>
+                    <ul>
+                        <li><strong>Python + BeautifulSoup / Scrapy</strong> — гибкие кастомные парсеры под любые источники</li>
+                        <li><strong>Готовые сервисы</strong> — подходят для простых задач, но ограничены по кастомизации</li>
+                        <li><strong>Расширения браузера</strong> — только для разовых выгрузок, не для системной работы</li>
+                    </ul>
+
+                    <h2>Анти-бан защита</h2>
+                    <p>Чтобы не получить блокировку IP или аккаунта, соблюдаем правила:</p>
+                    <ul>
+                        <li>Прокси-серверы: распределённые IP-адреса, имитация поведения обычного пользователя</li>
+                        <li>Задержки между запросами: от 1 до 5 секунд, чтобы не триггерить защиту площадок</li>
+                        <li>Лимиты: не более 1000 запросов в час с одного IP</li>
+                        <li>User-agent: маскируем парсер под обычный браузер</li>
+                        <li>Антидетект-браузеры: для сложных задач с авторизацией</li>
+                    </ul>
+
+                    <h2>Что делать с собранным?</h2>
+                    <p>Собранные данные нужно верифицировать и загрузить в CRM. Мы делаем так:</p>
+                    <ol>
+                        <li><strong>Верификация номеров:</strong> автоматический прозвон-сброс (определяет живой номер)</li>
+                        <li><strong>Валидация email:</strong> проверка синтаксиса и MX-записи домена</li>
+                        <li><strong>Сверка с ЕГРЮЛ:</strong> отсев ликвидированных и недействующих компаний</li>
+                        <li><strong>Выгрузка в CRM:</strong> через API AmoCRM/Bitrix24. Новый контакт → сделка → задача менеджеру</li>
+                    </ol>
+
+                    <h2>Заключение</h2>
+                    <p>Парсинг — это не «серая зона» при правильном подходе. Соблюдайте законы, используйте легальные источники и не экономьте на верификации. Живая база окупается за 1-2 недели, потому что менеджеры перестают слушать гудки и начинают продавать.</p>
+                </article>
+
+                <aside class="sidebar">
+                    <div class="sidebar-block">
+                        <h3>🛠️ Инструменты из статьи</h3>
+                        <ul>
+                            <li>Python (BeautifulSoup)</li>
+                            <li>AmoCRM API</li>
+                            <li>2ГИС / Яндекс Карты</li>
+                            <li>ЕГРЮЛ API</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-block">
+                        <h3>🔗 Связанные услуги</h3>
+                        <ul>
+                            <li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li>
+                            <li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li>
+                        </ul>
+                    </div>
+                    <div class="cta-article">
+                        <h3>Не хотите рисковать?</h3>
+                        <p>Мы сделаем легальный парсинг за вас. 50 контактов — бесплатно на тест.</p>
+                        <a href="/Mngment/services/parsing-lidogeneraciya/#form" class="btn btn-primary">Получить 50 контактов</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const burger = document.getElementById('burgerBtn');
+            const nav = document.getElementById('mainNav');
+            if (burger && nav) {
+                burger.addEventListener('click', function() {
+                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                    if (nav.style.display === 'flex') {
+                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
+                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
+                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
