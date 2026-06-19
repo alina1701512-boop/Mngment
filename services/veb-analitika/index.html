@@ -42,6 +42,47 @@
             </div>
         </section>
 
+        <section class="quiz-section">
+    <div class="container">
+        <div class="quiz-block" id="blindSpotQuiz">
+            <h3>🔦 Тест: Есть ли у вас «слепые зоны» в аналитике?</h3>
+            <p class="quiz-subtitle">Ответьте на 4 вопроса — узнаете, насколько вы контролируете маркетинг</p>
+
+            <div class="quiz-question" id="q1">
+                <p><strong>1.</strong> Знаете ли вы, сколько стоит клиент с каждого рекламного канала?</p>
+                <label><input type="radio" name="q1" value="yes"> Да, знаю точно</label>
+                <label><input type="radio" name="q1" value="no"> Нет, примерно</label>
+            </div>
+
+            <div class="quiz-question" id="q2">
+                <p><strong>2.</strong> Сходятся ли цифры заявок в CRM с отчётами рекламных кабинетов?</p>
+                <label><input type="radio" name="q2" value="yes"> Да, всё сходится</label>
+                <label><input type="radio" name="q2" value="no"> Нет, цифры разнятся</label>
+            </div>
+
+            <div class="quiz-question" id="q3">
+                <p><strong>3.</strong> Видите ли вы весь путь клиента: от клика по объявлению до денег в кассе?</p>
+                <label><input type="radio" name="q3" value="yes"> Да, вижу полностью</label>
+                <label><input type="radio" name="q3" value="no"> Нет, только заявки</label>
+            </div>
+
+            <div class="quiz-question" id="q4">
+                <p><strong>4.</strong> Есть ли у вас дашборд, который вы смотрите хотя бы раз в неделю?</p>
+                <label><input type="radio" name="q4" value="yes"> Да, смотрю регулярно</label>
+                <label><input type="radio" name="q4" value="no"> Нет, смотрю от случая к случаю</label>
+            </div>
+
+            <button class="btn btn-primary" id="checkBlindSpots" style="width:100%;">Узнать результат</button>
+
+            <div class="quiz-result" id="quizResult" style="display:none;">
+                <div class="quiz-result-icon" id="quizIcon"></div>
+                <p id="quizMessage"></p>
+                <a href="#form" class="btn btn-primary" style="margin-top:12px;">Показать, как это работает на моём бизнесе</a>
+            </div>
+        </div>
+    </div>
+</section>
+        
         <section class="lead-magnet" id="form">
             <div class="container">
                 <h2>Найдите свои «слепые зоны»</h2>
@@ -63,25 +104,68 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const burger = document.getElementById('burgerBtn');
-            const nav = document.getElementById('mainNav');
-            if (burger && nav) {
-                burger.addEventListener('click', function() {
-                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-                    if (nav.style.display === 'flex') {
-                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
-                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
-                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-                    }
-                });
+    const burger = document.getElementById('burgerBtn');
+    const nav = document.getElementById('mainNav');
+    if (burger && nav) {
+        burger.addEventListener('click', function() {
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            if (nav.style.display === 'flex') {
+                nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
+                nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
+                nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
             }
-            document.querySelectorAll('a[href="#form"]').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.getElementById('form')?.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
         });
+    }
+
+    // === КВИЗ СЛЕПЫЕ ЗОНЫ ===
+    document.getElementById('checkBlindSpots')?.addEventListener('click', function() {
+        const q1 = document.querySelector('input[name="q1"]:checked');
+        const q2 = document.querySelector('input[name="q2"]:checked');
+        const q3 = document.querySelector('input[name="q3"]:checked');
+        const q4 = document.querySelector('input[name="q4"]:checked');
+
+        if (!q1 || !q2 || !q3 || !q4) {
+            alert('Ответьте на все 4 вопроса');
+            return;
+        }
+
+        let yesCount = 0;
+        if (q1.value === 'yes') yesCount++;
+        if (q2.value === 'yes') yesCount++;
+        if (q3.value === 'yes') yesCount++;
+        if (q4.value === 'yes') yesCount++;
+
+        const result = document.getElementById('quizResult');
+        const icon = document.getElementById('quizIcon');
+        const message = document.getElementById('quizMessage');
+
+        result.style.display = 'block';
+        result.className = 'quiz-result';
+
+        if (yesCount === 4) {
+            icon.textContent = '✅';
+            message.textContent = 'Ваша аналитика в порядке. Мы можем помочь с тонкой настройкой — расширенными дашбордами и предиктивной аналитикой.';
+            result.classList.add('quiz-good');
+        } else if (yesCount >= 2) {
+            icon.textContent = '⚠️';
+            message.textContent = 'У вас есть база, но есть ' + (4 - yesCount) + ' слепых зон. Вы теряете до ' + ((4 - yesCount) * 25) + '% данных о клиентах. Сквозная аналитика закроет эти дыры за 1 неделю.';
+            result.classList.add('quiz-warn');
+        } else {
+            icon.textContent = '🔴';
+            message.textContent = 'Вы принимаете решения вслепую. ' + (4 - yesCount) + ' из 4 ключевых метрик вам недоступны. Сквозная аналитика окупается за 1 месяц. Хотите доказательств — посмотрите кейс.';
+            result.classList.add('quiz-bad');
+        }
+
+        result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    document.querySelectorAll('a[href="#form"]').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('form')?.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+});
     </script>
 </body>
 </html>
