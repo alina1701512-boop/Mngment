@@ -1,104 +1,148 @@
-document.addEventListener('DOMContentLoaded', function() {
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital-система продаж: CRM, парсинг, AI | SystemSales</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver" defer></script>
+</head>
+<body>
 
-    // 1. Анимация схемы (зеленая линия при скролле)
-    const chart = document.getElementById('flowChart');
-    if (chart) {
-        const connectors = chart.querySelectorAll('.connector');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    connectors.forEach((conn, index) => {
-                        setTimeout(() => {
-                            conn.classList.add('active');
-                        }, index * 400);
-                    });
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        observer.observe(chart);
-    }
-
-    // 2. Ползунок количества заявок
-    const slider = document.getElementById('leadsSlider');
-    const output = document.getElementById('sliderValue');
-    if (slider && output) {
-        output.textContent = slider.value;
-        slider.addEventListener('input', function() {
-            output.textContent = this.value;
-        });
-    }
-
-    // 3. Мобильное меню (базовая логика)
-    const burger = document.getElementById('burgerBtn');
-    const nav = document.getElementById('mainNav');
-    if (burger && nav) {
-        burger.addEventListener('click', function() {
-            if (nav.style.display === 'flex') {
-                nav.style.display = 'none';
-            } else {
-                nav.style.display = 'flex';
-                nav.style.flexDirection = 'column';
-                nav.style.position = 'absolute';
-                nav.style.top = '70px';
-                nav.style.left = '0';
-                nav.style.background = 'white';
-                nav.style.width = '100%';
-                nav.style.padding = '20px';
-            }
-        });
-    }
-
-    // 4. Имитация отправки формы (без редиректа в демо, но с редиректом в реальности)
-    const form = document.getElementById('auditForm');
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            // В реальном проекте тут отправка через fetch на вебхук
-            // fetch('/webhook.php', { method: 'POST', body: new FormData(form) })
-            // Для демо: даем сработать редиректу на /thank-you/
-            console.log('Лид-магнит отправлен. Редирект на /thank-you/');
-        });
-    }
-<footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>🔍 Проблемы с трафиком</h4>
-                <ul>
-                    <li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li>
-                    <li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li>
-                    <li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li>
-                    <li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>🎯 Проблемы с конверсией</h4>
-                <ul>
-                    <li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li>
-                    <li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li>
-                    <li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li>
-                    <li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>⚙️ Проблемы с управлением</h4>
-                <ul>
-                    <li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li>
-                    <li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li>
-                    <li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li>
-                    <li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>🚀 Всё сразу</h4>
-                <ul>
-                    <li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li>
-                </ul>
-            </div>
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+            <nav class="nav" id="mainNav">
+                <a href="#services">Услуги</a>
+                <a href="/Mngment/cases/">Кейсы</a>
+                <a href="/Mngment/blog/">Блог</a>
+                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
+            </nav>
+            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
         </div>
-        <div class="footer-bottom">
-            <p>© 2026 SystemSales. Превращаем хаос в систему.</p>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h1>Превращаем хаос в digital-систему: от сбора лида до закрытия сделки в одной CRM</h1>
+                    <p class="hero__subtitle">Маркетинговое агентство полного цикла. Парсинг, amoCRM, чат-боты, AI-агенты, сайты — собираем в единый механизм продаж.</p>
+                    <a href="/Mngment/tools/audit-voronki/" class="btn btn-primary cta-main">Получить аудит текущей воронки</a>
+                </div>
+                <div class="hero__visual">
+                    <div class="flow-chart" id="flowChart">
+                        <div class="node" data-node="1">🔍 Интернет</div>
+                        <div class="connector" id="conn1"></div>
+                        <div class="node" data-node="2">📥 Парсер</div>
+                        <div class="connector" id="conn2"></div>
+                        <div class="node" data-node="3">📊 CRM</div>
+                        <div class="connector" id="conn3"></div>
+                        <div class="node" data-node="4">🤖 Чат-бот</div>
+                        <div class="connector" id="conn4"></div>
+                        <div class="node" data-node="5">🧠 AI-агент</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="container">
+                <h2>Из чего мы собираем ваш отдел продаж</h2>
+                <div class="services__grid">
+                    <div class="service-card"><span class="service-icon">🎯</span><h3>Парсинг и базы данных</h3><p>Контакты, которые не найти вручную</p><a href="/Mngment/services/parsing-lidogeneraciya/" class="btn btn-outline">Смотреть</a></div>
+                    <div class="service-card"><span class="service-icon">📊</span><h3>Внедрение AmoCRM</h3><p>Воронки, в которых не вязнут сделки</p><a href="/Mngment/services/vnedrenie-amocrm/" class="btn btn-outline">Смотреть</a></div>
+                    <div class="service-card"><span class="service-icon">🤖</span><h3>Чат-боты</h3><p>Автоответы 24/7 без зарплаты</p><a href="/Mngment/services/chat-boty/" class="btn btn-outline">Смотреть</a></div>
+                    <div class="service-card"><span class="service-icon">🧠</span><h3>AI-агенты</h3><p>Нейросети, обученные на ваших регламентах</p><a href="/Mngment/services/ai-agenty/" class="btn btn-outline">Смотреть</a></div>
+                    <div class="service-card"><span class="service-icon">🌐</span><h3>Разработка сайтов</h3><p>Не просто витрина — инструмент продаж</p><a href="/Mngment/services/razrabotka-sajtov/" class="btn btn-outline">Смотреть</a></div>
+                    <div class="service-card"><span class="service-icon">🔗</span><h3>Комплексный контракт</h3><p>Всё выше — в единой системе</p><a href="/Mngment/services/marketing-pod-kljuch/" class="btn btn-outline">Смотреть</a></div>
+                    <div class="service-card"><span class="service-icon">🔍</span><h3>SEO-продвижение</h3><p>ТОП Яндекса за 3-6 месяцев</p><a href="/Mngment/services/seo-prodvizhenie/" class="btn btn-outline">Смотреть</a></div>
+                    <div class="service-card"><span class="service-icon">💸</span><h3>Контекстная реклама</h3><p>Яндекс.Директ с оплатой за результат</p><a href="/Mngment/services/kontekstnaya-reklama/" class="btn btn-outline">Смотреть</a></div>
+                    <div class="service-card"><span class="service-icon">📱</span><h3>SMM и таргет</h3><p>Соцсети, которые приводят клиентов</p><a href="/Mngment/services/smm-target/" class="btn btn-outline">Смотреть</a></div>
+                    <div class="service-card"><span class="service-icon">✍️</span><h3>Контент-маркетинг</h3><p>Статьи, которые читают и покупают</p><a href="/Mngment/services/kontent-marketing/" class="btn btn-outline">Смотреть</a></div>
+                    <div class="service-card"><span class="service-icon">📈</span><h3>Веб-аналитика</h3><p>От клика до денег в кассе</p><a href="/Mngment/services/veb-analitika/" class="btn btn-outline">Смотреть</a></div>
+                    <div class="service-card"><span class="service-icon">⚡</span><h3>Автоматизация маркетинга</h3><p>Цепочки, которые работают без вас</p><a href="/Mngment/services/marketing-automation/" class="btn btn-outline">Смотреть</a></div>
+                    <div class="service-card"><span class="service-icon">🎨</span><h3>Брендинг</h3><p>Упаковка, которую запоминают</p><a href="/Mngment/services/brending-firmennyj-stil/" class="btn btn-outline">Смотреть</a></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pain-points">
+            <div class="container">
+                <h2>Знакомо?</h2>
+                <div class="pain-grid">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><span class="icon-bad">❌</span><p>Менеджеры жалуются, что база контактов «дохлая»</p></div>
+                            <div class="flip-card-back"><span class="icon-good">✅</span><p>С нами: База обновляется автоматически, актуальность 98%</p></div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><span class="icon-bad">❌</span><p>CRM стоит, но никто не заполняет воронку</p></div>
+                            <div class="flip-card-back"><span class="icon-good">✅</span><p>С нами: AmoCRM сама создаёт сделки из заявок с сайта, ботов и звонков</p></div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><span class="icon-bad">❌</span><p>После 18:00 заявки уходят конкурентам</p></div>
+                            <div class="flip-card-back"><span class="icon-good">✅</span><p>С нами: Чат-бот квалифицирует лида и записывает на звонок в 08:00 утра</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="center-btn"><a href="/Mngment/services/marketing-pod-kljuch/" class="btn btn-primary">Хочу так же</a></div>
+            </div>
+        </section>
+
+        <section class="cases" id="cases">
+            <div class="container">
+                <h2>Цифры, за которые не стыдно</h2>
+                <div class="cases__grid">
+                    <article class="case-card"><div class="case-metric">12 000</div><p>живых контактов за 7 дней для строительного холдинга</p><p><strong>Конверсия в назначение встречи выросла с 4% до 14%</strong></p><a href="/Mngment/cases/parsing-strojka/" class="btn btn-link">Читать кейс →</a></article>
+                    <article class="case-card"><div class="case-metric">68%</div><p>диалогов закрыты роботом без менеджера для онлайн-школы</p><p><strong>ФОТ поддержки сокращён на 40%</strong></p><a href="/Mngment/cases/ai-edtech/" class="btn btn-link">Читать кейс →</a></article>
+                    <article class="case-card"><div class="case-metric">2 мес.</div><p>Сайт + CRM + бот — окупаемость для сети сервисных центров</p><p><strong>Время обработки лида: с 45 минут до 2 минут</strong></p><a href="/Mngment/cases/fullcycle-service/" class="btn btn-link">Читать кейс →</a></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="lead-magnet" id="lead-magnet">
+            <div class="container">
+                <h2>Узнайте, где теряете деньги прямо сейчас</h2>
+                <p class="lead-magnet__subtitle">Ответьте на 5 вопросов — получите персональный аудит воронки и чек-лист «7 точек утечки лидов»</p>
+                <form class="audit-form" id="auditForm" action="/Mngment/thank-you/" method="GET" novalidate>
+                    <input type="text" name="name" placeholder="Имя" required>
+                    <input type="text" name="phone" placeholder="Телефон / Telegram" required>
+                    <select name="business_type" required>
+                        <option value="" disabled selected>Сфера бизнеса</option>
+                        <option>B2B-услуги</option><option>Товары</option><option>EdTech</option><option>Недвижимость</option><option>Другое</option>
+                    </select>
+                    <div class="slider-container">
+                        <label for="leadsSlider">Сколько заявок в месяц обрабатываете: <span id="sliderValue">1000</span></label>
+                        <input type="range" id="leadsSlider" name="leads_count" min="10" max="5000" value="1000" step="10">
+                    </div>
+                    <select name="crm_type" required>
+                        <option value="" disabled selected>Какая CRM используется</option>
+                        <option>AmoCRM</option><option>Bitrix24</option><option>Другая</option><option>Нет CRM</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary btn-large">Получить аудит и чек-лист</button>
+                    <p class="form-note">Без спама. Данные только для подготовки аудита.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
         </div>
-    </div>
-</footer>
-});
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
