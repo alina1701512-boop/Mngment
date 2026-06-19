@@ -3,29 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кейс: Снижение цены лида на 45% для оптовой компании электрооборудования | SystemSales</title>
+    <title>Кейс: Снижение цены лида на 45% | SystemSales</title>
     <link rel="stylesheet" href="/Mngment/style.css">
-    <link rel="stylesheet" href="../style.css">
-    <style>
-        .case-hero { padding: 80px 0 50px; }
-        .case-hero h1 { font-size: 2.5rem; max-width: 900px; }
-        .case-section { padding: 40px 0; border-bottom: 1px solid #eee; }
-        .case-section h2 { text-align: left; margin-bottom: 20px; }
-        .case-section p, .case-section li { color: #555; line-height: 1.8; margin-bottom: 15px; }
-        .case-section ul { margin: 15px 0 15px 20px; }
-        .result-table { display: grid; grid-template-columns: 200px 1fr 1fr; gap: 0; margin: 30px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .result-row { display: contents; }
-        .result-row div { padding: 15px 20px; background: #fff; border-bottom: 1px solid #eee; }
-        .result-header div { background: #1a1a2e; color: #fff; font-weight: 700; }
-        .result-old { color: #E53935; }
-        .result-new { color: #00C853; font-weight: 600; }
-        .cta-block { text-align: center; padding: 60px 0; }
-        @media (max-width: 768px) {
-            .case-hero h1 { font-size: 1.8rem; }
-            .result-table { grid-template-columns: 1fr; }
-            .result-header { display: none; }
-        }
-    </style>
 </head>
 <body>
     <header class="header">
@@ -35,72 +14,38 @@
                 <a href="/Mngment/#services">Услуги</a>
                 <a href="/Mngment/cases/">Кейсы</a>
                 <a href="/Mngment/blog/">Блог</a>
-                <a href="/Mngment/contacts/">Контакты</a>
+                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
             </nav>
-            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
     </header>
     <main>
         <section class="case-hero"><div class="container"><h1>Кейс: Как оптовая компания электрооборудования снизила цену лида на 45% и подняла ROMI до 380%</h1></div></section>
-        <section class="case-section"><div class="container"><h2>Клиент и контекст</h2><p>Оптовая компания по продаже электрооборудования (B2B). Бюджет на Яндекс.Директ — 200 000 ₽/мес. Но цена лида росла второй месяц подряд, а менеджеры жаловались, что приходят «не те» заявки: мелкие частники, студенты, ремонтники-одиночки.</p></div></section>
-        <section class="case-section"><div class="container"><h2>Задача</h2><p>Снизить цену целевой заявки. Отсечь нецелевые запросы. Повысить конверсию из заявки в сделку.</p></div></section>
-        <section class="case-section"><div class="container"><h2>Решение</h2><ul><li>Провели аудит: нашли 400+ нецелевых минус-слов, которые не были добавлены (бесплатно, своими руками, б/у, ремонт, частное лицо)</li><li>Пересобрали структуру кампаний: разделили на «горячие» (купить оптом, цена, прайс) и «тёплые» (сравнение производителей, обзор моделей)</li><li>Настроили A/B-тесты объявлений: оффер «скидка от объёма» vs «доставка за 1 день»</li><li>Подключили сквозную аналитику: Метрика → AmoCRM → отчёт по ROI каждого ключа и кампании</li><li>Отключили убыточные ключи (CPL > 3000 ₽), перераспределили бюджет на конверсионные</li></ul></div></section>
+        <section class="case-section"><div class="container"><h2>Клиент и контекст</h2><p>Оптовая компания по продаже электрооборудования (B2B). Бюджет на Директ — 200 000 ₽/мес. Цена лида росла, менеджеры жаловались на нецелевые заявки.</p></div></section>
+        <section class="case-section"><div class="container"><h2>Задача</h2><p>Снизить цену целевой заявки. Отсечь нецелевые запросы. Повысить конверсию в сделку.</p></div></section>
+        <section class="case-section"><div class="container"><h2>Решение</h2><ul><li>Аудит: 400+ нецелевых минус-слов</li><li>Разделение на горячие и тёплые кампании</li><li>A/B-тесты объявлений</li><li>Сквозная аналитика: Метрика → AmoCRM → ROI по ключам</li><li>Отключение убыточных ключей</li></ul></div></section>
         <section class="case-section"><div class="container"><h2>Результат</h2>
             <div class="result-table">
                 <div class="result-row result-header"><div>Показатель</div><div>Было</div><div>Стало</div></div>
                 <div class="result-row"><div>Цена целевой заявки</div><div class="result-old">2 100 ₽</div><div class="result-new">1 150 ₽</div></div>
-                <div class="result-row"><div>Количество заявок</div><div class="result-old">95 в месяц</div><div class="result-new">152 в месяц (+60%)</div></div>
+                <div class="result-row"><div>Количество заявок</div><div class="result-old">95/мес</div><div class="result-new">152/мес (+60%)</div></div>
                 <div class="result-row"><div>Конверсия в сделку</div><div class="result-old">15%</div><div class="result-new">28%</div></div>
                 <div class="result-row"><div>ROMI</div><div class="result-old">140%</div><div class="result-new">380%</div></div>
             </div>
         </div></section>
-        <section class="cta-block"><div class="container"><h2>Хотите такой же ROMI?</h2><p style="color:#666;margin-bottom:25px;">Бесплатный аудит вашей рекламной кампании</p><a href="/Mngment/services/kontekstnaya-reklama/#form" class="btn btn-primary btn-large">Получить аудит</a></div></section>
+        <section class="cta-block"><div class="container"><h2>Хотите такой же ROMI?</h2><p style="color:#666;margin-bottom:25px;">Бесплатный аудит вашей рекламной кампании</p><a href="/Mngment/services/kontekstnaya-reklama/#serviceForm" class="btn btn-primary btn-large">Получить аудит</a></div></section>
     </main>
- <footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>🔍 Проблемы с трафиком</h4>
-                <ul>
-                    <li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li>
-                    <li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li>
-                    <li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li>
-                    <li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li>
-                </ul>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
             </div>
-            <div class="footer-col">
-                <h4>🎯 Проблемы с конверсией</h4>
-                <ul>
-                    <li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li>
-                    <li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li>
-                    <li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li>
-                    <li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>⚙️ Проблемы с управлением</h4>
-                <ul>
-                    <li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li>
-                    <li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li>
-                    <li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li>
-                    <li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>🚀 Всё сразу</h4>
-                <ul>
-                    <li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li>
-                </ul>
-            </div>
+            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2026 SystemSales. Превращаем хаос в систему.</p>
-        </div>
-    </div>
-</footer>
-    <script>
-        const b=document.getElementById('burgerBtn'),n=document.getElementById('mainNav');
-        b&&n&&b.addEventListener('click',()=>{n.style.display=n.style.display==='flex'?'none':'flex';if(n.style.display==='flex'){n.style.flexDirection='column';n.style.position='absolute';n.style.top='70px';n.style.left='0';n.style.background='white';n.style.width='100%';n.style.padding='20px';n.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)';}});
-    </script>
+    </footer>
+    <script src="/Mngment/script.js" defer></script>
 </body>
 </html>
