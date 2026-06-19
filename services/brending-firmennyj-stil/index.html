@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Брендинг и фирменный стиль | SystemSales</title>
     <link rel="stylesheet" href="/Mngment/style.css">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
@@ -15,9 +14,9 @@
                 <a href="/Mngment/#services">Услуги</a>
                 <a href="/Mngment/cases/">Кейсы</a>
                 <a href="/Mngment/blog/">Блог</a>
-                <a href="/Mngment/contacts/">Контакты</a>
+                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
             </nav>
-            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
     </header>
 
@@ -26,7 +25,7 @@
             <div class="container hero-service--centered">
                 <h1>Разработка фирменного стиля и брендинг для бизнеса: от логотипа до брендбука</h1>
                 <p class="hero-service__subtitle">Не «нарисуем красиво». Упаковываем смыслы: позиционирование, Tone of Voice, визуальный код. Чтобы клиент запоминал вас.</p>
-                <a href="#form" class="btn btn-primary cta-main">Обсудить брендинг</a>
+                <a href="#serviceForm" class="btn btn-primary cta-main">Обсудить брендинг</a>
             </div>
         </section>
 
@@ -38,20 +37,20 @@
                         <h3>«Старт»</h3>
                         <ul><li>Логотип</li><li>Подбор шрифтов</li><li>Цветовая палитра</li></ul>
                         <p class="package-deadline">5-7 дней</p>
-                        <a href="#form" class="btn btn-outline">Выбрать</a>
+                        <a href="#serviceForm" class="btn btn-outline">Выбрать</a>
                     </div>
                     <div class="package-card package-card--featured">
                         <span class="package-badge">Популярный</span>
                         <h3>«Бизнес»</h3>
                         <ul><li>Всё из «Старт»</li><li>Визитки</li><li>Бланки</li><li>Шаблон презентации</li></ul>
                         <p class="package-deadline">10-14 дней</p>
-                        <a href="#form" class="btn btn-primary">Выбрать</a>
+                        <a href="#serviceForm" class="btn btn-primary">Выбрать</a>
                     </div>
                     <div class="package-card">
                         <h3>«Premium»</h3>
                         <ul><li>Брендбук</li><li>Гайдлайн для соцсетей</li><li>Правила для носителей</li></ul>
                         <p class="package-deadline">14-21 день</p>
-                        <a href="#form" class="btn btn-outline">Выбрать</a>
+                        <a href="#serviceForm" class="btn btn-outline">Выбрать</a>
                     </div>
                 </div>
             </div>
@@ -69,7 +68,7 @@
             </div>
         </section>
 
-        <section class="lead-magnet" id="form">
+        <section class="lead-magnet" id="serviceForm">
             <div class="container">
                 <h2>Готовы к упаковке смыслов?</h2>
                 <p class="lead-magnet__subtitle">Обсудим ваш брендинг</p>
@@ -87,69 +86,17 @@
     </main>
 
     <footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>🔍 Проблемы с трафиком</h4>
-                <ul>
-                    <li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li>
-                    <li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li>
-                    <li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li>
-                    <li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li>
-                </ul>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
             </div>
-            <div class="footer-col">
-                <h4>🎯 Проблемы с конверсией</h4>
-                <ul>
-                    <li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li>
-                    <li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li>
-                    <li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li>
-                    <li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>⚙️ Проблемы с управлением</h4>
-                <ul>
-                    <li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li>
-                    <li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li>
-                    <li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li>
-                    <li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>🚀 Всё сразу</h4>
-                <ul>
-                    <li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li>
-                </ul>
-            </div>
+            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2026 SystemSales. Превращаем хаос в систему.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const burger = document.getElementById('burgerBtn');
-            const nav = document.getElementById('mainNav');
-            if (burger && nav) {
-                burger.addEventListener('click', function() {
-                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-                    if (nav.style.display === 'flex') {
-                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
-                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
-                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-                    }
-                });
-            }
-            document.querySelectorAll('a[href="#form"]').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.getElementById('form')?.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-        });
-    </script>
+    <script src="/Mngment/script.js" defer></script>
 </body>
 </html>
