@@ -5,28 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кейс: маркетинг под ключ для B2B — окупаемость за 2 месяца | SystemSales</title>
     <link rel="stylesheet" href="/Mngment/style.css">
-    <style>
-        .article-page { display: grid; grid-template-columns: 1fr 300px; gap: 40px; padding: 60px 0; }
-        .article-content h1 { font-size: 2.2rem; margin-bottom: 20px; line-height: 1.3; }
-        .article-content h2 { font-size: 1.5rem; margin: 30px 0 15px; text-align: left; }
-        .article-content p { color: #444; line-height: 1.9; margin-bottom: 18px; }
-        .article-content ul, .article-content ol { margin: 15px 0 20px 25px; color: #444; line-height: 1.9; }
-        .article-content blockquote { background: #f0fff4; padding: 20px 25px; border-left: 4px solid #00C853; margin: 25px 0; }
-        .sidebar { position: sticky; top: 90px; align-self: start; }
-        .sidebar-block { background: #fff; padding: 20px; border-radius: 14px; border: 1px solid #eee; margin-bottom: 20px; }
-        .sidebar-block h3 { font-size: 1.1rem; margin-bottom: 12px; }
-        .sidebar-block ul { list-style: none; padding: 0; }
-        .sidebar-block li { margin-bottom: 8px; }
-        .sidebar-block a { color: #FF4D01; text-decoration: none; }
-        .cta-article { background: #1a1a2e; color: #fff; padding: 25px; border-radius: 14px; text-align: center; margin-top: 20px; }
-        .cta-article h3 { color: #fff; margin-bottom: 8px; }
-        .cta-article p { color: rgba(255,255,255,0.7); margin-bottom: 18px; }
-        @media (max-width: 768px) {
-            .article-page { grid-template-columns: 1fr; }
-            .article-content h1 { font-size: 1.7rem; }
-            .sidebar { position: static; }
-        }
-    </style>
 </head>
 <body>
     <header class="header">
@@ -36,11 +14,12 @@
                 <a href="/Mngment/#services">Услуги</a>
                 <a href="/Mngment/cases/">Кейсы</a>
                 <a href="/Mngment/blog/">Блог</a>
-                <a href="/Mngment/contacts/">Контакты</a>
+                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
             </nav>
-            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
     </header>
+
     <main>
         <div class="container">
             <div class="article-page">
@@ -95,7 +74,7 @@
                     <div class="cta-article">
                         <h3>Хотите такую же экосистему?</h3>
                         <p>Соберём всё в единую систему за 2-4 недели</p>
-                        <a href="/Mngment/services/marketing-pod-kljuch/#form" class="btn btn-primary">Обсудить проект</a>
+                        <a href="/Mngment/services/marketing-pod-kljuch/#serviceForm" class="btn btn-primary">Обсудить проект</a>
                     </div>
                 </aside>
             </div>
@@ -114,9 +93,6 @@
         </div>
     </footer>
 
-    <script>
-        const b=document.getElementById('burgerBtn'),n=document.getElementById('mainNav');
-        b&&n&&b.addEventListener('click',()=>{n.style.display=n.style.display==='flex'?'none':'flex';if(n.style.display==='flex'){n.style.flexDirection='column';n.style.position='absolute';n.style.top='70px';n.style.left='0';n.style.background='white';n.style.width='100%';n.style.padding='20px';n.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)';}});
-    </script>
+    <script src="/Mngment/script.js" defer></script>
 </body>
 </html>
