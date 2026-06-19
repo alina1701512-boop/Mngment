@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контент-маркетинг и копирайтинг | SystemSales</title>
     <link rel="stylesheet" href="/Mngment/style.css">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
@@ -15,83 +14,35 @@
                 <a href="/Mngment/#services">Услуги</a>
                 <a href="/Mngment/cases/">Кейсы</a>
                 <a href="/Mngment/blog/">Блог</a>
-                <a href="/Mngment/contacts/">Контакты</a>
+                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
             </nav>
-            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
     </header>
-
     <main>
         <section class="hero-service">
             <div class="container hero-service--centered">
                 <h1>Контент-маркетинг и копирайтинг для бизнеса: статьи, которые читают поисковики и клиенты</h1>
-                <p class="hero-service__subtitle">Пишем не «SEO-тексты с ключами через запятую», а материалы, закрывающие боли вашей аудитории. Каждая статья — часть воронки.</p>
-                <a href="#form" class="btn btn-primary cta-main">Обсудить контент-стратегию</a>
+                <p class="hero-service__subtitle">Пишем не «SEO-тексты с ключами», а материалы, закрывающие боли аудитории. Каждая статья — часть воронки.</p>
+                <a href="#serviceForm" class="btn btn-primary cta-main">Обсудить контент-стратегию</a>
             </div>
         </section>
-
-        <section class="formats">
+        <section class="compare">
             <div class="container">
                 <h2>Форматы контента</h2>
-                <div class="formats-table">
-                    <div class="formats-row formats-header"><div>Формат</div><div>Для чего</div><div>Частота</div></div>
-                    <div class="formats-row"><div>SEO-статьи для блога</div><div>Привлечение органического трафика</div><div>4-8 шт/мес</div></div>
-                    <div class="formats-row"><div>Кейсы</div><div>Прогрев к покупке, доверие</div><div>1-2 шт/мес</div></div>
-                    <div class="formats-row"><div>Лендинги и тексты</div><div>Конверсия в заявку</div><div>Разово</div></div>
-                    <div class="formats-row"><div>Контент для соцсетей</div><div>Вовлечение и касания</div><div>8-12 шт/мес</div></div>
-                    <div class="formats-row"><div>Email-рассылки</div><div>Удержание, допродажи</div><div>Еженедельно</div></div>
+                <div class="compare-table">
+                    <div class="compare-row compare-header"><div>Формат</div><div>Для чего</div><div>Частота</div></div>
+                    <div class="compare-row"><div>SEO-статьи</div><div>Органический трафик</div><div>4-8 шт/мес</div></div>
+                    <div class="compare-row"><div>Кейсы</div><div>Прогрев, доверие</div><div>1-2 шт/мес</div></div>
+                    <div class="compare-row"><div>Лендинги</div><div>Конверсия в заявку</div><div>Разово</div></div>
+                    <div class="compare-row"><div>Соцсети</div><div>Вовлечение</div><div>8-12 шт/мес</div></div>
+                    <div class="compare-row"><div>Email</div><div>Удержание, допродажи</div><div>Еженедельно</div></div>
                 </div>
             </div>
         </section>
-
-        <section class="calculator-section">
-    <div class="container">
-        <div class="calculator calculator--content" id="contentCalculator">
-            <h3>📊 Калькулятор контент-дефицита</h3>
-            <p class="calc-subtitle">Узнайте, сколько трафика вы теряете из-за нехватки контента</p>
-
-            <div class="calc-step">
-                <label>Адрес вашего сайта</label>
-                <input type="text" id="contentSiteUrl" placeholder="https://vashsite.ru" class="calc-input">
-            </div>
-
-            <div class="calc-step">
-                <label>Сфера бизнеса</label>
-                <select id="contentBusiness" class="calc-select">
-                    <option value="" disabled selected>Выберите сферу</option>
-                    <option>B2B-услуги</option>
-                    <option>B2C-товары</option>
-                    <option>IT</option>
-                    <option>Производство</option>
-                    <option>Медицина</option>
-                    <option>Другое</option>
-                </select>
-            </div>
-
-            <button class="btn btn-primary" id="contentScanBtn" style="width:100%;">Рассчитать дефицит</button>
-
-            <div class="calc-result" id="contentResult" style="display:none;">
-                <div class="scan-animation" id="contentScanAnim">
-                    <div class="spinner"></div>
-                    <p>Анализируем сайт и конкурентов...</p>
-                </div>
-                <div id="contentResultData" style="display:none;">
-                    <p>📊 Страниц на сайте: <strong id="sitePages">0</strong></p>
-                    <p>📊 Статей в блоге: <strong id="blogArticles">0</strong></p>
-                    <p>📊 В среднем у конкурентов из вашей ниши: <strong id="competitorPages">0</strong> индексируемых страниц</p>
-                    <p>⚠️ Ваш контент-дефицит: ~<strong id="deficit">0</strong> страниц</p>
-                    <p>🔍 Это минус примерно <strong id="trafficLost">0</strong> посетителей/мес</p>
-                    <a href="#form" class="btn btn-primary" style="margin-top:12px;">Получить контент-план на 3 месяца</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-        
-        <section class="lead-magnet" id="form">
+        <section class="lead-magnet" id="serviceForm">
             <div class="container">
                 <h2>Узнайте свой контент-дефицит</h2>
-                <p class="lead-magnet__subtitle">Посчитаем, сколько трафика вы теряете из-за нехватки контента</p>
                 <form class="audit-form" action="/Mngment/thank-you/" method="POST" novalidate>
                     <input type="text" name="name" placeholder="Имя" required>
                     <input type="text" name="phone" placeholder="Телефон / Telegram" required>
@@ -101,112 +52,17 @@
             </div>
         </section>
     </main>
-
     <footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>🔍 Проблемы с трафиком</h4>
-                <ul>
-                    <li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li>
-                    <li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li>
-                    <li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li>
-                    <li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li>
-                </ul>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
             </div>
-            <div class="footer-col">
-                <h4>🎯 Проблемы с конверсией</h4>
-                <ul>
-                    <li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li>
-                    <li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li>
-                    <li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li>
-                    <li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>⚙️ Проблемы с управлением</h4>
-                <ul>
-                    <li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li>
-                    <li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li>
-                    <li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li>
-                    <li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>🚀 Всё сразу</h4>
-                <ul>
-                    <li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li>
-                </ul>
-            </div>
+            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2026 SystemSales. Превращаем хаос в систему.</p>
-        </div>
-    </div>
-</footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    const burger = document.getElementById('burgerBtn');
-    const nav = document.getElementById('mainNav');
-    if (burger && nav) {
-        burger.addEventListener('click', function() {
-            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-            if (nav.style.display === 'flex') {
-                nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
-                nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
-                nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-            }
-        });
-    }
-
-    // === КАЛЬКУЛЯТОР КОНТЕНТ-ДЕФИЦИТА ===
-    document.getElementById('contentScanBtn')?.addEventListener('click', function() {
-        const business = document.getElementById('contentBusiness').value;
-        if (!business) {
-            alert('Выберите сферу бизнеса');
-            return;
-        }
-
-        const result = document.getElementById('contentResult');
-        const anim = document.getElementById('contentScanAnim');
-        const data = document.getElementById('contentResultData');
-        
-        result.style.display = 'block';
-        anim.style.display = 'block';
-        data.style.display = 'none';
-
-        setTimeout(() => {
-            anim.style.display = 'none';
-            data.style.display = 'block';
-
-            const multipliers = {
-                'B2B-услуги': 1.0, 'B2C-товары': 1.5, 'IT': 1.2,
-                'Производство': 0.7, 'Медицина': 0.9, 'Другое': 1.0
-            };
-            const mult = multipliers[business] || 1.0;
-
-            const sitePages = Math.floor(10 + Math.random() * 40);
-            const blogArticles = Math.floor(Math.random() * 15);
-            const competitorPages = Math.floor(80 + Math.random() * 200 * mult);
-            const deficit = Math.max(0, competitorPages - sitePages - blogArticles);
-            const trafficLost = deficit * Math.floor(5 + Math.random() * 15);
-
-            document.getElementById('sitePages').textContent = sitePages;
-            document.getElementById('blogArticles').textContent = blogArticles;
-            document.getElementById('competitorPages').textContent = competitorPages;
-            document.getElementById('deficit').textContent = deficit;
-            document.getElementById('trafficLost').textContent = trafficLost.toLocaleString('ru-RU');
-        }, 2500);
-    });
-
-    document.querySelectorAll('a[href="#form"]').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('form')?.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-});
-    </script>
+    </footer>
+    <script src="/Mngment/script.js" defer></script>
 </body>
 </html>
