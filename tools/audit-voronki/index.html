@@ -6,9 +6,9 @@
     <title>Аудит текущей воронки | SystemSales</title>
     <link rel="stylesheet" href="/Mngment/style.css">
     <style>
-        .tool-page { padding: 80px 20px; text-align: center; }
-        .tool-page h1 { margin-bottom: 20px; }
-        .tool-page p { color: #666; font-size: 1.1rem; margin-bottom: 30px; }
+        .tool-page { padding: 80px 0; }
+        .tool-page h1 { text-align: center; margin-bottom: 15px; }
+        .tool-page .subtitle { text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 40px; }
     </style>
 </head>
 <body>
@@ -18,41 +18,88 @@
             <nav class="nav" id="mainNav">
                 <a href="/Mngment/#services">Услуги</a>
                 <a href="/Mngment/cases/">Кейсы</a>
+                <a href="/Mngment/blog/">Блог</a>
                 <a href="/Mngment/contacts/">Контакты</a>
             </nav>
             <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
         </div>
     </header>
+
     <main>
-        <section class="lead-magnet" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+        <section class="tool-page">
             <div class="container">
-                <h2>Получите аудит текущей воронки</h2>
-                <p class="lead-magnet__subtitle">Разберём 7 точек утечки лидов и покажем, что автоматизировать</p>
-                <form class="audit-form" action="/Mngment/thank-you/" method="POST" novalidate>
+                <h1>Получите аудит текущей воронки</h1>
+                <p class="subtitle">Разберём 7 точек утечки лидов и покажем, что автоматизировать</p>
+                
+                <form class="audit-form" action="/Mngment/thank-you/" method="POST" novalidate style="max-width:600px;margin:0 auto;">
                     <input type="text" name="name" placeholder="Имя" required>
                     <input type="text" name="phone" placeholder="Телефон / Telegram" required>
                     <select name="business_type" required>
                         <option value="" disabled selected>Сфера бизнеса</option>
-                        <option>B2B-услуги</option><option>Товары</option><option>EdTech</option><option>Недвижимость</option><option>Другое</option>
+                        <option>B2B-услуги</option>
+                        <option>Товары</option>
+                        <option>EdTech</option>
+                        <option>Недвижимость</option>
+                        <option>Другое</option>
                     </select>
-                    <button type="submit" class="btn btn-primary btn-large">Получить аудит</button>
+                    <div class="slider-container">
+                        <label>Сколько заявок в месяц обрабатываете: <span id="sliderValue">1000</span></label>
+                        <input type="range" id="leadsSlider" name="leads_count" min="10" max="5000" value="1000" step="10">
+                    </div>
+                    <select name="crm_type" required>
+                        <option value="" disabled selected>Какая CRM используется</option>
+                        <option>AmoCRM</option>
+                        <option>Bitrix24</option>
+                        <option>Другая</option>
+                        <option>Нет CRM</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary btn-large">Получить аудит и чек-лист</button>
+                    <p class="form-note" style="color:#888;">Без спама. Данные только для подготовки аудита.</p>
                 </form>
             </div>
         </section>
     </main>
-    <footer class="footer"><div class="container"><p>© 2026 SystemSales</p></div></footer>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
+        </div>
+    </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const burger = document.getElementById('burgerBtn');
             const nav = document.getElementById('mainNav');
             if (burger && nav) {
                 burger.addEventListener('click', function() {
-                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
                     if (nav.style.display === 'flex') {
-                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
-                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
-                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                        nav.style.display = 'none';
+                    } else {
+                        nav.style.display = 'flex';
+                        nav.style.flexDirection = 'column';
+                        nav.style.position = 'absolute';
+                        nav.style.top = '70px';
+                        nav.style.left = '0';
+                        nav.style.background = 'white';
+                        nav.style.width = '100%';
+                        nav.style.padding = '20px';
+                        nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
                     }
+                });
+            }
+
+            const slider = document.getElementById('leadsSlider');
+            const output = document.getElementById('sliderValue');
+            if (slider && output) {
+                output.textContent = slider.value;
+                slider.addEventListener('input', function() {
+                    output.textContent = this.value;
                 });
             }
         });
