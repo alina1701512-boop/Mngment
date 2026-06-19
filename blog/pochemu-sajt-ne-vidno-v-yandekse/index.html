@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Почему ваш сайт не видно в Яндексе: 7 технических ошибок | SystemSales</title>
+    <link rel="stylesheet" href="/Mngment/style.css">
+    <link rel="stylesheet" href="/Mngment/blog/style.css">
+    <style>
+        .article-page { display: grid; grid-template-columns: 1fr 300px; gap: 40px; padding: 60px 0; }
+        .article-content h1 { font-size: 2.2rem; margin-bottom: 20px; line-height: 1.3; }
+        .article-content h2 { font-size: 1.5rem; margin: 30px 0 15px; text-align: left; }
+        .article-content p { color: #444; line-height: 1.9; margin-bottom: 18px; }
+        .article-content ul, .article-content ol { margin: 15px 0 20px 25px; color: #444; line-height: 1.9; }
+        .article-content li { margin-bottom: 8px; }
+        .article-content blockquote { background: #f0f4ff; padding: 20px 25px; border-left: 4px solid #4CAF50; margin: 25px 0; font-style: italic; }
+        .sidebar { position: sticky; top: 90px; align-self: start; }
+        .sidebar-block { background: #fff; padding: 20px; border-radius: 14px; border: 1px solid #eee; margin-bottom: 20px; }
+        .sidebar-block h3 { font-size: 1.1rem; margin-bottom: 12px; }
+        .sidebar-block ul { list-style: none; padding: 0; }
+        .sidebar-block li { margin-bottom: 8px; }
+        .sidebar-block a { color: #FF4D01; text-decoration: none; }
+        .cta-article { background: #1a1a2e; color: #fff; padding: 25px; border-radius: 14px; text-align: center; margin-top: 20px; }
+        .cta-article h3 { color: #fff; margin-bottom: 8px; }
+        .cta-article p { color: rgba(255,255,255,0.7); margin-bottom: 18px; font-size: 0.9rem; }
+        @media (max-width: 768px) {
+            .article-page { grid-template-columns: 1fr; }
+            .article-content h1 { font-size: 1.7rem; }
+            .sidebar { position: static; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+            <nav class="nav" id="mainNav">
+                <a href="/Mngment/#services">Услуги</a>
+                <a href="/Mngment/cases/">Кейсы</a>
+                <a href="/Mngment/blog/">Блог</a>
+                <a href="/Mngment/contacts/">Контакты</a>
+            </nav>
+            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="article-page">
+                <article class="article-content">
+                    <h1>Почему ваш сайт не видно в Яндексе: 7 технических ошибок, которые убивают ранжирование</h1>
+                    
+                    <p>Вы вложили деньги в сайт, наполнили его контентом, но Яндекс упорно показывает вас на 4-5 странице выдачи. Знакомая ситуация? В 80% случаев проблема не в конкуренции, а в технических ошибках, которые мешают поисковому роботу правильно прочитать и оценить ваш сайт.</p>
+                    <p>Разбираем 7 критических ошибок, которые убивают ранжирование, и способы их исправления.</p>
+
+                    <h2>1. Медленная загрузка страниц</h2>
+                    <p>Если сайт грузится дольше 3 секунд, вы теряете и посетителей, и позиции. Яндекс учитывает Core Web Vitals (LCP, FID, CLS) как фактор ранжирования. Проверьте скорость через PageSpeed Insights. Если показатели в красной зоне — срочно оптимизируйте изображения, включите кеширование, перейдите на быстрый хостинг.</p>
+
+                    <h2>2. Битые ссылки и 404 ошибки</h2>
+                    <p>Когда робот находит битые ссылки, он перестаёт доверять сайту. Проверьте все внутренние ссылки через Screaming Frog или Яндекс.Вебмастер. Каждая 404 ошибка — это потерянный вес страницы.</p>
+
+                    <h2>3. Дубли страниц</h2>
+                    <p>Одинаковый контент на разных URL (например, с www и без, с index.html и без) запутывает поисковик. Настройте 301-редиректы и канонические URL.</p>
+
+                    <h2>4. Отсутствие или неправильный robots.txt и sitemap.xml</h2>
+                    <p>Без sitemap.xml робот может не найти важные страницы. Без robots.txt — индексировать служебные. Проверьте оба файла в Яндекс.Вебмастер.</p>
+
+                    <h2>5. Неадаптивная вёрстка</h2>
+                    <p>60% трафика — мобильные устройства. Если сайт не адаптирован, Яндекс применяет понижающий коэффициент. Проверьте mobile-friendly тестом.</p>
+
+                    <h2>6. Отсутствие микроразметки Schema.org</h2>
+                    <p>Микроразметка помогает поисковику понять, что именно у вас на странице: товар, статья, контакты. Сайты с разметкой получают расширенные сниппеты и кликабельность выше на 5-15%.</p>
+
+                    <h2>7. Плохая структура заголовков H1-H6</h2>
+                    <p>Дубли H1, пропуск уровней, отсутствие ключевых слов в заголовках — всё это снижает релевантность страницы. На каждой странице должен быть один H1 и логичная иерархия H2-H3.</p>
+
+                    <blockquote>Вывод: 7 ошибок, которые можно исправить за 1-3 дня. Но если их 70 — нужен профессиональный аудит.</blockquote>
+                </article>
+
+                <aside class="sidebar">
+                    <div class="sidebar-block">
+                        <h3>🛠️ Инструменты</h3>
+                        <ul>
+                            <li>Яндекс.Вебмастер</li>
+                            <li>PageSpeed Insights</li>
+                            <li>Screaming Frog</li>
+                            <li>Schema.org</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-block">
+                        <h3>🔗 Связанные услуги</h3>
+                        <ul>
+                            <li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li>
+                            <li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li>
+                        </ul>
+                    </div>
+                    <div class="cta-article">
+                        <h3>Аудит сайта с отчётом за 24 часа</h3>
+                        <p>Найдём все технические ошибки и составим план исправления</p>
+                        <a href="/Mngment/services/seo-prodvizhenie/#form" class="btn btn-primary">Получить аудит</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer"><div class="container"><p>© 2026 SystemSales</p></div></footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const burger = document.getElementById('burgerBtn');
+            const nav = document.getElementById('mainNav');
+            if (burger && nav) {
+                burger.addEventListener('click', function() {
+                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                    if (nav.style.display === 'flex') {
+                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
+                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
+                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
