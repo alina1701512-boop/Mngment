@@ -44,6 +44,50 @@
             </div>
         </section>
 
+        <section class="calculator-section">
+    <div class="container">
+        <div class="calculator calculator--content" id="contentCalculator">
+            <h3>📊 Калькулятор контент-дефицита</h3>
+            <p class="calc-subtitle">Узнайте, сколько трафика вы теряете из-за нехватки контента</p>
+
+            <div class="calc-step">
+                <label>Адрес вашего сайта</label>
+                <input type="text" id="contentSiteUrl" placeholder="https://vashsite.ru" class="calc-input">
+            </div>
+
+            <div class="calc-step">
+                <label>Сфера бизнеса</label>
+                <select id="contentBusiness" class="calc-select">
+                    <option value="" disabled selected>Выберите сферу</option>
+                    <option>B2B-услуги</option>
+                    <option>B2C-товары</option>
+                    <option>IT</option>
+                    <option>Производство</option>
+                    <option>Медицина</option>
+                    <option>Другое</option>
+                </select>
+            </div>
+
+            <button class="btn btn-primary" id="contentScanBtn" style="width:100%;">Рассчитать дефицит</button>
+
+            <div class="calc-result" id="contentResult" style="display:none;">
+                <div class="scan-animation" id="contentScanAnim">
+                    <div class="spinner"></div>
+                    <p>Анализируем сайт и конкурентов...</p>
+                </div>
+                <div id="contentResultData" style="display:none;">
+                    <p>📊 Страниц на сайте: <strong id="sitePages">0</strong></p>
+                    <p>📊 Статей в блоге: <strong id="blogArticles">0</strong></p>
+                    <p>📊 В среднем у конкурентов из вашей ниши: <strong id="competitorPages">0</strong> индексируемых страниц</p>
+                    <p>⚠️ Ваш контент-дефицит: ~<strong id="deficit">0</strong> страниц</p>
+                    <p>🔍 Это минус примерно <strong id="trafficLost">0</strong> посетителей/мес</p>
+                    <a href="#form" class="btn btn-primary" style="margin-top:12px;">Получить контент-план на 3 месяца</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        
         <section class="lead-magnet" id="form">
             <div class="container">
                 <h2>Узнайте свой контент-дефицит</h2>
@@ -62,25 +106,66 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const burger = document.getElementById('burgerBtn');
-            const nav = document.getElementById('mainNav');
-            if (burger && nav) {
-                burger.addEventListener('click', function() {
-                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-                    if (nav.style.display === 'flex') {
-                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
-                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
-                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-                    }
-                });
+    const burger = document.getElementById('burgerBtn');
+    const nav = document.getElementById('mainNav');
+    if (burger && nav) {
+        burger.addEventListener('click', function() {
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            if (nav.style.display === 'flex') {
+                nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
+                nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
+                nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
             }
-            document.querySelectorAll('a[href="#form"]').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.getElementById('form')?.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
         });
+    }
+
+    // === КАЛЬКУЛЯТОР КОНТЕНТ-ДЕФИЦИТА ===
+    document.getElementById('contentScanBtn')?.addEventListener('click', function() {
+        const business = document.getElementById('contentBusiness').value;
+        if (!business) {
+            alert('Выберите сферу бизнеса');
+            return;
+        }
+
+        const result = document.getElementById('contentResult');
+        const anim = document.getElementById('contentScanAnim');
+        const data = document.getElementById('contentResultData');
+        
+        result.style.display = 'block';
+        anim.style.display = 'block';
+        data.style.display = 'none';
+
+        setTimeout(() => {
+            anim.style.display = 'none';
+            data.style.display = 'block';
+
+            const multipliers = {
+                'B2B-услуги': 1.0, 'B2C-товары': 1.5, 'IT': 1.2,
+                'Производство': 0.7, 'Медицина': 0.9, 'Другое': 1.0
+            };
+            const mult = multipliers[business] || 1.0;
+
+            const sitePages = Math.floor(10 + Math.random() * 40);
+            const blogArticles = Math.floor(Math.random() * 15);
+            const competitorPages = Math.floor(80 + Math.random() * 200 * mult);
+            const deficit = Math.max(0, competitorPages - sitePages - blogArticles);
+            const trafficLost = deficit * Math.floor(5 + Math.random() * 15);
+
+            document.getElementById('sitePages').textContent = sitePages;
+            document.getElementById('blogArticles').textContent = blogArticles;
+            document.getElementById('competitorPages').textContent = competitorPages;
+            document.getElementById('deficit').textContent = deficit;
+            document.getElementById('trafficLost').textContent = trafficLost.toLocaleString('ru-RU');
+        }, 2500);
+    });
+
+    document.querySelectorAll('a[href="#form"]').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('form')?.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+});
     </script>
 </body>
 </html>
