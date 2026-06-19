@@ -7,19 +7,23 @@
    ПЕРЕМЕННЫЕ
    ============================================ */
 :root {
-    /* Основная палитра */
-    --color-primary: #4F46E5;
-    --color-primary-dark: #3730A3;
-    --color-primary-light: #EEF2FF;
-    --color-primary-gradient: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+    :root {
+    /* Основная палитра — Синий (доверие, технологии) */
+    --color-primary: #1E40AF;
+    --color-primary-dark: #1E3A8A;
+    --color-primary-light: #EFF6FF;
+    --color-primary-gradient: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%);
+
+    /* Акцент — Оранжевый (действие, конверсия) */
     --color-accent: #F97316;
     --color-accent-dark: #EA580C;
     --color-accent-gradient: linear-gradient(135deg, #F97316 0%, #EF4444 100%);
+
+    /* Остальное без изменений */
     --color-success: #10B981;
     --color-error: #EF4444;
     --color-warning: #F59E0B;
 
-    /* Нейтральные */
     --color-black: #0F172A;
     --color-dark: #334155;
     --color-gray: #64748B;
@@ -29,7 +33,6 @@
     --color-bg-dark: #F1F5F9;
     --color-white: #FFFFFF;
 
-    /* Типографика */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
@@ -45,7 +48,6 @@
     --line-height-base: 1.7;
     --line-height-relaxed: 1.9;
 
-    /* Отступы */
     --spacing-xs: 0.25rem;
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
@@ -55,30 +57,25 @@
     --spacing-3xl: 5rem;
     --spacing-4xl: 7rem;
 
-    /* Сетка */
     --container-width: 1200px;
     --container-padding: 1.5rem;
 
-    /* Скругления */
     --radius-sm: 6px;
     --radius-md: 10px;
     --radius-lg: 16px;
     --radius-xl: 24px;
     --radius-full: 50%;
 
-    /* Тени */
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.05);
     --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.08), 0 10px 10px rgba(0, 0, 0, 0.04);
-    --shadow-glow: 0 0 40px rgba(79, 70, 229, 0.15);
+    --shadow-glow: 0 0 40px rgba(30, 64, 175, 0.15);
 
-    /* Переходы */
     --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    /* Z-индексы */
     --z-sidebar: 100;
     --z-header: 200;
     --z-modal: 300;
