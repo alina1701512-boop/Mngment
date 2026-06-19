@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Настройка сквозной аналитики | SystemSales</title>
     <link rel="stylesheet" href="/Mngment/style.css">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
@@ -15,198 +14,56 @@
                 <a href="/Mngment/#services">Услуги</a>
                 <a href="/Mngment/cases/">Кейсы</a>
                 <a href="/Mngment/blog/">Блог</a>
-                <a href="/Mngment/contacts/">Контакты</a>
+                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
             </nav>
-            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
     </header>
-
     <main>
         <section class="hero-service">
             <div class="container hero-service--centered">
-                <h1>Настройка сквозной аналитики: от клика до денег в кассе. Показываем, где теряете клиентов</h1>
-                <p class="hero-service__subtitle">Яндекс.Метрика, Google Analytics, end-to-end в AmoCRM. Строим дашборды для директора.</p>
-                <a href="#form" class="btn btn-primary cta-main">Получить аудит аналитики</a>
+                <h1>Настройка сквозной аналитики: от клика до денег в кассе</h1>
+                <p class="hero-service__subtitle">Яндекс.Метрика, end-to-end в AmoCRM. Строим дашборды для директора.</p>
+                <a href="#serviceForm" class="btn btn-primary cta-main">Получить аудит аналитики</a>
             </div>
         </section>
-
-        <section class="cards-section">
+        <section class="agent-types">
             <div class="container">
                 <h2>Что настраиваем</h2>
-                <div class="cards-grid">
-                    <div class="card"><span class="card-icon">📈</span><h3>Код отслеживания</h3><p>Установка и настройка счётчиков на все страницы</p></div>
-                    <div class="card"><span class="card-icon">🎯</span><h3>Цели и события</h3><p>Формы, звонки, чаты, квизы — всё фиксируется</p></div>
-                    <div class="card"><span class="card-icon">🔗</span><h3>Сквозная аналитика</h3><p>Интеграция CRM с рекламными кабинетами</p></div>
-                    <div class="card"><span class="card-icon">📊</span><h3>Дашборды</h3><p>Data Studio / Power BI — графики для планёрок</p></div>
+                <div class="agent-grid">
+                    <div class="agent-card"><div class="agent-icon">📈</div><h3>Код отслеживания</h3><p>Счётчики на все страницы</p></div>
+                    <div class="agent-card"><div class="agent-icon">🎯</div><h3>Цели и события</h3><p>Формы, звонки, чаты</p></div>
+                    <div class="agent-card"><div class="agent-icon">🔗</div><h3>Сквозная аналитика</h3><p>CRM + рекламные кабинеты</p></div>
+                    <div class="agent-card"><div class="agent-icon">📊</div><h3>Дашборды</h3><p>Data Studio для планёрок</p></div>
                 </div>
             </div>
         </section>
-
-        <section class="quiz-section">
-    <div class="container">
-        <div class="quiz-block" id="blindSpotQuiz">
-            <h3>🔦 Тест: Есть ли у вас «слепые зоны» в аналитике?</h3>
-            <p class="quiz-subtitle">Ответьте на 4 вопроса — узнаете, насколько вы контролируете маркетинг</p>
-
-            <div class="quiz-question" id="q1">
-                <p><strong>1.</strong> Знаете ли вы, сколько стоит клиент с каждого рекламного канала?</p>
-                <label><input type="radio" name="q1" value="yes"> Да, знаю точно</label>
-                <label><input type="radio" name="q1" value="no"> Нет, примерно</label>
-            </div>
-
-            <div class="quiz-question" id="q2">
-                <p><strong>2.</strong> Сходятся ли цифры заявок в CRM с отчётами рекламных кабинетов?</p>
-                <label><input type="radio" name="q2" value="yes"> Да, всё сходится</label>
-                <label><input type="radio" name="q2" value="no"> Нет, цифры разнятся</label>
-            </div>
-
-            <div class="quiz-question" id="q3">
-                <p><strong>3.</strong> Видите ли вы весь путь клиента: от клика по объявлению до денег в кассе?</p>
-                <label><input type="radio" name="q3" value="yes"> Да, вижу полностью</label>
-                <label><input type="radio" name="q3" value="no"> Нет, только заявки</label>
-            </div>
-
-            <div class="quiz-question" id="q4">
-                <p><strong>4.</strong> Есть ли у вас дашборд, который вы смотрите хотя бы раз в неделю?</p>
-                <label><input type="radio" name="q4" value="yes"> Да, смотрю регулярно</label>
-                <label><input type="radio" name="q4" value="no"> Нет, смотрю от случая к случаю</label>
-            </div>
-
-            <button class="btn btn-primary" id="checkBlindSpots" style="width:100%;">Узнать результат</button>
-
-            <div class="quiz-result" id="quizResult" style="display:none;">
-                <div class="quiz-result-icon" id="quizIcon"></div>
-                <p id="quizMessage"></p>
-                <a href="#form" class="btn btn-primary" style="margin-top:12px;">Показать, как это работает на моём бизнесе</a>
-            </div>
-        </div>
-    </div>
-</section>
-        
-        <section class="lead-magnet" id="form">
+        <section class="lead-magnet" id="serviceForm">
             <div class="container">
                 <h2>Найдите свои «слепые зоны»</h2>
-                <p class="lead-magnet__subtitle">Покажем, где теряются данные и бюджет</p>
                 <form class="audit-form" action="/Mngment/thank-you/" method="POST" novalidate>
                     <input type="text" name="name" placeholder="Имя" required>
                     <input type="text" name="phone" placeholder="Телефон / Telegram" required>
                     <select name="crm">
                         <option value="" disabled selected>Какая CRM?</option>
-                        <option>AmoCRM</option><option>Bitrix24</option><option>Другая</option><option>Нет CRM</option>
+                        <option>AmoCRM</option><option>Bitrix24</option><option>Нет CRM</option>
                     </select>
                     <button type="submit" class="btn btn-primary btn-large">Найти утечки</button>
                 </form>
             </div>
         </section>
     </main>
-
-   <footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>🔍 Проблемы с трафиком</h4>
-                <ul>
-                    <li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li>
-                    <li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li>
-                    <li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li>
-                    <li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li>
-                </ul>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
             </div>
-            <div class="footer-col">
-                <h4>🎯 Проблемы с конверсией</h4>
-                <ul>
-                    <li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li>
-                    <li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li>
-                    <li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li>
-                    <li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>⚙️ Проблемы с управлением</h4>
-                <ul>
-                    <li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li>
-                    <li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li>
-                    <li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li>
-                    <li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>🚀 Всё сразу</h4>
-                <ul>
-                    <li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li>
-                </ul>
-            </div>
+            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2026 SystemSales. Превращаем хаос в систему.</p>
-        </div>
-    </div>
-</footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    const burger = document.getElementById('burgerBtn');
-    const nav = document.getElementById('mainNav');
-    if (burger && nav) {
-        burger.addEventListener('click', function() {
-            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-            if (nav.style.display === 'flex') {
-                nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
-                nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
-                nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-            }
-        });
-    }
-
-    // === КВИЗ СЛЕПЫЕ ЗОНЫ ===
-    document.getElementById('checkBlindSpots')?.addEventListener('click', function() {
-        const q1 = document.querySelector('input[name="q1"]:checked');
-        const q2 = document.querySelector('input[name="q2"]:checked');
-        const q3 = document.querySelector('input[name="q3"]:checked');
-        const q4 = document.querySelector('input[name="q4"]:checked');
-
-        if (!q1 || !q2 || !q3 || !q4) {
-            alert('Ответьте на все 4 вопроса');
-            return;
-        }
-
-        let yesCount = 0;
-        if (q1.value === 'yes') yesCount++;
-        if (q2.value === 'yes') yesCount++;
-        if (q3.value === 'yes') yesCount++;
-        if (q4.value === 'yes') yesCount++;
-
-        const result = document.getElementById('quizResult');
-        const icon = document.getElementById('quizIcon');
-        const message = document.getElementById('quizMessage');
-
-        result.style.display = 'block';
-        result.className = 'quiz-result';
-
-        if (yesCount === 4) {
-            icon.textContent = '✅';
-            message.textContent = 'Ваша аналитика в порядке. Мы можем помочь с тонкой настройкой — расширенными дашбордами и предиктивной аналитикой.';
-            result.classList.add('quiz-good');
-        } else if (yesCount >= 2) {
-            icon.textContent = '⚠️';
-            message.textContent = 'У вас есть база, но есть ' + (4 - yesCount) + ' слепых зон. Вы теряете до ' + ((4 - yesCount) * 25) + '% данных о клиентах. Сквозная аналитика закроет эти дыры за 1 неделю.';
-            result.classList.add('quiz-warn');
-        } else {
-            icon.textContent = '🔴';
-            message.textContent = 'Вы принимаете решения вслепую. ' + (4 - yesCount) + ' из 4 ключевых метрик вам недоступны. Сквозная аналитика окупается за 1 месяц. Хотите доказательств — посмотрите кейс.';
-            result.classList.add('quiz-bad');
-        }
-
-        result.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
-
-    document.querySelectorAll('a[href="#form"]').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('form')?.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-});
-    </script>
+    </footer>
+    <script src="/Mngment/script.js" defer></script>
 </body>
 </html>
