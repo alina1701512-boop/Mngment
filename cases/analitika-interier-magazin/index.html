@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кейс: ROMI 390% после настройки сквозной аналитики | SystemSales</title>
+    <link rel="stylesheet" href="/Mngment/style.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .case-hero { padding: 80px 0 50px; }
+        .case-hero h1 { font-size: 2.5rem; max-width: 900px; }
+        .case-section { padding: 40px 0; border-bottom: 1px solid #eee; }
+        .case-section h2 { text-align: left; margin-bottom: 20px; }
+        .case-section p, .case-section li { color: #555; line-height: 1.8; margin-bottom: 15px; }
+        .case-section ul { margin: 15px 0 15px 20px; }
+        .result-table { display: grid; grid-template-columns: 200px 1fr 1fr; gap: 0; margin: 30px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .result-row { display: contents; }
+        .result-row div { padding: 15px 20px; background: #fff; border-bottom: 1px solid #eee; }
+        .result-header div { background: #1a1a2e; color: #fff; font-weight: 700; }
+        .result-old { color: #E53935; }
+        .result-new { color: #00C853; font-weight: 600; }
+        .cta-block { text-align: center; padding: 60px 0; }
+        @media (max-width: 768px) {
+            .case-hero h1 { font-size: 1.8rem; }
+            .result-table { grid-template-columns: 1fr; }
+            .result-header { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+            <nav class="nav" id="mainNav">
+                <a href="/Mngment/#services">Услуги</a>
+                <a href="/Mngment/cases/">Кейсы</a>
+                <a href="/Mngment/blog/">Блог</a>
+                <a href="/Mngment/contacts/">Контакты</a>
+            </nav>
+            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+    <main>
+        <section class="case-hero"><div class="container"><h1>Кейс: Как интернет-магазин товаров для дома поднял ROMI с 210% до 390% за счёт сквозной аналитики</h1></div></section>
+        <section class="case-section"><div class="container"><h2>Клиент и контекст</h2><p>Интернет-магазин товаров для дома (B2C, средний чек 12 000 ₽). Рекламный бюджет: 300 000 ₽/мес в Директе, 100 000 ₽/мес в таргете, SEO-подрядчик за 50 000 ₽/мес. Собственник не понимал, какой канал реально приносит деньги. Общие цифры в CRM не совпадали с отчётами подрядчиков.</p></div></section>
+        <section class="case-section"><div class="container"><h2>Задача</h2><p>Построить прозрачную систему отчётности: источник трафика → заявка → сделка → выручка. Найти неэффективные каналы и перераспределить бюджет.</p></div></section>
+        <section class="case-section"><div class="container"><h2>Решение</h2><ul><li>Настроили сквозную аналитику: UTM-метки на всех каналах → Метрика → AmoCRM</li><li>Построили дашборд в Data Studio: 10 ключевых метрик для еженедельного контроля</li><li>Выявили реальную картину: таргет приносил 60% выручки при 25% бюджета, Директ — только 20% при 60% бюджета</li><li>Перераспределили бюджеты: увеличили таргет, сократили неэффективные ключи в Директе</li></ul></div></section>
+        <section class="case-section"><div class="container"><h2>Результат</h2>
+            <div class="result-table">
+                <div class="result-row result-header"><div>Показатель</div><div>Было</div><div>Стало</div></div>
+                <div class="result-row"><div>ROMI общий</div><div class="result-old">210%</div><div class="result-new">390%</div></div>
+                <div class="result-row"><div>Бюджет</div><div class="result-old">Размазан вслепую</div><div class="result-new">Перераспределён по данным</div></div>
+                <div class="result-row"><div>Прозрачность</div><div class="result-old">Цифры не сходились</div><div class="result-new">Каждый рубль виден до сделки</div></div>
+                <div class="result-row"><div>Окупаемость аналитики</div><div class="result-old">—</div><div class="result-new">1 месяц</div></div>
+            </div>
+        </div></section>
+        <section class="cta-block"><div class="container"><h2>Хотите такую же прозрачность?</h2><p style="color:#666;margin-bottom:25px;">Настроим сквозную аналитику за 5 дней</p><a href="/Mngment/services/veb-analitika/#form" class="btn btn-primary btn-large">Заказать настройку</a></div></section>
+    </main>
+    <footer class="footer"><div class="container"><p>© 2026 SystemSales</p></div></footer>
+    <script>
+        const b=document.getElementById('burgerBtn'),n=document.getElementById('mainNav');
+        b&&n&&b.addEventListener('click',()=>{n.style.display=n.style.display==='flex'?'none':'flex';if(n.style.display==='flex'){n.style.flexDirection='column';n.style.position='absolute';n.style.top='70px';n.style.left='0';n.style.background='white';n.style.width='100%';n.style.padding='20px';n.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)';}});
+    </script>
+</body>
+</html>
