@@ -5,28 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Яндекс.Метрика: 15 отчётов, которые должен смотреть собственник | SystemSales</title>
     <link rel="stylesheet" href="/Mngment/style.css">
-    <style>
-        .article-page { display: grid; grid-template-columns: 1fr 300px; gap: 40px; padding: 60px 0; }
-        .article-content h1 { font-size: 2.2rem; margin-bottom: 20px; line-height: 1.3; }
-        .article-content h2 { font-size: 1.5rem; margin: 30px 0 15px; text-align: left; }
-        .article-content p { color: #444; line-height: 1.9; margin-bottom: 18px; }
-        .article-content ul, .article-content ol { margin: 15px 0 20px 25px; color: #444; line-height: 1.9; }
-        .article-content blockquote { background: #f0f4ff; padding: 20px 25px; border-left: 4px solid #FF9800; margin: 25px 0; }
-        .sidebar { position: sticky; top: 90px; align-self: start; }
-        .sidebar-block { background: #fff; padding: 20px; border-radius: 14px; border: 1px solid #eee; margin-bottom: 20px; }
-        .sidebar-block h3 { font-size: 1.1rem; margin-bottom: 12px; }
-        .sidebar-block ul { list-style: none; padding: 0; }
-        .sidebar-block li { margin-bottom: 8px; }
-        .sidebar-block a { color: #FF4D01; text-decoration: none; }
-        .cta-article { background: #1a1a2e; color: #fff; padding: 25px; border-radius: 14px; text-align: center; margin-top: 20px; }
-        .cta-article h3 { color: #fff; margin-bottom: 8px; }
-        .cta-article p { color: rgba(255,255,255,0.7); margin-bottom: 18px; }
-        @media (max-width: 768px) {
-            .article-page { grid-template-columns: 1fr; }
-            .article-content h1 { font-size: 1.7rem; }
-            .sidebar { position: static; }
-        }
-    </style>
 </head>
 <body>
     <header class="header">
@@ -36,119 +14,57 @@
                 <a href="/Mngment/#services">Услуги</a>
                 <a href="/Mngment/cases/">Кейсы</a>
                 <a href="/Mngment/blog/">Блог</a>
-                <a href="/Mngment/contacts/">Контакты</a>
+                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
             </nav>
-            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
     </header>
-
-    <main>
+    <main><div class="container"><div class="article-page">
+        <article class="article-content">
+            <h1>Яндекс.Метрика: 15 отчётов, которые должен смотреть собственник каждую неделю</h1>
+            <p>Метрика установлена, данные копятся. Но собственник заходит в неё раз в полгода. А в это время рекламный бюджет сливается на нецелевые запросы. Мы собрали 15 отчётов Яндекс.Метрики, которые должен смотреть руководитель минимум раз в неделю.</p>
+            <h2>Блок 1: Трафик (5 отчётов)</h2>
+            <ol>
+                <li><strong>Посещаемость по источникам.</strong> Откуда приходят люди.</li>
+                <li><strong>Поисковые запросы.</strong> По каким запросам приходят из Яндекса.</li>
+                <li><strong>Пол/возраст/гео.</strong> Совпадает ли аудитория с вашей ЦА.</li>
+                <li><strong>Устройства.</strong> Доля мобильных vs десктоп.</li>
+                <li><strong>Время на сайте и глубина просмотра.</strong> Если меньше 30 секунд — люди не находят то, что искали.</li>
+            </ol>
+            <h2>Блок 2: Конверсии (5 отчётов)</h2>
+            <ol start="6">
+                <li><strong>Конверсия по целям.</strong> Сколько посетителей оставили заявку.</li>
+                <li><strong>Воронка.</strong> На каком шаге отваливаются.</li>
+                <li><strong>Карта кликов.</strong> Куда кликают, а куда нет.</li>
+                <li><strong>Вебвизор.</strong> Записи реальных сессий посетителей.</li>
+                <li><strong>Отказы по страницам.</strong> Какие страницы имеют высокий процент отказов.</li>
+            </ol>
+            <h2>Блок 3: Реклама (5 отчётов)</h2>
+            <ol start="11">
+                <li><strong>Расходы и CPC по кампаниям.</strong> Какие кампании перерасходуют бюджет.</li>
+                <li><strong>Конверсия по кампаниям.</strong> Какая кампания даёт больше заявок на рубль затрат.</li>
+                <li><strong>Поисковые запросы в Директе.</strong> Нецелевые → в минус-слова.</li>
+                <li><strong>Время конверсии.</strong> Сколько дней от клика до заявки.</li>
+                <li><strong>Ассоциированные конверсии.</strong> Какие каналы участвовали в цепочке касаний.</li>
+            </ol>
+            <blockquote>Правило: каждую неделю 15 минут на эти отчёты. Каждый месяц — отключение неэффективных кампаний. Экономия — 20-30% рекламного бюджета.</blockquote>
+        </article>
+        <aside class="sidebar">
+            <div class="sidebar-block"><h3>🛠️ Инструменты</h3><ul><li>Яндекс.Метрика</li><li>Data Studio / Looker Studio</li><li>AmoCRM</li><li>UTM-метки</li></ul></div>
+            <div class="sidebar-block"><h3>🔗 Связанные услуги</h3><ul><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li></ul></div>
+        </aside>
+    </div></div></main>
+    <footer class="footer">
         <div class="container">
-            <div class="article-page">
-                <article class="article-content">
-                    <h1>Яндекс.Метрика: 15 отчётов, которые должен смотреть собственник каждую неделю</h1>
-                    
-                    <p>Метрика установлена, данные копятся. Но собственник заходит в неё раз в полгода, смотрит на график посещаемости и закрывает. «Вроде всё работает». А в это время рекламный бюджет сливается на нецелевые запросы, а заявки теряются из-за технических ошибок на сайте.</p>
-                    <p>Мы собрали 15 отчётов Яндекс.Метрики, которые должен смотреть руководитель минимум раз в неделю. Это займёт 15 минут, но спасёт сотни тысяч рублей.</p>
-
-                    <h2>Блок 1: Трафик (5 отчётов)</h2>
-                    <ol>
-                        <li><strong>Посещаемость по источникам.</strong> Откуда приходят люди: поиск, реклама, соцсети, прямые заходы. Видите динамику по каждому каналу.</li>
-                        <li><strong>Поисковые запросы.</strong> По каким запросам приходят из Яндекса. Находите нецелевые запросы и добавляете их в минус-слова.</li>
-                        <li><strong>Пол/возраст/гео.</strong> Совпадает ли аудитория с вашей ЦА? Если нет — проблема с таргетингом рекламы или контентом.</li>
-                        <li><strong>Устройства.</strong> Доля мобильных vs десктоп. Если 60% с мобильных, а сайт не адаптирован — теряете 60% клиентов.</li>
-                        <li><strong>Время на сайте и глубина просмотра.</strong> Если меньше 30 секунд — люди не находят то, что искали.</li>
-                    </ol>
-
-                    <h2>Блок 2: Конверсии (5 отчётов)</h2>
-                    <ol start="6">
-                        <li><strong>Конверсия по целям.</strong> Сколько посетителей оставили заявку. В разрезе по источникам трафика.</li>
-                        <li><strong>Воронка.</strong> Сколько людей зашли на страницу → начали заполнять форму → отправили. На каком шаге отваливаются.</li>
-                        <li><strong>Карта кликов.</strong> Куда кликают, а куда нет. Кнопка «Заказать» не получает кликов? Проблема в дизайне или тексте.</li>
-                        <li><strong>Вебвизор.</strong> Записи реальных сессий посетителей. Как они скролят, читают, кликают. Самый честный отчёт.</li>
-                        <li><strong>Отказы по страницам.</strong> Какие страницы имеют высокий процент отказов. С этих страниц люди уходят, не сделав ничего.</li>
-                    </ol>
-
-                    <h2>Блок 3: Реклама (5 отчётов)</h2>
-                    <ol start="11">
-                        <li><strong>Расходы и CPC по кампаниям Директа.</strong> Сравниваем план/факт. Какие кампании перерасходуют бюджет.</li>
-                        <li><strong>Конверсия по кампаниям.</strong> Какая кампания даёт больше всего заявок на рубль затрат.</li>
-                        <li><strong>Поисковые запросы в Директе.</strong> По каким реальным запросам показывается реклама. Нецелевые → в минус-слова.</li>
-                        <li><strong>Время конверсии.</strong> Сколько дней проходит от первого клика до заявки. Важно для B2B с длинным циклом сделки.</li>
-                        <li><strong>Ассоциированные конверсии.</strong> Какие каналы участвовали в цепочке касаний перед покупкой, но не были последними.</li>
-                    </ol>
-
-                    <blockquote>Правило: каждую неделю 15 минут на эти отчёты. Каждый месяц — отключение неэффективных кампаний и перераспределение бюджета. Экономия — 20-30% рекламного бюджета без потери заявок.</blockquote>
-                </article>
-
-                <aside class="sidebar">
-    <div class="sidebar-block">
-        <h3>🛠️ Инструменты</h3>
-        <ul>
-            <li>Яндекс.Метрика</li>
-            <li>Data Studio / Looker Studio</li>
-            <li>AmoCRM</li>
-            <li>UTM-метки</li>
-        </ul>
-    </div>
-    <div class="sidebar-block">
-        <h3>🔗 Связанные услуги</h3>
-        <ul>
-            <li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li>
-            <li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li>
-        </ul>
-    </div>
-</aside>
+            <div class="footer-grid">
+                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
             </div>
+            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
         </div>
-    </main>
-
-   <footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>🔍 Проблемы с трафиком</h4>
-                <ul>
-                    <li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li>
-                    <li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li>
-                    <li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li>
-                    <li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>🎯 Проблемы с конверсией</h4>
-                <ul>
-                    <li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li>
-                    <li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li>
-                    <li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li>
-                    <li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>⚙️ Проблемы с управлением</h4>
-                <ul>
-                    <li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li>
-                    <li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li>
-                    <li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li>
-                    <li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>🚀 Всё сразу</h4>
-                <ul>
-                    <li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 SystemSales. Превращаем хаос в систему.</p>
-        </div>
-    </div>
-</footer>
-
-    <script>
-        const b=document.getElementById('burgerBtn'),n=document.getElementById('mainNav');
-        b&&n&&b.addEventListener('click',()=>{n.style.display=n.style.display==='flex'?'none':'flex';if(n.style.display==='flex'){n.style.flexDirection='column';n.style.position='absolute';n.style.top='70px';n.style.left='0';n.style.background='white';n.style.width='100%';n.style.padding='20px';n.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)';}});
-    </script>
+    </footer>
+    <script src="/Mngment/script.js" defer></script>
 </body>
 </html>
