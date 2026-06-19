@@ -63,37 +63,71 @@
                     <a href="#form" class="btn btn-primary cta-main">Получить бесплатный аудит</a>
                 </div>
                 
-                <div class="calculator calculator--seo">
-                    <h3>🔍 SEO-шанс</h3>
-                    <div class="calc-step">
-                        <label>Адрес вашего сайта</label>
-                        <input type="text" id="siteUrl" placeholder="https://vashsite.ru" class="calc-input">
-                    </div>
-                    <div class="calc-step">
-                        <label>Сфера бизнеса</label>
-                        <select id="businessType" class="calc-select">
-                            <option value="B2B-услуги">B2B-услуги</option>
-                            <option value="B2C-товары">B2C-товары</option>
-                            <option value="Производство">Производство</option>
-                            <option value="Строительство">Строительство</option>
-                            <option value="IT">IT</option>
-                            <option value="Другое">Другое</option>
-                        </select>
-                    </div>
-                    <div class="calc-step">
-                        <label>Желаемое количество заявок в месяц</label>
-                        <input type="number" id="desiredLeads" placeholder="Например: 50" min="1" class="calc-input">
-                    </div>
-                    <button class="btn btn-primary" id="scanBtn" style="width:100%;">Просканировать сайт</button>
-                    <div class="calc-result" id="seoResult" style="display:none;">
-                        <p>📄 Страниц на сайте: <strong id="pagesCount">0</strong></p>
-                        <p>🔴 Критических ошибок: <strong id="errorsCount">0</strong></p>
-                        <p>📉 Потерянных посетителей/мес: <strong id="trafficLoss">0</strong></p>
-                        <p>📈 Прогноз роста трафика: <strong id="growthPercent">0%</strong></p>
-                        <p style="margin-top:15px;font-weight:600;">Хотите точный аудит? Оставьте заявку ниже ↓</p>
-                    </div>
-                </div>
-            </div>
+                <div class="calculator calculator--seo" id="seoCalculator">
+    <h3>🔍 SEO-шанс</h3>
+    
+    <!-- Прогресс-бар -->
+    <div class="progress-bar">
+        <div class="progress-step active" data-step="1">1</div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="2">2</div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="3">3</div>
+    </div>
+    <div class="progress-labels">
+        <span class="active">Сайт</span>
+        <span>Сфера</span>
+        <span>Заявки</span>
+    </div>
+
+    <!-- Шаг 1: URL -->
+    <div class="calc-step active" id="step1">
+        <label>Адрес вашего сайта</label>
+        <input type="text" id="siteUrl" placeholder="https://vashsite.ru" class="calc-input">
+        <p class="calc-hint">Вставьте ссылку на ваш сайт</p>
+        <button class="btn btn-primary" id="toStep2" disabled>Далее</button>
+    </div>
+
+    <!-- Шаг 2: Сфера -->
+    <div class="calc-step" id="step2">
+        <label>Сфера бизнеса</label>
+        <select id="businessType" class="calc-select">
+            <option value="" disabled selected>Выберите сферу</option>
+            <option>B2B-услуги</option>
+            <option>B2C-товары</option>
+            <option>Производство</option>
+            <option>Строительство</option>
+            <option>IT</option>
+            <option>Другое</option>
+        </select>
+        <button class="btn btn-outline" id="toStep1">← Назад</button>
+        <button class="btn btn-primary" id="toStep3" disabled>Далее</button>
+    </div>
+
+    <!-- Шаг 3: Заявки -->
+    <div class="calc-step" id="step3">
+        <label>Сколько заявок в месяц вы хотели бы получать с сайта?</label>
+        <input type="range" id="leadsSlider" min="10" max="1000" value="50" step="10">
+        <span class="calc-value" id="leadsValue">50</span>
+        <button class="btn btn-outline" id="toStep2b">← Назад</button>
+        <button class="btn btn-primary" id="scanBtn">Просканировать сайт</button>
+    </div>
+
+    <!-- Результат -->
+    <div class="calc-step" id="stepResult" style="display:none;">
+        <div class="scan-animation" id="scanAnimation">
+            <div class="spinner"></div>
+            <p>Сканируем сайт...</p>
+        </div>
+        <div class="calc-result" id="seoResult" style="display:none;">
+            <p>🔍 Мы просканировали <strong id="pagesCount">0</strong> страниц на вашем сайте</p>
+            <p>⚠️ Найдено <strong id="errorsCount">0</strong> критических ошибок (дубли, скорость, мета-теги)</p>
+            <p>📉 Потенциально вы теряете до <strong id="trafficLoss">0</strong> посетителей/мес</p>
+            <p>📈 Прогноз роста трафика после оптимизации: <strong id="growthPercent">0%</strong> за 4-6 месяцев</p>
+            <a href="#form" class="btn btn-primary" style="margin-top:15px;">Получить точный SEO-аудит с отчётом PDF</a>
+        </div>
+    </div>
+</div>
         </section>
 
         <!-- До/После -->
