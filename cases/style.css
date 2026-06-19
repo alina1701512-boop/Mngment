@@ -1,0 +1,20 @@
+.page-hero { padding: 80px 0 40px; text-align: center; }
+.page-hero h1 { font-size: 2.5rem; margin-bottom: 15px; }
+.page-hero__subtitle { color: #666; font-size: 1.2rem; }
+
+.cases-hub { padding: 40px 0 80px; }
+.filters { display: flex; gap: 12px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap; }
+.filter-btn { padding: 10px 24px; border: 2px solid #e0e0e0; background: #fff; border-radius: 30px; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+.filter-btn.active { background: #FF4D01; color: #fff; border-color: #FF4D01; }
+.filter-btn:hover { border-color: #FF4D01; }
+
+.cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+.case-card { background: #fff; padding: 35px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: relative; animation: fadeIn 0.4s ease; }
+.case-badge { position: absolute; top: 20px; right: 20px; background: #f0f4ff; color: #FF4D01; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+.case-metric { font-size: 2.5rem; font-weight: 800; color: #FF4D01; margin-bottom: 10px; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+    .page-hero h1 { font-size: 1.8rem; }
+}
