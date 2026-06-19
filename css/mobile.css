@@ -51,6 +51,10 @@
     .error-404__links {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .contacts-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ============================================
@@ -74,7 +78,8 @@
     }
 
     /* Шапка */
-    .header__nav {
+    .header__nav,
+    .nav {
         display: none;
         position: absolute;
         top: 70px;
@@ -86,20 +91,19 @@
         z-index: var(--z-overlay);
     }
 
-    .header__nav.nav--open {
+    .nav--open {
         display: flex;
-    }
-
-    .header__menu {
         flex-direction: column;
-        gap: 0;
     }
 
-    .header__menu a {
+    .header__menu,
+    .nav a {
         display: block;
         padding: var(--spacing-md);
         font-size: var(--font-size-base);
         border-bottom: 1px solid var(--color-border);
+        color: var(--color-dark);
+        text-decoration: none;
     }
 
     .header__phone {
@@ -114,7 +118,6 @@
         display: flex;
     }
 
-    /* Бургер-анимация */
     .burger--active span:nth-child(1) {
         transform: translateY(7px) rotate(45deg);
     }
@@ -180,6 +183,19 @@
         aspect-ratio: 16 / 9;
     }
 
+    .article-page {
+        grid-template-columns: 1fr;
+        padding: 30px 0;
+    }
+
+    .article-content h1 {
+        font-size: 1.7rem;
+    }
+
+    .sidebar {
+        position: static;
+    }
+
     /* Футер */
     .footer__grid {
         grid-template-columns: 1fr;
@@ -195,6 +211,14 @@
     /* 404 */
     .error-404__links {
         grid-template-columns: 1fr;
+    }
+
+    .not-found__title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .not-found__emoji {
+        font-size: 3.5rem;
     }
 
     /* Кнопка наверх */
@@ -213,6 +237,63 @@
 
     .calculator--quiz .calculator__quiz-options {
         flex-direction: column;
+    }
+
+    /* Кейсы */
+    .case-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .result-table {
+        grid-template-columns: 1fr;
+    }
+
+    .result-header {
+        display: none;
+    }
+
+    .result-row div {
+        padding: 12px 15px;
+    }
+
+    /* Контакты */
+    .contacts-page {
+        padding: 50px 0;
+    }
+
+    .contacts-info h1 {
+        font-size: 1.8rem;
+    }
+
+    /* Блог-хаб */
+    .page-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filters {
+        gap: 6px;
+    }
+
+    .filter-btn {
+        padding: 6px 14px;
+        font-size: 0.8rem;
+    }
+
+    /* Кейсы-хаб */
+    .cases-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-metric {
+        font-size: 2rem;
+    }
+
+    .case-card {
+        padding: 25px;
     }
 }
 
