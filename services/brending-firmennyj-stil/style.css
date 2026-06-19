@@ -1,0 +1,17 @@
+.hero-service--centered { text-align: center; max-width: 800px; margin: 0 auto; padding: 80px 20px; }
+.hero-service--centered h1 { font-size: 2.5rem; }
+.hero-service--centered .hero-service__subtitle { font-size: 1.2rem; margin-bottom: 35px; }
+.packages { padding: 80px 0; background: #fcfcfc; }
+.packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
+.package-card { background: #fff; padding: 35px; border-radius: 16px; border: 2px solid #eee; text-align: center; position: relative; transition: transform 0.3s; }
+.package-card:hover { transform: translateY(-8px); }
+.package-card--featured { border-color: #FF4D01; box-shadow: 0 15px 40px rgba(255,77,1,0.15); }
+.package-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #FF4D01; color: #fff; padding: 5px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; }
+.package-card h3 { font-size: 1.5rem; margin-bottom: 20px; }
+.package-card ul { list-style: none; padding: 0; margin-bottom: 20px; text-align: left; }
+.package-card li { padding: 8px 0; border-bottom: 1px solid #f5f5f5; color: #555; }
+.package-card li::before { content: '✓ '; color: #00C853; font-weight: 700; }
+.package-deadline { font-weight: 600; color: #FF4D01; margin-bottom: 20px; }
+@media (max-width: 768px) {
+    .hero-service--centered h1 { font-size: 1.8rem; }
+}
