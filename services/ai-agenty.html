@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-агенты и внедрение GPT для бизнеса | SystemSales</title>
+    <link rel="stylesheet" href="/Mngment/style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Может ли AI-агент «галлюцинировать» и давать неверные ответы клиентам?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Мы используем технологию RAG. Нейросеть отвечает строго на основе ваших документов. Если информации нет — агент переводит диалог на менеджера."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли интегрировать AI-агента с нашей CRM и телефонией?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Интегрируем с AmoCRM, Bitrix24 через API. Агент создаёт сделки, заполняет поля, ставит задачи, записывает на звонок."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что будет, если AI ошибётся?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Каждый диалог логируется. Мы настраиваем порог уверенности: если модель сомневается — переводит на человека."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+            <nav class="nav" id="mainNav">
+                <a href="/Mngment/#services">Услуги</a>
+                <a href="/Mngment/cases/">Кейсы</a>
+                <a href="/Mngment/blog/">Блог</a>
+                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
+            </nav>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-service">
+            <div class="container">
+                <div class="hero-service__content">
+                    <h1>AI-агенты и внедрение GPT для бизнеса: роботы, которые продают, консультируют и закрывают сделки 24/7</h1>
+                    <p class="hero-service__subtitle">Не «чат-бот для развлечения». Строим агентов на базе вашей базы знаний (RAG), которые опираются на регламенты, не галлюцинируют и интегрируются в CRM.</p>
+                    <a href="#serviceForm" class="btn btn-primary cta-main">Запустить пилотную неделю</a>
+                </div>
+
+                <div class="calculator" id="calculatorAiRentgen">
+                    <h3 class="calculator__title">🤖 AI-Рентген</h3>
+                    <p class="calculator__subtitle">Узнайте, сколько сэкономит AI-агент в вашем бизнесе</p>
+
+                    <div class="calculator__steps">
+                        <div class="calculator__step">
+                            <label class="calculator__step-label">
+                                Сколько типовых обращений в месяц?
+                                <span class="calculator__step-value" id="requestsPerMonthValue">1000</span>
+                            </label>
+                            <input type="range" class="calculator__slider" id="requestsPerMonth" min="100" max="10000" value="1000" step="100" data-format="number">
+                        </div>
+                        <div class="calculator__step">
+                            <label class="calculator__step-label">
+                                Среднее время ответа менеджера (минут)?
+                                <span class="calculator__step-value" id="responseTimeValue">10 мин</span>
+                            </label>
+                            <input type="range" class="calculator__slider" id="responseTime" min="2" max="60" value="10" step="1" data-format="time">
+                        </div>
+                        <div class="calculator__step">
+                            <label class="calculator__step-label">
+                                Средняя стоимость менеджера поддержки?
+                                <span class="calculator__step-value" id="managerCostValue">60 000 ₽</span>
+                            </label>
+                            <input type="range" class="calculator__slider" id="managerCost" min="30000" max="150000" value="60000" step="5000" data-format="money">
+                        </div>
+                    </div>
+
+                    <div class="calculator__result">
+                        <div class="calculator__result-icon">🤖</div>
+                        <div class="calculator__result-value calculator__result-value--saved">
+                            <span id="aiMoneySaved">80 000 ₽</span>/мес
+                        </div>
+                        <div class="calculator__result-desc">
+                            Это эквивалентно работе <strong><span id="aiManagers">1.3</span> менеджеров</strong>.
+                            Среднее время ответа: <strong id="aiResponseTime">3 секунды (вместо 10 мин)</strong>.
+                        </div>
+                        <div class="calculator__cta">
+                            <a href="#serviceForm" class="btn btn-accent">Запустить пилотную неделю</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="compare">
+            <div class="container">
+                <h2>Как AI-агент меняет поддержку и продажи</h2>
+                <div class="compare-table">
+                    <div class="compare-row compare-header">
+                        <div>Критерий</div><div>Было (менеджеры)</div><div>Стало (AI-агент)</div>
+                    </div>
+                    <div class="compare-row"><div>Время ответа</div><div>10-30 минут</div><div>3 секунды (24/7)</div></div>
+                    <div class="compare-row"><div>Ночные заявки</div><div>Теряются</div><div>Квалифицированы. Звонок на 09:00</div></div>
+                    <div class="compare-row"><div>Человеческий фактор</div><div>Забыл, нахамил, ошибся</div><div>Строго по скрипту. С логом</div></div>
+                    <div class="compare-row"><div>Масштабирование</div><div>Нанять 5 человек</div><div>Подключить токен за 15 минут</div></div>
+                    <div class="compare-row"><div>База знаний</div><div>В головах менеджеров</div><div>В RAG-системе. Доступна всегда</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="agent-types">
+            <div class="container">
+                <h2>Каких агентов мы создаём</h2>
+                <div class="agent-grid">
+                    <div class="agent-card">
+                        <div class="agent-icon">💬</div>
+                        <h3>AI-Консультант (поддержка)</h3>
+                        <ul><li>Отвечает по продуктам, тарифам, документам</li><li>Работает в чате, WhatsApp, Telegram</li><li>Эскалирует сложные кейсы менеджеру</li></ul>
+                        <p class="agent-example">Бот онлайн-школы: за 3 сек находит ответ про налоговый вычет</p>
+                    </div>
+                    <div class="agent-card">
+                        <div class="agent-icon">🎯</div>
+                        <h3>AI-Квалификатор (продажи)</h3>
+                        <ul><li>Определяет бюджет, потребность, срок</li><li>Заполняет поля сделки в CRM</li><li>Назначает встречу в календаре</li></ul>
+                        <p class="agent-example">Агент для B2B: за 2 минуты выясняет ЛПР и объём закупки</p>
+                    </div>
+                    <div class="agent-card">
+                        <div class="agent-icon">🏢</div>
+                        <h3>AI-Ассистент (внутренний)</h3>
+                        <ul><li>HR-онбординг: ДМС, отпуска, регламенты</li><li>Техподдержка: «сбрось пароль»</li></ul>
+                        <p class="agent-example">200 типовых вопросов в день — без участия IT-отдела</p>
+                    </div>
+                    <div class="agent-card">
+                        <div class="agent-icon">🔄</div>
+                        <h3>AI-Воронка (комплекс)</h3>
+                        <ul><li>Чат-бот → AI → CRM → задача менеджеру</li><li>Полный цикл от касания до сделки</li></ul>
+                        <p class="agent-example">Клиент ночью → AI демо → квалификация → утром звонок</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-full">
+            <div class="container">
+                <h2>Кейс: Как онлайн-школа сократила ФОТ поддержки на 40%</h2>
+                <div class="case-grid">
+                    <div class="case-item"><strong>Клиент:</strong> Онлайн-школа цифровых профессий (15 000+ студентов)</div>
+                    <div class="case-item"><strong>Задача:</strong> Разгрузить поддержку от типовых вопросов</div>
+                    <div class="case-item"><strong>Решение:</strong> AI-агент с RAG, интеграция в WhatsApp и Telegram</div>
+                    <div class="case-item"><strong>Результат:</strong> 68% диалогов без человека, ФОТ −40%, CSI +12 п.п.</div>
+                </div>
+                <div class="center-btn">
+                    <a href="/Mngment/cases/ai-edtech/" class="btn btn-outline">Читать полный кейс</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq">
+            <div class="container">
+                <h2>Частые вопросы о внедрении AI-агентов</h2>
+                <div class="faq-list">
+                    <details class="faq-item"><summary>Сколько стоит разработка AI-агента под ключ?</summary><p>Цена зависит от сложности. Простой агент — от XX XXX ₽. Комплексное решение с RAG и CRM — от XXX XXX ₽. Точную смету делаем после бесплатного аудита.</p></details>
+                    <details class="faq-item"><summary>Может ли AI-агент «галлюцинировать»?</summary><p>Мы используем RAG. Нейросеть отвечает строго по вашим документам. Если информации нет — переводит на менеджера.</p></details>
+                    <details class="faq-item"><summary>Какие данные нужны для обучения?</summary><p>Скрипты продаж, записи звонков, FAQ, регламенты, статьи базы знаний. Минимум: 30-50 типовых вопросов с ответами.</p></details>
+                    <details class="faq-item"><summary>Можно ли интегрировать с CRM и телефонией?</summary><p>Да. Интегрируем с AmoCRM, Bitrix24 через API. Агент создаёт сделки, ставит задачи, записывает на звонок.</p></details>
+                    <details class="faq-item"><summary>Что если AI ошибётся?</summary><p>Каждый диалог логируется. Модель сомневается → переводит на человека. Ответственность за финальные решения — за вами.</p></details>
+                </div>
+            </div>
+        </section>
+
+        <section class="lead-magnet" id="serviceForm">
+            <div class="container">
+                <h2>Готовы протестировать? Запустим пилотного AI-агента на неделю</h2>
+                <form class="audit-form" action="/Mngment/thank-you/" method="POST" novalidate>
+                    <input type="text" name="name" placeholder="Имя" required>
+                    <input type="text" name="phone" placeholder="Телефон / Telegram" required>
+                    <input type="text" name="business" placeholder="Сфера бизнеса">
+                    <input type="text" name="task" placeholder="Какую задачу должен решать агент?">
+                    <input type="text" name="crm" placeholder="Какая CRM используется?">
+                    <button type="submit" class="btn btn-primary btn-large">Обсудить пилотный проект</button>
+                    <p class="form-note">Без предоплаты. Пилот — 7 дней. Вы увидите работу агента на реальных запросах.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
+        </div>
+    </footer>
+
+    <script src="/Mngment/script.js" defer></script>
+</body>
+</html>
