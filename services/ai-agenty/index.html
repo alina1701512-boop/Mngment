@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-агенты и внедрение GPT для бизнеса | SystemSales</title>
+    <link rel="stylesheet" href="/Mngment/style.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- JSON-LD микроразметка FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Может ли AI-агент «галлюцинировать» и давать неверные ответы клиентам?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Мы используем технологию RAG (Retrieval Augmented Generation). Нейросеть отвечает строго на основе ваших документов, регламентов и базы знаний. Если информации нет — агент честно говорит «я уточню у менеджера» и переводит диалог."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли интегрировать AI-агента с нашей CRM и телефонией?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да. Мы интегрируем агента с AmoCRM, Bitrix24 и другими системами через API. Агент умеет: создавать сделки, заполнять поля, ставить задачи, записывать на звонок. С телефонией — переводить звонок на менеджера, отправлять SMS-напоминания."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что будет, если AI ошибётся? Кто несёт ответственность?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Каждый диалог логируется. Вы всегда можете посмотреть, что ответил агент и почему. Мы настраиваем порог уверенности: если модель сомневается в ответе — она не рискует, а переводит на человека."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+            <nav class="nav" id="mainNav">
+                <a href="/Mngment/#services">Услуги</a>
+                <a href="/Mngment/#cases">Кейсы</a>
+                <a href="/Mngment/#lead-magnet">Аудит</a>
+                <a href="/contacts" class="btn btn-ghost">Контакты</a>
+            </nav>
+            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ЭКРАН 1: ОФФЕР + КАЛЬКУЛЯТОР -->
+        <section class="hero-service">
+            <div class="container">
+                <div class="hero-service__content">
+                    <h1>AI-агенты и внедрение GPT для бизнеса: роботы, которые продают, консультируют и закрывают сделки 24/7</h1>
+                    <p class="hero-service__subtitle">Не «чат-бот для развлечения». Строим агентов на базе вашей базы знаний (RAG), которые опираются на регламенты, не галлюцинируют и интегрируются в CRM.</p>
+                    <a href="#form" class="btn btn-primary cta-main">Запустить пилотную неделю</a>
+                </div>
+                
+                <!-- Калькулятор AI-Рентген -->
+                <div class="calculator" id="calculator">
+                    <h3>🤖 AI-Рентген</h3>
+                    
+                    <div class="calc-step">
+                        <label>Сколько типовых обращений в месяц обрабатываете?</label>
+                        <input type="range" id="requestsSlider" min="100" max="10000" value="1000" step="100">
+                        <span class="calc-value" id="requestsValue">1 000</span>
+                    </div>
+                    
+                    <div class="calc-step">
+                        <label>Среднее время ответа менеджера (минут)?</label>
+                        <input type="range" id="timeSlider" min="2" max="60" value="10" step="1">
+                        <span class="calc-value" id="timeValue">10 мин</span>
+                    </div>
+                    
+                    <div class="calc-step">
+                        <label>Средняя стоимость менеджера поддержки (₽/мес, gross)?</label>
+                        <input type="range" id="salarySlider" min="30000" max="150000" value="60000" step="5000">
+                        <span class="calc-value" id="salaryValue">60 000 ₽</span>
+                    </div>
+                    
+                    <div class="calc-result">
+                        <div class="calc-metric">
+                            <span class="calc-label">🤖 AI обработает до</span>
+                            <span class="calc-number" id="aiPercent">80%</span>
+                            <span class="calc-label">типовых запросов</span>
+                        </div>
+                        <div class="calc-metric">
+                            <span class="calc-label">💰 Экономия:</span>
+                            <span class="calc-number calc-save" id="savingsValue">80 000 ₽/мес</span>
+                        </div>
+                        <div class="calc-metric">
+                            <span class="calc-label">⚡ Среднее время ответа:</span>
+                            <span class="calc-number" style="color:#00C853;">3 секунды</span>
+                            <span class="calc-label">вместо <span id="oldTimeValue">10 минут</span></span>
+                        </div>
+                    </div>
+                    
+                    <p class="calc-note">Это эквивалентно работе <strong id="managersEquivalent">1.3 менеджеров</strong> без больничных, отпусков и увольнений</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 2: ДО/ПОСЛЕ -->
+        <section class="compare">
+            <div class="container">
+                <h2>Как AI-агент меняет поддержку и продажи</h2>
+                <div class="compare-table">
+                    <div class="compare-row compare-header">
+                        <div>Критерий</div>
+                        <div>Было (менеджеры)</div>
+                        <div>Стало (AI-агент)</div>
+                    </div>
+                    <div class="compare-row">
+                        <div>Время ответа</div>
+                        <div>10-30 минут (в рабочее время)</div>
+                        <div>3 секунды (24/7)</div>
+                    </div>
+                    <div class="compare-row">
+                        <div>Ночные заявки</div>
+                        <div>Теряются. Клиент уходит к конкуренту утром</div>
+                        <div>Квалифицированы. Сделка создана. Звонок назначен на 09:00</div>
+                    </div>
+                    <div class="compare-row">
+                        <div>Человеческий фактор</div>
+                        <div>Забыл позвонить, нахамил, ошибся в расчёте</div>
+                        <div>Строго по скрипту. Без эмоций. С записью лога</div>
+                    </div>
+                    <div class="compare-row">
+                        <div>Масштабирование</div>
+                        <div>Нанять ещё 5 человек в штат</div>
+                        <div>Подключить дополнительный токен за 15 минут</div>
+                    </div>
+                    <div class="compare-row">
+                        <div>База знаний</div>
+                        <div>В головах менеджеров. Уволился = потеряли знания</div>
+                        <div>Загружена в RAG-систему. Доступна мгновенно и бессрочно</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 3: ТИПЫ AI-АГЕНТОВ -->
+        <section class="agent-types">
+            <div class="container">
+                <h2>Каких агентов мы создаём</h2>
+                <div class="agent-grid">
+                    <div class="agent-card">
+                        <div class="agent-icon">💬</div>
+                        <h3>AI-Консультант (поддержка)</h3>
+                        <ul>
+                            <li>Отвечает на вопросы по продуктам, тарифам, документам</li>
+                            <li>Работает в чате на сайте, WhatsApp, Telegram</li>
+                            <li>Эскалирует сложные кейсы на живого менеджера</li>
+                        </ul>
+                        <p class="agent-example">Пример: «Бот онлайн-школы, который за 3 сек находит ответ про налоговый вычет за обучение»</p>
+                    </div>
+                    <div class="agent-card">
+                        <div class="agent-icon">🎯</div>
+                        <h3>AI-Квалификатор (продажи)</h3>
+                        <ul>
+                            <li>Сам задаёт вопросы лиду, определяет бюджет, потребность, срок</li>
+                            <li>Заполняет поля сделки в CRM</li>
+                            <li>Назначает встречу в календаре менеджера</li>
+                        </ul>
+                        <p class="agent-example">Пример: «Агент для B2B: за 2 минуты выясняет, кто ЛПР, какой объём закупки и когда тендер»</p>
+                    </div>
+                    <div class="agent-card">
+                        <div class="agent-icon">🏢</div>
+                        <h3>AI-Ассистент (внутренний)</h3>
+                        <ul>
+                            <li>HR-онбординг: отвечает новичкам про ДМС, отпуска, регламенты</li>
+                            <li>Техподдержка внутри компании: «сбрось пароль», «где найти договор»</li>
+                        </ul>
+                        <p class="agent-example">Пример: «Агент для компании из 500 человек: 200 типовых вопросов в день уходят в ноль без участия IT-отдела»</p>
+                    </div>
+                    <div class="agent-card">
+                        <div class="agent-icon">🔄</div>
+                        <h3>AI-Воронка (комплекс)</h3>
+                        <ul>
+                            <li>Связка: чат-бот → AI-квалификатор → CRM → задача менеджеру</li>
+                            <li>Полный цикл: от первого касания до закрытия сделки</li>
+                        </ul>
+                        <p class="agent-example">Пример: «Клиент заходит на сайт ночью → AI проводит демо → квалифицирует → утром менеджер звонит на готового»</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 4: КЕЙС -->
+        <section class="case-full">
+            <div class="container">
+                <h2>Кейс: Как онлайн-школа сократила ФОТ поддержки на 40% с помощью AI</h2>
+                <div class="case-grid">
+                    <div class="case-item">
+                        <strong>Клиент:</strong> Онлайн-школа цифровых профессий (EdTech, 15 000+ студентов)
+                    </div>
+                    <div class="case-item">
+                        <strong>Задача:</strong> Разгрузить отдел поддержки от типовых вопросов о тарифах, расписании, возвратах
+                    </div>
+                    <div class="case-item">
+                        <strong>Проблема:</strong> 10 менеджеров не справлялись с потоком. Среднее время ответа — 15 минут. Ночью и в выходные — тишина. Копился негатив в отзывах.
+                    </div>
+                    <div class="case-item">
+                        <strong>Решение:</strong>
+                        <ul>
+                            <li>Собрали базу знаний: все программы, тарифы, частые вопросы, закон «Об образовании»</li>
+                            <li>Внедрили AI-агента с RAG (Retrieval Augmented Generation)</li>
+                            <li>Интегрировали в WhatsApp и Telegram (основные каналы студентов)</li>
+                            <li>Настроили сценарий: типовой вопрос → мгновенный ответ, сложный → перевод на живого менеджера с полным контекстом диалога</li>
+                        </ul>
+                    </div>
+                    <div class="case-item">
+                        <strong>Результат:</strong>
+                        <ul>
+                            <li>Скорость первого ответа: с 15 минут до 3 секунд</li>
+                            <li>68% всех диалогов закрыты AI без участия человека</li>
+                            <li>ФОТ поддержки сокращён на 40% (часть менеджеров переведена на работу со сложными кейсами)</li>
+                            <li>Индекс удовлетворённости (CSI) вырос на 12 п.п. из-за мгновенных ответов</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="center-btn">
+                    <a href="#form" class="btn btn-primary">Хочу так же для своего бизнеса</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 5: FAQ -->
+        <section class="faq">
+            <div class="container">
+                <h2>Частые вопросы о внедрении AI-агентов</h2>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>Сколько стоит разработка AI-агента под ключ?</summary>
+                        <p>Цена зависит от сложности сценариев, числа интеграций и объёма базы знаний. Простой агент (ответы на типовые вопросы) — от XX XXX ₽. Комплексное решение с RAG, интеграцией в CRM и кастомным обучением — от XXX XXX ₽. Точную смету делаем после аудита ваших бизнес-процессов (бесплатно, 1-2 дня).</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Может ли AI-агент «галлюцинировать» и давать неверные ответы клиентам?</summary>
+                        <p>Мы используем технологию RAG (Retrieval Augmented Generation). Нейросеть отвечает строго на основе ваших документов, регламентов и базы знаний. Если информации нет — агент честно говорит «я уточню у менеджера» и переводит диалог. Мы жёстко ограничиваем «творчество» модели.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Какие данные нужны для обучения AI-агента?</summary>
+                        <p>Всё, что есть в цифре: скрипты продаж, записи звонков (расшифровки), FAQ, регламенты, описание продуктов, статьи базы знаний, история переписки с клиентами. Минимальный набор: 30-50 типовых вопросов с эталонными ответами.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Можно ли интегрировать AI-агента с нашей CRM и телефонией?</summary>
+                        <p>Да. Мы интегрируем агента с AmoCRM, Bitrix24 и другими системами через API. Агент умеет: создавать сделки, заполнять поля, ставить задачи, записывать на звонок. С телефонией — переводить звонок на менеджера, отправлять SMS-напоминания.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Что будет, если AI ошибётся? Кто несёт ответственность?</summary>
+                        <p>Каждый диалог логируется. Вы всегда можете посмотреть, что ответил агент и почему. Мы настраиваем порог уверенности: если модель сомневается в ответе — она не рискует, а переводит на человека. Ответственность за финальные решения остаётся за вами, но мы минимизируем риск ошибок на этапе обучения и тестирования.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 6: ФОРМА ЗАХВАТА -->
+        <section class="lead-magnet" id="form">
+            <div class="container">
+                <h2>Готовы протестировать? Запустим пилотного AI-агента на неделю</h2>
+                <form class="audit-form" action="/thank-you/" method="POST" novalidate>
+                    <input type="text" name="name" placeholder="Имя" required>
+                    <input type="text" name="phone" placeholder="Телефон / Telegram" required>
+                    <input type="text" name="business" placeholder="Сфера бизнеса">
+                    <input type="text" name="task" placeholder="Какую задачу должен решать агент? (поддержка / продажи / внутренний ассистент)">
+                    <input type="text" name="crm" placeholder="Какая CRM используется?">
+                    
+                    <button type="submit" class="btn btn-primary btn-large">Обсудить пилотный проект</button>
+                    <p class="form-note">Без предоплаты. Пилот — 7 дней. Вы увидите работу агента на реальных запросах.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 SystemSales. Превращаем хаос в систему.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Калькулятор AI-Рентген
+        document.addEventListener('DOMContentLoaded', function() {
+            const requestsSlider = document.getElementById('requestsSlider');
+            const timeSlider = document.getElementById('timeSlider');
+            const salarySlider = document.getElementById('salarySlider');
+            
+            if (requestsSlider && timeSlider && salarySlider) {
+                const requestsValue = document.getElementById('requestsValue');
+                const timeValue = document.getElementById('timeValue');
+                const salaryValue = document.getElementById('salaryValue');
+                const savingsValue = document.getElementById('savingsValue');
+                const oldTimeValue = document.getElementById('oldTimeValue');
+                const managersEquivalent = document.getElementById('managersEquivalent');
+
+                function formatMoney(num) {
+                    return num.toLocaleString('ru-RU') + ' ₽/мес';
+                }
+
+                function formatNumber(num) {
+                    return num.toLocaleString('ru-RU');
+                }
+
+                function calculate() {
+                    const requests = parseInt(requestsSlider.value);
+                    const timeMinutes = parseInt(timeSlider.value);
+                    const salary = parseInt(salarySlider.value);
+                    
+                    // 80% обращений закроет AI
+                    const aiRequests = Math.round(requests * 0.8);
+                    
+                    // Стоимость минуты менеджера: salary / 160 рабочих часов / 60 минут
+                    const costPerMinute = salary / 160 / 60;
+                    
+                    // Экономия = aiRequests * время ответа * стоимость минуты
+                    const savings = Math.round(aiRequests * timeMinutes * costPerMinute);
+                    
+                    // Эквивалент менеджеров = savings / salary
+                    const equivalent = (savings / salary).toFixed(1);
+                    
+                    savingsValue.textContent = formatMoney(savings);
+                    oldTimeValue.textContent = timeMinutes + ' минут';
+                    managersEquivalent.textContent = equivalent + ' менеджеров';
+                    
+                    // Анимация
+                    savingsValue.style.transform = 'scale(1.05)';
+                    setTimeout(() => { savingsValue.style.transform = 'scale(1)'; }, 200);
+                }
+
+                requestsSlider.addEventListener('input', function() {
+                    requestsValue.textContent = formatNumber(this.value);
+                    calculate();
+                });
+                timeSlider.addEventListener('input', function() {
+                    timeValue.textContent = this.value + ' мин';
+                    calculate();
+                });
+                salarySlider.addEventListener('input', function() {
+                    salaryValue.textContent = formatNumber(this.value) + ' ₽';
+                    calculate();
+                });
+
+                calculate();
+            }
+
+            // Мобильное меню
+            const burger = document.getElementById('burgerBtn');
+            const nav = document.getElementById('mainNav');
+            if (burger && nav) {
+                burger.addEventListener('click', function() {
+                    if (nav.style.display === 'flex') {
+                        nav.style.display = 'none';
+                    } else {
+                        nav.style.display = 'flex';
+                        nav.style.flexDirection = 'column';
+                        nav.style.position = 'absolute';
+                        nav.style.top = '70px';
+                        nav.style.left = '0';
+                        nav.style.background = 'white';
+                        nav.style.width = '100%';
+                        nav.style.padding = '20px';
+                        nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
