@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Разработка чат-ботов для Telegram, WhatsApp и сайта | SystemSales</title>
+    <link rel="stylesheet" href="/Mngment/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+            <nav class="nav" id="mainNav">
+                <a href="/Mngment/#services">Услуги</a>
+                <a href="/Mngment/#cases">Кейсы</a>
+                <a href="/Mngment/#lead-magnet">Аудит</a>
+                <a href="/contacts" class="btn btn-ghost">Контакты</a>
+            </nav>
+            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ЭКРАН 1: ОФФЕР -->
+        <section class="hero-service">
+            <div class="container hero-service--centered">
+                <div class="hero-service__content">
+                    <h1>Разработка чат-ботов для Telegram, WhatsApp и сайта: автоматизируем продажи и поддержку 24/7</h1>
+                    <p class="hero-service__subtitle">Чат-боты, которые не бесят шаблонными ответами. Пишем кастомные сценарии, интегрируем с CRM и передаём живому менеджеру с полным контекстом диалога.</p>
+                    <a href="#form" class="btn btn-primary cta-main">Заказать прототип бота</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 2: ВОЗМОЖНОСТИ -->
+        <section class="capabilities">
+            <div class="container">
+                <h2>Что умеют наши боты</h2>
+                <div class="capabilities-grid">
+                    <div class="capability-card">
+                        <span class="capability-icon">🎯</span>
+                        <h3>Квалификация лида</h3>
+                        <p>Имя, телефон, бюджет, потребность — бот сам задаст вопросы и заполнит сделку в CRM</p>
+                    </div>
+                    <div class="capability-card">
+                        <span class="capability-icon">📅</span>
+                        <h3>Запись на услугу</h3>
+                        <p>Интеграция с календарём. Клиент выбирает время — бот бронирует</p>
+                    </div>
+                    <div class="capability-card">
+                        <span class="capability-icon">🌙</span>
+                        <h3>Поддержка 24/7</h3>
+                        <p>Ответы на частые вопросы в нерабочее время. Клиенты не уходят к конкурентам ночью</p>
+                    </div>
+                    <div class="capability-card">
+                        <span class="capability-icon">🔥</span>
+                        <h3>Прогрев к покупке</h3>
+                        <p>Цепочка сообщений с кейсами, отзывами, спецпредложениями. Автоматический ретаргетинг в мессенджере</p>
+                    </div>
+                    <div class="capability-card">
+                        <span class="capability-icon">🤝</span>
+                        <h3>Передача менеджеру</h3>
+                        <p>Если бот не знает ответа — подключает живого сотрудника с полной историей переписки. Клиент не повторяет одно и то же дважды</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 3: КЕЙС -->
+        <section class="case-full">
+            <div class="container">
+                <h2>Кейс: Бот, который заменил 3 менеджеров первой линии для интернет-магазина</h2>
+                <div class="case-grid">
+                    <div class="case-item">
+                        <strong>Клиент:</strong> Интернет-магазин зоотоваров
+                    </div>
+                    <div class="case-item">
+                        <strong>Задача:</strong> Обрабатывать вопросы «где мой заказ», «какой корм лучше» без участия людей
+                    </div>
+                    <div class="case-item">
+                        <strong>Решение:</strong> WhatsApp-бот + интеграция с трек-номером службы доставки + база знаний по кормам
+                    </div>
+                    <div class="case-item">
+                        <strong>Результат:</strong> 70% запросов закрыты ботом. Менеджеры освобождены для сложных консультаций. Время ответа на типовой вопрос — 2 секунды вместо 15 минут ожидания на линии
+                    </div>
+                </div>
+                <div class="center-btn">
+                    <a href="#form" class="btn btn-primary">Хочу такого же бота</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЭКРАН 4: ФОРМА ЗАХВАТА -->
+        <section class="lead-magnet" id="form">
+            <div class="container">
+                <h2>Обсудим вашего бота? Напишем прототип за 3 дня</h2>
+                <p class="lead-magnet__subtitle">Опишите задачу — мы предложим сценарий и назовём точную цену</p>
+                <form class="audit-form" action="/thank-you/" method="POST" novalidate>
+                    <input type="text" name="name" placeholder="Имя" required>
+                    <input type="text" name="phone" placeholder="Телефон / Telegram" required>
+                    <input type="text" name="business" placeholder="Сфера бизнеса">
+                    <select name="platform" required>
+                        <option value="" disabled selected>Где нужен бот?</option>
+                        <option>Telegram</option>
+                        <option>WhatsApp</option>
+                        <option>На сайте (виджет)</option>
+                        <option>Везде (комплекс)</option>
+                    </select>
+                    <input type="text" name="task" placeholder="Какую задачу должен решать бот? (кратко)">
+                    
+                    <button type="submit" class="btn btn-primary btn-large">Получить прототип и смету</button>
+                    <p class="form-note">Прототип — это 5-10 сообщений в логике вашего бизнеса. Бесплатно. Покажем, как бот общается с клиентом.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 SystemSales. Превращаем хаос в систему.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Мобильное меню
+            const burger = document.getElementById('burgerBtn');
+            const nav = document.getElementById('mainNav');
+            if (burger && nav) {
+                burger.addEventListener('click', function() {
+                    if (nav.style.display === 'flex') {
+                        nav.style.display = 'none';
+                    } else {
+                        nav.style.display = 'flex';
+                        nav.style.flexDirection = 'column';
+                        nav.style.position = 'absolute';
+                        nav.style.top = '70px';
+                        nav.style.left = '0';
+                        nav.style.background = 'white';
+                        nav.style.width = '100%';
+                        nav.style.padding = '20px';
+                        nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                    }
+                });
+            }
+
+            // Плавный скролл к форме
+            const ctaButtons = document.querySelectorAll('a[href="#form"]');
+            ctaButtons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const formSection = document.getElementById('form');
+                    if (formSection) {
+                        formSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
