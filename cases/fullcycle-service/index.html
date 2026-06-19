@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кейс: Окупаемость за 2 месяца | SystemSales</title>
+    <link rel="stylesheet" href="/Mngment/style.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .case-hero { padding: 80px 0 50px; }
+        .case-hero h1 { font-size: 2.5rem; max-width: 900px; }
+        .case-section { padding: 40px 0; border-bottom: 1px solid #eee; }
+        .case-section h2 { text-align: left; margin-bottom: 20px; }
+        .case-section p { color: #555; line-height: 1.8; margin-bottom: 15px; }
+        .case-section ul { margin: 15px 0 15px 20px; color: #555; line-height: 1.8; }
+        .result-table { display: grid; grid-template-columns: 200px 1fr 1fr; gap: 0; margin: 30px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .result-row { display: contents; }
+        .result-row div { padding: 15px 20px; background: #fff; border-bottom: 1px solid #eee; }
+        .result-header div { background: #1a1a2e; color: #fff; font-weight: 700; }
+        .result-old { color: #E53935; }
+        .result-new { color: #00C853; font-weight: 600; }
+        .cta-block { text-align: center; padding: 60px 0; }
+        @media (max-width: 768px) {
+            .case-hero h1 { font-size: 1.8rem; }
+            .result-table { grid-template-columns: 1fr; }
+            .result-header { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+            <nav class="nav" id="mainNav">
+                <a href="/Mngment/#services">Услуги</a>
+                <a href="/Mngment/cases/">Кейсы</a>
+                <a href="/Mngment/contacts/">Контакты</a>
+            </nav>
+            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+    <main>
+        <section class="case-hero">
+            <div class="container">
+                <h1>Сайт + CRM + бот: как сеть сервисных центров окупила digital-экосистему за 2 месяца</h1>
+            </div>
+        </section>
+        <section class="case-section"><div class="container"><h2>Клиент и контекст</h2><p>Сеть сервисных центров по ремонту техники. 4 точки в одном регионе. Отдел продаж — 8 менеджеров. Основной поток заявок — звонки и сайт.</p></div></section>
+        <section class="case-section"><div class="container"><h2>Задача и боль</h2><p>Связать сайт, телефонию и работу мастеров в одной системе. Время обработки лида — 45 минут. Заявки терялись при передаче между менеджерами. Руководитель не видел картину целиком.</p></div></section>
+        <section class="case-section"><div class="container"><h2>Решение</h2><ul><li>Разработали новый сайт с квиз-формой (калькулятор стоимости ремонта)</li><li>Настроили AmoCRM: кастомная воронка под цикл ремонта</li><li>Интегрировали телефонию: запись звонков, автоопределение клиента</li><li>Настроили SMS-уведомления клиенту о статусе ремонта</li><li>Webhook: заявка с сайта → сделка в CRM → задача мастеру</li></ul></div></section>
+        <section class="case-section"><div class="container"><h2>Результат</h2>
+            <div class="result-table">
+                <div class="result-row result-header"><div>Показатель</div><div>Было</div><div>Стало</div></div>
+                <div class="result-row"><div>Время обработки лида</div><div class="result-old">45 минут</div><div class="result-new">2 минуты</div></div>
+                <div class="result-row"><div>Потерянных заявок</div><div class="result-old">~15%</div><div class="result-new">0%</div></div>
+                <div class="result-row"><div>Окупаемость</div><div class="result-old">—</div><div class="result-new">2 месяца</div></div>
+            </div>
+        </div></section>
+        <section class="cta-block"><div class="container"><h2>Хотите такую же систему?</h2><p style="color:#666;margin-bottom:25px;">Обсудим комплексное внедрение под ваш бизнес</p><a href="/Mngment/services/marketing-pod-kljuch/#form" class="btn btn-primary btn-large">Обсудить проект</a></div></section>
+    </main>
+    <footer class="footer"><div class="container"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div></footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const burger = document.getElementById('burgerBtn');
+            const nav = document.getElementById('mainNav');
+            if (burger && nav) {
+                burger.addEventListener('click', function() {
+                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                    if (nav.style.display === 'flex') {
+                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
+                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
+                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
