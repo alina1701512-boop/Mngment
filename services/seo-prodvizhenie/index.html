@@ -204,58 +204,114 @@
                 });
             }
 
-            // Калькулятор SEO
-            const scanBtn = document.getElementById('scanBtn');
-            if (scanBtn) {
-                scanBtn.addEventListener('click', function() {
-                    const businessType = document.getElementById('businessType').value;
-                    const desiredLeads = parseInt(document.getElementById('desiredLeads').value) || 50;
-                    
-                    // Базовые значения зависят от сферы
-                    const baseMultipliers = {
-                        'B2B-услуги': 1.0,
-                        'B2C-товары': 1.3,
-                        'Производство': 0.8,
-                        'Строительство': 0.9,
-                        'IT': 1.1,
-                        'Другое': 1.0
-                    };
-                    
-                    const multiplier = baseMultipliers[businessType] || 1.0;
-                    
-                    // Количество страниц (X) = 20-200, зависит от сферы
-                    const pages = Math.floor(20 + Math.random() * 180 * multiplier);
-                    
-                    // Критических ошибок (Y) = 5-50
-                    const errors = Math.floor(5 + Math.random() * 45);
-                    
-                    // Потерянные посетители (Z) = желаемые заявки × 10-50
-                    const lostTraffic = desiredLeads * Math.floor(10 + Math.random() * 40);
-                    
-                    // Прогноз роста (W) = 100-500%
-                    const growth = Math.floor(100 + Math.random() * 400);
-                    
-                    // Обновляем результаты
-                    document.getElementById('pagesCount').textContent = pages.toLocaleString('ru-RU');
-                    document.getElementById('errorsCount').textContent = errors;
-                    document.getElementById('trafficLoss').textContent = lostTraffic.toLocaleString('ru-RU');
-                    document.getElementById('growthPercent').textContent = growth + '%';
-                    
-                    // Показываем результат с анимацией
-                    const result = document.getElementById('seoResult');
-                    result.style.display = 'block';
-                    result.style.animation = 'fadeIn 0.5s ease';
-                });
+            document.addEventListener('DOMContentLoaded', function() {
+    // Мобильное меню
+    const burger = document.getElementById('burgerBtn');
+    const nav = document.getElementById('mainNav');
+    if (burger && nav) {
+        burger.addEventListener('click', function() {
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            if (nav.style.display === 'flex') {
+                nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
+                nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
+                nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
             }
-
-            // Плавная прокрутка к форме
-            document.querySelectorAll('a[href="#form"]').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.getElementById('form')?.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
         });
+    }
+
+    // === КАЛЬКУЛЯТОР SEO-ШАНС ===
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    const step3 = document.getElementById('step3');
+    const stepResult = document.getElementById('stepResult');
+    const siteUrl = document.getElementById('siteUrl');
+    const businessType = document.getElementById('businessType');
+    const leadsSlider = document.getElementById('leadsSlider');
+    const leadsValue = document.getElementById('leadsValue');
+    const progressSteps = document.querySelectorAll('.progress-step');
+    const progressLabels = document.querySelectorAll('.progress-labels span');
+
+    function setProgress(step) {
+        progressSteps.forEach(s => s.classList.remove('active'));
+        progressLabels.forEach(l => l.classList.remove('active'));
+        for (let i = 1; i <= step; i++) {
+            document.querySelector(`.progress-step[data-step="${i}"]`)?.classList.add('active');
+            progressLabels[i-1]?.classList.add('active');
+        }
+    }
+
+    function showStep(step) {
+        [step1, step2, step3, stepResult].forEach(s => s.style.display = 'none');
+        if (step === 1) { step1.style.display = 'block'; setProgress(1); }
+        if (step === 2) { step2.style.display = 'block'; setProgress(2); }
+        if (step === 3) { step3.style.display = 'block'; setProgress(3); }
+        if (step === 4) { stepResult.style.display = 'block'; setProgress(3); }
+    }
+
+    // Валидация URL
+    siteUrl?.addEventListener('input', function() {
+        const urlPattern = /^https?:\/\/.+\..+/;
+        document.getElementById('toStep2').disabled = !urlPattern.test(this.value);
+    });
+
+    // Валидация сферы
+    businessType?.addEventListener('change', function() {
+        document.getElementById('toStep3').disabled = !this.value;
+    });
+
+    // Навигация
+    document.getElementById('toStep2')?.addEventListener('click', () => showStep(2));
+    document.getElementById('toStep1')?.addEventListener('click', () => showStep(1));
+    document.getElementById('toStep3')?.addEventListener('click', () => showStep(3));
+    document.getElementById('toStep2b')?.addEventListener('click', () => showStep(2));
+
+    // Ползунок заявок
+    leadsSlider?.addEventListener('input', function() {
+        leadsValue.textContent = this.value;
+    });
+
+    // Сканирование
+    document.getElementById('scanBtn')?.addEventListener('click', function() {
+        showStep(4);
+        document.getElementById('scanAnimation').style.display = 'block';
+        document.getElementById('seoResult').style.display = 'none';
+
+        // Имитация сканирования 3 секунды
+        setTimeout(() => {
+            document.getElementById('scanAnimation').style.display = 'none';
+            document.getElementById('seoResult').style.display = 'block';
+
+            const business = businessType.value;
+            const desiredLeads = parseInt(leadsSlider.value);
+
+            const multipliers = {
+                'B2B-услуги': 1.0, 'B2C-товары': 1.3, 'Производство': 0.8,
+                'Строительство': 0.9, 'IT': 1.1, 'Другое': 1.0
+            };
+            const mult = multipliers[business] || 1.0;
+
+            const pages = Math.floor(20 + Math.random() * 180 * mult);
+            const errors = Math.floor(5 + Math.random() * 45);
+            const lostTraffic = desiredLeads * Math.floor(10 + Math.random() * 40);
+            const growth = Math.floor(100 + Math.random() * 400);
+
+            document.getElementById('pagesCount').textContent = pages;
+            document.getElementById('errorsCount').textContent = errors;
+            document.getElementById('trafficLoss').textContent = lostTraffic.toLocaleString('ru-RU');
+            document.getElementById('growthPercent').textContent = '+' + growth + '%';
+        }, 3000);
+    });
+
+    // Плавный скролл
+    document.querySelectorAll('a[href="#form"]').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('form')?.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    showStep(1);
+});
     </script>
 </body>
 </html>
