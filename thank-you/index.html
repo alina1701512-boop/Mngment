@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заявка получена | SystemSales</title>
+    <link rel="stylesheet" href="/Mngment/style.css">
+    <style>
+        .thank-you { text-align: center; padding: 100px 20px; }
+        .thank-you h1 { font-size: 2.5rem; margin-bottom: 20px; color: #00C853; }
+        .thank-you p { font-size: 1.2rem; color: #555; margin-bottom: 10px; }
+        .timeline { display: flex; gap: 30px; justify-content: center; margin: 50px 0; flex-wrap: wrap; }
+        .timeline-step { background: #fff; padding: 25px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); width: 200px; text-align: center; }
+        .timeline-step .day { font-size: 0.9rem; color: #FF4D01; font-weight: 700; margin-bottom: 5px; }
+        .timeline-step h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .timeline-step p { font-size: 0.9rem; color: #666; }
+        .telegram-cta { margin-top: 40px; }
+        @media (max-width: 768px) {
+            .thank-you h1 { font-size: 1.8rem; }
+            .timeline { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+        </div>
+    </header>
+
+    <main>
+        <section class="thank-you">
+            <div class="container">
+                <h1>✅ Заявка получена. Мы уже начали работу.</h1>
+                <p>Спасибо за доверие. Я лично проверяю каждую заявку.</p>
+                <p style="color:#888;">Сейчас аналитик смотрит вашу ситуацию</p>
+
+                <div class="timeline">
+                    <div class="timeline-step">
+                        <div class="day">Сегодня</div>
+                        <h3>📞 Звонок аналитика</h3>
+                        <p>Уточним детали и договоримся о времени аудита</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="day">Завтра</div>
+                        <h3>📋 Черновик решения</h3>
+                        <p>Предложим архитектуру под ваш бизнес</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="day">3 дня</div>
+                        <h3>🚀 Пилот</h3>
+                        <p>Запускаем тестовую версию для проверки гипотез</p>
+                    </div>
+                </div>
+
+                <div class="telegram-cta">
+                    <p style="margin-bottom:15px;">А пока посмотрите наш Telegram-канал с кейсами</p>
+                    <a href="https://t.me/your_channel" class="btn btn-primary">Перейти в Telegram</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
+    </footer>
+</body>
+</html>
