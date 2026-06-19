@@ -1,0 +1,63 @@
+document.addEventListener('DOMContentLoaded', function() {
+
+    // 1. Анимация схемы (зеленая линия при скролле)
+    const chart = document.getElementById('flowChart');
+    if (chart) {
+        const connectors = chart.querySelectorAll('.connector');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    connectors.forEach((conn, index) => {
+                        setTimeout(() => {
+                            conn.classList.add('active');
+                        }, index * 400);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        observer.observe(chart);
+    }
+
+    // 2. Ползунок количества заявок
+    const slider = document.getElementById('leadsSlider');
+    const output = document.getElementById('sliderValue');
+    if (slider && output) {
+        output.textContent = slider.value;
+        slider.addEventListener('input', function() {
+            output.textContent = this.value;
+        });
+    }
+
+    // 3. Мобильное меню (базовая логика)
+    const burger = document.getElementById('burgerBtn');
+    const nav = document.getElementById('mainNav');
+    if (burger && nav) {
+        burger.addEventListener('click', function() {
+            if (nav.style.display === 'flex') {
+                nav.style.display = 'none';
+            } else {
+                nav.style.display = 'flex';
+                nav.style.flexDirection = 'column';
+                nav.style.position = 'absolute';
+                nav.style.top = '70px';
+                nav.style.left = '0';
+                nav.style.background = 'white';
+                nav.style.width = '100%';
+                nav.style.padding = '20px';
+            }
+        });
+    }
+
+    // 4. Имитация отправки формы (без редиректа в демо, но с редиректом в реальности)
+    const form = document.getElementById('auditForm');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            // В реальном проекте тут отправка через fetch на вебхук
+            // fetch('/webhook.php', { method: 'POST', body: new FormData(form) })
+            // Для демо: даем сработать редиректу на /thank-you/
+            console.log('Лид-магнит отправлен. Редирект на /thank-you/');
+        });
+    }
+
+});
