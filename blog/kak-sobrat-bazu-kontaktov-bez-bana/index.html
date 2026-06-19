@@ -3,33 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Как собрать B2B-базу контактов без бана | SystemSales</title>
+    <title>Как собрать B2B-базу контактов без бана аккаунта: полный гайд по парсингу в 2026 | SystemSales</title>
     <link rel="stylesheet" href="/Mngment/style.css">
-    <link rel="stylesheet" href="../style.css">
-    <style>
-        .article-page { display: grid; grid-template-columns: 1fr 300px; gap: 40px; padding: 60px 0; }
-        .article-content h1 { font-size: 2.5rem; margin-bottom: 25px; }
-        .article-content h2 { font-size: 1.6rem; margin: 35px 0 15px; text-align: left; }
-        .article-content p { color: #444; line-height: 1.9; margin-bottom: 20px; font-size: 1.05rem; }
-        .article-content ul, .article-content ol { margin: 15px 0 20px 25px; color: #444; line-height: 1.9; }
-        .article-content li { margin-bottom: 8px; }
-        .article-content blockquote { background: #f0f4ff; padding: 20px 25px; border-left: 4px solid #FF4D01; margin: 25px 0; font-style: italic; color: #555; }
-        .sidebar { position: sticky; top: 90px; align-self: start; }
-        .sidebar-block { background: #fff; padding: 25px; border-radius: 16px; border: 1px solid #eee; margin-bottom: 25px; }
-        .sidebar-block h3 { font-size: 1.1rem; margin-bottom: 15px; }
-        .sidebar-block ul { list-style: none; padding: 0; }
-        .sidebar-block li { margin-bottom: 10px; }
-        .sidebar-block a { color: #FF4D01; text-decoration: none; font-weight: 500; }
-        .sidebar-block a:hover { text-decoration: underline; }
-        .cta-article { background: #1a1a2e; color: #fff; padding: 30px; border-radius: 16px; text-align: center; margin-top: 20px; }
-        .cta-article h3 { color: #fff; margin-bottom: 10px; }
-        .cta-article p { color: rgba(255,255,255,0.7); margin-bottom: 20px; }
-        @media (max-width: 768px) {
-            .article-page { grid-template-columns: 1fr; }
-            .article-content h1 { font-size: 1.8rem; }
-            .sidebar { position: static; }
-        }
-    </style>
 </head>
 <body>
     <header class="header">
@@ -39,9 +14,9 @@
                 <a href="/Mngment/#services">Услуги</a>
                 <a href="/Mngment/cases/">Кейсы</a>
                 <a href="/Mngment/blog/">Блог</a>
-                <a href="/Mngment/contacts/">Контакты</a>
+                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
             </nav>
-            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
     </header>
 
@@ -74,7 +49,6 @@
                     </ul>
 
                     <h2>Анти-бан защита</h2>
-                    <p>Чтобы не получить блокировку IP или аккаунта, соблюдаем правила:</p>
                     <ul>
                         <li>Прокси-серверы: распределённые IP-адреса, имитация поведения обычного пользователя</li>
                         <li>Задержки между запросами: от 1 до 5 секунд, чтобы не триггерить защиту площадок</li>
@@ -84,7 +58,6 @@
                     </ul>
 
                     <h2>Что делать с собранным?</h2>
-                    <p>Собранные данные нужно верифицировать и загрузить в CRM. Мы делаем так:</p>
                     <ol>
                         <li><strong>Верификация номеров:</strong> автоматический прозвон-сброс (определяет живой номер)</li>
                         <li><strong>Валидация email:</strong> проверка синтаксиса и MX-записи домена</li>
@@ -97,84 +70,39 @@
                 </article>
 
                 <aside class="sidebar">
-    <div class="sidebar-block">
-        <h3>🛠️ Инструменты</h3>
-        <ul>
-            <li>Python (BeautifulSoup)</li>
-            <li>AmoCRM API</li>
-            <li>2ГИС / Яндекс Карты</li>
-            <li>ЕГРЮЛ API</li>
-        </ul>
-    </div>
-    <div class="sidebar-block">
-        <h3>🔗 Связанные услуги</h3>
-        <ul>
-            <li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li>
-            <li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li>
-        </ul>
-    </div>
-</aside>
+                    <div class="sidebar-block">
+                        <h3>🛠️ Инструменты</h3>
+                        <ul>
+                            <li>Python (BeautifulSoup)</li>
+                            <li>AmoCRM API</li>
+                            <li>2ГИС / Яндекс Карты</li>
+                            <li>ЕГРЮЛ API</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-block">
+                        <h3>🔗 Связанные услуги</h3>
+                        <ul>
+                            <li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li>
+                            <li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li>
+                        </ul>
+                    </div>
+                </aside>
             </div>
         </div>
     </main>
 
-  <footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>🔍 Проблемы с трафиком</h4>
-                <ul>
-                    <li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li>
-                    <li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li>
-                    <li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li>
-                    <li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li>
-                </ul>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
             </div>
-            <div class="footer-col">
-                <h4>🎯 Проблемы с конверсией</h4>
-                <ul>
-                    <li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li>
-                    <li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li>
-                    <li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li>
-                    <li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>⚙️ Проблемы с управлением</h4>
-                <ul>
-                    <li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li>
-                    <li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li>
-                    <li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li>
-                    <li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>🚀 Всё сразу</h4>
-                <ul>
-                    <li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li>
-                </ul>
-            </div>
+            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2026 SystemSales. Превращаем хаос в систему.</p>
-        </div>
-    </div>
-</footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const burger = document.getElementById('burgerBtn');
-            const nav = document.getElementById('mainNav');
-            if (burger && nav) {
-                burger.addEventListener('click', function() {
-                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-                    if (nav.style.display === 'flex') {
-                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
-                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
-                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-                    }
-                });
-            }
-        });
-    </script>
+    </footer>
+
+    <script src="/Mngment/script.js" defer></script>
 </body>
 </html>
