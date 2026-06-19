@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как настроить автопрогрев лидов: цепочка без менеджера | SystemSales</title>
+    <link rel="stylesheet" href="/Mngment/style.css">
+    <link rel="stylesheet" href="/Mngment/blog/style.css">
+    <style>
+        .article-page { display: grid; grid-template-columns: 1fr 300px; gap: 40px; padding: 60px 0; }
+        .article-content h1 { font-size: 2.2rem; margin-bottom: 20px; }
+        .article-content h2 { font-size: 1.5rem; margin: 30px 0 15px; text-align: left; }
+        .article-content p { color: #444; line-height: 1.9; margin-bottom: 18px; }
+        .article-content ul, .article-content ol { margin: 15px 0 20px 25px; color: #444; line-height: 1.9; }
+        .article-content blockquote { background: #f0fff4; padding: 20px 25px; border-left: 4px solid #00C853; margin: 25px 0; }
+        .sidebar { position: sticky; top: 90px; align-self: start; }
+        .sidebar-block { background: #fff; padding: 20px; border-radius: 14px; border: 1px solid #eee; margin-bottom: 20px; }
+        .sidebar-block h3 { font-size: 1.1rem; margin-bottom: 12px; }
+        .sidebar-block ul { list-style: none; padding: 0; }
+        .sidebar-block li { margin-bottom: 8px; }
+        .sidebar-block a { color: #FF4D01; text-decoration: none; }
+        .cta-article { background: #1a1a2e; color: #fff; padding: 25px; border-radius: 14px; text-align: center; margin-top: 20px; }
+        .cta-article h3 { color: #fff; margin-bottom: 8px; }
+        .cta-article p { color: rgba(255,255,255,0.7); margin-bottom: 18px; }
+        @media (max-width: 768px) {
+            .article-page { grid-template-columns: 1fr; }
+            .article-content h1 { font-size: 1.7rem; }
+            .sidebar { position: static; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+            <nav class="nav" id="mainNav">
+                <a href="/Mngment/#services">Услуги</a>
+                <a href="/Mngment/cases/">Кейсы</a>
+                <a href="/Mngment/blog/">Блог</a>
+                <a href="/Mngment/contacts/">Контакты</a>
+            </nav>
+            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="article-page">
+                <article class="article-content">
+                    <h1>Как настроить автопрогрев лидов: цепочка писем, SMS и чат-бот, которая работает без менеджера</h1>
+                    
+                    <p>Менеджер позвонил один раз, не дозвонился и забыл. А лид тем временем ушёл к конкуренту, который был настойчивее. Знакомая картина? Автопрогрев решает эту проблему — система сама касается лида 5-7 раз, пока он не будет готов к разговору.</p>
+
+                    <h2>Из чего состоит цепочка автопрогрева</h2>
+                    <ol>
+                        <li><strong>Мгновенная реакция (0 минут):</strong> лид оставил заявку → SMS/сообщение в мессенджер: «Спасибо, мы получили заявку. Менеджер позвонит в течение 15 минут»</li>
+                        <li><strong>Первое касание (15 минут):</strong> звонок менеджера. Не дозвонился → автосообщение с предложением выбрать время для звонка</li>
+                        <li><strong>Полезный контент (2 часа):</strong> кейс или статья по теме запроса лида. Без продажи — только польза</li>
+                        <li><strong>Социальное доказательство (24 часа):</strong> отзыв клиента из той же ниши</li>
+                        <li><strong>Спецпредложение (48 часов):</strong> «Только для вас — аудит бесплатно до пятницы»</li>
+                        <li><strong>Финальное касание (72 часа):</strong> «Мы всё ещё здесь. Нужна помощь?»</li>
+                    </ol>
+
+                    <h2>Инструменты для настройки</h2>
+                    <ul>
+                        <li><strong>Email:</strong> Unisender, Mailchimp — для цепочек писем</li>
+                        <li><strong>SMS:</strong> SMS-шлюзы через API</li>
+                        <li><strong>Чат-боты:</strong> Telegram, WhatsApp — для мгновенных касаний</li>
+                        <li><strong>CRM:</strong> AmoCRM — автоматическая постановка задач менеджеру</li>
+                    </ul>
+
+                    <blockquote>Результат: лид получает 5-7 касаний без участия человека. Менеджер подключается только когда лид «горячий» и готов к разговору.</blockquote>
+
+                    <h2>Типичные ошибки</h2>
+                    <ul>
+                        <li>Слишком частые касания (спам)</li>
+                        <li>Одинаковый контент на всех этапах</li>
+                        <li>Нет возможности отписаться</li>
+                        <li>Цепочка не привязана к источнику лида</li>
+                    </ul>
+                </article>
+
+                <aside class="sidebar">
+                    <div class="sidebar-block">
+                        <h3>🛠️ Инструменты</h3>
+                        <ul>
+                            <li>AmoCRM</li>
+                            <li>Telegram Bot API</li>
+                            <li>Unisender</li>
+                            <li>SMS-шлюзы</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-block">
+                        <h3>🔗 Связанные услуги</h3>
+                        <ul>
+                            <li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li>
+                            <li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li>
+                        </ul>
+                    </div>
+                    <div class="cta-article">
+                        <h3>Соберём автоворонку под ваш цикл сделки</h3>
+                        <p>Цепочка касаний, которая работает 24/7</p>
+                        <a href="/Mngment/services/marketing-automation/#form" class="btn btn-primary">Обсудить проект</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer"><div class="container"><p>© 2026 SystemSales</p></div></footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const burger = document.getElementById('burgerBtn');
+            const nav = document.getElementById('mainNav');
+            if (burger && nav) {
+                burger.addEventListener('click', function() {
+                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                    if (nav.style.display === 'flex') {
+                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
+                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
+                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
