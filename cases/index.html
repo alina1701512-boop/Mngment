@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кейсы | SystemSales</title>
+    <link rel="stylesheet" href="/Mngment/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+            <nav class="nav" id="mainNav">
+                <a href="/Mngment/#services">Услуги</a>
+                <a href="/Mngment/cases/">Кейсы</a>
+                <a href="/Mngment/#lead-magnet">Аудит</a>
+                <a href="/Mngment/contacts/">Контакты</a>
+            </nav>
+            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Кейсы: как мы решаем задачи в digital и автоматизации</h1>
+                <p class="page-hero__subtitle">Реальные проекты с цифрами, которые можно проверить</p>
+            </div>
+        </section>
+
+        <section class="cases-hub">
+            <div class="container">
+                <!-- Фильтры -->
+                <div class="filters" id="filters">
+                    <button class="filter-btn active" data-filter="all">Все кейсы</button>
+                    <button class="filter-btn" data-filter="parsing">Парсинг</button>
+                    <button class="filter-btn" data-filter="ai">AI-агенты</button>
+                    <button class="filter-btn" data-filter="fullcycle">Комплекс</button>
+                </div>
+
+                <!-- Сетка кейсов -->
+                <div class="cases-grid">
+                    <article class="case-card" data-category="parsing">
+                        <span class="case-badge">Парсинг</span>
+                        <div class="case-metric">12 000</div>
+                        <p>живых контактов за 7 дней для строительного холдинга</p>
+                        <p><strong>Конверсия в назначение встречи: с 4% до 14%</strong></p>
+                        <a href="/Mngment/cases/parsing-strojka/" class="btn btn-link">Читать кейс →</a>
+                    </article>
+                    <article class="case-card" data-category="ai">
+                        <span class="case-badge">AI-агенты</span>
+                        <div class="case-metric">68%</div>
+                        <p>диалогов закрыты роботом без менеджера для онлайн-школы</p>
+                        <p><strong>ФОТ поддержки сокращён на 40%</strong></p>
+                        <a href="/Mngment/cases/ai-edtech/" class="btn btn-link">Читать кейс →</a>
+                    </article>
+                    <article class="case-card" data-category="fullcycle">
+                        <span class="case-badge">Full-Cycle</span>
+                        <div class="case-metric">2 мес.</div>
+                        <p>окупаемость для сети сервисных центров</p>
+                        <p><strong>Время обработки лида: с 45 минут до 2 минут</strong></p>
+                        <a href="/Mngment/cases/fullcycle-service/" class="btn btn-link">Читать кейс →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Мобильное меню
+            const burger = document.getElementById('burgerBtn');
+            const nav = document.getElementById('mainNav');
+            if (burger && nav) {
+                burger.addEventListener('click', function() {
+                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                    if (nav.style.display === 'flex') {
+                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
+                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
+                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                    }
+                });
+            }
+
+            // Фильтрация кейсов
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const caseCards = document.querySelectorAll('.case-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    caseCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                            card.style.animation = 'fadeIn 0.4s ease';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
