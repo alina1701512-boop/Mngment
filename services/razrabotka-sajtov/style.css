@@ -1,0 +1,176 @@
+/* ===== Страница услуги "Разработка сайтов" ===== */
+
+/* Герой центрированный */
+.hero-service--centered {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+.hero-service--centered .hero-service__content {
+    max-width: 100%;
+}
+.hero-service--centered .hero-service__subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 35px;
+}
+
+/* Таблица типов продуктов */
+.product-types {
+    padding: 80px 0;
+    background: #fcfcfc;
+}
+.product-table {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    background: #fff;
+}
+.product-row {
+    display: grid;
+    grid-template-columns: 250px 1fr 120px;
+    padding: 20px 25px;
+    border-bottom: 1px solid #f0f0f0;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+.product-row:last-child {
+    border-bottom: none;
+}
+.product-header {
+    background: #1a1a2e;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: none;
+}
+.product-type-name {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #1a1a2e;
+}
+.product-deadline {
+    font-weight: 700;
+    color: #FF4D01;
+    text-align: center;
+    background: #fff5f0;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+/* Процесс (горизонтальная цепочка) */
+.process {
+    padding: 80px 0;
+}
+.process-steps {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.step {
+    text-align: center;
+    padding: 20px;
+    flex: 1;
+    min-width: 160px;
+}
+.step-arrow {
+    font-size: 1.5rem;
+    color: #FF4D01;
+    padding-top: 35px;
+    font-weight: 700;
+}
+.step-number {
+    width: 45px;
+    height: 45px;
+    background: #FF4D01;
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 800;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+}
+.step h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #1a1a2e;
+}
+.step p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Кейс */
+.case-full {
+    padding: 80px 0;
+    background: #fcfcfc;
+}
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+.case-item {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 4px solid #FF4D01;
+}
+.case-item strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    color: #1a1a2e;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .hero-service--centered {
+        padding: 50px 20px;
+    }
+    .hero-service--centered h1 {
+        font-size: 1.8rem;
+    }
+    
+    /* Таблица → карточки */
+    .product-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 20px;
+    }
+    .product-header {
+        display: none;
+    }
+    .product-type-name {
+        font-size: 1.1rem;
+    }
+    .product-deadline {
+        display: inline-block;
+        margin-top: 5px;
+    }
+    
+    /* Процесс → вертикальный */
+    .process-steps {
+        flex-direction: column;
+        align-items: center;
+    }
+    .step-arrow {
+        transform: rotate(90deg);
+        padding-top: 0;
+        margin: -5px 0;
+    }
+}
