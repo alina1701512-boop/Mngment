@@ -892,3 +892,251 @@ h6 { font-size: var(--font-size-base); }
     }
 }
 
+/* ============================================
+   СТРАНИЦЫ УСЛУГ
+   ============================================ */
+.hero-service {
+    padding: var(--spacing-4xl) 0;
+}
+
+.hero-service .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: start;
+}
+
+.hero-service__content h1 {
+    font-size: var(--font-size-4xl);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: -0.5px;
+}
+
+.hero-service__subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-gray);
+    margin-bottom: var(--spacing-xl);
+    line-height: var(--line-height-relaxed);
+}
+
+/* Таблица До/После */
+.compare {
+    padding: var(--spacing-4xl) 0;
+    background: var(--color-bg);
+}
+
+.compare h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.compare-table {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.compare-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr;
+    gap: 0;
+}
+
+.compare-row div {
+    padding: 15px 20px;
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+}
+
+.compare-header div {
+    background: var(--color-black);
+    color: var(--color-white);
+    font-weight: 700;
+    border-bottom: none;
+}
+
+.compare-row div:first-child {
+    font-weight: 600;
+}
+
+/* Типы агентов / Процесс */
+.agent-types {
+    padding: var(--spacing-4xl) 0;
+}
+
+.agent-types h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.agent-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.agent-card {
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    padding: 30px;
+    border: 1px solid var(--color-border);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.agent-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.agent-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.agent-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.agent-card ul {
+    margin: 0 0 15px 20px;
+    color: var(--color-gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.agent-card li {
+    margin-bottom: 5px;
+}
+
+.agent-example {
+    background: var(--color-primary-light);
+    padding: 12px 15px;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    color: var(--color-dark);
+    font-style: italic;
+}
+
+/* Кейс на странице услуги */
+.case-full {
+    padding: var(--spacing-4xl) 0;
+    background: var(--color-bg);
+}
+
+.case-full h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.case-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xl);
+}
+
+.case-item {
+    padding: var(--spacing-lg);
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+}
+
+.case-item strong {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-black);
+}
+
+.case-item ul {
+    margin: 10px 0 0 20px;
+    color: var(--color-gray);
+    line-height: 1.8;
+}
+
+/* FAQ */
+.faq {
+    padding: var(--spacing-4xl) 0;
+}
+
+.faq h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.faq-item summary {
+    padding: 18px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    background: var(--color-white);
+    transition: background var(--transition-fast);
+    list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary:hover {
+    background: var(--color-bg);
+}
+
+.faq-item[open] summary {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.faq-item p {
+    padding: 18px 20px;
+    color: var(--color-gray);
+    line-height: 1.8;
+}
+
+/* Адаптив страниц услуг */
+@media (max-width: 768px) {
+    .hero-service .container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-service__content h1 {
+        font-size: var(--font-size-3xl);
+    }
+
+    .compare-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .compare-header {
+        display: none;
+    }
+
+    .compare-row div:first-child {
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .agent-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
