@@ -17,3 +17,19 @@
 @media (max-width: 768px) {
     .hero-service .container { grid-template-columns: 1fr; }
 }
+
+/* Прогресс-бар */
+.progress-bar { display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
+.progress-step { width: 32px; height: 32px; border-radius: 50%; background: #e0e0e0; color: #999; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; transition: all 0.3s; }
+.progress-step.active { background: #4CAF50; color: #fff; }
+.progress-line { flex: 1; height: 2px; background: #e0e0e0; max-width: 40px; margin: 0 5px; }
+.progress-labels { display: flex; justify-content: space-between; max-width: 250px; margin: 0 auto 25px; font-size: 0.75rem; color: #999; }
+.progress-labels span { transition: color 0.3s; }
+.progress-labels span.active { color: #4CAF50; font-weight: 600; }
+.calc-hint { font-size: 0.8rem; color: #888; margin-bottom: 15px; }
+
+/* Спиннер */
+.spinner { width: 40px; height: 40px; border: 3px solid #e0e0e0; border-top: 3px solid #4CAF50; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 15px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.scan-animation { text-align: center; padding: 30px; }
+.scan-animation p { color: #666; margin-top: 10px; }
