@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Аудит текущей воронки | SystemSales</title>
     <link rel="stylesheet" href="/Mngment/style.css">
-    <style>
-        .tool-page { padding: 80px 0; }
-        .tool-page h1 { text-align: center; margin-bottom: 15px; }
-        .tool-page .subtitle { text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 40px; }
-    </style>
 </head>
 <body>
     <header class="header">
@@ -19,47 +14,37 @@
                 <a href="/Mngment/#services">Услуги</a>
                 <a href="/Mngment/cases/">Кейсы</a>
                 <a href="/Mngment/blog/">Блог</a>
-                <a href="/Mngment/contacts/">Контакты</a>
+                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
             </nav>
-            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
     </header>
-
     <main>
         <section class="tool-page">
             <div class="container">
                 <h1>Получите аудит текущей воронки</h1>
-                <p class="subtitle">Разберём 7 точек утечки лидов и покажем, что автоматизировать</p>
-                
-                <form class="audit-form" action="/Mngment/thank-you/" method="POST" novalidate style="max-width:600px;margin:0 auto;">
+                <p class="tool-page__subtitle">Разберём 7 точек утечки лидов и покажем, что автоматизировать</p>
+                <form class="audit-form" action="/Mngment/thank-you/" method="POST" novalidate>
                     <input type="text" name="name" placeholder="Имя" required>
                     <input type="text" name="phone" placeholder="Телефон / Telegram" required>
                     <select name="business_type" required>
                         <option value="" disabled selected>Сфера бизнеса</option>
-                        <option>B2B-услуги</option>
-                        <option>Товары</option>
-                        <option>EdTech</option>
-                        <option>Недвижимость</option>
-                        <option>Другое</option>
+                        <option>B2B-услуги</option><option>Товары</option><option>EdTech</option><option>Недвижимость</option><option>Другое</option>
                     </select>
                     <div class="slider-container">
-                        <label>Сколько заявок в месяц обрабатываете: <span id="sliderValue">1000</span></label>
+                        <label>Сколько заявок в месяц: <span id="sliderValue">1000</span></label>
                         <input type="range" id="leadsSlider" name="leads_count" min="10" max="5000" value="1000" step="10">
                     </div>
                     <select name="crm_type" required>
                         <option value="" disabled selected>Какая CRM используется</option>
-                        <option>AmoCRM</option>
-                        <option>Bitrix24</option>
-                        <option>Другая</option>
-                        <option>Нет CRM</option>
+                        <option>AmoCRM</option><option>Bitrix24</option><option>Другая</option><option>Нет CRM</option>
                     </select>
                     <button type="submit" class="btn btn-primary btn-large">Получить аудит и чек-лист</button>
-                    <p class="form-note" style="color:#888;">Без спама. Данные только для подготовки аудита.</p>
+                    <p class="form-note">Без спама. Данные только для подготовки аудита.</p>
                 </form>
             </div>
         </section>
     </main>
-
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -71,38 +56,6 @@
             <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
         </div>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const burger = document.getElementById('burgerBtn');
-            const nav = document.getElementById('mainNav');
-            if (burger && nav) {
-                burger.addEventListener('click', function() {
-                    if (nav.style.display === 'flex') {
-                        nav.style.display = 'none';
-                    } else {
-                        nav.style.display = 'flex';
-                        nav.style.flexDirection = 'column';
-                        nav.style.position = 'absolute';
-                        nav.style.top = '70px';
-                        nav.style.left = '0';
-                        nav.style.background = 'white';
-                        nav.style.width = '100%';
-                        nav.style.padding = '20px';
-                        nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-                    }
-                });
-            }
-
-            const slider = document.getElementById('leadsSlider');
-            const output = document.getElementById('sliderValue');
-            if (slider && output) {
-                output.textContent = slider.value;
-                slider.addEventListener('input', function() {
-                    output.textContent = this.value;
-                });
-            }
-        });
-    </script>
+    <script src="/Mngment/script.js" defer></script>
 </body>
 </html>
