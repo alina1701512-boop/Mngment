@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор стоимости парсинга | SystemSales</title>
+    <link rel="stylesheet" href="/Mngment/style.css">
+    <style>
+        .calc-tool { padding: 80px 20px; max-width: 700px; margin: 0 auto; }
+        .calc-tool h1 { text-align: center; margin-bottom: 30px; }
+        .calc-block { background: #fff; padding: 30px; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+        .calc-block label { display: block; font-weight: 600; margin-bottom: 8px; margin-top: 20px; }
+        .calc-block input[type="range"] { width: 100%; }
+        .calc-block .range-value { font-weight: 700; color: #FF4D01; }
+        .calc-total { text-align: center; margin-top: 30px; padding: 20px; background: #f0fff4; border-radius: 12px; }
+        .calc-total .price { font-size: 2rem; font-weight: 800; color: #00C853; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+        </div>
+    </header>
+    <main>
+        <section class="calc-tool">
+            <h1>Калькулятор стоимости парсинга</h1>
+            <div class="calc-block">
+                <label>Количество источников: <span class="range-value" id="sourcesVal">3</span></label>
+                <input type="range" id="sourcesSlider" min="1" max="10" value="3" step="1">
+                
+                <label>Глубина сбора (полей данных): <span class="range-value" id="fieldsVal">5</span></label>
+                <input type="range" id="fieldsSlider" min="2" max="15" value="5" step="1">
+                
+                <label>Объём выгрузки (контактов): <span class="range-value" id="volumeVal">1000</span></label>
+                <input type="range" id="volumeSlider" min="100" max="50000" value="1000" step="100">
+                
+                <div class="calc-total">
+                    <p>Примерная стоимость:</p>
+                    <p class="price" id="totalPrice">45 000 ₽</p>
+                    <p style="color:#888;font-size:0.9rem;">Точный расчёт — после брифа</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer"><div class="container"><p>© 2026 SystemSales</p></div></footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sourcesSlider = document.getElementById('sourcesSlider');
+            const fieldsSlider = document.getElementById('fieldsSlider');
+            const volumeSlider = document.getElementById('volumeSlider');
+            const sourcesVal = document.getElementById('sourcesVal');
+            const fieldsVal = document.getElementById('fieldsVal');
+            const volumeVal = document.getElementById('volumeVal');
+            const totalPrice = document.getElementById('totalPrice');
+            
+            function calc() {
+                const sources = parseInt(sourcesSlider.value);
+                const fields = parseInt(fieldsSlider.value);
+                const volume = parseInt(volumeSlider.value);
+                sourcesVal.textContent = sources;
+                fieldsVal.textContent = fields;
+                volumeVal.textContent = volume.toLocaleString('ru-RU');
+                
+                const base = 15000;
+                const sourceAdd = sources * 8000;
+                const fieldAdd = fields * 2000;
+                const volumeAdd = volume * 10;
+                const total = base + sourceAdd + fieldAdd + volumeAdd;
+                totalPrice.textContent = total.toLocaleString('ru-RU') + ' ₽';
+            }
+            
+            sourcesSlider.addEventListener('input', calc);
+            fieldsSlider.addEventListener('input', calc);
+            volumeSlider.addEventListener('input', calc);
+            calc();
+        });
+    </script>
+</body>
+</html>
