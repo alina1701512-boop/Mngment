@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аудит текущей воронки | SystemSales</title>
+    <link rel="stylesheet" href="/Mngment/style.css">
+    <style>
+        .tool-page { padding: 80px 20px; text-align: center; }
+        .tool-page h1 { margin-bottom: 20px; }
+        .tool-page p { color: #666; font-size: 1.1rem; margin-bottom: 30px; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+            <nav class="nav" id="mainNav">
+                <a href="/Mngment/#services">Услуги</a>
+                <a href="/Mngment/cases/">Кейсы</a>
+                <a href="/Mngment/contacts/">Контакты</a>
+            </nav>
+            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+    <main>
+        <section class="lead-magnet" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+            <div class="container">
+                <h2>Получите аудит текущей воронки</h2>
+                <p class="lead-magnet__subtitle">Разберём 7 точек утечки лидов и покажем, что автоматизировать</p>
+                <form class="audit-form" action="/Mngment/thank-you/" method="POST" novalidate>
+                    <input type="text" name="name" placeholder="Имя" required>
+                    <input type="text" name="phone" placeholder="Телефон / Telegram" required>
+                    <select name="business_type" required>
+                        <option value="" disabled selected>Сфера бизнеса</option>
+                        <option>B2B-услуги</option><option>Товары</option><option>EdTech</option><option>Недвижимость</option><option>Другое</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary btn-large">Получить аудит</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="footer"><div class="container"><p>© 2026 SystemSales</p></div></footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const burger = document.getElementById('burgerBtn');
+            const nav = document.getElementById('mainNav');
+            if (burger && nav) {
+                burger.addEventListener('click', function() {
+                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                    if (nav.style.display === 'flex') {
+                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
+                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
+                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
