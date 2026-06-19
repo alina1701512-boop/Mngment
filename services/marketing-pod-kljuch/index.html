@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Комплексный маркетинг под ключ | SystemSales</title>
     <link rel="stylesheet" href="/Mngment/style.css">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
@@ -13,210 +12,91 @@
             <a href="/Mngment/" class="logo">System<span>Sales</span></a>
             <nav class="nav" id="mainNav">
                 <a href="/Mngment/#services">Услуги</a>
-                <a href="/Mngment/#cases">Кейсы</a>
-                <a href="/Mngment/#lead-magnet">Аудит</a>
-                <a href="/Mngment/contacts/">Контакты</a>
+                <a href="/Mngment/cases/">Кейсы</a>
+                <a href="/Mngment/blog/">Блог</a>
+                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
             </nav>
-            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
     </header>
-
     <main>
-        <!-- Оффер -->
         <section class="hero-service">
             <div class="container hero-service--centered">
-                <div class="hero-service__content">
-                    <h1>Маркетинговое агентство полного цикла: собираем всю digital-экосистему бизнеса в одну кнопку</h1>
-                    <p class="hero-service__subtitle">Парсинг → сайт → бот → CRM → AI-агент. Не 5 подрядчиков с разными стандартами, а единая команда с общим контуром ответственности.</p>
-                    <a href="#form" class="btn btn-primary cta-main">Обсудить комплексный проект</a>
-                </div>
+                <h1>Маркетинговое агентство полного цикла: собираем всю digital-экосистему бизнеса в одну кнопку</h1>
+                <p class="hero-service__subtitle">Парсинг → сайт → бот → CRM → AI-агент. Не 5 подрядчиков, а единая команда с общим контуром ответственности.</p>
+                <a href="#serviceForm" class="btn btn-primary cta-main">Обсудить комплексный проект</a>
             </div>
         </section>
-
-        <!-- Схема работы -->
-        <section class="fullcycle-scheme">
+        <section class="process">
             <div class="container">
-                <h2>Как выглядит ваш бизнес после комплексного внедрения</h2>
-                <div class="scheme-steps">
-                    <div class="scheme-step">
-                        <span class="scheme-icon">🔍</span>
-                        <h3>Трафик и сбор</h3>
-                        <p>Парсер собирает базу целевых клиентов. Сайт привлекает органический трафик</p>
-                    </div>
-                    <div class="scheme-arrow">→</div>
-                    <div class="scheme-step">
-                        <span class="scheme-icon">📥</span>
-                        <h3>Захват</h3>
-                        <p>Квиз-формы, калькуляторы, чат-бот — лид оставляет контакт</p>
-                    </div>
-                    <div class="scheme-arrow">→</div>
-                    <div class="scheme-step">
-                        <span class="scheme-icon">📊</span>
-                        <h3>CRM</h3>
-                        <p>Сделка создаётся автоматически. Менеджер видит источник, историю, контекст</p>
-                    </div>
-                    <div class="scheme-arrow">→</div>
-                    <div class="scheme-step">
-                        <span class="scheme-icon">🤖</span>
-                        <h3>Автопрогрев</h3>
-                        <p>Чат-бот и AI-агент касаются лида без участия человека</p>
-                    </div>
-                    <div class="scheme-arrow">→</div>
-                    <div class="scheme-step">
-                        <span class="scheme-icon">💰</span>
-                        <h3>Сделка</h3>
-                        <p>Менеджер звонит на «горячего» клиента и закрывает сделку</p>
-                    </div>
+                <h2>Как выглядит ваш бизнес после внедрения</h2>
+                <div class="process-steps">
+                    <div class="step"><div class="step-number">🔍</div><h3>Трафик и сбор</h3><p>Парсер + сайт = поток лидов</p></div>
+                    <div class="step"><div class="step-number">📥</div><h3>Захват</h3><p>Квизы, калькуляторы, чат-бот</p></div>
+                    <div class="step"><div class="step-number">📊</div><h3>CRM</h3><p>Сделка создаётся автоматически</p></div>
+                    <div class="step"><div class="step-number">🤖</div><h3>Автопрогрев</h3><p>AI и боты касаются лида</p></div>
+                    <div class="step"><div class="step-number">💰</div><h3>Сделка</h3><p>Менеджер звонит на горячего</p></div>
                 </div>
             </div>
         </section>
-
-        <!-- Почему комплекс -->
         <section class="compare">
             <div class="container">
-                <h2>Почему «под ключ» выгоднее, чем отдельные услуги</h2>
+                <h2>Почему «под ключ» выгоднее</h2>
                 <div class="compare-table">
-                    <div class="compare-row compare-header">
-                        <div>Критерий</div>
-                        <div>Отдельные подрядчики</div>
-                        <div>Мы (Full-Cycle)</div>
-                    </div>
-                    <div class="compare-row">
-                        <div>Стыковка</div>
-                        <div>Сайт не передаёт данные в CRM. Бот не знает контекст</div>
-                        <div>Всё интегрировано. Единый API-контур</div>
-                    </div>
-                    <div class="compare-row">
-                        <div>Ответственность</div>
-                        <div>Разработчик кивает на маркетолога, маркетолог — на сейлзов</div>
-                        <div>Одна точка входа. Один проектный менеджер</div>
-                    </div>
-                    <div class="compare-row">
-                        <div>Экономия</div>
-                        <div>Сумма счетов от 5 подрядчиков</div>
-                        <div>Комплексный контракт дешевле суммы частей на 20-30%</div>
-                    </div>
-                    <div class="compare-row">
-                        <div>Скорость</div>
-                        <div>Поиск подрядчиков, брифинги, согласования</div>
-                        <div>Единый бриф. Параллельная работа команды</div>
-                    </div>
+                    <div class="compare-row compare-header"><div>Критерий</div><div>Отдельные подрядчики</div><div>Мы (Full-Cycle)</div></div>
+                    <div class="compare-row"><div>Стыковка</div><div>Сайт не передаёт в CRM</div><div>Единый API-контур</div></div>
+                    <div class="compare-row"><div>Ответственность</div><div>5 точек отказа</div><div>Одна точка входа</div></div>
+                    <div class="compare-row"><div>Экономия</div><div>Сумма счетов</div><div>Дешевле на 20-30%</div></div>
+                    <div class="compare-row"><div>Скорость</div><div>Брифинги с каждым</div><div>Единый бриф</div></div>
                 </div>
             </div>
         </section>
-
-        <!-- Кейс -->
         <section class="case-full">
             <div class="container">
-                <h2>Кейс: Как сервисный центр оцифровал продажи и окупил всё за 2 месяца</h2>
+                <h2>Кейс: Окупаемость за 2 месяца</h2>
                 <div class="case-grid">
-                    <div class="case-item"><strong>Клиент:</strong> Сеть сервисных центров по ремонту техники (4 точки)</div>
-                    <div class="case-item"><strong>Задача:</strong> Связать сайт, телефонию и работу мастеров в одной системе</div>
-                    <div class="case-item"><strong>Решение:</strong> Новый сайт с квиз-формой → AmoCRM (кастомная воронка) → телефония → SMS-уведомления клиенту</div>
-                    <div class="case-item"><strong>Результат:</strong> Время обработки лида — с 45 до 2 минут. Окупаемость — 2 месяца</div>
+                    <div class="case-item"><strong>Клиент:</strong> Сеть сервисных центров (4 точки)</div>
+                    <div class="case-item"><strong>Задача:</strong> Связать сайт, телефонию и CRM</div>
+                    <div class="case-item"><strong>Решение:</strong> Сайт + AmoCRM + телефония + SMS</div>
+                    <div class="case-item"><strong>Результат:</strong> Время обработки — с 45 до 2 минут</div>
                 </div>
-                <div class="center-btn">
-                    <a href="/Mngment/cases/fullcycle-service/" class="btn btn-outline">Читать полный кейс</a>
-                </div>
+                <div class="center-btn"><a href="/Mngment/cases/fullcycle-service/" class="btn btn-outline">Читать кейс</a></div>
             </div>
         </section>
-
-        <!-- Форма -->
-        <section class="lead-magnet" id="form">
+        <section class="lead-magnet" id="serviceForm">
             <div class="container">
                 <h2>Обсудим ваш проект?</h2>
-                <p class="lead-magnet__subtitle">Напишите, что болит — предложим архитектуру решения</p>
                 <form class="audit-form" action="/Mngment/thank-you/" method="POST" novalidate>
                     <input type="text" name="name" placeholder="Имя" required>
                     <input type="text" name="phone" placeholder="Телефон / Telegram" required>
-                    
-                    <fieldset class="checkbox-group">
+                    <fieldset class="radio-group-dark">
                         <legend>Что уже есть?</legend>
-                        <label><input type="checkbox" name="has_site" value="1"> Сайт</label>
-                        <label><input type="checkbox" name="has_crm" value="1"> CRM</label>
-                        <label><input type="checkbox" name="has_bot" value="1"> Чат-бот</label>
-                        <label><input type="checkbox" name="has_nothing" value="1"> Ничего</label>
+                        <label><input type="checkbox" name="has_site"> Сайт</label>
+                        <label><input type="checkbox" name="has_crm"> CRM</label>
+                        <label><input type="checkbox" name="has_bot"> Чат-бот</label>
                     </fieldset>
-
-                    <fieldset class="radio-group">
+                    <fieldset class="radio-group-dark">
                         <legend>Главная цель</legend>
                         <label><input type="radio" name="goal" value="leads" checked> Больше лидов</label>
                         <label><input type="radio" name="goal" value="auto"> Автоматизация</label>
-                        <label><input type="radio" name="goal" value="fot"> Снижение ФОТ</label>
                         <label><input type="radio" name="goal" value="all"> Всё сразу</label>
                     </fieldset>
-
                     <button type="submit" class="btn btn-primary btn-large">Получить архитектуру решения</button>
-                    <p class="form-note">Разберём текущую ситуацию и покажем, как собрать всё в единую систему</p>
                 </form>
             </div>
         </section>
     </main>
-
     <footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>🔍 Проблемы с трафиком</h4>
-                <ul>
-                    <li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li>
-                    <li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li>
-                    <li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li>
-                    <li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li>
-                </ul>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
             </div>
-            <div class="footer-col">
-                <h4>🎯 Проблемы с конверсией</h4>
-                <ul>
-                    <li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li>
-                    <li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li>
-                    <li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li>
-                    <li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>⚙️ Проблемы с управлением</h4>
-                <ul>
-                    <li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li>
-                    <li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li>
-                    <li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li>
-                    <li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>🚀 Всё сразу</h4>
-                <ul>
-                    <li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li>
-                </ul>
-            </div>
+            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2026 SystemSales. Превращаем хаос в систему.</p>
-        </div>
-    </div>
-</footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const burger = document.getElementById('burgerBtn');
-            const nav = document.getElementById('mainNav');
-            if (burger && nav) {
-                burger.addEventListener('click', function() {
-                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-                    if (nav.style.display === 'flex') {
-                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
-                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
-                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-                    }
-                });
-            }
-            document.querySelectorAll('a[href="#form"]').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.getElementById('form')?.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-        });
-    </script>
+    </footer>
+    <script src="/Mngment/script.js" defer></script>
 </body>
 </html>
