@@ -1,0 +1,234 @@
+/* ============================================
+   ПЛАНШЕТЫ (max-width: 1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+    .hero__inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero__chart {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pain-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pain-grid .pain-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .cases-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cases-grid .case-teaser:last-child {
+        grid-column: 1 / -1;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .blog-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .error-404__links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ============================================
+   ТЕЛЕФОНЫ (max-width: 768px)
+   ============================================ */
+@media (max-width: 768px) {
+    :root {
+        --font-size-5xl: 2rem;
+        --font-size-4xl: 1.75rem;
+        --font-size-3xl: 1.5rem;
+        --font-size-2xl: 1.25rem;
+    }
+
+    .container {
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+
+    .section {
+        padding: var(--spacing-2xl) 0;
+    }
+
+    /* Шапка */
+    .header__nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: var(--color-white);
+        width: 100%;
+        padding: var(--spacing-lg);
+        box-shadow: var(--shadow-lg);
+        z-index: var(--z-overlay);
+    }
+
+    .header__nav.nav--open {
+        display: flex;
+    }
+
+    .header__menu {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .header__menu a {
+        display: block;
+        padding: var(--spacing-md);
+        font-size: var(--font-size-base);
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .header__phone {
+        display: none;
+    }
+
+    .header__cta {
+        display: none;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    /* Бургер-анимация */
+    .burger--active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .burger--active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .burger--active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Главная */
+    .hero {
+        padding: var(--spacing-2xl) 0;
+    }
+
+    .hero__title {
+        font-size: var(--font-size-3xl);
+    }
+
+    .hero__subtitle {
+        font-size: var(--font-size-base);
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pain-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pain-grid .pain-card:last-child {
+        grid-column: auto;
+        max-width: none;
+    }
+
+    .cases-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cases-grid .case-teaser:last-child {
+        grid-column: auto;
+        max-width: none;
+    }
+
+    /* Форма */
+    .form__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lead-form {
+        padding: var(--spacing-lg);
+    }
+
+    /* Блог */
+    .post-card {
+        grid-template-columns: 1fr;
+    }
+
+    .post-card__image {
+        aspect-ratio: 16 / 9;
+    }
+
+    /* Футер */
+    .footer__grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        text-align: center;
+    }
+
+    /* 404 */
+    .error-404__links {
+        grid-template-columns: 1fr;
+    }
+
+    /* Кнопка наверх */
+    .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: var(--font-size-base);
+    }
+
+    /* Калькуляторы */
+    .calculator {
+        padding: var(--spacing-md);
+    }
+
+    .calculator--quiz .calculator__quiz-options {
+        flex-direction: column;
+    }
+}
+
+/* ============================================
+   МАЛЕНЬКИЕ ТЕЛЕФОНЫ (max-width: 480px)
+   ============================================ */
+@media (max-width: 480px) {
+    .hero__title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .flow-chart__node {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .flow-chart__label {
+        font-size: var(--font-size-xs);
+    }
+}
