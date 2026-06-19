@@ -72,18 +72,24 @@
                     <div class="calc-step">
                         <label>Сфера бизнеса</label>
                         <select id="businessType" class="calc-select">
-                            <option>B2B-услуги</option>
-                            <option>Товары / E-commerce</option>
-                            <option>Недвижимость</option>
-                            <option>Медицина</option>
-                            <option>Другое</option>
+                            <option value="B2B-услуги">B2B-услуги</option>
+                            <option value="B2C-товары">B2C-товары</option>
+                            <option value="Производство">Производство</option>
+                            <option value="Строительство">Строительство</option>
+                            <option value="IT">IT</option>
+                            <option value="Другое">Другое</option>
                         </select>
+                    </div>
+                    <div class="calc-step">
+                        <label>Желаемое количество заявок в месяц</label>
+                        <input type="number" id="desiredLeads" placeholder="Например: 50" min="1" class="calc-input">
                     </div>
                     <button class="btn btn-primary" id="scanBtn" style="width:100%;">Просканировать сайт</button>
                     <div class="calc-result" id="seoResult" style="display:none;">
-                        <p>🔴 Технических ошибок: <strong id="errorsCount">0</strong></p>
-                        <p>🟡 Страниц без оптимизации: <strong id="pagesCount">0</strong></p>
-                        <p>📈 Потенциально недополучаете до <strong id="trafficLoss">0</strong> посетителей/мес</p>
+                        <p>📄 Страниц на сайте: <strong id="pagesCount">0</strong></p>
+                        <p>🔴 Критических ошибок: <strong id="errorsCount">0</strong></p>
+                        <p>📉 Потерянных посетителей/мес: <strong id="trafficLoss">0</strong></p>
+                        <p>📈 Прогноз роста трафика: <strong id="growthPercent">0%</strong></p>
                         <p style="margin-top:15px;font-weight:600;">Хотите точный аудит? Оставьте заявку ниже ↓</p>
                     </div>
                 </div>
@@ -145,26 +151,70 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Бургер-меню
             const burger = document.getElementById('burgerBtn');
             const nav = document.getElementById('mainNav');
             if (burger && nav) {
                 burger.addEventListener('click', function() {
                     nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
                     if (nav.style.display === 'flex') {
-                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
-                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
-                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                        nav.style.flexDirection = 'column'; 
+                        nav.style.position = 'absolute';
+                        nav.style.top = '70px'; 
+                        nav.style.left = '0'; 
+                        nav.style.background = 'white';
+                        nav.style.width = '100%'; 
+                        nav.style.padding = '20px'; 
+                        nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
                     }
                 });
             }
-            document.getElementById('scanBtn')?.addEventListener('click', function() {
-                const result = document.getElementById('seoResult');
-                document.getElementById('errorsCount').textContent = Math.floor(Math.random() * 50 + 10);
-                document.getElementById('pagesCount').textContent = Math.floor(Math.random() * 30 + 5);
-                document.getElementById('trafficLoss').textContent = Math.floor(Math.random() * 5000 + 500).toLocaleString('ru-RU');
-                result.style.display = 'block';
-                result.style.animation = 'fadeIn 0.5s ease';
-            });
+
+            // Калькулятор SEO
+            const scanBtn = document.getElementById('scanBtn');
+            if (scanBtn) {
+                scanBtn.addEventListener('click', function() {
+                    const businessType = document.getElementById('businessType').value;
+                    const desiredLeads = parseInt(document.getElementById('desiredLeads').value) || 50;
+                    
+                    // Базовые значения зависят от сферы
+                    const baseMultipliers = {
+                        'B2B-услуги': 1.0,
+                        'B2C-товары': 1.3,
+                        'Производство': 0.8,
+                        'Строительство': 0.9,
+                        'IT': 1.1,
+                        'Другое': 1.0
+                    };
+                    
+                    const multiplier = baseMultipliers[businessType] || 1.0;
+                    
+                    // Количество страниц (X) = 20-200, зависит от сферы
+                    const pages = Math.floor(20 + Math.random() * 180 * multiplier);
+                    
+                    // Критических ошибок (Y) = 5-50
+                    const errors = Math.floor(5 + Math.random() * 45);
+                    
+                    // Потерянные посетители (Z) = желаемые заявки × 10-50
+                    const lostTraffic = desiredLeads * Math.floor(10 + Math.random() * 40);
+                    
+                    // Прогноз роста (W) = 100-500%
+                    const growth = Math.floor(100 + Math.random() * 400);
+                    
+                    // Обновляем результаты
+                    document.getElementById('pagesCount').textContent = pages.toLocaleString('ru-RU');
+                    document.getElementById('errorsCount').textContent = errors;
+                    document.getElementById('trafficLoss').textContent = lostTraffic.toLocaleString('ru-RU');
+                    document.getElementById('growthPercent').textContent = growth + '%';
+                    
+                    // Показываем результат с анимацией
+                    const result = document.getElementById('seoResult');
+                    result.style.display = 'block';
+                    result.style.animation = 'fadeIn 0.5s ease';
+                });
+            }
+
+            // Плавная прокрутка к форме
             document.querySelectorAll('a[href="#form"]').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
