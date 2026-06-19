@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контент-маркетинг и копирайтинг | SystemSales</title>
+    <link rel="stylesheet" href="/Mngment/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+            <nav class="nav" id="mainNav">
+                <a href="/Mngment/#services">Услуги</a>
+                <a href="/Mngment/cases/">Кейсы</a>
+                <a href="/Mngment/blog/">Блог</a>
+                <a href="/Mngment/contacts/">Контакты</a>
+            </nav>
+            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-service">
+            <div class="container hero-service--centered">
+                <h1>Контент-маркетинг и копирайтинг для бизнеса: статьи, которые читают поисковики и клиенты</h1>
+                <p class="hero-service__subtitle">Пишем не «SEO-тексты с ключами через запятую», а материалы, закрывающие боли вашей аудитории. Каждая статья — часть воронки.</p>
+                <a href="#form" class="btn btn-primary cta-main">Обсудить контент-стратегию</a>
+            </div>
+        </section>
+
+        <section class="formats">
+            <div class="container">
+                <h2>Форматы контента</h2>
+                <div class="formats-table">
+                    <div class="formats-row formats-header"><div>Формат</div><div>Для чего</div><div>Частота</div></div>
+                    <div class="formats-row"><div>SEO-статьи для блога</div><div>Привлечение органического трафика</div><div>4-8 шт/мес</div></div>
+                    <div class="formats-row"><div>Кейсы</div><div>Прогрев к покупке, доверие</div><div>1-2 шт/мес</div></div>
+                    <div class="formats-row"><div>Лендинги и тексты</div><div>Конверсия в заявку</div><div>Разово</div></div>
+                    <div class="formats-row"><div>Контент для соцсетей</div><div>Вовлечение и касания</div><div>8-12 шт/мес</div></div>
+                    <div class="formats-row"><div>Email-рассылки</div><div>Удержание, допродажи</div><div>Еженедельно</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lead-magnet" id="form">
+            <div class="container">
+                <h2>Узнайте свой контент-дефицит</h2>
+                <p class="lead-magnet__subtitle">Посчитаем, сколько трафика вы теряете из-за нехватки контента</p>
+                <form class="audit-form" action="/Mngment/thank-you/" method="POST" novalidate>
+                    <input type="text" name="name" placeholder="Имя" required>
+                    <input type="text" name="phone" placeholder="Телефон / Telegram" required>
+                    <input type="text" name="site" placeholder="Адрес сайта">
+                    <button type="submit" class="btn btn-primary btn-large">Получить расчёт</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer"><div class="container"><p>© 2026 SystemSales</p></div></footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const burger = document.getElementById('burgerBtn');
+            const nav = document.getElementById('mainNav');
+            if (burger && nav) {
+                burger.addEventListener('click', function() {
+                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                    if (nav.style.display === 'flex') {
+                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
+                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
+                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                    }
+                });
+            }
+            document.querySelectorAll('a[href="#form"]').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('form')?.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
