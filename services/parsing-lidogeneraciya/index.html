@@ -4,383 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Парсинг компаний и B2B-лидогенерация | SystemSales</title>
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="style.css">
-    <!-- JSON-LD микроразметка FAQ -->
+    <link rel="stylesheet" href="/Mngment/style.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Законно ли заниматься парсингом контактов компаний в России?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Да. Мы собираем только публично доступные данные (сайты компаний, карты, открытые реестры). Не работаем с персональными данными физических лиц без их согласия. Все источники — из правового поля 152-ФЗ."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Чем ваш парсинг отличается от покупки готовой базы в интернете?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Готовые базы — это «мёртвые» данные без привязки к дате сбора. Наш парсинг — это «живой слепок» рынка на момент выгрузки. Вы получаете контакты компаний, которые прямо сейчас активны: участвуют в тендерах, публикуют вакансии, обновляют сайты."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Можно ли настроить автоматический сбор лидов сразу в мою CRM?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Да, это базовая опция. Мы интегрируем парсер с AmoCRM (или Bitrix24) через API. Новый контакт → создание сделки → назначение ответственного менеджера — всё происходит без участия человека."
-          }
-        }
+        {"@type":"Question","name":"Законно ли заниматься парсингом контактов компаний в России?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы собираем только публично доступные данные из открытых реестров."}},
+        {"@type":"Question","name":"Чем ваш парсинг отличается от покупки готовой базы?","acceptedAnswer":{"@type":"Answer","text":"Готовые базы — мёртвые данные. Наш парсинг — живой слепок рынка на момент выгрузки."}},
+        {"@type":"Question","name":"Можно ли настроить сбор сразу в CRM?","acceptedAnswer":{"@type":"Answer","text":"Да. Интегрируем с AmoCRM/Bitrix24 через API. Контакт → сделка → задача менеджеру."}}
       ]
     }
     </script>
 </head>
 <body>
-
-    <!-- Шапка (скопирована с главной для автономности страницы) -->
     <header class="header">
         <div class="container">
-            <a href="/" class="logo">System<span>Sales</span></a>
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
             <nav class="nav" id="mainNav">
-                <a href="/#services">Услуги</a>
-                <a href="/#cases">Кейсы</a>
-                <a href="/#lead-magnet">Аудит</a>
-                <a href="/contacts" class="btn btn-ghost">Контакты</a>
+                <a href="/Mngment/#services">Услуги</a>
+                <a href="/Mngment/cases/">Кейсы</a>
+                <a href="/Mngment/blog/">Блог</a>
+                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
             </nav>
-            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
     </header>
-
     <main>
-        <!-- ЭКРАН 1: ОФФЕР + КАЛЬКУЛЯТОР -->
         <section class="hero-service">
             <div class="container">
                 <div class="hero-service__content">
                     <h1>B2B-лидогенерация и парсинг компаний: найдём контакты, которые не найдут конкуренты</h1>
-                    <p class="hero-service__subtitle">Собираем базы из 30+ источников: 2ГИС, Яндекс Карты, Google Maps, сайты компаний, тендерные площадки, соцсети. Данные проходят верификацию перед выгрузкой.</p>
-                    <a href="#form" class="btn btn-primary cta-main">Получить тестовую выгрузку из 50 контактов</a>
+                    <p class="hero-service__subtitle">Собираем базы из 30+ источников: 2ГИС, Яндекс Карты, Google Maps, сайты, тендеры. Данные проходят верификацию.</p>
+                    <a href="#serviceForm" class="btn btn-primary cta-main">Получить тестовую выгрузку</a>
                 </div>
-                
-                <!-- Калькулятор -->
-                <div class="calculator" id="calculator">
-                    <h3>🧊 Термометр холодной базы</h3>
-                    
-                    <div class="calc-step">
-                        <label>Сколько холодных звонков в день делает менеджер?</label>
-                        <input type="range" id="callsSlider" min="10" max="200" value="50" step="10">
-                        <span class="calc-value" id="callsValue">50</span>
-                    </div>
-                    
-                    <div class="calc-step">
-                        <label>Какой процент номеров в базе неактуален?</label>
-                        <input type="range" id="badSlider" min="5" max="70" value="30" step="5">
-                        <span class="calc-value" id="badValue">30%</span>
-                    </div>
-                    
-                    <div class="calc-step">
-                        <label>Стоимость часа менеджера (с налогами)?</label>
-                        <input type="range" id="costSlider" min="200" max="1500" value="500" step="100">
-                        <span class="calc-value" id="costValue">500 ₽</span>
-                    </div>
-                    
-                    <div class="calc-result">
-                        <div class="calc-loss">
-                            <span class="calc-label">🔴 Ваши потери:</span>
-                            <span class="calc-number" id="lossValue">3 750 ₽/день</span>
+                <div class="calculator" id="calculatorTermometr">
+                    <h3 class="calculator__title">🧊 Термометр холодной базы</h3>
+                    <p class="calculator__subtitle">Посчитайте, сколько теряете на неактуальных контактах</p>
+                    <div class="calculator__steps">
+                        <div class="calculator__step">
+                            <label class="calculator__step-label">Сколько звонков в день? <span class="calculator__step-value" id="callsPerDayValue">50</span></label>
+                            <input type="range" class="calculator__slider" id="callsPerDay" min="10" max="200" value="50" step="10" data-format="number">
                         </div>
-                        <div class="calc-save">
-                            <span class="calc-label">🟢 С нашей базой:</span>
-                            <span class="calc-number">0 ₽ потерь</span>
+                        <div class="calculator__step">
+                            <label class="calculator__step-label">% неактуальных номеров <span class="calculator__step-value" id="deadPercentValue">30%</span></label>
+                            <input type="range" class="calculator__slider" id="deadPercent" min="5" max="70" value="30" step="5" data-format="percent">
+                        </div>
+                        <div class="calculator__step">
+                            <label class="calculator__step-label">Стоимость часа менеджера <span class="calculator__step-value" id="hourRateValue">500 ₽</span></label>
+                            <input type="range" class="calculator__slider" id="hourRate" min="200" max="1500" value="500" step="50" data-format="money">
                         </div>
                     </div>
-                    
-                    <p class="calc-note">Каждый месяц вы платите менеджеру за прослушивание автоответчиков. Мы верифицируем номера через автоматический прозвон и сверку с реестрами.</p>
+                    <div class="calculator__result">
+                        <div class="calculator__result-icon">🔴</div>
+                        <div class="calculator__result-value calculator__result-value--loss"><span id="termometrLoss">0 ₽</span>/мес</div>
+                        <div class="calculator__result-desc">Вы теряете на <strong><span id="termometrDeadCalls">0</span> мёртвых звонках</strong> каждый день.</div>
+                        <div class="calculator__cta"><a href="#serviceForm" class="btn btn-accent">Получить тестовую выгрузку</a></div>
+                    </div>
                 </div>
             </div>
         </section>
-
-        <!-- ЭКРАН 2: ДО/ПОСЛЕ -->
         <section class="compare">
             <div class="container">
                 <h2>Что меняется после внедрения парсинга</h2>
                 <div class="compare-table">
-                    <div class="compare-row compare-header">
-                        <div>Критерий</div>
-                        <div>Было (ручной сбор)</div>
-                        <div>Стало (наш парсинг)</div>
-                    </div>
-                    <div class="compare-row">
-                        <div>Актуальность</div>
-                        <div>База устаревает через 1-2 месяца</div>
-                        <div>Автообновление каждую неделю</div>
-                    </div>
-                    <div class="compare-row">
-                        <div>Объём</div>
-                        <div>50-100 контактов в день</div>
-                        <div>До 5000 верифицированных записей в сутки</div>
-                    </div>
-                    <div class="compare-row">
-                        <div>Риски</div>
-                        <div>Бан аккаунтов в соцсетях за массовые действия</div>
-                        <div>Легальные методы, распределённые IP, антидетект</div>
-                    </div>
-                    <div class="compare-row">
-                        <div>Поля данных</div>
-                        <div>Телефон + имя (в лучшем случае)</div>
-                        <div>Телефон, email, должность ЛПР, соцсети, сайт, ИНН</div>
-                    </div>
-                    <div class="compare-row">
-                        <div>Выгрузка</div>
-                        <div>Excel-файл, который менеджер теряет</div>
-                        <div>Прямая интеграция в AmoCRM (сделка создаётся автоматически)</div>
-                    </div>
+                    <div class="compare-row compare-header"><div>Критерий</div><div>Было</div><div>Стало</div></div>
+                    <div class="compare-row"><div>Актуальность</div><div>Устаревает за 1-2 мес</div><div>Автообновление</div></div>
+                    <div class="compare-row"><div>Объём</div><div>50-100/день</div><div>До 5000/сутки</div></div>
+                    <div class="compare-row"><div>Риски</div><div>Бан аккаунтов</div><div>Легальные методы</div></div>
+                    <div class="compare-row"><div>Выгрузка</div><div>Excel</div><div>Прямо в CRM</div></div>
                 </div>
             </div>
         </section>
-
-        <!-- ЭКРАН 3: ПРОЦЕСС -->
         <section class="process">
             <div class="container">
-                <h2>Как мы собираем базу, которую не стыдно загрузить в CRM</h2>
+                <h2>Как мы собираем базу</h2>
                 <div class="process-steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <h3>Брифинг</h3>
-                        <p>Вы называете нишу, регионы, конкурентов. Мы определяем источники и фильтры.</p>
-                        <span class="step-result">Результат: Техническое задание на сбор.</span>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <h3>Разработка парсера</h3>
-                        <p>Пишем кастомный скрипт (Python) под ваши источники. Настраиваем анти-бан защиту.</p>
-                        <span class="step-result">Срок: 1-3 дня.</span>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <h3>Сбор и верификация</h3>
-                        <p>Парсер собирает массив. Система автоматически проверяет номера (прозвон-сброс), валидирует email, сверяет с ЕГРЮЛ.</p>
-                        <span class="step-result">Результат: Чистый файл + интеграция в CRM.</span>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <h3>Передача и поддержка</h3>
-                        <p>Вы получаете базу. Мы обновляем данные с нужной периодичностью (неделя, месяц).</p>
-                        <span class="step-result">Результат: Всегда живая база.</span>
-                    </div>
+                    <div class="step"><div class="step-number">1</div><h3>Брифинг</h3><p>Определяем источники и фильтры</p></div>
+                    <div class="step"><div class="step-number">2</div><h3>Разработка</h3><p>Пишем парсер (Python)</p></div>
+                    <div class="step"><div class="step-number">3</div><h3>Сбор и верификация</h3><p>Прозвон, валидация, сверка с ЕГРЮЛ</p></div>
+                    <div class="step"><div class="step-number">4</div><h3>Передача</h3><p>Выгрузка + автообновление</p></div>
                 </div>
             </div>
         </section>
-
-        <!-- ЭКРАН 4: КЕЙС -->
         <section class="case-full">
             <div class="container">
-                <h2>Кейс: Как строительный холдинг получил 12 000 контактов за 7 дней</h2>
+                <h2>Кейс: 12 000 контактов за 7 дней</h2>
                 <div class="case-grid">
-                    <div class="case-item">
-                        <strong>Клиент:</strong> Региональный поставщик стройматериалов (B2B)
-                    </div>
-                    <div class="case-item">
-                        <strong>Задача:</strong> Собрать базу застройщиков и подрядчиков в 10 регионах РФ
-                    </div>
-                    <div class="case-item">
-                        <strong>Проблема:</strong> Ручной сбор с 2ГИС и тендерных площадок устаревал за 3 месяца. Менеджеры тратили 60% времени на актуализацию контактов вместо продаж.
-                    </div>
-                    <div class="case-item">
-                        <strong>Решение:</strong>
-                        <ul>
-                            <li>Разработали кастомный парсер для мониторинга госзакупок (ЕИС) + коммерческих тендеров</li>
-                            <li>Настроили ежедневную выгрузку новых карточек организаций</li>
-                            <li>Интегрировали парсер с AmoCRM: контакт → сделка → задача менеджеру</li>
-                        </ul>
-                    </div>
-                    <div class="case-item">
-                        <strong>Результат:</strong>
-                        <ul>
-                            <li>12 000 верифицированных контактов за первую неделю</li>
-                            <li>Конверсия «звонок → встреча» выросла с 4% до 14%</li>
-                            <li>Время на поиск контактов сократилось с 3 часов/день до 0</li>
-                            <li>Окупаемость парсинга: 8 дней</li>
-                        </ul>
-                    </div>
+                    <div class="case-item"><strong>Клиент:</strong> Поставщик стройматериалов</div>
+                    <div class="case-item"><strong>Результат:</strong> Конверсия в встречу с 4% до 14%</div>
                 </div>
-                <div class="center-btn">
-                    <a href="#form" class="btn btn-primary">Хочу такой же результат</a>
-                </div>
+                <div class="center-btn"><a href="/Mngment/cases/parsing-strojka/" class="btn btn-outline">Читать кейс</a></div>
             </div>
         </section>
-
-        <!-- ЭКРАН 5: FAQ -->
         <section class="faq">
             <div class="container">
-                <h2>Частые вопросы о парсинге и лидогенерации</h2>
+                <h2>Частые вопросы</h2>
                 <div class="faq-list">
-                    <details class="faq-item">
-                        <summary>Законно ли заниматься парсингом контактов компаний в России?</summary>
-                        <p>Да. Мы собираем только публично доступные данные (сайты компаний, карты, открытые реестры). Не работаем с персональными данными физических лиц без их согласия. Все источники — из правового поля 152-ФЗ.</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary>Сколько стоит заказать парсинг поставщиков или клиентов?</summary>
-                        <p>Стоимость зависит от трёх факторов: количество источников, глубина сбора (число полей) и периодичность обновления. Цена стартует от XX XXX ₽ за разовую выгрузку. Абонентское обслуживание с еженедельным обновлением — от XX XXX ₽/мес. Оставьте заявку — сделаем точный расчёт за 2 часа.</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary>Не забанят ли мои аккаунты, если я использую спарсенные данные для рассылки?</summary>
-                        <p>Мы передаём контакты для законных холодных продаж (B2B-звонки), а не для спам-рассылок. Однако, если нужна email-рассылка, мы поможем настроить сегментацию базы так, чтобы процент жалоб был минимален, а домен оставался «чистым».</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary>Чем ваш парсинг отличается от покупки готовой базы в интернете?</summary>
-                        <p>Готовые базы — это «мёртвые» данные без привязки к дате сбора. Наш парсинг — это «живой слепок» рынка на момент выгрузки. Вы получаете контакты компаний, которые прямо сейчас активны: участвуют в тендерах, публикуют вакансии, обновляют сайты.</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary>Можно ли настроить автоматический сбор лидов сразу в мою CRM?</summary>
-                        <p>Да, это базовая опция. Мы интегрируем парсер с AmoCRM (или Bitrix24) через API. Новый контакт → создание сделки → назначение ответственного менеджера — всё происходит без участия человека.</p>
-                    </details>
+                    <details class="faq-item"><summary>Законно ли это?</summary><p>Да. Только публичные данные, 152-ФЗ соблюдаем.</p></details>
+                    <details class="faq-item"><summary>Сколько стоит?</summary><p>От XX XXX ₽. Точный расчёт после брифа.</p></details>
+                    <details class="faq-item"><summary>Чем отличается от готовой базы?</summary><p>Живой слепок рынка vs мёртвые данные.</p></details>
+                    <details class="faq-item"><summary>Можно сразу в CRM?</summary><p>Да, через API AmoCRM/Bitrix24.</p></details>
                 </div>
             </div>
         </section>
-
-        <!-- ЭКРАН 6: ФОРМА ЗАХВАТА -->
-        <section class="lead-magnet" id="form">
+        <section class="lead-magnet" id="serviceForm">
             <div class="container">
-                <h2>Готовы протестировать? Получите 50 контактов бесплатно</h2>
-                <form class="audit-form" action="/thank-you/" method="POST" novalidate>
+                <h2>Получите 50 контактов бесплатно</h2>
+                <form class="audit-form" action="/Mngment/thank-you/" method="POST" novalidate>
                     <input type="text" name="name" placeholder="Имя" required>
                     <input type="text" name="phone" placeholder="Телефон / Telegram" required>
                     <input type="text" name="business" placeholder="Сфера бизнеса">
-                    <input type="text" name="target" placeholder="Какие контакты ищете (например: «поставщики металлопроката в Казани»)">
-                    
-                    <fieldset class="radio-group">
-                        <legend>Куда выгрузить:</legend>
-                        <label><input type="radio" name="export_to" value="Excel" checked> Excel</label>
-                        <label><input type="radio" name="export_to" value="AmoCRM"> AmoCRM</label>
-                        <label><input type="radio" name="export_to" value="Bitrix24"> Bitrix24</label>
-                        <label><input type="radio" name="export_to" value="Other"> Другое</label>
-                    </fieldset>
-
+                    <input type="text" name="target" placeholder="Какие контакты ищете?">
                     <button type="submit" class="btn btn-primary btn-large">Получить тестовую выгрузку</button>
-                    <p class="form-note">Никакой предоплаты. Выгрузку первых 50 контактов сделаем в течение 24 часов. Если качество устроит — обсудим полный сбор.</p>
+                    <p class="form-note">Без предоплаты. Первые 50 контактов — за 24 часа.</p>
                 </form>
             </div>
         </section>
     </main>
-
-   <footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>🔍 Проблемы с трафиком</h4>
-                <ul>
-                    <li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li>
-                    <li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li>
-                    <li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li>
-                    <li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li>
-                </ul>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
             </div>
-            <div class="footer-col">
-                <h4>🎯 Проблемы с конверсией</h4>
-                <ul>
-                    <li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li>
-                    <li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li>
-                    <li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li>
-                    <li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>⚙️ Проблемы с управлением</h4>
-                <ul>
-                    <li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li>
-                    <li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li>
-                    <li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li>
-                    <li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>🚀 Всё сразу</h4>
-                <ul>
-                    <li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li>
-                </ul>
-            </div>
+            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2026 SystemSales. Превращаем хаос в систему.</p>
-        </div>
-    </div>
-</footer>
-
-    <script>
-        // Калькулятор потерь
-        document.addEventListener('DOMContentLoaded', function() {
-            const callsSlider = document.getElementById('callsSlider');
-            const badSlider = document.getElementById('badSlider');
-            const costSlider = document.getElementById('costSlider');
-            const callsValue = document.getElementById('callsValue');
-            const badValue = document.getElementById('badValue');
-            const costValue = document.getElementById('costValue');
-            const lossValue = document.getElementById('lossValue');
-
-            function formatMoney(num) {
-                return num.toLocaleString('ru-RU') + ' ₽/день';
-            }
-
-            function calculate() {
-                const calls = parseInt(callsSlider.value);
-                const badPercent = parseInt(badSlider.value) / 100;
-                const costPerHour = parseInt(costSlider.value);
-                
-                // Логика: на звонок уходит ~3 минуты. Час = 20 звонков.
-                // Потери = (кол-во звонков * % брака) * (стоимость часа / 20)
-                const badCalls = calls * badPercent;
-                const costPerCall = costPerHour / 20;
-                const loss = Math.round(badCalls * costPerCall);
-                
-                lossValue.textContent = formatMoney(loss);
-                
-                // Анимация потерь: красная вспышка при изменении
-                lossValue.style.transform = 'scale(1.1)';
-                setTimeout(() => { lossValue.style.transform = 'scale(1)'; }, 200);
-            }
-
-            callsSlider.addEventListener('input', function() {
-                callsValue.textContent = this.value;
-                calculate();
-            });
-            badSlider.addEventListener('input', function() {
-                badValue.textContent = this.value + '%';
-                calculate();
-            });
-            costSlider.addEventListener('input', function() {
-                costValue.textContent = this.value + ' ₽';
-                calculate();
-            });
-
-            // Первичный расчет
-            calculate();
-
-            // Мобильное меню
-            const burger = document.getElementById('burgerBtn');
-            const nav = document.getElementById('mainNav');
-            if (burger && nav) {
-                burger.addEventListener('click', function() {
-                    if (nav.style.display === 'flex') {
-                        nav.style.display = 'none';
-                    } else {
-                        nav.style.display = 'flex';
-                        nav.style.flexDirection = 'column';
-                        nav.style.position = 'absolute';
-                        nav.style.top = '70px';
-                        nav.style.left = '0';
-                        nav.style.background = 'white';
-                        nav.style.width = '100%';
-                        nav.style.padding = '20px';
-                        nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-                    }
-                });
-            }
-        });
-    </script>
+    </footer>
+    <script src="/Mngment/script.js" defer></script>
 </body>
 </html>
