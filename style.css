@@ -1140,3 +1140,183 @@ h6 { font-size: var(--font-size-base); }
     }
 }
 
+/* ============================================
+   СТРАНИЦА БРЕНДИНГА
+   ============================================ */
+.hero-service--centered {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.hero-service--centered h1 {
+    font-size: 2.5rem;
+}
+
+.hero-service--centered .hero-service__subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 35px;
+}
+
+/* Пакеты */
+.packages {
+    padding: 80px 0;
+    background: var(--color-bg);
+}
+
+.packages h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.package-card {
+    background: var(--color-white);
+    padding: 35px;
+    border-radius: var(--radius-xl);
+    border: 2px solid var(--color-border);
+    text-align: center;
+    position: relative;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.package-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.package-card--featured {
+    border-color: var(--color-accent);
+    box-shadow: 0 15px 40px rgba(255, 77, 1, 0.15);
+}
+
+.package-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-accent);
+    color: var(--color-white);
+    padding: 5px 18px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.package-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.package-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.package-card li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--color-bg-dark);
+    color: var(--color-gray);
+}
+
+.package-card li::before {
+    content: '✓ ';
+    color: var(--color-success);
+    font-weight: 700;
+}
+
+.package-deadline {
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .hero-service--centered h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* ============================================
+   THANK YOU
+   ============================================ */
+.thank-you-page {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.thank-you-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.thank-you-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--color-success);
+}
+
+.thank-you-page > .container > p {
+    font-size: 1.1rem;
+    color: var(--color-gray);
+    margin-bottom: 10px;
+}
+
+.timeline {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin: 50px 0;
+    flex-wrap: wrap;
+}
+
+.timeline-step {
+    background: var(--color-white);
+    padding: 25px;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    width: 200px;
+    text-align: center;
+}
+
+.day {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.timeline-step h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.timeline-step p {
+    font-size: 0.9rem;
+    color: var(--color-gray);
+}
+
+.thank-you-cta {
+    margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+    .thank-you-page h1 {
+        font-size: 1.8rem;
+    }
+    .timeline {
+        flex-direction: column;
+        align-items: center;
+    }
+}
