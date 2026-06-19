@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Блог: гайды, кейсы и разборы | SystemSales</title>
     <link rel="stylesheet" href="/Mngment/style.css">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
@@ -15,22 +14,18 @@
                 <a href="/Mngment/#services">Услуги</a>
                 <a href="/Mngment/cases/">Кейсы</a>
                 <a href="/Mngment/blog/">Блог</a>
-                <a href="/Mngment/contacts/">Контакты</a>
+                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
             </nav>
-            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
     </header>
 
     <main>
-        <section class="page-hero">
+        <section class="section blog-hub">
             <div class="container">
-                <h1>Блог: гайды, кейсы и разборы по digital и автоматизации бизнеса</h1>
-                <p class="page-hero__subtitle">25 статей. Проверенные методики, которые работают в 2026 году</p>
-            </div>
-        </section>
+                <h1 class="section__title">Блог: гайды, кейсы и разборы по digital и автоматизации бизнеса</h1>
+                <p class="section__subtitle">25 статей. Проверенные методики, которые работают в 2026 году</p>
 
-        <section class="blog-hub">
-            <div class="container">
                 <div class="filters" id="filters">
                     <button class="filter-btn active" data-filter="all">Все статьи</button>
                     <button class="filter-btn" data-filter="parsing">Парсинг</button>
@@ -49,131 +44,48 @@
                 </div>
 
                 <div class="blog-grid" id="blogGrid">
-                    <!-- Парсинг (1-2) -->
-                    <article class="blog-card" data-category="parsing"><span class="blog-badge">Парсинг</span><h3><a href="/Mngment/blog/kak-sobrat-bazu-kontaktov-bez-bana/">Как собрать B2B-базу контактов без бана аккаунта: полный гайд по парсингу в 2026</a></h3><p>Разбираем легальные методы, источники и анти-бан защиту</p></article>
-                    <article class="blog-card" data-category="parsing"><span class="blog-badge">Парсинг</span><h3><a href="/Mngment/blog/ruchnoj-sbor-lidov-excel-vred/">Почему ручной сбор лидов в Excel вредит вашему бизнесу</a></h3><p>5 причин перейти на автоматический парсинг уже вчера</p></article>
-                    
-                    <!-- CRM (3-4) -->
-                    <article class="blog-card" data-category="crm"><span class="blog-badge">CRM</span><h3><a href="/Mngment/blog/cheklist-crm-rabotaet-vkholostuyu/">Чек-лист: 10 признаков, что ваша CRM работает вхолостую</a></h3><p>Как понять, что система не помогает, а мешает продажам</p></article>
-                    <article class="blog-card" data-category="crm"><span class="blog-badge">CRM</span><h3><a href="/Mngment/blog/integraciya-amocrm-whatsapp-sposoby/">Интеграция AmoCRM с WhatsApp: 3 способа без программиста</a></h3><p>Сравнение сервисов и готовых решений</p></article>
-                    
-                    <!-- Чат-боты (5-6) -->
-                    <article class="blog-card" data-category="bots"><span class="blog-badge">Чат-боты</span><h3><a href="/Mngment/blog/chat-bot-vs-menedzher-sravnenie/">Чат-бот vs Менеджер: сравнение затрат и эффективности</a></h3><p>Считаем в деньгах: когда бот выгоднее человека</p></article>
-                    <article class="blog-card" data-category="bots"><span class="blog-badge">Чат-боты</span><h3><a href="/Mngment/blog/nochnye-lidy-poterya-zayavok/">Ночные лиды: как перестать терять 30% заявок</a></h3><p>Настраиваем автозахват и прогрев, пока менеджеры спят</p></article>
-                    
-                    <!-- AI (7) -->
+                    <article class="blog-card" data-category="parsing"><span class="blog-badge">Парсинг</span><h3><a href="/Mngment/blog/kak-sobrat-bazu-kontaktov-bez-bana/">Как собрать B2B-базу контактов без бана аккаунта</a></h3><p>Легальные методы, источники и анти-бан защита</p></article>
+                    <article class="blog-card" data-category="parsing"><span class="blog-badge">Парсинг</span><h3><a href="/Mngment/blog/ruchnoj-sbor-lidov-excel-vredit-biznesu/">Почему ручной сбор лидов в Excel вредит вашему бизнесу</a></h3><p>5 причин перейти на автоматический парсинг</p></article>
+                    <article class="blog-card" data-category="crm"><span class="blog-badge">CRM</span><h3><a href="/Mngment/blog/cheklist-crm-rabotaet-vkholostuyu/">Чек-лист: 10 признаков, что ваша CRM работает вхолостую</a></h3><p>Как понять, что система не помогает, а мешает</p></article>
+                    <article class="blog-card" data-category="crm"><span class="blog-badge">CRM</span><h3><a href="/Mngment/blog/integraciya-amocrm-whatsapp-sposoby/">Интеграция AmoCRM с WhatsApp: 3 способа</a></h3><p>Сравнение сервисов и готовых решений</p></article>
+                    <article class="blog-card" data-category="bots"><span class="blog-badge">Чат-боты</span><h3><a href="/Mngment/blog/chat-bot-vs-menedzher-sravnenie-zatrat/">Чат-бот vs Менеджер: сравнение затрат</a></h3><p>Считаем в деньгах: когда бот выгоднее</p></article>
+                    <article class="blog-card" data-category="bots"><span class="blog-badge">Чат-боты</span><h3><a href="/Mngment/blog/nochnye-lidy-kak-perestat-teryat-30-procentov-zayavok/">Ночные лиды: как перестать терять 30% заявок</a></h3><p>Автозахват и прогрев, пока менеджеры спят</p></article>
                     <article class="blog-card" data-category="ai"><span class="blog-badge">AI</span><h3><a href="/Mngment/blog/chto-takoe-rag-ai-opasnost/">Что такое RAG в AI-агентах и почему без него опасно</a></h3><p>Как мы заставляем нейросеть говорить только правду</p></article>
-                    
-                    <!-- Сайты (8) -->
-                    <article class="blog-card" data-category="sites"><span class="blog-badge">Сайты</span><h3><a href="/Mngment/blog/oshibki-lendinga-ubivayut-konversiyu/">7 ошибок лендинга, которые убивают конверсию</a></h3><p>Разбор на реальных примерах: что поправить за 1 день</p></article>
-                    
-                    <!-- Комплексное (9-10) -->
-                    <article class="blog-card" data-category="fullcycle"><span class="blog-badge">Комплексное</span><h3><a href="/Mngment/blog/kak-svyazat-sajt-bota-crm/">Как связать сайт, бота и CRM в единую систему: пошаговый план</a></h3><p>Архитектура digital-экосистемы для бизнеса</p></article>
-                    <article class="blog-card" data-category="fullcycle"><span class="blog-badge">Комплексное</span><h3><a href="/Mngment/blog/kejs-marketing-pod-kljuch-b2b/">Кейс: маркетинг под ключ для B2B — окупаемость за 2 месяца</a></h3><p>Как сервисный центр оцифровал продажи с нуля</p></article>
-                    
-                    <!-- SEO (11-13) -->
-                    <article class="blog-card" data-category="seo"><span class="blog-badge">SEO</span><h3><a href="/Mngment/blog/pochemu-sajt-ne-vidno-v-yandekse/">Почему ваш сайт не видно в Яндексе: 7 технических ошибок</a></h3><p>Ошибки, которые убивают ранжирование, и как их исправить</p></article>
-                    <article class="blog-card" data-category="seo"><span class="blog-badge">SEO</span><h3><a href="/Mngment/blog/semanticheskoe-yadro-dlya-b2b/">Семантическое ядро для B2B: как собрать запросы, которые приводят клиентов</a></h3><p>Трафик есть — продаж нет. Меняем это</p></article>
-                    <article class="blog-card" data-category="seo"><span class="blog-badge">SEO</span><h3><a href="/Mngment/blog/skolko-vremeni-chtoby-vyjti-v-top-10/">Сколько времени нужно чтобы выйти в ТОП-10: реалистичные сроки SEO в 2026</a></h3><p>Завышенные ожидания vs реальность</p></article>
-                    
-                    <!-- Контекст (14-16) -->
-                    <article class="blog-card" data-category="ppc"><span class="blog-badge">Контекст</span><h3><a href="/Mngment/blog/oshibki-yandeks-direkt-sliv-byudzheta/">Яндекс.Директ: 10 ошибок, из-за которых вы сливаете бюджет</a></h3><p>И как это исправить за 1 день</p></article>
-                    <article class="blog-card" data-category="ppc"><span class="blog-badge">Контекст</span><h3><a href="/Mngment/blog/minus-slova-v-direkte-polnyj-gajd/">Минус-слова в Директе: полный гайд по сбору и чистке</a></h3><p>Шаблон таблицы внутри</p></article>
-                    <article class="blog-card" data-category="analytics"><span class="blog-badge">Аналитика</span><h3><a href="/Mngment/blog/kak-schitat-roi-kontekstnoj-reklamy/">Как считать ROI контекстной рекламы: от клика до денег в кассе</a></h3><p>Инструкция для собственника</p></article>
-                    
-                    <!-- SMM (17-19) -->
-                    <article class="blog-card" data-category="smm"><span class="blog-badge">SMM</span><h3><a href="/Mngment/blog/b2b-v-telegram-kak-nahodit-klientov/">B2B в Telegram: как находить клиентов через каналы, чаты и таргет</a></h3><p>5 рабочих схем на 2026 год</p></article>
-                    <article class="blog-card" data-category="smm"><span class="blog-badge">SMM</span><h3><a href="/Mngment/blog/pochemu-smm-ne-prinosit-prodazhi/">Почему ваш SMM не приносит продажи: разница между «красиво» и «эффективно»</a></h3><p>SMM есть — результата нет. Разбираемся</p></article>
-                    <article class="blog-card" data-category="smm"><span class="blog-badge">SMM</span><h3><a href="/Mngment/blog/targetirovannaya-reklama-2026-gajd/">Таргетированная реклама в 2026: что работает после блокировок</a></h3><p>Гайд по Telegram Ads и VK Рекламе</p></article>
-                    
-                    <!-- Контент (20-21) -->
-                    <article class="blog-card" data-category="content"><span class="blog-badge">Контент</span><h3><a href="/Mngment/blog/kontent-plan-dlya-b2b-bloga-shablon/">Контент-план для B2B-блога на 3 месяца: шаблон и методика</a></h3><p>Не знаете, о чём писать? Мы знаем</p></article>
-                    <article class="blog-card" data-category="content"><span class="blog-badge">Контент</span><h3><a href="/Mngment/blog/kak-odna-statya-privodit-klientov-godami/">Как одна статья может приводить клиентов годами</a></h3><p>Анатомия SEO-текста для сложных B2B-услуг</p></article>
-                    
-                    <!-- Аналитика (22-23) -->
-                    <article class="blog-card" data-category="analytics"><span class="blog-badge">Аналитика</span><h3><a href="/Mngment/blog/skvoznaya-analitika-dlya-malogo-biznesa/">Сквозная аналитика для малого бизнеса: пошаговая инструкция</a></h3><p>От счётчика до дашборда за 5 шагов</p></article>
-                    <article class="blog-card" data-category="analytics"><span class="blog-badge">Аналитика</span><h3><a href="/Mngment/blog/yandeks-metrika-15-otchetov/">Яндекс.Метрика: 15 отчётов для собственника каждую неделю</a></h3><p>Метрика есть — никто не смотрит. Исправляем</p></article>
-                    
-                    <!-- Автоматизация (24) -->
-                    <article class="blog-card" data-category="auto"><span class="blog-badge">Автоматизация</span><h3><a href="/Mngment/blog/kak-nastroit-avtoprogrev-lidov/">Как настроить автопрогрев лидов: цепочка без менеджера</a></h3><p>Письма, SMS и чат-бот в одной воронке</p></article>
-                    
-                    <!-- Брендинг (25) -->
-                    <article class="blog-card" data-category="brand"><span class="blog-badge">Брендинг</span><h3><a href="/Mngment/blog/brending-dlya-b2b-logotip-za-3000/">Брендинг для B2B: почему «логотип за 3000 рублей» вредит продажам</a></h3><p>Как упаковать компанию правильно</p></article>
+                    <article class="blog-card" data-category="sites"><span class="blog-badge">Сайты</span><h3><a href="/Mngment/blog/7-oshibok-lendinga-kotorye-ubivayut-konversiyu/">7 ошибок лендинга, которые убивают конверсию</a></h3><p>Что поправить за 1 день</p></article>
+                    <article class="blog-card" data-category="fullcycle"><span class="blog-badge">Комплексное</span><h3><a href="/Mngment/blog/kak-svyazat-sajt-bota-crm/">Как связать сайт, бота и CRM в единую систему</a></h3><p>Архитектура digital-экосистемы для бизнеса</p></article>
+                    <article class="blog-card" data-category="fullcycle"><span class="blog-badge">Комплексное</span><h3><a href="/Mngment/blog/kejs-marketing-pod-kljuch-b2b/">Кейс: маркетинг под ключ для B2B — окупаемость за 2 месяца</a></h3><p>Как сервисный центр оцифровал продажи</p></article>
+                    <article class="blog-card" data-category="seo"><span class="blog-badge">SEO</span><h3><a href="/Mngment/blog/pochemu-sajt-ne-vidno-v-yandexe-7-oshibok/">Почему ваш сайт не видно в Яндексе: 7 технических ошибок</a></h3><p>Ошибки, которые убивают ранжирование</p></article>
+                    <article class="blog-card" data-category="seo"><span class="blog-badge">SEO</span><h3><a href="/Mngment/blog/semanticheskoe-yadro-dlya-b2b/">Семантическое ядро для B2B</a></h3><p>Трафик есть — продаж нет. Меняем это</p></article>
+                    <article class="blog-card" data-category="seo"><span class="blog-badge">SEO</span><h3><a href="/Mngment/blog/skolko-vremeni-chtoby-vyjti-v-top-10/">Сколько времени нужно чтобы выйти в ТОП-10</a></h3><p>Реалистичные сроки SEO в 2026</p></article>
+                    <article class="blog-card" data-category="ppc"><span class="blog-badge">Контекст</span><h3><a href="/Mngment/blog/10-oshibok-direkta-slivaete-budget/">Яндекс.Директ: 10 ошибок, из-за которых вы сливаете бюджет</a></h3><p>И как это исправить за 1 день</p></article>
+                    <article class="blog-card" data-category="ppc"><span class="blog-badge">Контекст</span><h3><a href="/Mngment/blog/minus-slova-v-direkte-polnyj-gajd/">Минус-слова в Директе: полный гайд</a></h3><p>Шаблон таблицы внутри</p></article>
+                    <article class="blog-card" data-category="analytics"><span class="blog-badge">Аналитика</span><h3><a href="/Mngment/blog/kak-schitat-roi-kontekstnoj-reklamy/">Как считать ROI контекстной рекламы</a></h3><p>От клика до денег в кассе</p></article>
+                    <article class="blog-card" data-category="smm"><span class="blog-badge">SMM</span><h3><a href="/Mngment/blog/b2b-v-telegram-kak-nahodit-klientov/">B2B в Telegram: 5 рабочих схем</a></h3><p>Как находить клиентов через каналы и таргет</p></article>
+                    <article class="blog-card" data-category="smm"><span class="blog-badge">SMM</span><h3><a href="/Mngment/blog/pochemu-smm-ne-prinosit-prodazhi/">Почему ваш SMM не приносит продажи</a></h3><p>Разница между «красиво» и «эффективно»</p></article>
+                    <article class="blog-card" data-category="smm"><span class="blog-badge">SMM</span><h3><a href="/Mngment/blog/targetirovannaya-reklama-2026-gajd/">Таргетированная реклама в 2026</a></h3><p>Гайд по Telegram Ads и VK Рекламе</p></article>
+                    <article class="blog-card" data-category="content"><span class="blog-badge">Контент</span><h3><a href="/Mngment/blog/kontent-plan-dlya-b2b-bloga-na-3-mesyaca/">Контент-план для B2B-блога на 3 месяца</a></h3><p>Шаблон и методика сбора тем</p></article>
+                    <article class="blog-card" data-category="content"><span class="blog-badge">Контент</span><h3><a href="/Mngment/blog/kak-odna-statya-privodit-klientov-godami/">Как одна статья может приводить клиентов годами</a></h3><p>Анатомия SEO-текста для B2B</p></article>
+                    <article class="blog-card" data-category="analytics"><span class="blog-badge">Аналитика</span><h3><a href="/Mngment/blog/skvoznaya-analitika-dlya-malogo-biznesa/">Сквозная аналитика для малого бизнеса</a></h3><p>Пошаговая инструкция от счётчика до дашборда</p></article>
+                    <article class="blog-card" data-category="analytics"><span class="blog-badge">Аналитика</span><h3><a href="/Mngment/blog/yandeks-metrika-15-otchetov/">Яндекс.Метрика: 15 отчётов для собственника</a></h3><p>Метрика есть — никто не смотрит. Исправляем</p></article>
+                    <article class="blog-card" data-category="auto"><span class="blog-badge">Автоматизация</span><h3><a href="/Mngment/blog/avtoprogrev-lidov-cepochka-bez-menedzhera/">Как настроить автопрогрев лидов</a></h3><p>Цепочка без менеджера</p></article>
+                    <article class="blog-card" data-category="brand"><span class="blog-badge">Брендинг</span><h3><a href="/Mngment/blog/brending-dlya-b2b-logotip-za-3000/">Брендинг для B2B: почему «логотип за 3000» вредит</a></h3><p>Как упаковать компанию правильно</p></article>
                 </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>🔍 Проблемы с трафиком</h4>
-                <ul>
-                    <li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li>
-                    <li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li>
-                    <li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li>
-                    <li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li>
-                </ul>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
             </div>
-            <div class="footer-col">
-                <h4>🎯 Проблемы с конверсией</h4>
-                <ul>
-                    <li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li>
-                    <li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li>
-                    <li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li>
-                    <li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>⚙️ Проблемы с управлением</h4>
-                <ul>
-                    <li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li>
-                    <li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li>
-                    <li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li>
-                    <li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>🚀 Всё сразу</h4>
-                <ul>
-                    <li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li>
-                </ul>
-            </div>
+            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2026 SystemSales. Превращаем хаос в систему.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const burger = document.getElementById('burgerBtn');
-            const nav = document.getElementById('mainNav');
-            if (burger && nav) {
-                burger.addEventListener('click', function() {
-                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-                    if (nav.style.display === 'flex') {
-                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
-                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
-                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-                    }
-                });
-            }
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const blogCards = document.querySelectorAll('.blog-card');
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    const filter = this.getAttribute('data-filter');
-                    blogCards.forEach(card => {
-                        card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? 'block' : 'none';
-                    });
-                });
-            });
-        });
-    </script>
+    <script src="/Mngment/script.js" defer></script>
 </body>
 </html>
