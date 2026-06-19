@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кейсы: как мы решаем задачи в digital и автоматизации | SystemSales</title>
     <link rel="stylesheet" href="/Mngment/style.css">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
@@ -15,9 +14,9 @@
                 <a href="/Mngment/#services">Услуги</a>
                 <a href="/Mngment/cases/">Кейсы</a>
                 <a href="/Mngment/blog/">Блог</a>
-                <a href="/Mngment/contacts/">Контакты</a>
+                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
             </nav>
-            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
     </header>
 
@@ -46,7 +45,6 @@
                 </div>
 
                 <div class="cases-grid">
-                    <!-- Кейс 1: Парсинг -->
                     <article class="case-card" data-category="parsing">
                         <span class="case-badge">Парсинг</span>
                         <div class="case-metric">12 000</div>
@@ -54,8 +52,6 @@
                         <p><strong>Конверсия в встречу: с 4% до 14%</strong></p>
                         <a href="/Mngment/cases/parsing-strojka/" class="btn btn-link">Читать кейс →</a>
                     </article>
-
-                    <!-- Кейс 2: AI -->
                     <article class="case-card" data-category="ai">
                         <span class="case-badge">AI-агенты</span>
                         <div class="case-metric">68%</div>
@@ -63,8 +59,6 @@
                         <p><strong>ФОТ поддержки сокращён на 40%</strong></p>
                         <a href="/Mngment/cases/ai-edtech/" class="btn btn-link">Читать кейс →</a>
                     </article>
-
-                    <!-- Кейс 3: Full-Cycle -->
                     <article class="case-card" data-category="fullcycle">
                         <span class="case-badge">Full-Cycle</span>
                         <div class="case-metric">2 мес.</div>
@@ -72,26 +66,20 @@
                         <p><strong>Время обработки лида: с 45 до 2 минут</strong></p>
                         <a href="/Mngment/cases/fullcycle-service/" class="btn btn-link">Читать кейс →</a>
                     </article>
-
-                    <!-- Кейс 4: SEO -->
                     <article class="case-card" data-category="seo">
                         <span class="case-badge">SEO</span>
                         <div class="case-metric">×15</div>
                         <p>рост трафика для завода металлоконструкций</p>
                         <p><strong>35+ заявок/мес вместо 2-3</strong></p>
-                        <a href="/Mngment/cases/seo-metallokonstrukcii/" class="btn btn-link">Читать кейс →</a>
+                        <a href="/Mngment/cases/seo-zavod-metallokonstrukcij/" class="btn btn-link">Читать кейс →</a>
                     </article>
-
-                    <!-- Кейс 5: Контекст -->
                     <article class="case-card" data-category="ppc">
                         <span class="case-badge">Контекст</span>
                         <div class="case-metric">−45%</div>
                         <p>снижение цены лида для оптовой компании</p>
                         <p><strong>ROMI вырос до 380%</strong></p>
-                        <a href="/Mngment/cases/ppc-elektrooborudovanie/" class="btn btn-link">Читать кейс →</a>
+                        <a href="/Mngment/cases/ppc-elektrooborudovanie-romi-380/" class="btn btn-link">Читать кейс →</a>
                     </article>
-
-                    <!-- Кейс 6: SMM -->
                     <article class="case-card" data-category="smm">
                         <span class="case-badge">SMM</span>
                         <div class="case-metric">18</div>
@@ -99,41 +87,33 @@
                         <p><strong>Окупаемость: 1,5 месяца</strong></p>
                         <a href="/Mngment/cases/smm-yurfirma/" class="btn btn-link">Читать кейс →</a>
                     </article>
-
-                    <!-- Кейс 7: Контент -->
                     <article class="case-card" data-category="content">
                         <span class="case-badge">Контент</span>
                         <div class="case-metric">4,5 млн</div>
                         <p>контрактов из блога для IT-компании</p>
-                        <p><strong>Стоимость клиента в 4 раза ниже платного трафика</strong></p>
-                        <a href="/Mngment/cases/content-it-autsors/" class="btn btn-link">Читать кейс →</a>
+                        <p><strong>Стоимость клиента в 4 раза ниже платного</strong></p>
+                        <a href="/Mngment/cases/kontent-marketing-it-kontrakty/" class="btn btn-link">Читать кейс →</a>
                     </article>
-
-                    <!-- Кейс 8: Аналитика -->
                     <article class="case-card" data-category="analytics">
                         <span class="case-badge">Аналитика</span>
                         <div class="case-metric">390%</div>
                         <p>ROMI после настройки сквозной аналитики</p>
                         <p><strong>Бюджет перераспределён без потери заявок</strong></p>
-                        <a href="/Mngment/cases/analitika-interier-magazin/" class="btn btn-link">Читать кейс →</a>
+                        <a href="/Mngment/cases/veb-analitika-romi-390/" class="btn btn-link">Читать кейс →</a>
                     </article>
-
-                    <!-- Кейс 9: Автоматизация -->
                     <article class="case-card" data-category="auto">
                         <span class="case-badge">Автоматизация</span>
                         <div class="case-metric">40%</div>
-                        <p>заявок без участия менеджера для климатической компании</p>
+                        <p>заявок без участия менеджера</p>
                         <p><strong>Допродажи выросли на 35%</strong></p>
-                        <a href="/Mngment/cases/auto-kondicionirovanie/" class="btn btn-link">Читать кейс →</a>
+                        <a href="/Mngment/cases/marketing-automation-40-procentov/" class="btn btn-link">Читать кейс →</a>
                     </article>
-
-                    <!-- Кейс 10: Брендинг -->
                     <article class="case-card" data-category="brand">
                         <span class="case-badge">Брендинг</span>
                         <div class="case-metric">+20%</div>
-                        <p>к среднему чеку для производителя пищевого оборудования</p>
+                        <p>к среднему чеку для производителя оборудования</p>
                         <p><strong>Конверсия тендеров: с 30% до 65%</strong></p>
-                        <a href="/Mngment/cases/brending-pishhevoe-oborudovanie/" class="btn btn-link">Читать кейс →</a>
+                        <a href="/Mngment/cases/brending-proizvodstvo-chek-vyshe/" class="btn btn-link">Читать кейс →</a>
                     </article>
                 </div>
             </div>
@@ -141,75 +121,17 @@
     </main>
 
     <footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>🔍 Проблемы с трафиком</h4>
-                <ul>
-                    <li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li>
-                    <li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li>
-                    <li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li>
-                    <li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li>
-                </ul>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
             </div>
-            <div class="footer-col">
-                <h4>🎯 Проблемы с конверсией</h4>
-                <ul>
-                    <li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li>
-                    <li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li>
-                    <li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li>
-                    <li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>⚙️ Проблемы с управлением</h4>
-                <ul>
-                    <li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li>
-                    <li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li>
-                    <li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li>
-                    <li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>🚀 Всё сразу</h4>
-                <ul>
-                    <li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li>
-                </ul>
-            </div>
+            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2026 SystemSales. Превращаем хаос в систему.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const burger = document.getElementById('burgerBtn');
-            const nav = document.getElementById('mainNav');
-            if (burger && nav) {
-                burger.addEventListener('click', function() {
-                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-                    if (nav.style.display === 'flex') {
-                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
-                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
-                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-                    }
-                });
-            }
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const caseCards = document.querySelectorAll('.case-card');
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    const filter = this.getAttribute('data-filter');
-                    caseCards.forEach(card => {
-                        card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? 'block' : 'none';
-                    });
-                });
-            });
-        });
-    </script>
+    <script src="/Mngment/script.js" defer></script>
 </body>
 </html>
