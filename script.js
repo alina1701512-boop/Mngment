@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     connectors.forEach((conn, index) => {
                         setTimeout(() => {
                             conn.classList.add('active');
-                        }, index * 400); // Задержка для эффекта волны
+                        }, index * 400);
                     });
                     chartObserver.unobserve(entry.target);
                 }
@@ -65,12 +65,9 @@ document.addEventListener('DOMContentLoaded', function () {
     allSliders.forEach(slider => {
         const output = document.getElementById(slider.id + 'Value');
         if (output) {
-            // Установка начального значения
             output.textContent = formatSliderValue(slider.value, slider.dataset.format);
-            // Обновление при движении
             slider.addEventListener('input', function () {
                 output.textContent = formatSliderValue(this.value, this.dataset.format);
-                // Если ползунок внутри калькулятора — запускаем пересчёт
                 const calculator = this.closest('.calculator');
                 if (calculator) {
                     recalculateCalculator(calculator.id);
@@ -79,12 +76,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    /**
-     * Форматирование значения ползунка
-     * @param {string} value - Значение
-     * @param {string} format - Тип форматирования (money, percent, number, time)
-     * @returns {string} Отформатированное значение
-     */
     function formatSliderValue(value, format) {
         switch (format) {
             case 'money':
@@ -102,27 +93,24 @@ document.addEventListener('DOMContentLoaded', function () {
     // ============================================
     // МОДУЛЬ 4: КАЛЬКУЛЯТОРЫ
     // ============================================
-    /**
-     * Главный диспетчер. Вызывает нужный калькулятор по ID обёртки.
-     */
     function recalculateCalculator(calculatorId) {
         switch (calculatorId) {
-            case 'calculatorTermometr': // Термометр холодной базы (Парсинг)
+            case 'calculatorTermometr':
                 updateTermometr();
                 break;
-            case 'calculatorAiRentgen': // AI-Рентген (AI-агенты)
+            case 'calculatorAiRentgen':
                 updateAiRentgen();
                 break;
-            case 'calculatorSlivometr': // Сливометр (Контекстная реклама)
+            case 'calculatorSlivometr':
                 updateSlivometr();
                 break;
-            case 'calculatorSeoChance': // SEO-шанс
+            case 'calculatorSeoChance':
                 updateSeoChance();
                 break;
-            case 'calculatorContentDeficit': // Контент-дефицит
+            case 'calculatorContentDeficit':
                 updateContentDeficit();
                 break;
-            case 'calculatorSlepyeZony': // Слепые зоны (Веб-аналитика)
+            case 'calculatorSlepyeZony':
                 updateSlepyeZony();
                 break;
             default:
@@ -137,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const hourRate = parseInt(document.getElementById('hourRate')?.value || 500);
 
         const deadCalls = Math.round(calls * (deadPercent / 100));
-        const timeWastedPerDay = deadCalls * 3; // 3 минуты на мёртвый звонок
+        const timeWastedPerDay = deadCalls * 3;
         const lossPerDay = Math.round((timeWastedPerDay / 60) * hourRate);
         const lossPerMonth = lossPerDay * 22;
 
@@ -154,13 +142,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const responseTime = parseInt(document.getElementById('responseTime')?.value || 10);
         const managerCost = parseInt(document.getElementById('managerCost')?.value || 60000);
 
-        // 80% запросов закроет AI
         const aiRequests = Math.round(requests * 0.8);
-        // Экономия времени: (время ответа менеджера / 60) * кол-во AI-запросов
         const hoursSaved = (responseTime / 60) * aiRequests;
-        // Эквивалент менеджеров: сэкономленные часы / 160 рабочих часов
         const managersEquivalent = (hoursSaved / 160).toFixed(1);
-        // Экономия денег
         const moneySaved = Math.round(managerCost * parseFloat(managersEquivalent));
 
         const moneyEl = document.getElementById('aiMoneySaved');
@@ -172,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (timeEl) timeEl.textContent = '3 секунды (вместо ' + responseTime + ' мин)';
     }
 
-    // --- 4.3. Сливометр (Контекстная реклама) ---
+    // --- 4.3. Сливометр ---
     function updateSlivometr() {
         const budget = parseInt(document.getElementById('adBudget')?.value || 100000);
         const currentLeads = parseInt(document.getElementById('currentLeads')?.value || 30);
@@ -195,12 +179,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const industry = document.getElementById('seoIndustry')?.value || 'B2B-услуги';
         const targetLeads = parseInt(document.getElementById('seoDesiredLeads')?.value || 50);
 
-        // Псевдослучайные числа на основе входных данных
         const seed = hashCode(siteUrl + industry);
-        const pagesFound = 10 + (seed % 90); // 10–100 страниц
-        const errorsFound = 5 + (seed % 30); // 5–35 ошибок
-        const trafficLoss = 100 + (seed % 900); // 100–1000 визитов
-        const growthPercent = 100 + (seed % 400); // 100–500% роста
+        const pagesFound = 10 + (seed % 90);
+        const errorsFound = 5 + (seed % 30);
+        const trafficLoss = 100 + (seed % 900);
+        const growthPercent = 100 + (seed % 400);
 
         const pagesEl = document.getElementById('seoPages');
         const errorsEl = document.getElementById('seoErrors');
@@ -222,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const yourPages = 10 + (seed % 50);
         const competitorPages = 100 + (seed % 400);
         const deficit = Math.max(0, competitorPages - yourPages);
-        const trafficLoss = deficit * 3; // ~3 визита на недостающую страницу
+        const trafficLoss = deficit * 3;
 
         const yourEl = document.getElementById('contentYourPages');
         const competitorEl = document.getElementById('contentCompetitorPages');
@@ -235,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (trafficEl) trafficEl.textContent = '~' + trafficLoss + ' визитов/мес';
     }
 
-    // --- 4.6. Слепые зоны (Веб-аналитика) ---
+    // --- 4.6. Слепые зоны ---
     function updateSlepyeZony() {
         const q1 = document.querySelector('input[name="slepQ1"]:checked')?.value === 'yes' ? 1 : 0;
         const q2 = document.querySelector('input[name="slepQ2"]:checked')?.value === 'yes' ? 1 : 0;
@@ -257,64 +240,44 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ============================================
-    // МОДУЛЬ 5: ОТПРАВКА ФОРМ (AJAX + РЕДИРЕКТ)
+    // МОДУЛЬ 5: ОТПРАВКА ФОРМ (ДВА РЕЖИМА)
     // ============================================
-    const allForms = document.querySelectorAll('form[data-ajax="true"]');
 
-    allForms.forEach(form => {
+    // Режим 1: Формы с data-ajax="true" — отправка через fetch (Formspree)
+    const ajaxForms = document.querySelectorAll('form[data-ajax="true"]');
+
+    ajaxForms.forEach(form => {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
 
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn?.textContent;
 
-            // Визуальная обратная связь
             if (submitBtn) {
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Отправляем...';
             }
 
-            // Сбор данных
             const formData = new FormData(form);
-            const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
 
-            // Добавляем UTM-метки, если есть
-            const urlParams = new URLSearchParams(window.location.search);
-            ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(param => {
-                if (urlParams.get(param)) {
-                    data[param] = urlParams.get(param);
-                }
-            });
-
-            // Добавляем URL страницы, с которой отправлена форма
-            data['page_url'] = window.location.href;
-            data['page_title'] = document.title;
-
-            // Отправка (замените URL на ваш Webhook в AmoCRM)
-            fetch(form.action || '/api/lead', {
+            fetch(form.action, {
                 method: 'POST',
+                body: formData,
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
                 },
-                body: JSON.stringify(data),
             })
                 .then(response => {
-                    if (!response.ok) throw new Error('Network error');
-                    return response.json();
+                    if (response.ok) {
+                        const redirectUrl = form.dataset.redirect || '/Mngment/thank-you/';
+                        window.location.href = redirectUrl;
+                    } else {
+                        throw new Error('Ошибка отправки');
+                    }
                 })
-                .then(result => {
-                    // Успех — редирект на страницу благодарности
-                    const redirectUrl = form.dataset.redirect || '/thank-you/';
-                    window.location.href = redirectUrl;
-                })
-                .catch(error => {
-                    console.error('Ошибка отправки:', error);
-                    // Если ошибка — всё равно редиректим, чтобы не терять лида
-                    // (можно добавить резервный Webhook или очередь)
-                    const redirectUrl = form.dataset.redirect || '/thank-you/';
+                .catch(() => {
+                    // Даже при ошибке редиректим, чтобы не терять лида
+                    const redirectUrl = form.dataset.redirect || '/Mngment/thank-you/';
                     window.location.href = redirectUrl;
                 })
                 .finally(() => {
@@ -325,6 +288,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
         });
     });
+
+    // Режим 2: Обычные формы (GET/POST без data-ajax) — не перехватываем,
+    // они работают стандартным способом. Для GitHub Pages это основной режим.
 
     // ============================================
     // МОДУЛЬ 6: ПЛАВНЫЙ СКРОЛЛ К ЯКОРЯМ
@@ -373,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const phoneInputs = document.querySelectorAll('input[type="tel"]');
 
     phoneInputs.forEach(input => {
-        input.addEventListener('input', function (e) {
+        input.addEventListener('input', function () {
             let value = this.value.replace(/\D/g, '');
 
             if (value.startsWith('7') || value.startsWith('8')) {
@@ -389,7 +355,6 @@ document.addEventListener('DOMContentLoaded', function () {
             this.value = formatted;
         });
 
-        // Начальное значение
         if (!input.value) {
             input.value = '+7 (';
         }
@@ -402,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ============================================
-    // МОДУЛЬ 9: ТАЙМЕР ОБРАТНОГО ОТСЧЁТА (для акций)
+    // МОДУЛЬ 9: ТАЙМЕР ОБРАТНОГО ОТСЧЁТА
     // ============================================
     const countdownEl = document.getElementById('countdown');
 
@@ -438,7 +403,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ============================================
-    // МОДУЛЬ 10: ИНИЦИАЛИЗАЦИЯ ВСЕХ КАЛЬКУЛЯТОРОВ ПРИ ЗАГРУЗКЕ
+    // МОДУЛЬ 10: ИНИЦИАЛИЗАЦИЯ КАЛЬКУЛЯТОРОВ
     // ============================================
     const calculatorIds = [
         'calculatorTermometr',
@@ -458,28 +423,26 @@ document.addEventListener('DOMContentLoaded', function () {
     // ============================================
     // ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
     // ============================================
-
-    /**
-     * Простая хеш-функция для псевдослучайных чисел в калькуляторах
-     */
     function hashCode(str) {
         let hash = 0;
         for (let i = 0; i < str.length; i++) {
             const char = str.charCodeAt(i);
             hash = ((hash << 5) - hash) + char;
-            hash = hash & hash; // Convert to 32bit integer
+            hash = hash >>> 0;
         }
         return Math.abs(hash);
     }
 
     // ============================================
-    // ЛОГИРОВАНИЕ (только в режиме разработки)
+    // ЛОГИРОВАНИЕ (для разработки)
     // ============================================
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        console.log('🚀 script.js загружен и инициализирован');
-        console.log('📊 Найдено калькуляторов:', calculatorIds.filter(id => document.getElementById(id)).length);
-        console.log('📝 Найдено форм с data-ajax:', document.querySelectorAll('form[data-ajax="true"]').length);
-        console.log('📱 Мобильное меню:', burgerBtn ? 'активно' : 'не найдено');
+    if (window.location.hostname === 'localhost' ||
+        window.location.hostname === '127.0.0.1' ||
+        window.location.hostname.includes('github.io')) {
+        console.log('🚀 script.js загружен');
+        console.log('📊 Калькуляторов:', calculatorIds.filter(id => document.getElementById(id)).length);
+        console.log('📝 Ajax-форм:', ajaxForms.length);
+        console.log('📱 Бургер-меню:', burgerBtn ? 'готово' : 'не найдено');
     }
 
 });
