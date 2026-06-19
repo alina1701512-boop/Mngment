@@ -1320,3 +1320,44 @@ h6 { font-size: var(--font-size-base); }
         align-items: center;
     }
 }
+
+/* ============================================
+   TOOLS
+   ============================================ */
+.tool-page {
+    padding: 80px 0;
+}
+
+.tool-page h1 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.tool-page__subtitle {
+    text-align: center;
+    color: var(--color-gray);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+.tool-page .audit-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.quiz-option {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+}
+
+.quiz-score {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.btn--full {
+    width: 100%;
+}
