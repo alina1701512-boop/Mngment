@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Что такое RAG в AI-агентах и почему без него опасно | SystemSales</title>
+    <link rel="stylesheet" href="/Mngment/style.css">
+    <style>
+        .article-page { display: grid; grid-template-columns: 1fr 300px; gap: 40px; padding: 60px 0; }
+        .article-content h1 { font-size: 2.2rem; margin-bottom: 20px; line-height: 1.3; }
+        .article-content h2 { font-size: 1.5rem; margin: 30px 0 15px; text-align: left; }
+        .article-content p { color: #444; line-height: 1.9; margin-bottom: 18px; }
+        .article-content ul, .article-content ol { margin: 15px 0 20px 25px; color: #444; line-height: 1.9; }
+        .article-content blockquote { background: #fff0f4; padding: 20px 25px; border-left: 4px solid #7C3AED; margin: 25px 0; }
+        .sidebar { position: sticky; top: 90px; align-self: start; }
+        .sidebar-block { background: #fff; padding: 20px; border-radius: 14px; border: 1px solid #eee; margin-bottom: 20px; }
+        .sidebar-block h3 { font-size: 1.1rem; margin-bottom: 12px; }
+        .sidebar-block ul { list-style: none; padding: 0; }
+        .sidebar-block li { margin-bottom: 8px; }
+        .sidebar-block a { color: #FF4D01; text-decoration: none; }
+        .cta-article { background: #1a1a2e; color: #fff; padding: 25px; border-radius: 14px; text-align: center; margin-top: 20px; }
+        .cta-article h3 { color: #fff; margin-bottom: 8px; }
+        .cta-article p { color: rgba(255,255,255,0.7); margin-bottom: 18px; }
+        @media (max-width: 768px) {
+            .article-page { grid-template-columns: 1fr; }
+            .article-content h1 { font-size: 1.7rem; }
+            .sidebar { position: static; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+            <nav class="nav" id="mainNav">
+                <a href="/Mngment/#services">Услуги</a>
+                <a href="/Mngment/cases/">Кейсы</a>
+                <a href="/Mngment/blog/">Блог</a>
+                <a href="/Mngment/contacts/">Контакты</a>
+            </nav>
+            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="article-page">
+                <article class="article-content">
+                    <h1>Что такое RAG в AI-агентах и почему без него опасно</h1>
+                    
+                    <p>Вы наверняка слышали про ChatGPT и думаете: «Вот бы поставить такого бота на сайт, пусть отвечает клиентам». Но есть проблема: ChatGPT «галлюцинирует». Он может придумать несуществующую скидку, назвать неверную цену или пообещать доставку туда, куда вы не возите. В бизнесе такая ошибка стоит денег и репутации.</p>
+                    <p>Решение — технология RAG. Рассказываем, что это такое и почему без неё AI-агент в бизнесе опасен.</p>
+
+                    <h2>Что такое RAG простыми словами</h2>
+                    <p>RAG (Retrieval Augmented Generation) — это «генерация ответов, дополненная поиском». Простыми словами: AI-агент не придумывает ответ из головы, а сначала ищет информацию в вашей базе знаний (документы, регламенты, FAQ, скрипты продаж), и только потом формулирует ответ на основе найденного.</p>
+                    <p>Это как если бы менеджер перед ответом клиенту открывал базу знаний и говорил: «Сейчас посмотрю в регламенте». Только AI делает это за доли секунды.</p>
+
+                    <h2>Пример без RAG (опасно)</h2>
+                    <p>Клиент спрашивает: «Какая у вас скидка при заказе от 100 000 ₽?» ChatGPT отвечает: «У нас скидка 15% при заказе от 50 000 ₽». А на самом деле у вас скидка 10% от 200 000 ₽. Клиент оформляет заказ, а потом возмущается. Вы теряете деньги или клиента.</p>
+
+                    <h2>Пример с RAG (безопасно)</h2>
+                    <p>Тот же вопрос. AI-агент ищет в вашей базе знаний документ «Условия скидок 2026», находит там: «Скидка 10% при заказе от 200 000 ₽». И отвечает клиенту: «По нашим текущим условиям скидка 10% предоставляется при заказе от 200 000 ₽». Если информации нет — агент честно говорит: «Я уточню у менеджера».</p>
+
+                    <h2>Почему RAG — это must-have для бизнеса</h2>
+                    <ul>
+                        <li><strong>Без галлюцинаций:</strong> нейросеть отвечает строго по вашим документам</li>
+                        <li><strong>Актуальность:</strong> поменяли регламент — загрузили новый файл, агент отвечает по-новому</li>
+                        <li><strong>Контроль:</strong> вы всегда знаете, на основе какого документа агент дал ответ</li>
+                        <li><strong>Безопасность:</strong> если информации нет — агент не импровизирует, а передаёт менеджеру</li>
+                    </ul>
+
+                    <blockquote>Вывод: AI-агент без RAG — это русская рулетка. AI-агент с RAG — это сотрудник, который жёстко следует регламентам, не устаёт и не ошибается. Мы используем RAG во всех наших AI-решениях.</blockquote>
+                </article>
+
+                <aside class="sidebar">
+                    <div class="sidebar-block">
+                        <h3>🛠️ Инструменты</h3>
+                        <ul>
+                            <li>OpenAI API / ChatGPT</li>
+                            <li>LangChain</li>
+                            <li>Pinecone (векторная БД)</li>
+                            <li>AmoCRM</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-block">
+                        <h3>🔗 Связанные услуги</h3>
+                        <ul>
+                            <li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li>
+                            <li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li>
+                        </ul>
+                    </div>
+                    <div class="cta-article">
+                        <h3>Хотите AI-агента, который не ошибается?</h3>
+                        <p>Настроим RAG на ваших регламентах и документах</p>
+                        <a href="/Mngment/services/ai-agenty/#form" class="btn btn-primary">Обсудить пилот</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        const b=document.getElementById('burgerBtn'),n=document.getElementById('mainNav');
+        b&&n&&b.addEventListener('click',()=>{n.style.display=n.style.display==='flex'?'none':'flex';if(n.style.display==='flex'){n.style.flexDirection='column';n.style.position='absolute';n.style.top='70px';n.style.left='0';n.style.background='white';n.style.width='100%';n.style.padding='20px';n.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)';}});
+    </script>
+</body>
+</html>
