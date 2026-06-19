@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кейс: 12 000 контактов за 7 дней | SystemSales</title>
+    <link rel="stylesheet" href="/Mngment/style.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .case-hero { padding: 80px 0 50px; }
+        .case-hero h1 { font-size: 2.5rem; max-width: 900px; }
+        .case-section { padding: 40px 0; border-bottom: 1px solid #eee; }
+        .case-section h2 { text-align: left; margin-bottom: 20px; }
+        .case-section p { color: #555; line-height: 1.8; margin-bottom: 15px; }
+        .case-section ul { margin: 15px 0 15px 20px; color: #555; line-height: 1.8; }
+        .result-table { display: grid; grid-template-columns: 200px 1fr 1fr; gap: 0; margin: 30px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .result-row { display: contents; }
+        .result-row div { padding: 15px 20px; background: #fff; border-bottom: 1px solid #eee; }
+        .result-header div { background: #1a1a2e; color: #fff; font-weight: 700; border-bottom: none; }
+        .result-old { color: #E53935; }
+        .result-new { color: #00C853; font-weight: 600; }
+        .testimonial { background: #f0f4ff; padding: 30px; border-radius: 16px; margin: 30px 0; font-style: italic; }
+        .testimonial-author { margin-top: 15px; font-weight: 700; font-style: normal; }
+        .cta-block { text-align: center; padding: 60px 0; }
+        @media (max-width: 768px) {
+            .case-hero h1 { font-size: 1.8rem; }
+            .result-table { grid-template-columns: 1fr; }
+            .result-header { display: none; }
+            .result-row div { padding: 12px 15px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="/Mngment/" class="logo">System<span>Sales</span></a>
+            <nav class="nav" id="mainNav">
+                <a href="/Mngment/#services">Услуги</a>
+                <a href="/Mngment/cases/">Кейсы</a>
+                <a href="/Mngment/#lead-magnet">Аудит</a>
+                <a href="/Mngment/contacts/">Контакты</a>
+            </nav>
+            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="case-hero">
+            <div class="container">
+                <h1>Как строительный холдинг получил 12 000 контактов за 7 дней и поднял конверсию в встречу с 4% до 14%</h1>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <div class="container">
+                <h2>Клиент и контекст</h2>
+                <p>Региональный поставщик стройматериалов (B2B). 3 филиала в разных городах. Отдел продаж — 15 менеджеров. Клиенты — застройщики и подрядчики. Основной канал продаж — холодные звонки.</p>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <div class="container">
+                <h2>Задача и боль</h2>
+                <p>Собрать актуальную базу застройщиков и подрядчиков в 10 регионах РФ.</p>
+                <p><strong>Проблема:</strong> Ручной сбор контактов с 2ГИС и тендерных площадок устаревал за 3 месяца. Менеджеры тратили 60% времени на актуализацию контактов вместо продаж. Из 100 холодных звонков — 30 номеров неактуальны. Потери на одного менеджера — 3 750 ₽/день.</p>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <div class="container">
+                <h2>Решение</h2>
+                <ul>
+                    <li>Разработали кастомный парсер на Python для мониторинга госзакупок (ЕИС) + коммерческих тендеров</li>
+                    <li>Настроили ежедневную выгрузку новых карточек организаций из 2ГИС и Яндекс Карт</li>
+                    <li>Подключили верификацию номеров через автоматический прозвон-сброс (определение живого номера)</li>
+                    <li>Интегрировали парсер с AmoCRM: новый контакт → автоматическое создание сделки → задача менеджеру на звонок</li>
+                    <li>Настроили еженедельное автообновление базы — все неактуальные контакты заменяются новыми</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <div class="container">
+                <h2>Результат</h2>
+                <div class="result-table">
+                    <div class="result-row result-header">
+                        <div>Показатель</div><div>Было</div><div>Стало</div>
+                    </div>
+                    <div class="result-row">
+                        <div>Актуальных контактов</div><div class="result-old">~500 (ручной сбор)</div><div class="result-new">12 000 за 7 дней</div>
+                    </div>
+                    <div class="result-row">
+                        <div>Конверсия «звонок → встреча»</div><div class="result-old">4%</div><div class="result-new">14%</div>
+                    </div>
+                    <div class="result-row">
+                        <div>Время на поиск контактов</div><div class="result-old">3 часа/день</div><div class="result-new">0 (автоматически)</div>
+                    </div>
+                    <div class="result-row">
+                        <div>Окупаемость</div><div class="result-old">—</div><div class="result-new">8 дней</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <div class="container">
+                <h2>Отзыв</h2>
+                <div class="testimonial">
+                    <p>«Мы скептически относились к автоматическому сбору. Думали, что только ручной обзвон даёт качество. Но когда за первую неделю получили 12 000 верифицированных контактов, а конверсия в встречу выросла в 3,5 раза — все сомнения отпали. Парсер окупился за 8 дней.»</p>
+                    <p class="testimonial-author">— Коммерческий директор строительного холдинга</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-block">
+            <div class="container">
+                <h2>Хотите так же?</h2>
+                <p style="color:#666; margin-bottom:25px;">Получите тестовую выгрузку из 50 контактов для вашей ниши</p>
+                <a href="/Mngment/services/parsing-lidogeneraciya/#form" class="btn btn-primary btn-large">Получить тестовую выгрузку</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const burger = document.getElementById('burgerBtn');
+            const nav = document.getElementById('mainNav');
+            if (burger && nav) {
+                burger.addEventListener('click', function() {
+                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+                    if (nav.style.display === 'flex') {
+                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
+                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
+                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
