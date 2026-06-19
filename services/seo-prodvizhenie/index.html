@@ -3,40 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO-продвижение сайта под ключ | SystemSales</title>
+    <title>SEO-продвижение сайта | SystemSales</title>
     <link rel="stylesheet" href="/Mngment/style.css">
-    <link rel="stylesheet" href="style.css">
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Сколько стоит SEO-продвижение?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "От XX XXX ₽/мес. Зависит от объёма работ и конкурентности ниши. Первый аудит — бесплатно."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Через сколько будет результат?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Первые движения через 1-2 месяца, устойчивый рост через 4-6 месяцев."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Даёте ли гарантии?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Гарантируем прозрачность: вы видите каждый наш шаг в отчётах. Позиции в поиске — результат совместной работы алгоритмов и нашего труда."
-          }
-        }
-      ]
-    }
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Сколько стоит SEO-продвижение?","acceptedAnswer":{"@type":"Answer","text":"От XX XXX ₽/мес. Первый аудит — бесплатно."}},{"@type":"Question","name":"Через сколько будет результат?","acceptedAnswer":{"@type":"Answer","text":"Первые движения через 1-2 месяца, устойчивый рост через 4-6 месяцев."}}]}
     </script>
 </head>
 <body>
@@ -47,130 +17,63 @@
                 <a href="/Mngment/#services">Услуги</a>
                 <a href="/Mngment/cases/">Кейсы</a>
                 <a href="/Mngment/blog/">Блог</a>
-                <a href="/Mngment/contacts/">Контакты</a>
+                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
             </nav>
-            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
     </header>
-
     <main>
-        <!-- Оффер + Калькулятор -->
         <section class="hero-service">
             <div class="container">
                 <div class="hero-service__content">
                     <h1>SEO-продвижение сайта под ключ: вывод в топ Яндекса с гарантией прозрачности</h1>
-                    <p class="hero-service__subtitle">Не «купим ссылки и будем молиться». Строим семантическое ядро, пишем контент, закрывающий боли клиентов, и технически готовим сайт так, чтобы поисковики его любили.</p>
-                    <a href="#form" class="btn btn-primary cta-main">Получить бесплатный аудит</a>
+                    <p class="hero-service__subtitle">Строим семантическое ядро, пишем контент, технически готовим сайт.</p>
+                    <a href="#serviceForm" class="btn btn-primary cta-main">Получить бесплатный аудит</a>
                 </div>
-                
-                <div class="calculator calculator--seo" id="seoCalculator">
-    <h3>🔍 SEO-шанс</h3>
-    
-    <!-- Прогресс-бар -->
-    <div class="progress-bar">
-        <div class="progress-step active" data-step="1">1</div>
-        <div class="progress-line"></div>
-        <div class="progress-step" data-step="2">2</div>
-        <div class="progress-line"></div>
-        <div class="progress-step" data-step="3">3</div>
-    </div>
-    <div class="progress-labels">
-        <span class="active">Сайт</span>
-        <span>Сфера</span>
-        <span>Заявки</span>
-    </div>
-
-    <!-- Шаг 1: URL -->
-    <div class="calc-step active" id="step1">
-        <label>Адрес вашего сайта</label>
-        <input type="text" id="siteUrl" placeholder="https://vashsite.ru" class="calc-input">
-        <p class="calc-hint">Вставьте ссылку на ваш сайт</p>
-        <button class="btn btn-primary" id="toStep2" disabled>Далее</button>
-    </div>
-
-    <!-- Шаг 2: Сфера -->
-    <div class="calc-step" id="step2">
-        <label>Сфера бизнеса</label>
-        <select id="businessType" class="calc-select">
-            <option value="" disabled selected>Выберите сферу</option>
-            <option>B2B-услуги</option>
-            <option>B2C-товары</option>
-            <option>Производство</option>
-            <option>Строительство</option>
-            <option>IT</option>
-            <option>Другое</option>
-        </select>
-        <button class="btn btn-outline" id="toStep1">← Назад</button>
-        <button class="btn btn-primary" id="toStep3" disabled>Далее</button>
-    </div>
-
-    <!-- Шаг 3: Заявки -->
-    <div class="calc-step" id="step3">
-        <label>Сколько заявок в месяц вы хотели бы получать с сайта?</label>
-        <input type="range" id="leadsSlider" min="10" max="1000" value="50" step="10">
-        <span class="calc-value" id="leadsValue">50</span>
-        <button class="btn btn-outline" id="toStep2b">← Назад</button>
-        <button class="btn btn-primary" id="scanBtn">Просканировать сайт</button>
-    </div>
-
-    <!-- Результат -->
-    <div class="calc-step" id="stepResult" style="display:none;">
-        <div class="scan-animation" id="scanAnimation">
-            <div class="spinner"></div>
-            <p>Сканируем сайт...</p>
-        </div>
-        <div class="calc-result" id="seoResult" style="display:none;">
-            <p>🔍 Мы просканировали <strong id="pagesCount">0</strong> страниц на вашем сайте</p>
-            <p>⚠️ Найдено <strong id="errorsCount">0</strong> критических ошибок (дубли, скорость, мета-теги)</p>
-            <p>📉 Потенциально вы теряете до <strong id="trafficLoss">0</strong> посетителей/мес</p>
-            <p>📈 Прогноз роста трафика после оптимизации: <strong id="growthPercent">0%</strong> за 4-6 месяцев</p>
-            <a href="#form" class="btn btn-primary" style="margin-top:15px;">Получить точный SEO-аудит с отчётом PDF</a>
-        </div>
-    </div>
-</div>
+                <div class="calculator" id="calculatorSeoChance">
+                    <h3 class="calculator__title">🔍 SEO-шанс</h3>
+                    <p class="calculator__subtitle">Потенциал вашего сайта за 3 шага</p>
+                    <div class="calculator__steps">
+                        <div class="calculator__step">
+                            <label class="calculator__step-label">Адрес сайта</label>
+                            <input type="text" id="siteUrl" placeholder="https://vashsite.ru" class="calculator__input">
+                        </div>
+                        <div class="calculator__step">
+                            <label class="calculator__step-label">Сфера бизнеса</label>
+                            <select id="seoIndustry" class="calculator__input">
+                                <option value="" disabled selected>Выберите...</option>
+                                <option>B2B-услуги</option><option>B2C-товары</option><option>Производство</option><option>Строительство</option><option>IT</option>
+                            </select>
+                        </div>
+                        <div class="calculator__step">
+                            <label class="calculator__step-label">Желаемых заявок/мес <span class="calculator__step-value" id="seoDesiredLeadsValue">50</span></label>
+                            <input type="range" class="calculator__slider" id="seoDesiredLeads" min="10" max="1000" value="50" step="10" data-format="number">
+                        </div>
+                    </div>
+                    <div class="calculator__result">
+                        <p>🔍 Страниц: <strong id="seoPages">—</strong></p>
+                        <p>⚠️ Ошибок: <strong id="seoErrors">—</strong></p>
+                        <p>📉 Теряете: <strong id="seoTrafficLoss">—</strong> визитов/мес</p>
+                        <p>📈 Прогноз: <strong id="seoGrowth">—</strong></p>
+                        <div class="calculator__cta"><a href="#serviceForm" class="btn btn-accent">Получить точный аудит</a></div>
+                    </div>
+                </div>
+            </div>
         </section>
-
-        <!-- До/После -->
         <section class="compare">
             <div class="container">
-                <h2>Что меняется после SEO-продвижения</h2>
+                <h2>Что меняется</h2>
                 <div class="compare-table">
-                    <div class="compare-row compare-header">
-                        <div>Критерий</div><div>Было</div><div>Стало</div>
-                    </div>
-                    <div class="compare-row">
-                        <div>Позиции</div><div>Сайт на 3-5 странице</div><div>ТОП-10 за 3-6 месяцев</div>
-                    </div>
-                    <div class="compare-row">
-                        <div>Трафик</div><div>100-200 визитов/мес</div><div>Рост до целевых показателей</div>
-                    </div>
-                    <div class="compare-row">
-                        <div>Контент</div><div>Страницы без оптимизации</div><div>Каждая страница — под свой кластер</div>
-                    </div>
-                    <div class="compare-row">
-                        <div>Техника</div><div>Битые ссылки, дубли</div><div>Чистый код, Schema.org</div>
-                    </div>
+                    <div class="compare-row compare-header"><div>Критерий</div><div>Было</div><div>Стало</div></div>
+                    <div class="compare-row"><div>Позиции</div><div>3-5 страница</div><div>ТОП-10</div></div>
+                    <div class="compare-row"><div>Трафик</div><div>100-200/мес</div><div>Рост до цели</div></div>
+                    <div class="compare-row"><div>Техника</div><div>Битые ссылки</div><div>Чистый код</div></div>
                 </div>
             </div>
         </section>
-
-        <!-- FAQ -->
-        <section class="faq">
-            <div class="container">
-                <h2>Частые вопросы про SEO</h2>
-                <div class="faq-list">
-                    <details class="faq-item"><summary>Сколько стоит SEO-продвижение?</summary><p>От XX XXX ₽/мес. Зависит от объёма работ и конкурентности ниши. Первый аудит — бесплатно.</p></details>
-                    <details class="faq-item"><summary>Через сколько будет результат?</summary><p>Первые движения через 1-2 месяца, устойчивый рост через 4-6 месяцев.</p></details>
-                    <details class="faq-item"><summary>Даёте ли гарантии?</summary><p>Гарантируем прозрачность: вы видите каждый наш шаг в отчётах. Позиции в поиске — результат совместной работы алгоритмов и нашего труда.</p></details>
-                </div>
-            </div>
-        </section>
-
-        <!-- Форма -->
-        <section class="lead-magnet" id="form">
+        <section class="lead-magnet" id="serviceForm">
             <div class="container">
                 <h2>Получите бесплатный SEO-аудит</h2>
-                <p class="lead-magnet__subtitle">Покажем 10 точек роста для вашего сайта</p>
                 <form class="audit-form" action="/Mngment/thank-you/" method="POST" novalidate>
                     <input type="text" name="name" placeholder="Имя" required>
                     <input type="text" name="phone" placeholder="Телефон / Telegram" required>
@@ -180,179 +83,17 @@
             </div>
         </section>
     </main>
-
-  <footer class="footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>🔍 Проблемы с трафиком</h4>
-                <ul>
-                    <li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li>
-                    <li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li>
-                    <li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li>
-                    <li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li>
-                </ul>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
             </div>
-            <div class="footer-col">
-                <h4>🎯 Проблемы с конверсией</h4>
-                <ul>
-                    <li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li>
-                    <li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li>
-                    <li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li>
-                    <li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>⚙️ Проблемы с управлением</h4>
-                <ul>
-                    <li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li>
-                    <li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li>
-                    <li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li>
-                    <li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>🚀 Всё сразу</h4>
-                <ul>
-                    <li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li>
-                </ul>
-            </div>
+            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2026 SystemSales. Превращаем хаос в систему.</p>
-        </div>
-    </div>
-</footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Бургер-меню
-            const burger = document.getElementById('burgerBtn');
-            const nav = document.getElementById('mainNav');
-            if (burger && nav) {
-                burger.addEventListener('click', function() {
-                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-                    if (nav.style.display === 'flex') {
-                        nav.style.flexDirection = 'column'; 
-                        nav.style.position = 'absolute';
-                        nav.style.top = '70px'; 
-                        nav.style.left = '0'; 
-                        nav.style.background = 'white';
-                        nav.style.width = '100%'; 
-                        nav.style.padding = '20px'; 
-                        nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-                    }
-                });
-            }
-
-            document.addEventListener('DOMContentLoaded', function() {
-    // Мобильное меню
-    const burger = document.getElementById('burgerBtn');
-    const nav = document.getElementById('mainNav');
-    if (burger && nav) {
-        burger.addEventListener('click', function() {
-            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-            if (nav.style.display === 'flex') {
-                nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
-                nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
-                nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-            }
-        });
-    }
-
-    // === КАЛЬКУЛЯТОР SEO-ШАНС ===
-    const step1 = document.getElementById('step1');
-    const step2 = document.getElementById('step2');
-    const step3 = document.getElementById('step3');
-    const stepResult = document.getElementById('stepResult');
-    const siteUrl = document.getElementById('siteUrl');
-    const businessType = document.getElementById('businessType');
-    const leadsSlider = document.getElementById('leadsSlider');
-    const leadsValue = document.getElementById('leadsValue');
-    const progressSteps = document.querySelectorAll('.progress-step');
-    const progressLabels = document.querySelectorAll('.progress-labels span');
-
-    function setProgress(step) {
-        progressSteps.forEach(s => s.classList.remove('active'));
-        progressLabels.forEach(l => l.classList.remove('active'));
-        for (let i = 1; i <= step; i++) {
-            document.querySelector(`.progress-step[data-step="${i}"]`)?.classList.add('active');
-            progressLabels[i-1]?.classList.add('active');
-        }
-    }
-
-    function showStep(step) {
-        [step1, step2, step3, stepResult].forEach(s => s.style.display = 'none');
-        if (step === 1) { step1.style.display = 'block'; setProgress(1); }
-        if (step === 2) { step2.style.display = 'block'; setProgress(2); }
-        if (step === 3) { step3.style.display = 'block'; setProgress(3); }
-        if (step === 4) { stepResult.style.display = 'block'; setProgress(3); }
-    }
-
-    // Валидация URL
-    siteUrl?.addEventListener('input', function() {
-        const urlPattern = /^https?:\/\/.+\..+/;
-        document.getElementById('toStep2').disabled = !urlPattern.test(this.value);
-    });
-
-    // Валидация сферы
-    businessType?.addEventListener('change', function() {
-        document.getElementById('toStep3').disabled = !this.value;
-    });
-
-    // Навигация
-    document.getElementById('toStep2')?.addEventListener('click', () => showStep(2));
-    document.getElementById('toStep1')?.addEventListener('click', () => showStep(1));
-    document.getElementById('toStep3')?.addEventListener('click', () => showStep(3));
-    document.getElementById('toStep2b')?.addEventListener('click', () => showStep(2));
-
-    // Ползунок заявок
-    leadsSlider?.addEventListener('input', function() {
-        leadsValue.textContent = this.value;
-    });
-
-    // Сканирование
-    document.getElementById('scanBtn')?.addEventListener('click', function() {
-        showStep(4);
-        document.getElementById('scanAnimation').style.display = 'block';
-        document.getElementById('seoResult').style.display = 'none';
-
-        // Имитация сканирования 3 секунды
-        setTimeout(() => {
-            document.getElementById('scanAnimation').style.display = 'none';
-            document.getElementById('seoResult').style.display = 'block';
-
-            const business = businessType.value;
-            const desiredLeads = parseInt(leadsSlider.value);
-
-            const multipliers = {
-                'B2B-услуги': 1.0, 'B2C-товары': 1.3, 'Производство': 0.8,
-                'Строительство': 0.9, 'IT': 1.1, 'Другое': 1.0
-            };
-            const mult = multipliers[business] || 1.0;
-
-            const pages = Math.floor(20 + Math.random() * 180 * mult);
-            const errors = Math.floor(5 + Math.random() * 45);
-            const lostTraffic = desiredLeads * Math.floor(10 + Math.random() * 40);
-            const growth = Math.floor(100 + Math.random() * 400);
-
-            document.getElementById('pagesCount').textContent = pages;
-            document.getElementById('errorsCount').textContent = errors;
-            document.getElementById('trafficLoss').textContent = lostTraffic.toLocaleString('ru-RU');
-            document.getElementById('growthPercent').textContent = '+' + growth + '%';
-        }, 3000);
-    });
-
-    // Плавный скролл
-    document.querySelectorAll('a[href="#form"]').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('form')?.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-
-    showStep(1);
-});
-    </script>
+    </footer>
+    <script src="/Mngment/script.js" defer></script>
 </body>
 </html>
