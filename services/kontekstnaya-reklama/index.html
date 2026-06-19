@@ -30,24 +30,35 @@
                     <a href="#form" class="btn btn-primary cta-main">Получить аудит рекламы</a>
                 </div>
                 
-                <div class="calculator calculator--ppc">
-                    <h3>💸 Сливометр</h3>
-                    <div class="calc-step">
-                        <label>Ежемесячный бюджет на рекламу (₽)</label>
-                        <input type="range" id="budgetSlider" min="10000" max="1000000" value="100000" step="10000">
-                        <span class="calc-value" id="budgetValue">100 000 ₽</span>
-                    </div>
-                    <div class="calc-step">
-                        <label>Сколько заявок получаете сейчас?</label>
-                        <input type="range" id="leadsSlider" min="5" max="500" value="30" step="5">
-                        <span class="calc-value" id="leadsValue">30</span>
-                    </div>
-                    <div class="calc-result" id="ppcResult">
-                        <p>🔴 Текущая цена заявки: <strong id="cplValue">3 333 ₽</strong></p>
-                        <p>🟢 Потенциально теряете до <strong id="lostLeads">0</strong> заявок из-за нецелевых показов</p>
-                        <p style="margin-top:15px;">Мы снижаем цену лида на 20-40% за счёт чистки семантики</p>
-                    </div>
-                </div>
+               <div class="calculator calculator--ppc" id="ppcCalculator">
+    <h3>💸 Сливометр</h3>
+    <p class="calc-subtitle">Узнайте, сколько заявок вы теряете из-за неоптимизированной рекламы</p>
+
+    <div class="calc-step">
+        <label>Ежемесячный бюджет на рекламу</label>
+        <input type="range" id="budgetSlider" min="10000" max="1000000" value="100000" step="10000">
+        <span class="calc-value" id="budgetValue">100 000 ₽</span>
+    </div>
+
+    <div class="calc-step">
+        <label>Сколько заявок получаете сейчас в месяц?</label>
+        <input type="range" id="leadsSlider" min="5" max="1000" value="30" step="5">
+        <span class="calc-value" id="leadsValue">30</span>
+    </div>
+
+    <div class="calc-step">
+        <label>Примерная стоимость одной заявки</label>
+        <input type="range" id="cplSlider" min="100" max="10000" value="2000" step="100">
+        <span class="calc-value" id="cplValue">2 000 ₽</span>
+    </div>
+
+    <div class="calc-result" id="ppcResult">
+        <p>🔴 При текущей конверсии вы недополучаете <strong id="lostLeads">0</strong> заявок/мес</p>
+        <p>💸 Это <strong id="lostMoney">0 ₽</strong> упущенной выручки ежемесячно</p>
+        <p style="margin-top:15px;">🟢 Средняя экономия после нашей оптимизации Директа: <strong>20-40% бюджета</strong></p>
+        <a href="#form" class="btn btn-primary" style="margin-top:12px;">Получить аудит рекламной кампании бесплатно</a>
+    </div>
+</div>
             </div>
         </section>
 
@@ -81,41 +92,63 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const burger = document.getElementById('burgerBtn');
-            const nav = document.getElementById('mainNav');
-            if (burger && nav) {
-                burger.addEventListener('click', function() {
-                    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-                    if (nav.style.display === 'flex') {
-                        nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
-                        nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
-                        nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-                    }
-                });
+    const burger = document.getElementById('burgerBtn');
+    const nav = document.getElementById('mainNav');
+    if (burger && nav) {
+        burger.addEventListener('click', function() {
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            if (nav.style.display === 'flex') {
+                nav.style.flexDirection = 'column'; nav.style.position = 'absolute';
+                nav.style.top = '70px'; nav.style.left = '0'; nav.style.background = 'white';
+                nav.style.width = '100%'; nav.style.padding = '20px'; nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
             }
-            const budgetSlider = document.getElementById('budgetSlider');
-            const leadsSlider = document.getElementById('leadsSlider');
-            if (budgetSlider && leadsSlider) {
-                function calcPPC() {
-                    const budget = parseInt(budgetSlider.value);
-                    const leads = parseInt(leadsSlider.value);
-                    document.getElementById('budgetValue').textContent = budget.toLocaleString('ru-RU') + ' ₽';
-                    document.getElementById('leadsValue').textContent = leads;
-                    const cpl = Math.round(budget / leads);
-                    document.getElementById('cplValue').textContent = cpl.toLocaleString('ru-RU') + ' ₽';
-                    document.getElementById('lostLeads').textContent = Math.round(leads * 0.3);
-                }
-                budgetSlider.addEventListener('input', calcPPC);
-                leadsSlider.addEventListener('input', calcPPC);
-                calcPPC();
-            }
-            document.querySelectorAll('a[href="#form"]').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.getElementById('form')?.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
         });
+    }
+
+    // === КАЛЬКУЛЯТОР СЛИВОМЕТР ===
+    const budgetSlider = document.getElementById('budgetSlider');
+    const leadsSlider = document.getElementById('leadsSlider');
+    const cplSlider = document.getElementById('cplSlider');
+
+    function formatMoney(num) {
+        return num.toLocaleString('ru-RU') + ' ₽';
+    }
+
+    function calcPPC() {
+        const budget = parseInt(budgetSlider.value);
+        const currentLeads = parseInt(leadsSlider.value);
+        const cpl = parseInt(cplSlider.value);
+
+        document.getElementById('budgetValue').textContent = formatMoney(budget);
+        document.getElementById('leadsValue').textContent = currentLeads;
+        document.getElementById('cplValue').textContent = formatMoney(cpl);
+
+        // Потенциальные заявки при идеальной конверсии
+        const potentialLeads = Math.floor(budget / cpl);
+        // Упущенные заявки (но не меньше 0)
+        const lostLeads = Math.max(0, potentialLeads - currentLeads);
+        // Упущенная выручка
+        const lostMoney = lostLeads * cpl;
+
+        document.getElementById('lostLeads').textContent = lostLeads;
+        document.getElementById('lostMoney').textContent = formatMoney(lostMoney);
+    }
+
+    if (budgetSlider && leadsSlider && cplSlider) {
+        budgetSlider.addEventListener('input', calcPPC);
+        leadsSlider.addEventListener('input', calcPPC);
+        cplSlider.addEventListener('input', calcPPC);
+        calcPPC();
+    }
+
+    // Плавный скролл
+    document.querySelectorAll('a[href="#form"]').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('form')?.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+});
     </script>
 </body>
 </html>
