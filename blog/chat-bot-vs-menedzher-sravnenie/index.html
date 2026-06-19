@@ -5,28 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Чат-бот vs Менеджер: сравнение затрат и эффективности | SystemSales</title>
     <link rel="stylesheet" href="/Mngment/style.css">
-    <style>
-        .article-page { display: grid; grid-template-columns: 1fr 300px; gap: 40px; padding: 60px 0; }
-        .article-content h1 { font-size: 2.2rem; margin-bottom: 20px; line-height: 1.3; }
-        .article-content h2 { font-size: 1.5rem; margin: 30px 0 15px; text-align: left; }
-        .article-content p { color: #444; line-height: 1.9; margin-bottom: 18px; }
-        .article-content ul, .article-content ol { margin: 15px 0 20px 25px; color: #444; line-height: 1.9; }
-        .article-content blockquote { background: #f0f4ff; padding: 20px 25px; border-left: 4px solid #039BE5; margin: 25px 0; }
-        .sidebar { position: sticky; top: 90px; align-self: start; }
-        .sidebar-block { background: #fff; padding: 20px; border-radius: 14px; border: 1px solid #eee; margin-bottom: 20px; }
-        .sidebar-block h3 { font-size: 1.1rem; margin-bottom: 12px; }
-        .sidebar-block ul { list-style: none; padding: 0; }
-        .sidebar-block li { margin-bottom: 8px; }
-        .sidebar-block a { color: #FF4D01; text-decoration: none; }
-        .cta-article { background: #1a1a2e; color: #fff; padding: 25px; border-radius: 14px; text-align: center; margin-top: 20px; }
-        .cta-article h3 { color: #fff; margin-bottom: 8px; }
-        .cta-article p { color: rgba(255,255,255,0.7); margin-bottom: 18px; }
-        @media (max-width: 768px) {
-            .article-page { grid-template-columns: 1fr; }
-            .article-content h1 { font-size: 1.7rem; }
-            .sidebar { position: static; }
-        }
-    </style>
 </head>
 <body>
     <header class="header">
@@ -36,47 +14,75 @@
                 <a href="/Mngment/#services">Услуги</a>
                 <a href="/Mngment/cases/">Кейсы</a>
                 <a href="/Mngment/blog/">Блог</a>
-                <a href="/Mngment/contacts/">Контакты</a>
+                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
             </nav>
-            <button class="burger" id="burgerBtn" aria-label="Меню">☰</button>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
     </header>
+
     <main>
         <div class="container">
             <div class="article-page">
                 <article class="article-content">
                     <h1>Чат-бот vs Менеджер: сравнение затрат и эффективности</h1>
                     <p>Менеджер получает 60 000 ₽ в месяц, работает 5 дней в неделю с 9 до 18, болеет, уходит в отпуск и может нахамить клиенту. Чат-бот стоит 0 ₽ в месяц после настройки, работает 24/7/365, не устаёт и отвечает строго по скрипту. Сравним в цифрах.</p>
+                    
                     <h2>Сравнение затрат</h2>
                     <p>Менеджер: 60 000 ₽ × 12 месяцев = 720 000 ₽/год + налоги + больничные + отпуск + рабочее место. Реально: ~1 000 000 ₽/год. Чат-бот: разработка 50 000-150 000 ₽ единоразово + хостинг 500 ₽/мес = 6 000 ₽/год. Разница: в 160+ раз.</p>
+                    
                     <h2>Сравнение возможностей</h2>
-                    <ul><li>Время работы: менеджер — 40 часов/неделю, бот — 168 часов/неделю</li><li>Одновременные диалоги: менеджер — 1-3, бот — неограниченно</li><li>Скорость ответа: менеджер — 5-15 минут, бот — мгновенно</li><li>Качество: менеджер — переменное (настроение, усталость), бот — стабильное (строго по скрипту)</li></ul>
+                    <ul>
+                        <li>Время работы: менеджер — 40 часов/неделю, бот — 168 часов/неделю</li>
+                        <li>Одновременные диалоги: менеджер — 1-3, бот — неограниченно</li>
+                        <li>Скорость ответа: менеджер — 5-15 минут, бот — мгновенно</li>
+                        <li>Качество: менеджер — переменное (настроение, усталость), бот — стабильное (строго по скрипту)</li>
+                    </ul>
+                    
                     <h2>Когда бот выгоднее</h2>
                     <p>Бот окупается при 50+ типовых обращениях в месяц. Если у вас 200+ обращений — бот экономит от 60 000 ₽/мес. Идеально для: ответов на частые вопросы, квалификации лидов, записи на услуги, статуса заказа.</p>
+                    
                     <blockquote>Вывод: бот не замена менеджеру. Бот забирает рутину, менеджер работает со сложными кейсами. Вместе они — идеальный тандем.</blockquote>
                 </article>
+
                 <aside class="sidebar">
-                    <div class="sidebar-block"><h3>🛠️ Инструменты</h3><ul><li>Telegram Bot API</li><li>WhatsApp Cloud API</li><li>AmoCRM</li><li>Python</li></ul></div>
-                    <div class="sidebar-block"><h3>🔗 Связанные услуги</h3><ul><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
-                    <div class="cta-article"><h3>Рассчитаем окупаемость бота для вас</h3><p>Сколько сэкономит бот в вашем бизнесе?</p><a href="/Mngment/services/chat-boty/#form" class="btn btn-primary">Получить расчёт</a></div>
+                    <div class="sidebar-block">
+                        <h3>🛠️ Инструменты</h3>
+                        <ul>
+                            <li>Telegram Bot API</li>
+                            <li>WhatsApp Cloud API</li>
+                            <li>AmoCRM</li>
+                            <li>Python</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-block">
+                        <h3>🔗 Связанные услуги</h3>
+                        <ul>
+                            <li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li>
+                            <li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li>
+                        </ul>
+                    </div>
+                    <div class="cta-article">
+                        <h3>Рассчитаем окупаемость бота для вас</h3>
+                        <p>Сколько сэкономит бот в вашем бизнесе?</p>
+                        <a href="/Mngment/services/chat-boty/#serviceForm" class="btn btn-primary">Получить расчёт</a>
+                    </div>
                 </aside>
             </div>
         </div>
     </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекст</a></li><li><a href="/Mngment/services/smm-target/">SMM</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг</a></li></ul></div>
-                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Сайты</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг</a></li></ul></div>
-                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация</a></li><li><a href="/Mngment/services/ai-agenty/">AI</a></li></ul></div>
-                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплекс</a></li></ul></div>
+                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
             </div>
-            <div class="footer-bottom"><p>© 2026 SystemSales</p></div>
+            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
         </div>
     </footer>
-    <script>
-        const b=document.getElementById('burgerBtn'),n=document.getElementById('mainNav');
-        b&&n&&b.addEventListener('click',()=>{n.style.display=n.style.display==='flex'?'none':'flex';if(n.style.display==='flex'){n.style.flexDirection='column';n.style.position='absolute';n.style.top='70px';n.style.left='0';n.style.background='white';n.style.width='100%';n.style.padding='20px';n.style.boxShadow='0 10px 20px rgba(0,0,0,0.1)';}});
-    </script>
+
+    <script src="/Mngment/script.js" defer></script>
 </body>
 </html>
