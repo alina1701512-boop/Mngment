@@ -23,9 +23,9 @@
             <a href="/Mngment/" class="logo">System<span>Sales</span></a>
             <nav class="nav" id="mainNav">
                 <a href="/Mngment/#services">Услуги</a>
-                <a href="/Mngment/cases/">Кейсы</a>
-                <a href="/Mngment/blog/">Блог</a>
-                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
+                <a href="/Mngment/cases/index.html">Кейсы</a>
+                <a href="/Mngment/blog/index.html">Блог</a>
+                <a href="/Mngment/contacts/index.html" class="btn btn-ghost">Контакты</a>
             </nav>
             <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
@@ -34,8 +34,8 @@
         <section class="hero-service">
             <div class="container">
                 <div class="hero-service__content">
-                    <h1>B2B-лидогенерация и парсинг компаний: найдём контакты, которые не найдут конкуренты</h1>
-                    <p class="hero-service__subtitle">Собираем базы из 30+ источников: 2ГИС, Яндекс Карты, Google Maps, сайты, тендеры. Данные проходят верификацию.</p>
+                    <h1>B2B-лидогенерация и парсинг компаний</h1>
+                    <p class="hero-service__subtitle">Собираем базы из 30+ источников. Данные проходят верификацию.</p>
                     <a href="#serviceForm" class="btn btn-primary cta-main">Получить тестовую выгрузку</a>
                 </div>
                 <div class="calculator" id="calculatorTermometr">
@@ -43,15 +43,15 @@
                     <p class="calculator__subtitle">Посчитайте, сколько теряете на неактуальных контактах</p>
                     <div class="calculator__steps">
                         <div class="calculator__step">
-                            <label class="calculator__step-label">Сколько звонков в день? <span class="calculator__step-value" id="callsPerDayValue">50</span></label>
+                            <label class="calculator__step-label">Звонков в день <span class="calculator__step-value" id="callsPerDayValue">50</span></label>
                             <input type="range" class="calculator__slider" id="callsPerDay" min="10" max="200" value="50" step="10" data-format="number">
                         </div>
                         <div class="calculator__step">
-                            <label class="calculator__step-label">% неактуальных номеров <span class="calculator__step-value" id="deadPercentValue">30%</span></label>
+                            <label class="calculator__step-label">% неактуальных <span class="calculator__step-value" id="deadPercentValue">30%</span></label>
                             <input type="range" class="calculator__slider" id="deadPercent" min="5" max="70" value="30" step="5" data-format="percent">
                         </div>
                         <div class="calculator__step">
-                            <label class="calculator__step-label">Стоимость часа менеджера <span class="calculator__step-value" id="hourRateValue">500 ₽</span></label>
+                            <label class="calculator__step-label">Стоимость часа <span class="calculator__step-value" id="hourRateValue">500 ₽</span></label>
                             <input type="range" class="calculator__slider" id="hourRate" min="200" max="1500" value="500" step="50" data-format="money">
                         </div>
                     </div>
@@ -66,13 +66,11 @@
         </section>
         <section class="compare">
             <div class="container">
-                <h2>Что меняется после внедрения парсинга</h2>
+                <h2>Что меняется</h2>
                 <div class="compare-table">
                     <div class="compare-row compare-header"><div>Критерий</div><div>Было</div><div>Стало</div></div>
-                    <div class="compare-row"><div>Актуальность</div><div>Устаревает за 1-2 мес</div><div>Автообновление</div></div>
+                    <div class="compare-row"><div>Актуальность</div><div>Устаревает</div><div>Автообновление</div></div>
                     <div class="compare-row"><div>Объём</div><div>50-100/день</div><div>До 5000/сутки</div></div>
-                    <div class="compare-row"><div>Риски</div><div>Бан аккаунтов</div><div>Легальные методы</div></div>
-                    <div class="compare-row"><div>Выгрузка</div><div>Excel</div><div>Прямо в CRM</div></div>
                 </div>
             </div>
         </section>
@@ -80,10 +78,10 @@
             <div class="container">
                 <h2>Как мы собираем базу</h2>
                 <div class="process-steps">
-                    <div class="step"><div class="step-number">1</div><h3>Брифинг</h3><p>Определяем источники и фильтры</p></div>
-                    <div class="step"><div class="step-number">2</div><h3>Разработка</h3><p>Пишем парсер (Python)</p></div>
-                    <div class="step"><div class="step-number">3</div><h3>Сбор и верификация</h3><p>Прозвон, валидация, сверка с ЕГРЮЛ</p></div>
-                    <div class="step"><div class="step-number">4</div><h3>Передача</h3><p>Выгрузка + автообновление</p></div>
+                    <div class="step"><div class="step-number">1</div><h3>Брифинг</h3><p>Источники и фильтры</p></div>
+                    <div class="step"><div class="step-number">2</div><h3>Разработка</h3><p>Парсер (Python)</p></div>
+                    <div class="step"><div class="step-number">3</div><h3>Верификация</h3><p>Прозвон, ЕГРЮЛ</p></div>
+                    <div class="step"><div class="step-number">4</div><h3>Передача</h3><p>Выгрузка + обновление</p></div>
                 </div>
             </div>
         </section>
@@ -94,29 +92,25 @@
                     <div class="case-item"><strong>Клиент:</strong> Поставщик стройматериалов</div>
                     <div class="case-item"><strong>Результат:</strong> Конверсия в встречу с 4% до 14%</div>
                 </div>
-                <div class="center-btn"><a href="/Mngment/cases/parsing-strojka/" class="btn btn-outline">Читать кейс</a></div>
+                <div class="center-btn"><a href="/Mngment/cases/parsing-strojka.html" class="btn btn-outline">Читать кейс</a></div>
             </div>
         </section>
         <section class="faq">
             <div class="container">
                 <h2>Частые вопросы</h2>
                 <div class="faq-list">
-                    <details class="faq-item"><summary>Законно ли это?</summary><p>Да. Только публичные данные, 152-ФЗ соблюдаем.</p></details>
+                    <details class="faq-item"><summary>Законно ли это?</summary><p>Да. Только публичные данные.</p></details>
                     <details class="faq-item"><summary>Сколько стоит?</summary><p>От XX XXX ₽. Точный расчёт после брифа.</p></details>
-                    <details class="faq-item"><summary>Чем отличается от готовой базы?</summary><p>Живой слепок рынка vs мёртвые данные.</p></details>
-                    <details class="faq-item"><summary>Можно сразу в CRM?</summary><p>Да, через API AmoCRM/Bitrix24.</p></details>
                 </div>
             </div>
         </section>
         <section class="lead-magnet" id="serviceForm">
             <div class="container">
                 <h2>Получите 50 контактов бесплатно</h2>
-                <form class="audit-form" action="/Mngment/thank-you/" method="POST" novalidate>
+                <form class="audit-form" action="/Mngment/thank-you/index.html" method="POST" novalidate>
                     <input type="text" name="name" placeholder="Имя" required>
-                    <input type="text" name="phone" placeholder="Телефон / Telegram" required>
-                    <input type="text" name="business" placeholder="Сфера бизнеса">
-                    <input type="text" name="target" placeholder="Какие контакты ищете?">
-                    <button type="submit" class="btn btn-primary btn-large">Получить тестовую выгрузку</button>
+                    <input type="text" name="phone" placeholder="Телефон" required>
+                    <button type="submit" class="btn btn-primary btn-large">Получить выгрузку</button>
                     <p class="form-note">Без предоплаты. Первые 50 контактов — за 24 часа.</p>
                 </form>
             </div>
@@ -125,12 +119,12 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
-                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
-                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
-                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
+                <div class="footer-col"><h4>🔍 Трафик</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie.html">SEO</a></li><li><a href="/Mngment/services/kontekstnaya-reklama.html">Контекст</a></li><li><a href="/Mngment/services/smm-target.html">SMM</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya.html">Парсинг</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Конверсия</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov.html">Сайты</a></li><li><a href="/Mngment/services/kontent-marketing.html">Контент</a></li><li><a href="/Mngment/services/chat-boty.html">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil.html">Брендинг</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Управление</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm.html">CRM</a></li><li><a href="/Mngment/services/veb-analitika.html">Аналитика</a></li><li><a href="/Mngment/services/marketing-automation.html">Авто</a></li><li><a href="/Mngment/services/ai-agenty.html">AI</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch.html">Комплекс</a></li></ul></div>
             </div>
-            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
+            <div class="footer-bottom"><p>© 2026 SystemSales</p></div>
         </div>
     </footer>
     <script src="/Mngment/script.js" defer></script>
