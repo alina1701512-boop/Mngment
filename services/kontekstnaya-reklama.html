@@ -12,9 +12,9 @@
             <a href="/Mngment/" class="logo">System<span>Sales</span></a>
             <nav class="nav" id="mainNav">
                 <a href="/Mngment/#services">Услуги</a>
-                <a href="/Mngment/cases/">Кейсы</a>
-                <a href="/Mngment/blog/">Блог</a>
-                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
+                <a href="/Mngment/cases/index.html">Кейсы</a>
+                <a href="/Mngment/blog/index.html">Блог</a>
+                <a href="/Mngment/contacts/index.html" class="btn btn-ghost">Контакты</a>
             </nav>
             <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
@@ -23,8 +23,8 @@
         <section class="hero-service">
             <div class="container">
                 <div class="hero-service__content">
-                    <h1>Настройка и ведение контекстной рекламы в Яндекс.Директ: платят только те, кто готов купить</h1>
-                    <p class="hero-service__subtitle">Не «настроим и забудем». Еженедельная оптимизация, минус-слова, A/B-тесты и сквозная аналитика до ROI каждого ключа.</p>
+                    <h1>Настройка и ведение контекстной рекламы в Яндекс.Директ</h1>
+                    <p class="hero-service__subtitle">Еженедельная оптимизация, минус-слова, A/B-тесты и сквозная аналитика до ROI каждого ключа.</p>
                     <a href="#serviceForm" class="btn btn-primary cta-main">Получить аудит рекламы</a>
                 </div>
                 <div class="calculator" id="calculatorSlivometr">
@@ -32,22 +32,22 @@
                     <p class="calculator__subtitle">Узнайте, сколько заявок вы теряете</p>
                     <div class="calculator__steps">
                         <div class="calculator__step">
-                            <label class="calculator__step-label">Ежемесячный бюджет на рекламу <span class="calculator__step-value" id="adBudgetValue">100 000 ₽</span></label>
+                            <label class="calculator__step-label">Бюджет на рекламу <span class="calculator__step-value" id="adBudgetValue">100 000 ₽</span></label>
                             <input type="range" class="calculator__slider" id="adBudget" min="10000" max="1000000" value="100000" step="10000" data-format="money">
                         </div>
                         <div class="calculator__step">
-                            <label class="calculator__step-label">Сколько заявок получаете в месяц? <span class="calculator__step-value" id="currentLeadsValue">30</span></label>
+                            <label class="calculator__step-label">Заявок в месяц <span class="calculator__step-value" id="currentLeadsValue">30</span></label>
                             <input type="range" class="calculator__slider" id="currentLeads" min="5" max="1000" value="30" step="5" data-format="number">
                         </div>
                         <div class="calculator__step">
-                            <label class="calculator__step-label">Стоимость одной заявки <span class="calculator__step-value" id="leadCostValue">2 000 ₽</span></label>
+                            <label class="calculator__step-label">Стоимость заявки <span class="calculator__step-value" id="leadCostValue">2 000 ₽</span></label>
                             <input type="range" class="calculator__slider" id="leadCost" min="100" max="10000" value="2000" step="100" data-format="money">
                         </div>
                     </div>
                     <div class="calculator__result">
                         <div class="calculator__result-icon">💸</div>
                         <div class="calculator__result-value calculator__result-value--loss"><span id="slivLostMoney">0 ₽</span></div>
-                        <div class="calculator__result-desc">Вы недополучаете <strong><span id="slivLostLeads">0 заявок/мес</span></strong>. Мы снижаем цену лида на 20-40%.</div>
+                        <div class="calculator__result-desc">Вы недополучаете <strong><span id="slivLostLeads">0 заявок/мес</span></strong>.</div>
                         <div class="calculator__cta"><a href="#serviceForm" class="btn btn-accent">Получить аудит бесплатно</a></div>
                     </div>
                 </div>
@@ -58,19 +58,17 @@
                 <h2>Что меняется после настройки</h2>
                 <div class="compare-table">
                     <div class="compare-row compare-header"><div>Критерий</div><div>Было</div><div>Стало</div></div>
-                    <div class="compare-row"><div>Цена лида</div><div>Нестабильна, растёт</div><div>Снижена на 20-40%</div></div>
-                    <div class="compare-row"><div>Прозрачность</div><div>«Вроде крутится»</div><div>Ключ → заявка → сделка → деньги</div></div>
-                    <div class="compare-row"><div>Объявления</div><div>Одно на всё</div><div>Сегментированы по аудиториям</div></div>
+                    <div class="compare-row"><div>Цена лида</div><div>Растёт</div><div>Снижена на 20-40%</div></div>
+                    <div class="compare-row"><div>Прозрачность</div><div>«Вроде крутится»</div><div>Ключ → сделка → деньги</div></div>
                 </div>
             </div>
         </section>
         <section class="lead-magnet" id="serviceForm">
             <div class="container">
-                <h2>Получите бесплатный аудит рекламной кампании</h2>
-                <form class="audit-form" action="/Mngment/thank-you/" method="POST" novalidate>
+                <h2>Получите бесплатный аудит</h2>
+                <form class="audit-form" action="/Mngment/thank-you/index.html" method="POST" novalidate>
                     <input type="text" name="name" placeholder="Имя" required>
-                    <input type="text" name="phone" placeholder="Телефон / Telegram" required>
-                    <input type="text" name="budget" placeholder="Месячный бюджет на рекламу">
+                    <input type="text" name="phone" placeholder="Телефон" required>
                     <button type="submit" class="btn btn-primary btn-large">Получить аудит</button>
                 </form>
             </div>
@@ -79,12 +77,12 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
-                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
-                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
-                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
+                <div class="footer-col"><h4>🔍 Трафик</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie.html">SEO</a></li><li><a href="/Mngment/services/kontekstnaya-reklama.html">Контекст</a></li><li><a href="/Mngment/services/smm-target.html">SMM</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya.html">Парсинг</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Конверсия</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov.html">Сайты</a></li><li><a href="/Mngment/services/kontent-marketing.html">Контент</a></li><li><a href="/Mngment/services/chat-boty.html">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil.html">Брендинг</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Управление</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm.html">CRM</a></li><li><a href="/Mngment/services/veb-analitika.html">Аналитика</a></li><li><a href="/Mngment/services/marketing-automation.html">Авто</a></li><li><a href="/Mngment/services/ai-agenty.html">AI</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch.html">Комплекс</a></li></ul></div>
             </div>
-            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
+            <div class="footer-bottom"><p>© 2026 SystemSales</p></div>
         </div>
     </footer>
     <script src="/Mngment/script.js" defer></script>
