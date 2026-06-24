@@ -12,9 +12,9 @@
             <a href="/Mngment/" class="logo">System<span>Sales</span></a>
             <nav class="nav" id="mainNav">
                 <a href="/Mngment/#services">Услуги</a>
-                <a href="/Mngment/cases/">Кейсы</a>
-                <a href="/Mngment/blog/">Блог</a>
-                <a href="/Mngment/contacts/" class="btn btn-ghost">Контакты</a>
+                <a href="/Mngment/cases/index.html">Кейсы</a>
+                <a href="/Mngment/blog/index.html">Блог</a>
+                <a href="/Mngment/contacts/index.html" class="btn btn-ghost">Контакты</a>
             </nav>
             <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
@@ -23,7 +23,7 @@
         <section class="hero-service">
             <div class="container hero-service--centered">
                 <h1>Разработка чат-ботов для Telegram, WhatsApp и сайта: автоматизируем продажи и поддержку 24/7</h1>
-                <p class="hero-service__subtitle">Чат-боты, которые не бесят шаблонными ответами. Пишем кастомные сценарии, интегрируем с CRM и передаём живому менеджеру с полным контекстом диалога.</p>
+                <p class="hero-service__subtitle">Чат-боты, которые не бесят шаблонными ответами. Пишем кастомные сценарии, интегрируем с CRM и передаём живому менеджеру.</p>
                 <a href="#serviceForm" class="btn btn-primary cta-main">Заказать прототип бота</a>
             </div>
         </section>
@@ -33,39 +33,33 @@
                 <div class="agent-grid">
                     <div class="agent-card"><div class="agent-icon">🎯</div><h3>Квалификация лида</h3><p>Бот задаст вопросы и заполнит сделку в CRM</p></div>
                     <div class="agent-card"><div class="agent-icon">📅</div><h3>Запись на услугу</h3><p>Интеграция с календарём. Клиент выбирает время — бот бронирует</p></div>
-                    <div class="agent-card"><div class="agent-icon">🌙</div><h3>Поддержка 24/7</h3><p>Ответы в нерабочее время. Клиенты не уходят к конкурентам ночью</p></div>
-                    <div class="agent-card"><div class="agent-icon">🔥</div><h3>Прогрев к покупке</h3><p>Цепочка с кейсами, отзывами, спецпредложениями</p></div>
-                    <div class="agent-card"><div class="agent-icon">🤝</div><h3>Передача менеджеру</h3><p>Живой сотрудник с полной историей переписки</p></div>
+                    <div class="agent-card"><div class="agent-icon">🌙</div><h3>Поддержка 24/7</h3><p>Ответы в нерабочее время</p></div>
+                    <div class="agent-card"><div class="agent-icon">🔥</div><h3>Прогрев к покупке</h3><p>Цепочка с кейсами, отзывами</p></div>
+                    <div class="agent-card"><div class="agent-icon">🤝</div><h3>Передача менеджеру</h3><p>С полной историей переписки</p></div>
                 </div>
             </div>
         </section>
         <section class="case-full">
             <div class="container">
-                <h2>Кейс: Бот заменил 3 менеджеров для интернет-магазина</h2>
+                <h2>Кейс: Бот заменил 3 менеджеров</h2>
                 <div class="case-grid">
                     <div class="case-item"><strong>Клиент:</strong> Интернет-магазин зоотоваров</div>
-                    <div class="case-item"><strong>Задача:</strong> Обрабатывать вопросы без участия людей</div>
-                    <div class="case-item"><strong>Решение:</strong> WhatsApp-бот + трек-номер + база знаний</div>
-                    <div class="case-item"><strong>Результат:</strong> 70% запросов закрыты ботом, время ответа — 2 секунды</div>
+                    <div class="case-item"><strong>Результат:</strong> 70% запросов закрыты ботом</div>
                 </div>
                 <div class="center-btn"><a href="#serviceForm" class="btn btn-primary">Хочу такого же бота</a></div>
             </div>
         </section>
         <section class="lead-magnet" id="serviceForm">
             <div class="container">
-                <h2>Обсудим вашего бота? Напишем прототип за 3 дня</h2>
-                <p class="lead-magnet__subtitle">Опишите задачу — мы предложим сценарий и назовём точную цену</p>
-                <form class="audit-form" action="/Mngment/thank-you/" method="POST" novalidate>
+                <h2>Обсудим вашего бота?</h2>
+                <form class="audit-form" action="/Mngment/thank-you/index.html" method="POST" novalidate>
                     <input type="text" name="name" placeholder="Имя" required>
-                    <input type="text" name="phone" placeholder="Телефон / Telegram" required>
-                    <input type="text" name="business" placeholder="Сфера бизнеса">
+                    <input type="text" name="phone" placeholder="Телефон" required>
                     <select name="platform" required>
                         <option value="" disabled selected>Где нужен бот?</option>
                         <option>Telegram</option><option>WhatsApp</option><option>На сайте</option><option>Везде</option>
                     </select>
-                    <input type="text" name="task" placeholder="Какую задачу должен решать бот?">
-                    <button type="submit" class="btn btn-primary btn-large">Получить прототип и смету</button>
-                    <p class="form-note">Прототип бесплатно. Покажем, как бот общается с клиентом.</p>
+                    <button type="submit" class="btn btn-primary btn-large">Получить прототип</button>
                 </form>
             </div>
         </section>
@@ -73,12 +67,12 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col"><h4>🔍 Проблемы с трафиком</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie/">SEO-продвижение</a></li><li><a href="/Mngment/services/kontekstnaya-reklama/">Контекстная реклама</a></li><li><a href="/Mngment/services/smm-target/">SMM и таргет</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya/">Парсинг и лидогенерация</a></li></ul></div>
-                <div class="footer-col"><h4>🎯 Проблемы с конверсией</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov/">Разработка сайтов</a></li><li><a href="/Mngment/services/kontent-marketing/">Контент-маркетинг</a></li><li><a href="/Mngment/services/chat-boty/">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil/">Брендинг и фирменный стиль</a></li></ul></div>
-                <div class="footer-col"><h4>⚙️ Проблемы с управлением</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm/">Внедрение AmoCRM</a></li><li><a href="/Mngment/services/veb-analitika/">Веб-аналитика</a></li><li><a href="/Mngment/services/marketing-automation/">Автоматизация маркетинга</a></li><li><a href="/Mngment/services/ai-agenty/">AI-агенты</a></li></ul></div>
-                <div class="footer-col"><h4>🚀 Всё сразу</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch/">Комплексный маркетинг под ключ</a></li></ul></div>
+                <div class="footer-col"><h4>🔍 Трафик</h4><ul><li><a href="/Mngment/services/seo-prodvizhenie.html">SEO</a></li><li><a href="/Mngment/services/kontekstnaya-reklama.html">Контекст</a></li><li><a href="/Mngment/services/smm-target.html">SMM</a></li><li><a href="/Mngment/services/parsing-lidogeneraciya.html">Парсинг</a></li></ul></div>
+                <div class="footer-col"><h4>🎯 Конверсия</h4><ul><li><a href="/Mngment/services/razrabotka-sajtov.html">Сайты</a></li><li><a href="/Mngment/services/kontent-marketing.html">Контент</a></li><li><a href="/Mngment/services/chat-boty.html">Чат-боты</a></li><li><a href="/Mngment/services/brending-firmennyj-stil.html">Брендинг</a></li></ul></div>
+                <div class="footer-col"><h4>⚙️ Управление</h4><ul><li><a href="/Mngment/services/vnedrenie-amocrm.html">CRM</a></li><li><a href="/Mngment/services/veb-analitika.html">Аналитика</a></li><li><a href="/Mngment/services/marketing-automation.html">Авто</a></li><li><a href="/Mngment/services/ai-agenty.html">AI</a></li></ul></div>
+                <div class="footer-col"><h4>🚀 Всё</h4><ul><li><a href="/Mngment/services/marketing-pod-kljuch.html">Комплекс</a></li></ul></div>
             </div>
-            <div class="footer-bottom"><p>© 2026 SystemSales. Превращаем хаос в систему.</p></div>
+            <div class="footer-bottom"><p>© 2026 SystemSales</p></div>
         </div>
     </footer>
     <script src="/Mngment/script.js" defer></script>
