@@ -1,0 +1,103 @@
+/*
+ * home.css — стили только для главной страницы (index.html)
+ * Подключается ТОЛЬКО в index.html, других страниц не касается.
+ * Использует переменные из style.css (:root), поэтому загружается после него.
+ */
+
+/* ============================================
+   ПЕРЕМЕННЫЕ ДЛЯ HERO-СЕКЦИИ
+   ============================================ */
+:root {
+    --hero-bg: #0A0A0A;
+    --hero-gold: #D4A853;
+}
+
+/* ============================================
+   ШАПКА — уточнение под премиальный тёмный интерфейс
+   ============================================ */
+.header {
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--hero-gold);
+}
+
+/* ============================================
+   HERO — полноэкранный Canvas с частицами
+   ============================================ */
+body {
+    background: var(--hero-bg);
+}
+
+#heroCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    display: block;
+}
+
+.hero {
+    min-height: 100vh;
+    background: transparent;
+}
+
+.hero .container {
+    min-height: 100vh;
+}
+
+/* Убираем стеклянную карточку — текст читается прямо поверх частиц */
+.hero__content {
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    padding: 0;
+    max-width: 720px;
+}
+
+.hero__content h1 {
+    color: #FFFFFF;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.6);
+}
+
+.hero__subtitle {
+    color: #A1A1A1;
+    font-weight: 300;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   КАРТОЧКИ НИЖЕ HERO — золотистое свечение при наведении
+   ============================================ */
+.services__grid .service-card,
+.pain-grid .pain-card,
+.cases__grid .case-card {
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.services__grid .service-card:hover,
+.pain-grid .pain-card:hover,
+.cases__grid .case-card:hover {
+    transform: scale(1.02);
+    border-color: rgba(212, 168, 83, 0.5);
+    box-shadow: 0 0 30px rgba(212, 168, 83, 0.18);
+}
+
+/* ============================================
+   АДАПТИВ
+   ============================================ */
+@media (max-width: 768px) {
+    .hero,
+    .hero .container {
+        min-height: 85vh;
+    }
+}
