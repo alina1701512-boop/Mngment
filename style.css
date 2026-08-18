@@ -338,7 +338,7 @@ h6 { font-size: var(--font-size-base); }
     position: sticky;
     top: 0;
     z-index: var(--z-header);
-    background: rgba(5, 6, 15, 0.75);
+    background: color-mix(in srgb, var(--color-midnight-canvas) 75%, transparent);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--color-glass-edge);
@@ -472,15 +472,6 @@ main {
     z-index: 1;
 }
 
-#brainCanvas {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
-}
-
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -544,7 +535,7 @@ main {
 .hero__content {
     max-width: 640px;
     text-align: center;
-    background: rgba(5, 6, 15, 0.6);
+    background: color-mix(in srgb, var(--color-midnight-canvas) 60%, transparent);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius: var(--radius-xl);
@@ -1976,7 +1967,7 @@ main {
         position: absolute;
         top: 70px;
         left: 0;
-        background: rgba(5, 6, 15, 0.98);
+        background: color-mix(in srgb, var(--color-midnight-canvas) 98%, transparent);
         backdrop-filter: blur(20px);
         width: 100%;
         padding: var(--spacing-lg);
