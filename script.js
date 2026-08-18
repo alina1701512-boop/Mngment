@@ -58,6 +58,31 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ============================================
+    // МОДУЛЬ 2.1: ФИЛЬТРЫ (БЛОГ И КЕЙСЫ)
+    // ============================================
+    document.querySelectorAll('.filters').forEach(filterBar => {
+        const buttons = filterBar.querySelectorAll('.filter-btn');
+        const grid = filterBar.parentElement.querySelector('[data-category]')
+            ? filterBar.parentElement
+            : filterBar.nextElementSibling;
+        if (!grid) return;
+        const cards = grid.querySelectorAll('[data-category]');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+                cards.forEach(card => {
+                    const show = filter === 'all' || card.dataset.category === filter;
+                    card.style.display = show ? '' : 'none';
+                });
+            });
+        });
+    });
+
+    // ============================================
     // МОДУЛЬ 3: ОБЩАЯ ЛОГИКА ДЛЯ ВСЕХ ПОЛЗУНКОВ (RANGE SLIDERS)
     // ============================================
     const allSliders = document.querySelectorAll('input[type="range"]');
@@ -269,7 +294,7 @@ document.addEventListener('DOMContentLoaded', function () {
             })
                 .then(response => {
                     if (response.ok) {
-                        const redirectUrl = form.dataset.redirect || '/Mngment/thank-you/';
+                        const redirectUrl = form.dataset.redirect || '/thank-you/';
                         window.location.href = redirectUrl;
                     } else {
                         throw new Error('Ошибка отправки');
@@ -277,7 +302,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .catch(() => {
                     // Даже при ошибке редиректим, чтобы не терять лида
-                    const redirectUrl = form.dataset.redirect || '/Mngment/thank-you/';
+                    const redirectUrl = form.dataset.redirect || '/thank-you/';
                     window.location.href = redirectUrl;
                 })
                 .finally(() => {
