@@ -365,11 +365,12 @@ h6 { font-size: var(--font-size-base); }
 
 .logo::before {
     content: '';
-    width: 24px;
+    width: 34px;
     height: 24px;
     flex-shrink: 0;
     background-image: url('/logo-mark.svg');
     background-size: contain;
+    background-position: left center;
     background-repeat: no-repeat;
 }
 
