@@ -1,6 +1,6 @@
 # SystemSales — Маркетинговое агентство полного цикла
 
-Сайт: [alina1701512-boop.github.io/Mngment](https://alina1701512-boop.github.io/Mngment/)
+Сайт: [mngment.ru](https://mngment.ru/)
 
 ## О проекте
 

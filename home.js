@@ -10,56 +10,63 @@
     if (!canvas) return;
     var ctx = canvas.getContext('2d');
 
-    /* ---------- Палитра частиц (минимум 15 фиксированных цветов) ---------- */
-    var PALETTE = [
-        '#FDE047', '#EAB308', '#CA8A04',           // золотые
-        '#FB923C', '#F97316',                       // оранжевые
-        '#C084FC', '#A855F7',                       // фиолетовые
-        '#F9A8D4', '#F472B6',                       // розовые
-        '#4ADE80', '#22C55E',                       // зелёные
-        '#FFFFFF', '#FEF9C3', '#FFEDD5'              // светлые
+    /* ---------- Палитра частиц: по семействам, от насыщенного к светлому ---------- */
+    /* Внутри семейства индексы 0-1 — самые яркие/сочные тона (им отдаём приоритет),
+       последние — светлые акценты. Так палитра получается разнообразнее прежней
+       и в среднем заметно насыщеннее (меньше блёклых пастельных частиц). */
+    var PALETTE_FAMILIES = [
+        ['#663AF3', '#7C52F5', '#8F6EF7', '#A98CF9'],   // void violet (акцент)
+        ['#B6D9FC', '#9CC7F5', '#7FB0E8', '#D1E4FA'],   // blueprint blue
+        ['#98C0EF', '#7FA8DD', '#6690C9', '#B6D9FC'],   // глубокий небесный
+        ['#C7D3EA', '#A9B8D6', '#8A9BC2', '#9DA7BA'],   // moon mist / fog veil
+        ['#D8ECF8', '#C7D3EA', '#E8F2FB', '#D1E4FA'],   // ice highlight
+        ['#FFFFFF', '#F0F6FC', '#E3EDF7', '#D8ECF8']    // светлые акценты
     ];
+    var LIGHT_FAMILY = PALETTE_FAMILIES[5];
     var HOVER_COLOR = '#FFFFFF';
 
-    var isSmall = window.innerWidth < 480;
-    var COUNT = isSmall ? 260 : 500;
-
-    /* ---------- Геометрия формы «мозг / грецкий орех» ---------- */
-    /* Две доли (полушария), сдвинутые по X — даёт овальный силуэт с продольным швом */
-    var LOBES = [
-        { cx: -0.42, cy: 0, cz: 0, rx: 0.92, ry: 0.88, rz: 0.85 },
-        { cx: 0.42, cy: 0, cz: 0, rx: 0.92, ry: 0.88, rz: 0.85 }
-    ];
-
-    /* Значение «борозды» в точке сферы — где оно ниже порога, частиц нет совсем */
-    function grooveValue(theta, phi) {
-        return Math.sin(theta * 6 + phi * 3) * 0.5 + Math.sin(theta * 3 - phi * 5) * 0.5;
+    function pickColor(favorBright) {
+        var family = PALETTE_FAMILIES[Math.floor(Math.random() * PALETTE_FAMILIES.length)];
+        /* с небольшим перекосом в сторону первых (самых насыщенных) оттенков семейства */
+        var idx = favorBright
+            ? Math.floor(Math.pow(Math.random(), 1.6) * family.length)
+            : Math.floor(Math.random() * family.length);
+        return family[Math.min(idx, family.length - 1)];
     }
 
-    /* Подбираем точку на оболочке формы (с учётом борозд), попутно возвращаем
-       «выпуклость» (для яркости/плотности) и расстояние от шва (для затемнения края) */
+    var isSmall = window.innerWidth < 480;
+    var COUNT = isSmall ? 900 : 2200;
+
+    /* ---------- Геометрия формы: плотная сфера с лёгким рельефом ---------- */
+    /* Вместо двух долей «мозга» — единое компактное ядро. Рельеф создаётся
+       через несколько наложенных волн по широте/долготе, чтобы поверхность
+       не была идеально гладкой (лёгкие «пояса» плотности, а не борозды). */
+    var CORE_RADIUS = { x: 1, y: 0.98, z: 0.96 };
+
+    function reliefValue(theta, phi) {
+        return Math.sin(theta * 5 + phi * 2) * 0.5 + Math.sin(theta * 2.2 - phi * 4) * 0.5;
+    }
+
+    /* Подбираем точку на поверхности сферы. relief используется только для
+       лёгкой рельефности (яркость/размер), частицы покрывают всю оболочку
+       равномерно — никаких «пустых» зон, в отличие от прошлой версии. */
     function samplePoint() {
-        for (var attempt = 0; attempt < 30; attempt++) {
-            var lobe = LOBES[Math.floor(Math.random() * LOBES.length)];
-            var theta = Math.random() * Math.PI;
-            var phi = Math.random() * Math.PI * 2;
-            var g = grooveValue(theta, phi);
-            if (g < -0.15) continue; // попали в борозду — пробуем ещё раз
+        var theta = Math.acos(2 * Math.random() - 1); // равномерное распределение по сфере
+        var phi = Math.random() * Math.PI * 2;
+        var relief = reliefValue(theta, phi);
+        var bulge = 1 + relief * 0.04;
 
-            var ux = Math.sin(theta) * Math.cos(phi);
-            var uy = Math.cos(theta);
-            var uz = Math.sin(theta) * Math.sin(phi);
-            var bulge = 1 + g * 0.05;
+        var ux = Math.sin(theta) * Math.cos(phi);
+        var uy = Math.cos(theta);
+        var uz = Math.sin(theta) * Math.sin(phi);
 
-            return {
-                x: lobe.cx + ux * lobe.rx * bulge,
-                y: lobe.cy + uy * lobe.ry * bulge,
-                z: lobe.cz + uz * lobe.rz * bulge,
-                groove: g,
-                seamDist: Math.abs(lobe.cx + ux * lobe.rx * bulge)
-            };
-        }
-        return { x: 0, y: 0, z: 0.9, groove: 0, seamDist: 0 };
+        return {
+            x: ux * CORE_RADIUS.x * bulge,
+            y: uy * CORE_RADIUS.y * bulge,
+            z: uz * CORE_RADIUS.z * bulge,
+            groove: relief,
+            seamDist: Math.abs(ux) * CORE_RADIUS.x
+        };
     }
 
     /* ---------- Создание частиц ---------- */
@@ -70,13 +77,13 @@
         for (var i = 0; i < COUNT; i++) {
             var s = samplePoint();
 
-            /* Цвет: на выпуклостях чаще светлые/золотые тона, у краёв — глубокие */
-            var colorIdx;
-            if (s.groove > 0.15 && Math.random() < 0.55) {
-                colorIdx = 11 + Math.floor(Math.random() * 3); // светлые
-            } else {
-                colorIdx = Math.floor(Math.random() * PALETTE.length);
-            }
+            /* Цвет: на выпуклостях чаще светлые акценты, в остальном — насыщенные
+               тона вперемешку по всем семействам палитры */
+            var color = (s.groove > 0.15 && Math.random() < 0.4)
+                ? LIGHT_FAMILY[Math.floor(Math.random() * LIGHT_FAMILY.length)]
+                : pickColor(true);
+            /* немного "искристых" частиц — случайно берём любой сочный тон без привязки к рельефу */
+            if (Math.random() < 0.12) color = pickColor(false);
 
             var dir = { x: Math.random() - 0.5, y: Math.random() - 0.5, z: Math.random() - 0.5 };
             var dirLen = Math.sqrt(dir.x * dir.x + dir.y * dir.y + dir.z * dir.z) || 1;
@@ -86,15 +93,23 @@
             var bulgeFactor = Math.max(0, Math.min(1, (s.groove + 0.4) / 1.2));
             var edgeFactor = Math.max(0, Math.min(1, 1 - s.seamDist / 1.4));
 
+            /* Форма: упор на треугольники и ромбы, куб/октаэдр — реже, для разнообразия */
+            var shapeRoll = Math.random();
+            var shapeType = shapeRoll < 0.4 ? 0            // треугольник
+                : shapeRoll < 0.75 ? 3                       // ромб
+                : shapeRoll < 0.9 ? 1                         // куб
+                : 2;                                           // октаэдр
+
             particles.push({
-                shapeType: Math.floor(Math.random() * 3), // 0 треугольник, 1 куб, 2 октаэдр
-                color: PALETTE[colorIdx],
+                shapeType: shapeType,
+                color: color,
                 baseX: s.x, baseY: s.y, baseZ: s.z,
                 scatterDirX: dir.x / dirLen, scatterDirY: dir.y / dirLen, scatterDirZ: dir.z / dirLen,
                 scatterMag: mag,
-                sizeFactor: 0.55 + bulgeFactor * 0.35 + edgeFactor * 0.25 + Math.random() * 0.2,
-                fillAlpha: 0.08 + Math.random() * 0.17,
-                baseOpacity: 0.45 + bulgeFactor * 0.35 + edgeFactor * 0.2,
+                sizeFactor: 0.4 + bulgeFactor * 0.3 + edgeFactor * 0.2 + Math.random() * 0.18,
+                fillAlpha: 0.14 + Math.random() * 0.24,
+                baseOpacity: 0.55 + bulgeFactor * 0.35 + edgeFactor * 0.2,
+                lineWidth: Math.random() < 0.1 ? 1.8 + Math.random() * 0.6 : 0.9 + Math.random() * 0.4,
                 selfRotation: Math.random() * Math.PI * 2,
                 selfSpin: (Math.random() - 0.5) * 0.02,
                 hoverT: 0,
@@ -216,6 +231,22 @@
         ctx.lineTo(right.x, right.y);
     }
 
+    function drawDiamond(x, y, size, rotation) {
+        ctx.beginPath();
+        var top = { x: x + Math.cos(rotation - Math.PI / 2) * size * 1.2, y: y + Math.sin(rotation - Math.PI / 2) * size * 1.2 };
+        var right = { x: x + Math.cos(rotation) * size * 0.55, y: y + Math.sin(rotation) * size * 0.55 };
+        var bottom = { x: x + Math.cos(rotation + Math.PI / 2) * size * 1.2, y: y + Math.sin(rotation + Math.PI / 2) * size * 1.2 };
+        var left = { x: x + Math.cos(rotation + Math.PI) * size * 0.55, y: y + Math.sin(rotation + Math.PI) * size * 0.55 };
+        ctx.moveTo(top.x, top.y);
+        ctx.lineTo(right.x, right.y);
+        ctx.lineTo(bottom.x, bottom.y);
+        ctx.lineTo(left.x, left.y);
+        ctx.closePath();
+        /* горизонтальная грань — намёк на огранку */
+        ctx.moveTo(left.x, left.y);
+        ctx.lineTo(right.x, right.y);
+    }
+
     /* ---------- Анимация ---------- */
     var t = 0;
     var scatterSpin = 0;
@@ -270,7 +301,7 @@
 
             var depthT = Math.max(0, Math.min(1, (z2 + brainRadius) / (brainRadius * 2)));
             var opacity = p.baseOpacity * (0.4 + depthT * 0.6);
-            var size = (p.sizeFactor * 6 + 2) * scale;
+            var size = (p.sizeFactor * 4 + 1.4) * scale;
 
             p.hoverT += ((i === hoveredIndex ? 1 : 0) - p.hoverT) * 0.15;
             if (p.hoverT > 0.01) {
@@ -307,12 +338,13 @@
             ctx.beginPath();
             if (particle.shapeType === 0) drawTriangle(item.sx, item.sy, item.size, particle.selfRotation);
             else if (particle.shapeType === 1) drawCube(item.sx, item.sy, item.size, particle.selfRotation);
+            else if (particle.shapeType === 3) drawDiamond(item.sx, item.sy, item.size, particle.selfRotation);
             else drawOctahedron(item.sx, item.sy, item.size, particle.selfRotation);
 
             ctx.fillStyle = 'rgba(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ',' + (particle.fillAlpha * item.opacity) + ')';
             ctx.fill();
             ctx.strokeStyle = 'rgba(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ',' + item.opacity + ')';
-            ctx.lineWidth = 1.1;
+            ctx.lineWidth = particle.lineWidth;
             ctx.stroke();
         }
     }
