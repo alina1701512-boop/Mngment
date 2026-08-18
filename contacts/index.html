@@ -95,7 +95,12 @@
                     </div>
 
                     <div class="contacts-form-wrapper">
-                        <form class="brief-form" action="/thank-you/" method="POST" novalidate>
+                        <form class="brief-form" action="https://formsubmit.co/send@mngment.ru" method="POST" novalidate>
+                            <input type="hidden" name="_next" value="https://mngment.ru/thank-you/">
+                            <input type="hidden" name="_subject" value="Заявка: бриф с контактов">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                             <h2>Бриф на проект</h2>
                             <input type="text" name="name" placeholder="Имя" required>
                             <input type="text" name="phone" placeholder="Телефон / Telegram" required>
