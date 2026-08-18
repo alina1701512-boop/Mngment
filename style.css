@@ -1,5 +1,5 @@
 /*
- * SystemSales — Главный файл стилей
+ * mngment — Главный файл стилей
  * Маркетинговое агентство полного цикла
  */
 
@@ -15,21 +15,21 @@
     --color-frost-glow: #D1E4FA;
     --color-ice-highlight: #D8ECF8;
     --gradient-ice-highlight: linear-gradient(0deg, #D8ECF8 0%, #98C0EF 100%);
-    --color-void-violet: #663AF3;
-    --color-void-violet-dark: #5228D9;
+    --color-signal-teal: #1AAE92;
+    --color-signal-teal-dark: #0E7E68;
     --color-blueprint-blue: #B6D9FC;
     --color-glass-edge: rgba(186, 215, 247, 0.12);
     --color-luminous-fill: rgba(199, 211, 234, 0.12);
 
-    /* Акцент — Void Violet (единственный хроматический акцент) */
-    --color-primary: var(--color-void-violet);
-    --color-primary-dark: var(--color-void-violet-dark);
-    --color-primary-light: rgba(102, 58, 243, 0.14);
-    --color-primary-gradient: linear-gradient(135deg, #663AF3 0%, #9873F8 100%);
+    /* Акцент — Signal Teal (единственный хроматический акцент) */
+    --color-primary: var(--color-signal-teal);
+    --color-primary-dark: var(--color-signal-teal-dark);
+    --color-primary-light: rgba(26, 174, 146, 0.14);
+    --color-primary-gradient: linear-gradient(135deg, #1AAE92 0%, #3FC7AC 100%);
 
-    --color-accent: var(--color-void-violet);
-    --color-accent-dark: var(--color-void-violet-dark);
-    --color-accent-gradient: linear-gradient(135deg, #663AF3 0%, #9873F8 100%);
+    --color-accent: var(--color-signal-teal);
+    --color-accent-dark: var(--color-signal-teal-dark);
+    --color-accent-gradient: linear-gradient(135deg, #1AAE92 0%, #3FC7AC 100%);
 
     --color-success: #4ADE80;
     --color-error: #EF4444;
@@ -86,7 +86,7 @@
     --shadow-md: rgba(199, 211, 234, 0.12) 0px 1px 1px 0px inset, rgba(199, 211, 234, 0.05) 0px 24px 48px 0px inset, rgba(6, 6, 14, 0.7) 0px 24px 32px 0px;
     --shadow-lg: rgba(216, 236, 248, 0.2) 0px 1px 1px 0px inset, rgba(168, 216, 245, 0.06) 0px 24px 48px 0px inset, rgba(0, 0, 0, 0.35) 0px 16px 32px 0px;
     --shadow-xl: rgba(216, 236, 248, 0.2) 0px 1px 1px 0px inset, rgba(168, 216, 245, 0.08) 0px 24px 48px 0px inset, rgba(0, 0, 0, 0.45) 0px 20px 40px 0px;
-    --shadow-glow: 0 0 40px rgba(102, 58, 243, 0.25);
+    --shadow-glow: 0 0 40px rgba(26, 174, 146, 0.25);
 
     --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -96,6 +96,40 @@
     --z-header: 200;
     --z-modal: 300;
     --z-overlay: 400;
+}
+
+/* ============================================
+   СВЕТЛАЯ ТЕМА — переключается через [data-theme="light"] на <html>
+   ============================================ */
+:root[data-theme="light"] {
+    --color-midnight-canvas: #EDF6F3;
+    --color-steel-plate: #D3E4DF;
+    --color-fog-veil: #5C7B72;
+    --color-moon-mist: #24413A;
+    --color-frost-glow: #0B2620;
+    --color-ice-highlight: #0B2620;
+    --gradient-ice-highlight: linear-gradient(0deg, #0B2620 0%, #0E7E68 100%);
+    --color-signal-teal: #0E7E68;
+    --color-signal-teal-dark: #0A5F4F;
+    --color-blueprint-blue: #0E7E68;
+    --color-glass-edge: rgba(14, 126, 104, 0.16);
+    --color-luminous-fill: rgba(14, 126, 104, 0.1);
+
+    --color-primary-light: rgba(14, 126, 104, 0.1);
+    --color-primary-gradient: linear-gradient(135deg, #0E7E68 0%, #1AAE92 100%);
+    --color-accent-gradient: linear-gradient(135deg, #0E7E68 0%, #1AAE92 100%);
+
+    --color-gray-light: #7A9088;
+    --color-bg-dark: #E1EFEA;
+    --color-white: #0B2620;
+    --color-surface: rgba(11, 38, 32, 0.035);
+    --color-surface-solid: #FFFFFF;
+
+    --shadow-sm: rgba(14, 126, 104, 0.14) 0px 0px 0px 1px inset;
+    --shadow-md: rgba(11, 38, 32, 0.06) 0px 1px 1px 0px inset, rgba(11, 38, 32, 0.04) 0px 24px 48px 0px inset, rgba(11, 38, 32, 0.1) 0px 24px 32px 0px;
+    --shadow-lg: rgba(11, 38, 32, 0.08) 0px 1px 1px 0px inset, rgba(11, 38, 32, 0.05) 0px 24px 48px 0px inset, rgba(11, 38, 32, 0.12) 0px 16px 32px 0px;
+    --shadow-xl: rgba(11, 38, 32, 0.1) 0px 1px 1px 0px inset, rgba(11, 38, 32, 0.06) 0px 24px 48px 0px inset, rgba(11, 38, 32, 0.16) 0px 20px 40px 0px;
+    --shadow-glow: 0 0 40px rgba(14, 126, 104, 0.18);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500&family=JetBrains+Mono:wght@400&display=swap');
@@ -129,15 +163,13 @@ body {
     position: relative;
 }
 
-/* Blueprint-сетка — фоновый слой на весь сайт, а не только на первом экране */
+/* Точечный фон — на весь сайт, во всю высоту прокрутки, во всех темах */
 body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background-image:
-        linear-gradient(var(--color-glass-edge) 1px, transparent 1px),
-        linear-gradient(90deg, var(--color-glass-edge) 1px, transparent 1px);
-    background-size: 88px 88px;
+    background-image: radial-gradient(var(--color-glass-edge) 1.3px, transparent 1.3px);
+    background-size: 22px 22px;
     pointer-events: none;
     z-index: 0;
 }
@@ -257,7 +289,7 @@ h6 { font-size: var(--font-size-base); }
 
 .btn-primary,
 .btn-accent {
-    background: var(--color-void-violet);
+    background: var(--color-signal-teal);
     color: #FFFFFF;
     border: 1px solid transparent;
     border-radius: var(--radius-sm);
@@ -265,7 +297,7 @@ h6 { font-size: var(--font-size-base); }
 
 .btn-primary:hover,
 .btn-accent:hover {
-    background: var(--color-void-violet-dark);
+    background: var(--color-signal-teal-dark);
 }
 
 .btn-link {
@@ -355,6 +387,27 @@ h6 { font-size: var(--font-size-base); }
 
 .nav a:hover {
     color: var(--color-primary);
+}
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-pill);
+    background: rgba(186, 214, 247, 0.06);
+    border: 1px solid var(--color-glass-edge);
+    color: var(--color-white);
+    font-size: 15px;
+    line-height: 1;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background var(--transition-fast);
+}
+
+.theme-toggle:hover {
+    background: rgba(186, 214, 247, 0.12);
 }
 
 .burger {
@@ -472,7 +525,7 @@ main {
     -webkit-backdrop-filter: blur(8px);
     border-radius: var(--radius-xl);
     padding: 2.5rem 3rem;
-    border: 1px solid rgba(102, 58, 243, 0.2);
+    border: 1px solid rgba(26, 174, 146, 0.2);
 }
 
 .hero__content .cta-main {
@@ -771,7 +824,7 @@ main {
     outline: none;
     border-color: var(--color-primary);
     background: var(--color-surface);
-    box-shadow: 0 0 0 4px rgba(102, 58, 243, 0.1);
+    box-shadow: 0 0 0 4px rgba(26, 174, 146, 0.1);
 }
 
 .slider-container {
@@ -1215,7 +1268,7 @@ main {
     font-weight: 700;
     font-size: 1.25rem;
     margin: 0 auto 12px;
-    box-shadow: 0 4px 15px rgba(102, 58, 243, 0.3);
+    box-shadow: 0 4px 15px rgba(26, 174, 146, 0.3);
 }
 
 .step h3 {
@@ -1831,7 +1884,7 @@ main {
     visibility: hidden;
     transition: all var(--transition-base);
     z-index: var(--z-sidebar);
-    box-shadow: 0 4px 20px rgba(102, 58, 243, 0.3);
+    box-shadow: 0 4px 20px rgba(26, 174, 146, 0.3);
 }
 
 .scroll-to-top.visible {
@@ -1841,7 +1894,7 @@ main {
 
 .scroll-to-top:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(102, 58, 243, 0.4);
+    box-shadow: 0 8px 30px rgba(26, 174, 146, 0.4);
 }
 
 /* ============================================
@@ -1994,7 +2047,7 @@ main {
 .site-loader__mark {
     width: 40px;
     height: 40px;
-    border: 2px solid rgba(102, 58, 243, 0.25);
+    border: 2px solid rgba(26, 174, 146, 0.25);
     border-top-color: var(--color-primary);
     border-radius: 50%;
     animation: site-loader-spin 0.9s linear infinite;
