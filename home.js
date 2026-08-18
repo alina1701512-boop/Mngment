@@ -262,8 +262,10 @@
         return colorCache[hex];
     }
 
+    var reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
     function animate() {
-        requestAnimationFrame(animate);
+        if (document.hidden) return;
         t += 0.016;
 
         /* плавный переход между «мозгом» и «разлётом» с ease */
@@ -347,7 +349,15 @@
             ctx.lineWidth = particle.lineWidth;
             ctx.stroke();
         }
+
+        if (!reduceMotion) requestAnimationFrame(animate);
     }
+
+    /* Возобновляем анимацию, когда вкладка снова видима — animate() сам
+       остановится на document.hidden, поэтому нужен только рестарт цикла. */
+    document.addEventListener('visibilitychange', function () {
+        if (!document.hidden && !reduceMotion) requestAnimationFrame(animate);
+    });
 
     /* ---------- Инициализация ---------- */
     createParticles();
