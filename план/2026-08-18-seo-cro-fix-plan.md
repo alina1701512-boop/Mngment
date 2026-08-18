@@ -85,20 +85,18 @@
 
 ---
 
-## Цены — список услуг, жду цифры от Алины
+## Цены — внесены на сайт (2026-08-18)
 
-Заполните хотя бы ориентир («от Х ₽») по каждой:
-
-- [ ] Парсинг и базы данных (`parsing-lidogeneraciya`)
-- [ ] Внедрение AmoCRM (`vnedrenie-amocrm`)
-- [ ] Чат-боты (`chat-boty`)
-- [ ] AI-агенты (`ai-agenty`)
-- [ ] Разработка сайтов (`razrabotka-sajtov`)
-- [ ] Комплексный контракт (`marketing-pod-kljuch`)
-- [ ] SEO-продвижение (`seo-prodvizhenie`)
-- [ ] Контент-маркетинг (`kontent-marketing`)
-- [ ] Веб-аналитика (`veb-analitika`)
-- [ ] Брендинг и фирменный стиль (`brending-firmennyj-stil`)
+- [x] Парсинг и базы данных (`parsing-lidogeneraciya`) — от 3 500 ₽
+- [x] Внедрение AmoCRM (`vnedrenie-amocrm`) — от 50 000 ₽
+- [x] Чат-боты (`chat-boty`) — от 15 000 ₽
+- [x] AI-агенты (`ai-agenty`) — от 5 000 ₽
+- [x] Разработка сайтов (`razrabotka-sajtov`) — от 5 000 ₽
+- [x] Комплексный контракт (`marketing-pod-kljuch`) — от 150 000 ₽
+- [x] SEO-продвижение (`seo-prodvizhenie`) — от 15 000 ₽
+- [x] Контент-маркетинг (`kontent-marketing`) — от 15 000 ₽
+- [x] Веб-аналитика (`veb-analitika`) — от 15 000 ₽
+- [x] Брендинг и фирменный стиль (`brending-firmennyj-stil`) — от 15 000 ₽
 
 (Контекстная реклама / SMM / Автоматизация маркетинга исключены — удаляются по п.1.)
 
