@@ -127,7 +127,12 @@
             <div class="container">
                 <h2>Готовы к упаковке смыслов?</h2>
                 <p class="lead-magnet__subtitle">Обсудим ваш брендинг</p>
-                <form class="audit-form" action="/thank-you/" method="POST" novalidate>
+                <form class="audit-form" action="https://formsubmit.co/send@mngment.ru" method="POST" novalidate>
+                    <input type="hidden" name="_next" value="https://mngment.ru/thank-you/">
+                    <input type="hidden" name="_subject" value="Заявка: Брендинг">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                     <input type="text" name="name" placeholder="Имя" required>
                     <input type="text" name="phone" placeholder="Телефон / Telegram" required>
                     <select name="package">

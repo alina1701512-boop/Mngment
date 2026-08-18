@@ -64,7 +64,12 @@
             <div class="container">
                 <h1>Получите аудит текущей воронки</h1>
                 <p class="tool-page__subtitle">Разберём 7 точек утечки лидов и покажем, что автоматизировать</p>
-                <form class="audit-form" action="/thank-you/" method="POST" novalidate>
+                <form class="audit-form" action="https://formsubmit.co/send@mngment.ru" method="POST" novalidate>
+                    <input type="hidden" name="_next" value="https://mngment.ru/thank-you/">
+                    <input type="hidden" name="_subject" value="Заявка: аудит воронки (инструмент)">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                     <input type="text" name="name" placeholder="Имя" required>
                     <input type="text" name="phone" placeholder="Телефон / Telegram" required>
                     <select name="business_type" required>
