@@ -3,6 +3,8 @@
  * Маркетинговое агентство полного цикла
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500&family=JetBrains+Mono:wght@400&display=swap');
+
 /* ============================================
    ПЕРЕМЕННЫЕ
    ============================================ */
@@ -104,7 +106,7 @@
 :root[data-theme="light"] {
     --color-midnight-canvas: #EDF6F3;
     --color-steel-plate: #D3E4DF;
-    --color-fog-veil: #5C7B72;
+    --color-fog-veil: #4A655F;
     --color-moon-mist: #24413A;
     --color-frost-glow: #0B2620;
     --color-ice-highlight: #0B2620;
@@ -119,7 +121,7 @@
     --color-primary-gradient: linear-gradient(135deg, #0E7E68 0%, #1AAE92 100%);
     --color-accent-gradient: linear-gradient(135deg, #0E7E68 0%, #1AAE92 100%);
 
-    --color-gray-light: #7A9088;
+    --color-gray-light: #3D5650;
     --color-bg-dark: #E1EFEA;
     --color-white: #0B2620;
     --color-surface: rgba(11, 38, 32, 0.035);
@@ -131,8 +133,6 @@
     --shadow-xl: rgba(11, 38, 32, 0.1) 0px 1px 1px 0px inset, rgba(11, 38, 32, 0.06) 0px 24px 48px 0px inset, rgba(11, 38, 32, 0.16) 0px 20px 40px 0px;
     --shadow-glow: 0 0 40px rgba(14, 126, 104, 0.18);
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500&family=JetBrains+Mono:wght@400&display=swap');
 
 /* ============================================
    СБРОС (RESET)
@@ -274,7 +274,6 @@ h6 { font-size: var(--font-size-base); }
     letter-spacing: 0.01em;
 }
 
-.btn-ghost,
 .btn-outline {
     background: rgba(186, 214, 247, 0.06);
     color: var(--color-white);
@@ -282,9 +281,21 @@ h6 { font-size: var(--font-size-base); }
     box-shadow: var(--shadow-sm);
 }
 
-.btn-ghost:hover,
 .btn-outline:hover {
     background: rgba(186, 214, 247, 0.12);
+}
+
+/* Отдельный акцентный стиль для «Контакты» в шапке — не должен теряться
+   среди 13 одинаковых «Смотреть» на карточках услуг (btn-outline) */
+.btn-ghost {
+    background: var(--color-primary-light);
+    color: var(--color-signal-teal);
+    border: 1px solid rgba(26, 174, 146, 0.35);
+}
+
+.btn-ghost:hover {
+    background: rgba(26, 174, 146, 0.2);
+    border-color: var(--color-signal-teal);
 }
 
 .btn-primary,
@@ -342,11 +353,24 @@ h6 { font-size: var(--font-size-base); }
 }
 
 .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     font-size: var(--font-size-2xl);
     font-weight: 800;
     color: var(--color-black);
     text-decoration: none;
     letter-spacing: -0.5px;
+}
+
+.logo::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    background-image: url('/logo-mark.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .logo span {
@@ -772,6 +796,57 @@ main {
 .case-card .btn-link {
     margin-top: 15px;
     font-weight: 600;
+}
+
+/* ============================================
+   ОТЗЫВЫ
+   ============================================ */
+.testimonials {
+    padding: var(--spacing-4xl) 0;
+}
+
+.testimonials h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+    font-size: var(--font-size-3xl);
+}
+
+.testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.testimonial-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-glass-edge);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+}
+
+.testimonial-card__quote {
+    color: var(--color-dark);
+    font-style: italic;
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-lg);
+}
+
+.testimonial-card__author {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.testimonial-card__name {
+    font-weight: 600;
+    color: var(--color-black);
+    font-size: var(--font-size-sm);
+}
+
+.testimonial-card__role {
+    color: var(--color-gray);
+    font-size: var(--font-size-xs);
 }
 
 /* ============================================
@@ -1718,10 +1793,6 @@ main {
     margin-bottom: 12px;
 }
 
-.btn--full {
-    width: 100%;
-}
-
 /* Блог-хаб */
 .page-hero {
     padding: 80px 0 40px;
@@ -1828,19 +1899,10 @@ main {
     gap: 30px;
 }
 
-.case-card {
-    background: var(--color-surface);
+.cases-grid .case-card {
     padding: 36px;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
-    transition: all var(--transition-base);
     display: flex;
     flex-direction: column;
-}
-
-.case-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-xl);
 }
 
 .case-badge {
@@ -1853,17 +1915,6 @@ main {
     font-weight: 600;
     margin-bottom: 16px;
     width: fit-content;
-}
-
-.case-metric {
-    font-size: 3rem;
-    font-weight: 800;
-    background: var(--color-accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 10px;
-    line-height: 1.1;
 }
 
 /* СКРОЛЛ-ТУ-ТОП */
@@ -1945,7 +1996,7 @@ main {
     .hero { padding: var(--spacing-3xl) 0; }
     .hero__title { font-size: var(--font-size-3xl); }
 
-    .services__grid, .pain-grid, .cases__grid, .cases-grid { grid-template-columns: 1fr; }
+    .services__grid, .pain-grid, .cases__grid, .cases-grid, .testimonials__grid { grid-template-columns: 1fr; }
     .article-page { grid-template-columns: 1fr; padding: 30px 0; }
     .article-content h1 { font-size: 1.8rem; }
     .sidebar { position: static; }

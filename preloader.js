@@ -15,7 +15,7 @@
     if (!loader) return;
 
     var percentEl = loader.querySelector('.js-loader-percent');
-    var MIN_DURATION = 900; /* мс — не даём прелоадеру исчезнуть мгновенно */
+    var MIN_DURATION = 250; /* мс — короткий ритуал появления, не блокирует восприятие загрузки */
     var start = performance.now();
     var progress = 0;
 
