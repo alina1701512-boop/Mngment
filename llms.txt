@@ -1,0 +1,33 @@
+# mngment
+
+> mngment — маркетинговое агентство полного цикла. Строим систему продаж для B2B: парсинг и сбор баз контактов, внедрение AmoCRM, чат-боты, AI-агенты на GPT, разработка сайтов, SEO-продвижение, контент-маркетинг, веб-аналитика, email-рассылки, брендинг. Работаем в России, оплата и договор по 152-ФЗ.
+
+## Услуги
+
+- [Парсинг компаний и B2B-лидогенерация](https://mngment.ru/services/parsing-lidogeneraciya.html): сбор баз контактов ниши за 24 часа, от 3 500 ₽
+- [Внедрение AmoCRM под ключ](https://mngment.ru/services/vnedrenie-amocrm.html): воронки, автоматизация, интеграции, от 50 000 ₽
+- [Разработка чат-ботов](https://mngment.ru/services/chat-boty.html): квалификация лидов 24/7 для сайта, Telegram, WhatsApp, от 15 000 ₽
+- [AI-агенты и внедрение GPT](https://mngment.ru/services/ai-agenty.html): обработка заявок и поддержка на базе GPT с RAG, от 5 000 ₽
+- [Разработка сайтов и лендингов](https://mngment.ru/services/razrabotka-sajtov.html): сайты с интеграцией CRM и аналитики, от 5 000 ₽
+- [Комплексный маркетинг под ключ](https://mngment.ru/services/marketing-pod-kljuch.html): все услуги в единой системе с одной ответственностью за результат, от 150 000 ₽
+- [SEO-продвижение сайта](https://mngment.ru/services/seo-prodvizhenie.html): технический аудит, семантика, контент, от 15 000 ₽/мес
+- [Контент-маркетинг и копирайтинг](https://mngment.ru/services/kontent-marketing.html): статьи, кейсы, email-цепочки для B2B, от 15 000 ₽
+- [Настройка сквозной аналитики](https://mngment.ru/services/veb-analitika.html): от клика до сделки в CRM, от 15 000 ₽
+- [Email-рассылки для бизнеса](https://mngment.ru/services/email-rassylka.html): прогрев, реактивация базы, автоворонки, от 15 000 ₽
+- [Брендинг и фирменный стиль](https://mngment.ru/services/brending-firmennyj-stil.html): логотип, гайдлайн, упаковка под B2B, от 15 000 ₽
+
+## Кейсы
+
+- [Все кейсы](https://mngment.ru/cases/): результаты клиентов с цифрами по нишам — стройматериалы, EdTech, электрооборудование, IT-аутсорс и другие.
+
+## Блог
+
+- [Все статьи](https://mngment.ru/blog/): экспертные материалы про CRM, SEO, парсинг, AI-агентов, аналитику и маркетинг для B2B.
+
+## Контакты
+
+- [Контакты](https://mngment.ru/contacts/): Telegram, WhatsApp, телефон, форма заявки.
+
+## Прочее
+
+- [Политика конфиденциальности](https://mngment.ru/privacy/)
