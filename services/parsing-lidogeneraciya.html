@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Парсинг компаний и B2B-лидогенерация | SystemSales</title>
+    <title>Парсинг компаний и B2B-лидогенерация | mngment</title>
     <link rel="stylesheet" href="/style.css">
     <script type="application/ld+json">
     {
@@ -20,13 +21,14 @@
 <body>
     <header class="header">
         <div class="container">
-            <a href="/" class="logo">System<span>Sales</span></a>
+            <a href="/" class="logo">mng<span>ment</span></a>
             <nav class="nav" id="mainNav">
                 <a href="/#services">Услуги</a>
                 <a href="/cases/">Кейсы</a>
                 <a href="/blog/">Блог</a>
                 <a href="/contacts/" class="btn btn-ghost">Контакты</a>
             </nav>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему" aria-pressed="false"><span class="theme-toggle__icon" aria-hidden="true">☀</span></button>
             <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
     </header>
@@ -124,9 +126,10 @@
                 <div class="footer-col"><h4>⚙️ Управление</h4><ul><li><a href="/services/vnedrenie-amocrm.html">CRM</a></li><li><a href="/services/veb-analitika.html">Аналитика</a></li><li><a href="/services/marketing-automation.html">Авто</a></li><li><a href="/services/ai-agenty.html">AI</a></li></ul></div>
                 <div class="footer-col"><h4>🚀 Всё</h4><ul><li><a href="/services/marketing-pod-kljuch.html">Комплекс</a></li></ul></div>
             </div>
-            <div class="footer-bottom"><p>© 2026 SystemSales</p></div>
+            <div class="footer-bottom"><p>© 2026 mngment</p></div>
         </div>
     </footer>
     <script src="/script.js" defer></script>
+    <script src="/theme-toggle.js" defer></script>
 </body>
 </html>
