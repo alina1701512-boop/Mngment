@@ -1345,7 +1345,10 @@ main {
 }
 
 .db-item {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
     padding: 12px 16px;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -1353,22 +1356,21 @@ main {
     font-size: var(--font-size-sm);
     color: var(--color-dark);
     text-decoration: none;
+    cursor: pointer;
     transition: all var(--transition-fast);
 }
 
-.db-item:not(.db-item--soon) {
-    cursor: pointer;
-}
-
-.db-item:not(.db-item--soon):hover,
-.db-item:not(.db-item--soon):focus-visible {
+.db-item:hover,
+.db-item:focus-visible {
     border-color: var(--color-primary);
     color: var(--color-primary);
 }
 
-.db-item--soon {
-    color: var(--color-gray-light);
-    cursor: default;
+.db-item__price {
+    flex-shrink: 0;
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--color-primary);
 }
 
 /* ============================================
@@ -1437,6 +1439,13 @@ main {
     text-align: center;
     color: var(--color-primary);
     font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+}
+
+.db-modal__db-price {
+    text-align: center;
+    color: var(--color-gray);
+    font-size: var(--font-size-sm);
     margin-bottom: var(--spacing-sm);
 }
 

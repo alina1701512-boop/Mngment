@@ -453,6 +453,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (dbModal) {
         const dbModalNameEl = document.getElementById('dbRequestName');
+        const dbModalPriceEl = document.getElementById('dbRequestPrice');
         const dbModalDatabaseField = document.getElementById('dbRequestDatabase');
         const dbModalSubjectField = document.getElementById('dbRequestSubject');
         let dbModalTrigger = null;
@@ -460,6 +461,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const openDbModal = (dbName, trigger) => {
             dbModalTrigger = trigger;
             dbModalNameEl.textContent = dbName;
+            dbModalPriceEl.textContent = 'Стоимость: 6 000 ₽';
             dbModalDatabaseField.value = dbName;
             dbModalSubjectField.value = 'Запрос базы: ' + dbName;
             dbModal.hidden = false;
@@ -474,11 +476,11 @@ document.addEventListener('DOMContentLoaded', function () {
             if (dbModalTrigger) dbModalTrigger.focus();
         };
 
-        document.querySelectorAll('.db-item:not(.db-item--soon)').forEach(item => {
+        document.querySelectorAll('.db-item').forEach(item => {
             item.setAttribute('tabindex', '0');
             item.setAttribute('role', 'button');
 
-            const trigger = () => openDbModal(item.textContent.trim(), item);
+            const trigger = () => openDbModal(item.dataset.dbName || item.textContent.trim(), item);
 
             item.addEventListener('click', trigger);
             item.addEventListener('keydown', (e) => {
