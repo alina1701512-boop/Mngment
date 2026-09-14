@@ -447,6 +447,60 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ============================================
+    // МОДУЛЬ 11: МОДАЛКА ЗАПРОСА ГОТОВОЙ БАЗЫ
+    // ============================================
+    const dbModal = document.getElementById('dbRequestModal');
+
+    if (dbModal) {
+        const dbModalNameEl = document.getElementById('dbRequestName');
+        const dbModalDatabaseField = document.getElementById('dbRequestDatabase');
+        const dbModalSubjectField = document.getElementById('dbRequestSubject');
+        let dbModalTrigger = null;
+
+        const openDbModal = (dbName, trigger) => {
+            dbModalTrigger = trigger;
+            dbModalNameEl.textContent = dbName;
+            dbModalDatabaseField.value = dbName;
+            dbModalSubjectField.value = 'Запрос базы: ' + dbName;
+            dbModal.hidden = false;
+            body.style.overflow = 'hidden';
+            const nameInput = dbModal.querySelector('input[name="name"]');
+            if (nameInput) nameInput.focus();
+        };
+
+        const closeDbModal = () => {
+            dbModal.hidden = true;
+            body.style.overflow = '';
+            if (dbModalTrigger) dbModalTrigger.focus();
+        };
+
+        document.querySelectorAll('.db-item:not(.db-item--soon)').forEach(item => {
+            item.setAttribute('tabindex', '0');
+            item.setAttribute('role', 'button');
+
+            const trigger = () => openDbModal(item.textContent.trim(), item);
+
+            item.addEventListener('click', trigger);
+            item.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    trigger();
+                }
+            });
+        });
+
+        dbModal.querySelectorAll('[data-db-modal-close]').forEach(el => {
+            el.addEventListener('click', closeDbModal);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !dbModal.hidden) {
+                closeDbModal();
+            }
+        });
+    }
+
+    // ============================================
     // ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
     // ============================================
     function hashCode(str) {
