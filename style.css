@@ -978,6 +978,23 @@ main {
     line-height: var(--line-height-relaxed);
 }
 
+.hero-service__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.cta-main__arrow {
+    display: inline-block;
+    margin-left: var(--spacing-xs);
+    transition: transform var(--transition-fast);
+}
+
+.cta-main:hover .cta-main__arrow {
+    transform: translateX(4px);
+}
+
 .hero-service--centered {
     text-align: center;
     max-width: 800px;
@@ -1165,8 +1182,8 @@ main {
 
 .calculator__checkbox-group {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: var(--spacing-xs) var(--spacing-md);
+    grid-template-columns: 1fr;
+    gap: 2px 0;
 }
 
 .calculator__checkbox-group[hidden] {

@@ -143,7 +143,10 @@
                 <div class="hero-service__content">
                     <h1>B2B-лидогенерация и парсинг компаний</h1>
                     <p class="hero-service__subtitle">Собираем базы из 30+ источников. Данные проходят верификацию.</p>
-                    <a href="#serviceForm" class="btn btn-primary cta-main">Получить тестовую выгрузку</a>
+                    <div class="hero-service__ctas">
+                        <a href="#serviceForm" class="btn btn-primary cta-main">Получить тестовую выгрузку <span class="cta-main__arrow" aria-hidden="true">→</span></a>
+                        <a href="#readyBases" class="btn btn-outline">Выбрать из готовых баз</a>
+                    </div>
                 </div>
                 <div class="calculator" id="calculatorDemoParsing">
                     <h3 class="calculator__title">Получите демо-версию бесплатно</h3>
@@ -523,15 +526,6 @@
                 </div>
             </div>
         </section>
-        <section class="compare">
-            <div class="container">
-                <h2>Что меняется</h2>
-                <div class="compare-table">
-                    <div class="compare-row compare-header"><div>Критерий</div><div>Было</div><div>Стало</div></div>
-                    <div class="compare-row"><div>Актуальность</div><div>Устаревает</div><div>Автообновление</div></div>
-                </div>
-            </div>
-        </section>
         <section class="process">
             <div class="container">
                 <h2>Как мы собираем базу</h2>
@@ -565,7 +559,7 @@
                 </div>
             </div>
         </section>
-        <section class="ready-bases">
+        <section class="ready-bases" id="readyBases">
             <div class="container">
                 <h2>Готовые базы</h2>
                 <p class="calculator__subtitle">Не хотите ждать парсинг под нишу — заберите готовую выгрузку прямо сейчас</p>
@@ -690,6 +684,10 @@
                 container.querySelectorAll('input[type="checkbox"]').forEach(function(cb) { cb.checked = false; });
             }
 
+            function checkAll(container) {
+                container.querySelectorAll('input[type="checkbox"]').forEach(function(cb) { cb.checked = true; });
+            }
+
             function onCountryChange() {
                 const country = countrySelect.value;
                 regionGroups.forEach(function(group) {
@@ -715,6 +713,8 @@
                 const checkedCategories = Array.from(document.querySelectorAll('.js-category-checkbox:checked')).map(function(cb) { return cb.value; });
                 subcategoryGroups.forEach(function(group) {
                     const active = checkedCategories.includes(group.dataset.category);
+                    const wasActive = !group.hidden;
+                    if (active && !wasActive) checkAll(group);
                     group.hidden = !active;
                     if (!active) uncheckAll(group);
                 });
