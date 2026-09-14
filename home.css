@@ -64,6 +64,7 @@ body {
     position: relative;
     min-height: 100vh;
     z-index: 1;
+    justify-content: flex-start;
 }
 
 /* Стеклянная модальная карточка — как auth-form card в референсе */
