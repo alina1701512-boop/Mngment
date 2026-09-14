@@ -446,6 +446,29 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ============================================
+    // МОДУЛЬ 10.1: РАСКРЫТИЕ КАРТОЧЕК УСЛУГ (мини-инфо по клику)
+    // ============================================
+    document.querySelectorAll('.services__grid .service-card').forEach(card => {
+        const toggle = () => {
+            const isOpen = card.classList.toggle('is-open');
+            card.setAttribute('aria-expanded', isOpen);
+        };
+
+        card.addEventListener('click', (e) => {
+            if (e.target.closest('a')) return; // клик по кнопке «Смотреть» — не перехватываем
+            toggle();
+        });
+
+        card.addEventListener('keydown', (e) => {
+            if (e.target !== card) return;
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggle();
+            }
+        });
+    });
+
+    // ============================================
     // ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
     // ============================================
     function hashCode(str) {

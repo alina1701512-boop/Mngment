@@ -178,6 +178,93 @@ body {
 }
 
 /* ============================================
+   КАРТОЧКИ УСЛУГ — компактный размер + раскрытие мини-инфо по клику
+   ============================================ */
+.services__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+}
+
+.services__grid .service-card {
+    padding: var(--spacing-lg);
+    cursor: pointer;
+    position: relative;
+}
+
+.services__grid .service-card:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.services__grid .service-icon {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.services__grid .service-card h3 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-xs);
+}
+
+.services__grid .service-card p {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.service-card__toggle {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-glass-edge);
+    font-size: 0.9rem;
+    line-height: 1;
+    color: var(--color-gray);
+    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.service-card.is-open .service-card__toggle {
+    transform: rotate(135deg);
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+}
+
+.service-card__more {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin: 0;
+    color: var(--color-gray);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.35s ease;
+}
+
+.service-card.is-open .service-card__more {
+    max-height: 200px;
+    opacity: 1;
+    margin-bottom: var(--spacing-sm);
+}
+
+@media (max-width: 1024px) {
+    .services__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .services__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
    АДАПТИВ
    ============================================ */
 @media (max-width: 768px) {
