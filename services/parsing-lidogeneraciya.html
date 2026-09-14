@@ -174,7 +174,6 @@
                 <div class="compare-table">
                     <div class="compare-row compare-header"><div>Критерий</div><div>Было</div><div>Стало</div></div>
                     <div class="compare-row"><div>Актуальность</div><div>Устаревает</div><div>Автообновление</div></div>
-                    <div class="compare-row"><div>Объём</div><div>50-100/день</div><div>До 5000/сутки</div></div>
                 </div>
             </div>
         </section>
@@ -183,9 +182,9 @@
                 <h2>Как мы собираем базу</h2>
                 <div class="process-steps">
                     <div class="step"><div class="step-number">1</div><h3>Брифинг</h3><p>Источники и фильтры</p></div>
-                    <div class="step"><div class="step-number">2</div><h3>Разработка</h3><p>Парсер (Python)</p></div>
+                    <div class="step"><div class="step-number">2</div><h3>Разработка</h3><p>При необходимости пишем парсер (Python)</p></div>
                     <div class="step"><div class="step-number">3</div><h3>Валидация</h3><p>Проверка email для рассылки</p></div>
-                    <div class="step"><div class="step-number">4</div><h3>Передача</h3><p>Обновление</p></div>
+                    <div class="step"><div class="step-number">4</div><h3>Передача</h3><p>Можно интегрировать в вашу CRM</p></div>
                 </div>
             </div>
         </section>
@@ -213,7 +212,52 @@
         </section>
         <section class="lead-magnet" id="serviceForm">
             <div class="container">
-                <h2>Получите 50 контактов бесплатно</h2>
+                <h2>Получите демо-версию бесплатно</h2>
+                <div class="calculator" id="calculatorDemoParsing">
+                    <p class="calculator__subtitle">Выберите страну и сферу бизнеса — покажем, сколько компаний доступно для сбора</p>
+                    <div class="calculator__steps">
+                        <div class="calculator__step">
+                            <label class="calculator__step-label">Страна</label>
+                            <select id="demoCountry" class="calculator__input">
+                                <option value="1">Россия</option>
+                                <option value="0.3">Украина</option>
+                                <option value="0.15">Казахстан</option>
+                                <option value="0.08">Беларусь</option>
+                            </select>
+                        </div>
+                        <div class="calculator__step">
+                            <label class="calculator__step-label">Сфера бизнеса</label>
+                            <select id="demoCategory" class="calculator__input">
+                                <option value="1200">Автомобили</option>
+                                <option value="300">Безопасность</option>
+                                <option value="900">Бизнес</option>
+                                <option value="150">Государство</option>
+                                <option value="500">Компьютеры и интернет</option>
+                                <option value="1800">Красота</option>
+                                <option value="250">Культура и искусство</option>
+                                <option value="1100">Медицина и фармацевтика</option>
+                                <option value="600">Наука и образование</option>
+                                <option value="200">Общество</option>
+                                <option value="700">Отдых и туризм</option>
+                                <option value="950">Производство и поставки</option>
+                                <option value="400">Прочее</option>
+                                <option value="350">Реклама и полиграфия</option>
+                                <option value="850">Семья, дети, домашние животные</option>
+                                <option value="550">Спорт</option>
+                                <option value="1600">Строительство и недвижимость</option>
+                                <option value="300">Телекоммуникации и связь</option>
+                                <option value="750">Товары для дома и дачи</option>
+                                <option value="650">Транспорт и перевозки</option>
+                                <option value="2000">Услуги</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="calculator__result">
+                        <div class="calculator__result-icon">📊</div>
+                        <div class="calculator__result-value calculator__result-value--saved"><span id="demoResultCount">2 000</span> компаний</div>
+                        <div class="calculator__result-desc">Ориентировочно доступно для сбора в этой нише. Первые 50 контактов — демо-версия бесплатно за 24 часа.</div>
+                    </div>
+                </div>
                 <form class="audit-form" action="https://formsubmit.co/send@mngment.ru" method="POST" novalidate>
                     <input type="hidden" name="_next" value="https://mngment.ru/thank-you/">
                     <input type="hidden" name="_subject" value="Заявка: Парсинг и лидогенерация">
@@ -222,7 +266,7 @@
                     <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                     <input type="text" name="name" placeholder="Имя" required>
                     <input type="tel" name="phone" placeholder="Телефон" required>
-                    <button type="submit" class="btn btn-primary btn-large">Получить выгрузку</button>
+                    <button type="submit" class="btn btn-primary btn-large">Получить демо-версию</button>
                     <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="/privacy/">политикой обработки персональных данных</a></p>
                     <p class="form-note">Без предоплаты. Первые 50 контактов — за 24 часа.</p>
                 </form>
@@ -242,5 +286,23 @@
     </footer>
     <script src="/script.js" defer></script>
     <script src="/theme-toggle.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const countrySelect = document.getElementById('demoCountry');
+            const categorySelect = document.getElementById('demoCategory');
+            const resultEl = document.getElementById('demoResultCount');
+            if (!countrySelect || !categorySelect) return;
+
+            function calc() {
+                const multiplier = parseFloat(countrySelect.value);
+                const base = parseInt(categorySelect.value, 10);
+                const count = Math.round(base * multiplier);
+                resultEl.textContent = count.toLocaleString('ru-RU');
+            }
+            countrySelect.addEventListener('change', calc);
+            categorySelect.addEventListener('change', calc);
+            calc();
+        });
+    </script>
 </body>
 </html>
