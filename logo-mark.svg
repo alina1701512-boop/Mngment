@@ -1,11 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 90">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 90">
   <defs>
-    <linearGradient id="mngGrad" x1="0" y1="0" x2="130" y2="90" gradientUnits="userSpaceOnUse">
+    <linearGradient id="mngGrad" x1="0" y1="0" x2="120" y2="90" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#1AAE92"/>
       <stop offset="1" stop-color="#3FC7AC"/>
     </linearGradient>
   </defs>
-  <text x="0" y="66" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="72" fill="url(#mngGrad)">M</text>
-  <text x="58" y="66" font-family="Georgia, 'Times New Roman', serif" font-weight="400" font-size="58" fill="url(#mngGrad)">m</text>
-  <rect x="58" y="72" width="50" height="4" rx="2" fill="url(#mngGrad)"/>
+  <polyline points="12,68 42,16 60,48 78,16 108,68" fill="none" stroke="url(#mngGrad)" stroke-width="4"/>
+  <circle cx="12" cy="68" r="7" fill="url(#mngGrad)"/>
+  <circle cx="42" cy="16" r="8" fill="url(#mngGrad)"/>
+  <circle cx="60" cy="48" r="6" fill="url(#mngGrad)"/>
+  <circle cx="78" cy="16" r="8" fill="url(#mngGrad)"/>
+  <circle cx="108" cy="68" r="7" fill="url(#mngGrad)"/>
 </svg>
