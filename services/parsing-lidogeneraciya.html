@@ -48,7 +48,7 @@
       "@type": "FAQPage",
       "mainEntity": [
         {"@type":"Question","name":"Законно ли заниматься парсингом контактов компаний в России?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы собираем только публично доступные данные из открытых реестров."}},
-        {"@type":"Question","name":"Чем ваш парсинг отличается от покупки готовой базы?","acceptedAnswer":{"@type":"Answer","text":"Готовые базы — мёртвые данные. Наш парсинг — живой слепок рынка на момент выгрузки."}},
+        {"@type":"Question","name":"Чем ваш парсинг отличается от покупки готовой базы?","acceptedAnswer":{"@type":"Answer","text":"Готовые базы — хороший быстрый старт, но со временем устаревают. Наш парсинг — свежий слепок рынка на момент выгрузки, под вашу нишу и регион."}},
         {"@type":"Question","name":"Можно ли настроить сбор сразу в CRM?","acceptedAnswer":{"@type":"Answer","text":"Да. Интегрируем с AmoCRM/Bitrix24 через API. Контакт → сделка → задача менеджеру."}},
         {"@type":"Question","name":"Сколько стоит парсинг?","acceptedAnswer":{"@type":"Answer","text":"От 3 500 ₽, точная сумма зависит от объёма и источников. Первые 50 контактов — бесплатно."}},
         {"@type":"Question","name":"На какой срок заключается договор?","acceptedAnswer":{"@type":"Answer","text":"Разовая выгрузка — без абонентской привязки. Автообновление базы — помесячно, отказаться можно в любой момент."}}
@@ -206,7 +206,7 @@
                 <h2>Частые вопросы</h2>
                 <div class="faq-list">
                     <details class="faq-item"><summary>Законно ли заниматься парсингом контактов компаний в России?</summary><p>Да. Мы собираем только публично доступные данные из открытых реестров.</p></details>
-                    <details class="faq-item"><summary>Чем ваш парсинг отличается от покупки готовой базы?</summary><p>Готовые базы — мёртвые данные. Наш парсинг — живой слепок рынка на момент выгрузки.</p></details>
+                    <details class="faq-item"><summary>Чем ваш парсинг отличается от покупки готовой базы?</summary><p>Готовые базы — хороший быстрый старт, но со временем устаревают. Наш парсинг — свежий слепок рынка на момент выгрузки, под вашу нишу и регион.</p></details>
                     <details class="faq-item"><summary>Можно ли настроить сбор сразу в CRM?</summary><p>Да. Интегрируем с AmoCRM/Bitrix24 через API. Контакт → сделка → задача менеджеру.</p></details>
                     <details class="faq-item"><summary>Сколько стоит?</summary><p>От 3 500 ₽, точная сумма зависит от объёма и источников. Первые 50 контактов — бесплатно.</p></details>
                     <details class="faq-item"><summary>На какой срок заключается договор?</summary><p>Разовая выгрузка — без абонентской привязки. Автообновление базы — помесячно, отказаться можно в любой момент.</p></details>
@@ -217,62 +217,425 @@
             <div class="container">
                 <h2>Получите демо-версию бесплатно</h2>
                 <div class="calculator" id="calculatorDemoParsing">
-                    <p class="calculator__subtitle">Выберите страну и сферу бизнеса — покажем, сколько компаний доступно для сбора</p>
+                    <p class="calculator__subtitle">Выберите страну, регионы и сферу бизнеса — дальше укажем, куда прислать демо-выгрузку</p>
                     <div class="calculator__steps">
                         <div class="calculator__step">
                             <label class="calculator__step-label">Страна</label>
-                            <select id="demoCountry" class="calculator__input">
-                                <option value="1">Россия</option>
-                                <option value="0.3">Украина</option>
-                                <option value="0.15">Казахстан</option>
-                                <option value="0.08">Беларусь</option>
+                            <select id="demoCountry" name="country" class="calculator__input">
+                                <option value="Россия">Россия</option>
+                                <option value="Казахстан">Казахстан</option>
+                                <option value="Беларусь">Беларусь</option>
                             </select>
                         </div>
                         <div class="calculator__step">
+                            <label class="calculator__step-label">Регионы</label>
+                            <div class="calculator__checkbox-list" id="demoRegions">
+                            <div class="calculator__checkbox-group" data-country="Россия" hidden>
+                                <label class="calculator__checkbox-item" for="region-0-0"><input type="checkbox" id="region-0-0" name="regions[]" value="Абхазия"> Абхазия</label>
+                                <label class="calculator__checkbox-item" for="region-0-1"><input type="checkbox" id="region-0-1" name="regions[]" value="Алтайский край"> Алтайский край</label>
+                                <label class="calculator__checkbox-item" for="region-0-2"><input type="checkbox" id="region-0-2" name="regions[]" value="Амурская область"> Амурская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-3"><input type="checkbox" id="region-0-3" name="regions[]" value="Архангельская область"> Архангельская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-4"><input type="checkbox" id="region-0-4" name="regions[]" value="Астраханская область"> Астраханская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-5"><input type="checkbox" id="region-0-5" name="regions[]" value="Белгородская область"> Белгородская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-6"><input type="checkbox" id="region-0-6" name="regions[]" value="Брянская область"> Брянская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-7"><input type="checkbox" id="region-0-7" name="regions[]" value="Владимирская область"> Владимирская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-8"><input type="checkbox" id="region-0-8" name="regions[]" value="Волгоградская область"> Волгоградская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-9"><input type="checkbox" id="region-0-9" name="regions[]" value="Вологодская область"> Вологодская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-10"><input type="checkbox" id="region-0-10" name="regions[]" value="Воронежская область"> Воронежская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-11"><input type="checkbox" id="region-0-11" name="regions[]" value="Еврейская автономная область"> Еврейская автономная область</label>
+                                <label class="calculator__checkbox-item" for="region-0-12"><input type="checkbox" id="region-0-12" name="regions[]" value="Забайкальский край"> Забайкальский край</label>
+                                <label class="calculator__checkbox-item" for="region-0-13"><input type="checkbox" id="region-0-13" name="regions[]" value="Ивановская область"> Ивановская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-14"><input type="checkbox" id="region-0-14" name="regions[]" value="Иркутская область"> Иркутская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-15"><input type="checkbox" id="region-0-15" name="regions[]" value="Калининградская область"> Калининградская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-16"><input type="checkbox" id="region-0-16" name="regions[]" value="Калужская область"> Калужская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-17"><input type="checkbox" id="region-0-17" name="regions[]" value="Камчатский край"> Камчатский край</label>
+                                <label class="calculator__checkbox-item" for="region-0-18"><input type="checkbox" id="region-0-18" name="regions[]" value="Кемеровская область"> Кемеровская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-19"><input type="checkbox" id="region-0-19" name="regions[]" value="Кировская область"> Кировская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-20"><input type="checkbox" id="region-0-20" name="regions[]" value="Костромская область"> Костромская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-21"><input type="checkbox" id="region-0-21" name="regions[]" value="Краснодарский край"> Краснодарский край</label>
+                                <label class="calculator__checkbox-item" for="region-0-22"><input type="checkbox" id="region-0-22" name="regions[]" value="Красноярский край"> Красноярский край</label>
+                                <label class="calculator__checkbox-item" for="region-0-23"><input type="checkbox" id="region-0-23" name="regions[]" value="Курганская область"> Курганская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-24"><input type="checkbox" id="region-0-24" name="regions[]" value="Курская область"> Курская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-25"><input type="checkbox" id="region-0-25" name="regions[]" value="Ленинградская область"> Ленинградская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-26"><input type="checkbox" id="region-0-26" name="regions[]" value="Липецкая область"> Липецкая область</label>
+                                <label class="calculator__checkbox-item" for="region-0-27"><input type="checkbox" id="region-0-27" name="regions[]" value="Магаданская область"> Магаданская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-28"><input type="checkbox" id="region-0-28" name="regions[]" value="Московская область"> Московская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-29"><input type="checkbox" id="region-0-29" name="regions[]" value="Мурманская область"> Мурманская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-30"><input type="checkbox" id="region-0-30" name="regions[]" value="Ненецкий автономный округ"> Ненецкий автономный округ</label>
+                                <label class="calculator__checkbox-item" for="region-0-31"><input type="checkbox" id="region-0-31" name="regions[]" value="Нижегородская область"> Нижегородская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-32"><input type="checkbox" id="region-0-32" name="regions[]" value="Новгородская область"> Новгородская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-33"><input type="checkbox" id="region-0-33" name="regions[]" value="Новосибирская область"> Новосибирская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-34"><input type="checkbox" id="region-0-34" name="regions[]" value="Омская область"> Омская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-35"><input type="checkbox" id="region-0-35" name="regions[]" value="Оренбургская область"> Оренбургская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-36"><input type="checkbox" id="region-0-36" name="regions[]" value="Орловская область"> Орловская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-37"><input type="checkbox" id="region-0-37" name="regions[]" value="Пензенская область"> Пензенская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-38"><input type="checkbox" id="region-0-38" name="regions[]" value="Пермский край"> Пермский край</label>
+                                <label class="calculator__checkbox-item" for="region-0-39"><input type="checkbox" id="region-0-39" name="regions[]" value="Приморский край"> Приморский край</label>
+                                <label class="calculator__checkbox-item" for="region-0-40"><input type="checkbox" id="region-0-40" name="regions[]" value="Псковская область"> Псковская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-41"><input type="checkbox" id="region-0-41" name="regions[]" value="Республика Адыгея"> Республика Адыгея</label>
+                                <label class="calculator__checkbox-item" for="region-0-42"><input type="checkbox" id="region-0-42" name="regions[]" value="Республика Алтай"> Республика Алтай</label>
+                                <label class="calculator__checkbox-item" for="region-0-43"><input type="checkbox" id="region-0-43" name="regions[]" value="Республика Башкортостан"> Республика Башкортостан</label>
+                                <label class="calculator__checkbox-item" for="region-0-44"><input type="checkbox" id="region-0-44" name="regions[]" value="Республика Бурятия"> Республика Бурятия</label>
+                                <label class="calculator__checkbox-item" for="region-0-45"><input type="checkbox" id="region-0-45" name="regions[]" value="Республика Дагестан"> Республика Дагестан</label>
+                                <label class="calculator__checkbox-item" for="region-0-46"><input type="checkbox" id="region-0-46" name="regions[]" value="Республика Ингушетия"> Республика Ингушетия</label>
+                                <label class="calculator__checkbox-item" for="region-0-47"><input type="checkbox" id="region-0-47" name="regions[]" value="Республика Кабардино-Балкария"> Республика Кабардино-Балкария</label>
+                                <label class="calculator__checkbox-item" for="region-0-48"><input type="checkbox" id="region-0-48" name="regions[]" value="Республика Калмыкия"> Республика Калмыкия</label>
+                                <label class="calculator__checkbox-item" for="region-0-49"><input type="checkbox" id="region-0-49" name="regions[]" value="Республика Карачаево-Черкесия"> Республика Карачаево-Черкесия</label>
+                                <label class="calculator__checkbox-item" for="region-0-50"><input type="checkbox" id="region-0-50" name="regions[]" value="Республика Карелия"> Республика Карелия</label>
+                                <label class="calculator__checkbox-item" for="region-0-51"><input type="checkbox" id="region-0-51" name="regions[]" value="Республика Коми"> Республика Коми</label>
+                                <label class="calculator__checkbox-item" for="region-0-52"><input type="checkbox" id="region-0-52" name="regions[]" value="Республика Крым"> Республика Крым</label>
+                                <label class="calculator__checkbox-item" for="region-0-53"><input type="checkbox" id="region-0-53" name="regions[]" value="Республика Марий Эл"> Республика Марий Эл</label>
+                                <label class="calculator__checkbox-item" for="region-0-54"><input type="checkbox" id="region-0-54" name="regions[]" value="Республика Мордовия"> Республика Мордовия</label>
+                                <label class="calculator__checkbox-item" for="region-0-55"><input type="checkbox" id="region-0-55" name="regions[]" value="Республика Северная Осетия"> Республика Северная Осетия</label>
+                                <label class="calculator__checkbox-item" for="region-0-56"><input type="checkbox" id="region-0-56" name="regions[]" value="Республика Татарстан"> Республика Татарстан</label>
+                                <label class="calculator__checkbox-item" for="region-0-57"><input type="checkbox" id="region-0-57" name="regions[]" value="Республика Тыва"> Республика Тыва</label>
+                                <label class="calculator__checkbox-item" for="region-0-58"><input type="checkbox" id="region-0-58" name="regions[]" value="Республика Удмуртия"> Республика Удмуртия</label>
+                                <label class="calculator__checkbox-item" for="region-0-59"><input type="checkbox" id="region-0-59" name="regions[]" value="Республика Чувашия"> Республика Чувашия</label>
+                                <label class="calculator__checkbox-item" for="region-0-60"><input type="checkbox" id="region-0-60" name="regions[]" value="Республика Якутия"> Республика Якутия</label>
+                                <label class="calculator__checkbox-item" for="region-0-61"><input type="checkbox" id="region-0-61" name="regions[]" value="Республика Хакасия"> Республика Хакасия</label>
+                                <label class="calculator__checkbox-item" for="region-0-62"><input type="checkbox" id="region-0-62" name="regions[]" value="Ростовская область"> Ростовская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-63"><input type="checkbox" id="region-0-63" name="regions[]" value="Рязанская область"> Рязанская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-64"><input type="checkbox" id="region-0-64" name="regions[]" value="Самарская область"> Самарская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-65"><input type="checkbox" id="region-0-65" name="regions[]" value="Саратовская область"> Саратовская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-66"><input type="checkbox" id="region-0-66" name="regions[]" value="Сахалинская область"> Сахалинская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-67"><input type="checkbox" id="region-0-67" name="regions[]" value="Свердловская область"> Свердловская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-68"><input type="checkbox" id="region-0-68" name="regions[]" value="Смоленская область"> Смоленская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-69"><input type="checkbox" id="region-0-69" name="regions[]" value="Ставропольский край"> Ставропольский край</label>
+                                <label class="calculator__checkbox-item" for="region-0-70"><input type="checkbox" id="region-0-70" name="regions[]" value="Тамбовская область"> Тамбовская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-71"><input type="checkbox" id="region-0-71" name="regions[]" value="Тверская область"> Тверская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-72"><input type="checkbox" id="region-0-72" name="regions[]" value="Томская область"> Томская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-73"><input type="checkbox" id="region-0-73" name="regions[]" value="Тульская область"> Тульская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-74"><input type="checkbox" id="region-0-74" name="regions[]" value="Тюменская область"> Тюменская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-75"><input type="checkbox" id="region-0-75" name="regions[]" value="Ульяновская область"> Ульяновская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-76"><input type="checkbox" id="region-0-76" name="regions[]" value="Хабаровский край"> Хабаровский край</label>
+                                <label class="calculator__checkbox-item" for="region-0-77"><input type="checkbox" id="region-0-77" name="regions[]" value="Ханты-Мансийский АО"> Ханты-Мансийский АО</label>
+                                <label class="calculator__checkbox-item" for="region-0-78"><input type="checkbox" id="region-0-78" name="regions[]" value="Челябинская область"> Челябинская область</label>
+                                <label class="calculator__checkbox-item" for="region-0-79"><input type="checkbox" id="region-0-79" name="regions[]" value="Чеченская Республика"> Чеченская Республика</label>
+                                <label class="calculator__checkbox-item" for="region-0-80"><input type="checkbox" id="region-0-80" name="regions[]" value="Чукотский автономный округ"> Чукотский автономный округ</label>
+                                <label class="calculator__checkbox-item" for="region-0-81"><input type="checkbox" id="region-0-81" name="regions[]" value="Ямало-Ненецкий АО"> Ямало-Ненецкий АО</label>
+                                <label class="calculator__checkbox-item" for="region-0-82"><input type="checkbox" id="region-0-82" name="regions[]" value="Ярославская область"> Ярославская область</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-country="Казахстан" hidden>
+                                <label class="calculator__checkbox-item" for="region-1-0"><input type="checkbox" id="region-1-0" name="regions[]" value="Абайская область"> Абайская область</label>
+                                <label class="calculator__checkbox-item" for="region-1-1"><input type="checkbox" id="region-1-1" name="regions[]" value="Акмолинская область"> Акмолинская область</label>
+                                <label class="calculator__checkbox-item" for="region-1-2"><input type="checkbox" id="region-1-2" name="regions[]" value="Актюбинская область"> Актюбинская область</label>
+                                <label class="calculator__checkbox-item" for="region-1-3"><input type="checkbox" id="region-1-3" name="regions[]" value="Алматинская область"> Алматинская область</label>
+                                <label class="calculator__checkbox-item" for="region-1-4"><input type="checkbox" id="region-1-4" name="regions[]" value="Атырауская область"> Атырауская область</label>
+                                <label class="calculator__checkbox-item" for="region-1-5"><input type="checkbox" id="region-1-5" name="regions[]" value="Восточно-Казахстанская область"> Восточно-Казахстанская область</label>
+                                <label class="calculator__checkbox-item" for="region-1-6"><input type="checkbox" id="region-1-6" name="regions[]" value="Жамбылская область"> Жамбылская область</label>
+                                <label class="calculator__checkbox-item" for="region-1-7"><input type="checkbox" id="region-1-7" name="regions[]" value="Западно-Казахстанская область"> Западно-Казахстанская область</label>
+                                <label class="calculator__checkbox-item" for="region-1-8"><input type="checkbox" id="region-1-8" name="regions[]" value="Костанайская область"> Костанайская область</label>
+                                <label class="calculator__checkbox-item" for="region-1-9"><input type="checkbox" id="region-1-9" name="regions[]" value="Кызылординская область"> Кызылординская область</label>
+                                <label class="calculator__checkbox-item" for="region-1-10"><input type="checkbox" id="region-1-10" name="regions[]" value="Мангистауская область"> Мангистауская область</label>
+                                <label class="calculator__checkbox-item" for="region-1-11"><input type="checkbox" id="region-1-11" name="regions[]" value="Павлодарская область"> Павлодарская область</label>
+                                <label class="calculator__checkbox-item" for="region-1-12"><input type="checkbox" id="region-1-12" name="regions[]" value="Северо-Казахстанская область"> Северо-Казахстанская область</label>
+                                <label class="calculator__checkbox-item" for="region-1-13"><input type="checkbox" id="region-1-13" name="regions[]" value="Туркестанская область"> Туркестанская область</label>
+                                <label class="calculator__checkbox-item" for="region-1-14"><input type="checkbox" id="region-1-14" name="regions[]" value="Южно-Казахстанская область"> Южно-Казахстанская область</label>
+                                <label class="calculator__checkbox-item" for="region-1-15"><input type="checkbox" id="region-1-15" name="regions[]" value="Улытауская область"> Улытауская область</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-country="Беларусь" hidden>
+                                <label class="calculator__checkbox-item" for="region-2-0"><input type="checkbox" id="region-2-0" name="regions[]" value="Минск"> Минск</label>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="calculator__step">
                             <label class="calculator__step-label">Сфера бизнеса</label>
-                            <select id="demoCategory" class="calculator__input">
-                                <option value="1200">Автомобили</option>
-                                <option value="300">Безопасность</option>
-                                <option value="900">Бизнес</option>
-                                <option value="150">Государство</option>
-                                <option value="500">Компьютеры и интернет</option>
-                                <option value="1800">Красота</option>
-                                <option value="250">Культура и искусство</option>
-                                <option value="1100">Медицина и фармацевтика</option>
-                                <option value="600">Наука и образование</option>
-                                <option value="200">Общество</option>
-                                <option value="700">Отдых и туризм</option>
-                                <option value="950">Производство и поставки</option>
-                                <option value="400">Прочее</option>
-                                <option value="350">Реклама и полиграфия</option>
-                                <option value="850">Семья, дети, домашние животные</option>
-                                <option value="550">Спорт</option>
-                                <option value="1600">Строительство и недвижимость</option>
-                                <option value="300">Телекоммуникации и связь</option>
-                                <option value="750">Товары для дома и дачи</option>
-                                <option value="650">Транспорт и перевозки</option>
-                                <option value="2000">Услуги</option>
+                            <select id="demoCategory" name="category" class="calculator__input">
+                                <option value="" selected disabled>— Выберите сферу —</option>
+                                <option value="Аварийные, справочные, экстренные службы">Аварийные, справочные, экстренные службы</option>
+                                <option value="Автосервис, Автотовары">Автосервис, Автотовары</option>
+                                <option value="Город, Власть">Город, Власть</option>
+                                <option value="Досуг, Развлечения, Общественное питание">Досуг, Развлечения, Общественное питание</option>
+                                <option value="Интернет, Связь, Информационные технологии">Интернет, Связь, Информационные технологии</option>
+                                <option value="Коммунальные, бытовые, ритуальные услуги">Коммунальные, бытовые, ритуальные услуги</option>
+                                <option value="Компьютеры, Бытовая техника, Офисная техника">Компьютеры, Бытовая техника, Офисная техника</option>
+                                <option value="Культура, Искусство, Религия">Культура, Искусство, Религия</option>
+                                <option value="Мебель, Материалы, Фурнитура">Мебель, Материалы, Фурнитура</option>
+                                <option value="Медицина, Здоровье, Красота">Медицина, Здоровье, Красота</option>
+                                <option value="Металлы, Топливо, Химия">Металлы, Топливо, Химия</option>
+                                <option value="Оборудование, Инструмент">Оборудование, Инструмент</option>
+                                <option value="Образование, Работа, Карьера">Образование, Работа, Карьера</option>
+                                <option value="Одежда, Обувь">Одежда, Обувь</option>
+                                <option value="Охрана, Безопасность">Охрана, Безопасность</option>
+                                <option value="Продукты питания, Напитки">Продукты питания, Напитки</option>
+                                <option value="Реклама, Полиграфия, СМИ">Реклама, Полиграфия, СМИ</option>
+                                <option value="Спорт, Отдых, Туризм">Спорт, Отдых, Туризм</option>
+                                <option value="Строительные, отделочные материалы">Строительные, отделочные материалы</option>
+                                <option value="Строительство, Недвижимость, Ремонт">Строительство, Недвижимость, Ремонт</option>
+                                <option value="Текстиль, Предметы интерьера">Текстиль, Предметы интерьера</option>
+                                <option value="Товары для животных, Ветеринария">Товары для животных, Ветеринария</option>
+                                <option value="Торговые комплексы, Спецмагазины">Торговые комплексы, Спецмагазины</option>
+                                <option value="Транспорт, Грузоперевозки">Транспорт, Грузоперевозки</option>
+                                <option value="Хозтовары, Канцелярия, Упаковка">Хозтовары, Канцелярия, Упаковка</option>
+                                <option value="Электроника, Электротехника">Электроника, Электротехника</option>
+                                <option value="Юридические, финансовые, бизнес-услуги">Юридические, финансовые, бизнес-услуги</option>
                             </select>
                         </div>
+                        <div class="calculator__step">
+                            <label class="calculator__step-label">Подкатегории</label>
+                            <div class="calculator__checkbox-list" id="demoSubcategories">
+                                <p class="calculator__checkbox-placeholder" id="demoSubcategoriesPlaceholder">Сначала выберите сферу бизнеса</p>
+                            <div class="calculator__checkbox-group" data-category="Аварийные, справочные, экстренные службы" hidden>
+                                <label class="calculator__checkbox-item" for="sub-0-0"><input type="checkbox" id="sub-0-0" name="subcategories[]" value="Аварийные, справочные, экстренные службы"> Аварийные, справочные, экстренные службы</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Автосервис, Автотовары" hidden>
+                                <label class="calculator__checkbox-item" for="sub-1-0"><input type="checkbox" id="sub-1-0" name="subcategories[]" value="Автосервис"> Автосервис</label>
+                                <label class="calculator__checkbox-item" for="sub-1-1"><input type="checkbox" id="sub-1-1" name="subcategories[]" value="Автотовары"> Автотовары</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Город, Власть" hidden>
+                                <label class="calculator__checkbox-item" for="sub-2-0"><input type="checkbox" id="sub-2-0" name="subcategories[]" value="Администрации, Правительства"> Администрации, Правительства</label>
+                                <label class="calculator__checkbox-item" for="sub-2-1"><input type="checkbox" id="sub-2-1" name="subcategories[]" value="Внебюджетные фонды"> Внебюджетные фонды</label>
+                                <label class="calculator__checkbox-item" for="sub-2-2"><input type="checkbox" id="sub-2-2" name="subcategories[]" value="Законодательная власть"> Законодательная власть</label>
+                                <label class="calculator__checkbox-item" for="sub-2-3"><input type="checkbox" id="sub-2-3" name="subcategories[]" value="Министерство обороны"> Министерство обороны</label>
+                                <label class="calculator__checkbox-item" for="sub-2-4"><input type="checkbox" id="sub-2-4" name="subcategories[]" value="Общественные, политические организации"> Общественные, политические организации</label>
+                                <label class="calculator__checkbox-item" for="sub-2-5"><input type="checkbox" id="sub-2-5" name="subcategories[]" value="Организации природоохраны"> Организации природоохраны</label>
+                                <label class="calculator__checkbox-item" for="sub-2-6"><input type="checkbox" id="sub-2-6" name="subcategories[]" value="Органы государственного управления, надзора"> Органы государственного управления, надзора</label>
+                                <label class="calculator__checkbox-item" for="sub-2-7"><input type="checkbox" id="sub-2-7" name="subcategories[]" value="Посольства, Представительства"> Посольства, Представительства</label>
+                                <label class="calculator__checkbox-item" for="sub-2-8"><input type="checkbox" id="sub-2-8" name="subcategories[]" value="Правоохранительные органы"> Правоохранительные органы</label>
+                                <label class="calculator__checkbox-item" for="sub-2-9"><input type="checkbox" id="sub-2-9" name="subcategories[]" value="Регистрационные службы"> Регистрационные службы</label>
+                                <label class="calculator__checkbox-item" for="sub-2-10"><input type="checkbox" id="sub-2-10" name="subcategories[]" value="Социальные учреждения"> Социальные учреждения</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Досуг, Развлечения, Общественное питание" hidden>
+                                <label class="calculator__checkbox-item" for="sub-3-0"><input type="checkbox" id="sub-3-0" name="subcategories[]" value="Места отдыха, Развлекательные заведения"> Места отдыха, Развлекательные заведения</label>
+                                <label class="calculator__checkbox-item" for="sub-3-1"><input type="checkbox" id="sub-3-1" name="subcategories[]" value="Общественное питание"> Общественное питание</label>
+                                <label class="calculator__checkbox-item" for="sub-3-2"><input type="checkbox" id="sub-3-2" name="subcategories[]" value="Услуги по организации праздников, досуга"> Услуги по организации праздников, досуга</label>
+                                <label class="calculator__checkbox-item" for="sub-3-3"><input type="checkbox" id="sub-3-3" name="subcategories[]" value="Центры творчества и досуга"> Центры творчества и досуга</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Интернет, Связь, Информационные технологии" hidden>
+                                <label class="calculator__checkbox-item" for="sub-4-0"><input type="checkbox" id="sub-4-0" name="subcategories[]" value="Интернет"> Интернет</label>
+                                <label class="calculator__checkbox-item" for="sub-4-1"><input type="checkbox" id="sub-4-1" name="subcategories[]" value="Средства автоматизации и информационные технологии"> Средства автоматизации и информационные технологии</label>
+                                <label class="calculator__checkbox-item" for="sub-4-2"><input type="checkbox" id="sub-4-2" name="subcategories[]" value="Средства связи"> Средства связи</label>
+                                <label class="calculator__checkbox-item" for="sub-4-3"><input type="checkbox" id="sub-4-3" name="subcategories[]" value="Услуги связи"> Услуги связи</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Коммунальные, бытовые, ритуальные услуги" hidden>
+                                <label class="calculator__checkbox-item" for="sub-5-0"><input type="checkbox" id="sub-5-0" name="subcategories[]" value="Ателье"> Ателье</label>
+                                <label class="calculator__checkbox-item" for="sub-5-1"><input type="checkbox" id="sub-5-1" name="subcategories[]" value="Бытовые услуги"> Бытовые услуги</label>
+                                <label class="calculator__checkbox-item" for="sub-5-2"><input type="checkbox" id="sub-5-2" name="subcategories[]" value="Жилищно-коммунальные услуги"> Жилищно-коммунальные услуги</label>
+                                <label class="calculator__checkbox-item" for="sub-5-3"><input type="checkbox" id="sub-5-3" name="subcategories[]" value="Ритуальные услуги"> Ритуальные услуги</label>
+                                <label class="calculator__checkbox-item" for="sub-5-4"><input type="checkbox" id="sub-5-4" name="subcategories[]" value="Уборка, Обработка помещений"> Уборка, Обработка помещений</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Компьютеры, Бытовая техника, Офисная техника" hidden>
+                                <label class="calculator__checkbox-item" for="sub-6-0"><input type="checkbox" id="sub-6-0" name="subcategories[]" value="Аудио, Видео, Бытовая техника"> Аудио, Видео, Бытовая техника</label>
+                                <label class="calculator__checkbox-item" for="sub-6-1"><input type="checkbox" id="sub-6-1" name="subcategories[]" value="Компьютеры"> Компьютеры</label>
+                                <label class="calculator__checkbox-item" for="sub-6-2"><input type="checkbox" id="sub-6-2" name="subcategories[]" value="Оргтехника, Офисная техника"> Оргтехника, Офисная техника</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Культура, Искусство, Религия" hidden>
+                                <label class="calculator__checkbox-item" for="sub-7-0"><input type="checkbox" id="sub-7-0" name="subcategories[]" value="Культура, Искусство"> Культура, Искусство</label>
+                                <label class="calculator__checkbox-item" for="sub-7-1"><input type="checkbox" id="sub-7-1" name="subcategories[]" value="Религия"> Религия</label>
+                                <label class="calculator__checkbox-item" for="sub-7-2"><input type="checkbox" id="sub-7-2" name="subcategories[]" value="Художественные изделия, материалы"> Художественные изделия, материалы</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Мебель, Материалы, Фурнитура" hidden>
+                                <label class="calculator__checkbox-item" for="sub-8-0"><input type="checkbox" id="sub-8-0" name="subcategories[]" value="Материалы для производства мебели"> Материалы для производства мебели</label>
+                                <label class="calculator__checkbox-item" for="sub-8-1"><input type="checkbox" id="sub-8-1" name="subcategories[]" value="Мебель"> Мебель</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Медицина, Здоровье, Красота" hidden>
+                                <label class="calculator__checkbox-item" for="sub-9-0"><input type="checkbox" id="sub-9-0" name="subcategories[]" value="Красота, Здоровье"> Красота, Здоровье</label>
+                                <label class="calculator__checkbox-item" for="sub-9-1"><input type="checkbox" id="sub-9-1" name="subcategories[]" value="Медицинские товары"> Медицинские товары</label>
+                                <label class="calculator__checkbox-item" for="sub-9-2"><input type="checkbox" id="sub-9-2" name="subcategories[]" value="Медицинские услуги"> Медицинские услуги</label>
+                                <label class="calculator__checkbox-item" for="sub-9-3"><input type="checkbox" id="sub-9-3" name="subcategories[]" value="Медицинские учреждения"> Медицинские учреждения</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Металлы, Топливо, Химия" hidden>
+                                <label class="calculator__checkbox-item" for="sub-10-0"><input type="checkbox" id="sub-10-0" name="subcategories[]" value="Металлы"> Металлы</label>
+                                <label class="calculator__checkbox-item" for="sub-10-1"><input type="checkbox" id="sub-10-1" name="subcategories[]" value="Полезные ископаемые"> Полезные ископаемые</label>
+                                <label class="calculator__checkbox-item" for="sub-10-2"><input type="checkbox" id="sub-10-2" name="subcategories[]" value="Топливо"> Топливо</label>
+                                <label class="calculator__checkbox-item" for="sub-10-3"><input type="checkbox" id="sub-10-3" name="subcategories[]" value="Химия, Вторсырьё"> Химия, Вторсырьё</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Оборудование, Инструмент" hidden>
+                                <label class="calculator__checkbox-item" for="sub-11-0"><input type="checkbox" id="sub-11-0" name="subcategories[]" value="Инструмент"> Инструмент</label>
+                                <label class="calculator__checkbox-item" for="sub-11-1"><input type="checkbox" id="sub-11-1" name="subcategories[]" value="Климатическое оборудование"> Климатическое оборудование</label>
+                                <label class="calculator__checkbox-item" for="sub-11-2"><input type="checkbox" id="sub-11-2" name="subcategories[]" value="Мультимедийное, презентационное оборудование"> Мультимедийное, презентационное оборудование</label>
+                                <label class="calculator__checkbox-item" for="sub-11-3"><input type="checkbox" id="sub-11-3" name="subcategories[]" value="Оборудование для сферы услуг"> Оборудование для сферы услуг</label>
+                                <label class="calculator__checkbox-item" for="sub-11-4"><input type="checkbox" id="sub-11-4" name="subcategories[]" value="Подшипники"> Подшипники</label>
+                                <label class="calculator__checkbox-item" for="sub-11-5"><input type="checkbox" id="sub-11-5" name="subcategories[]" value="Прокат оборудования, инструментов"> Прокат оборудования, инструментов</label>
+                                <label class="calculator__checkbox-item" for="sub-11-6"><input type="checkbox" id="sub-11-6" name="subcategories[]" value="Промышленное оборудование"> Промышленное оборудование</label>
+                                <label class="calculator__checkbox-item" for="sub-11-7"><input type="checkbox" id="sub-11-7" name="subcategories[]" value="Строительное оборудование и техника"> Строительное оборудование и техника</label>
+                                <label class="calculator__checkbox-item" for="sub-11-8"><input type="checkbox" id="sub-11-8" name="subcategories[]" value="Торговое оборудование"> Торговое оборудование</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Образование, Работа, Карьера" hidden>
+                                <label class="calculator__checkbox-item" for="sub-12-0"><input type="checkbox" id="sub-12-0" name="subcategories[]" value="Дополнительное образование, Развивающие курсы"> Дополнительное образование, Развивающие курсы</label>
+                                <label class="calculator__checkbox-item" for="sub-12-1"><input type="checkbox" id="sub-12-1" name="subcategories[]" value="Научные организации"> Научные организации</label>
+                                <label class="calculator__checkbox-item" for="sub-12-2"><input type="checkbox" id="sub-12-2" name="subcategories[]" value="Общее образование, Центры раннего развития детей"> Общее образование, Центры раннего развития детей</label>
+                                <label class="calculator__checkbox-item" for="sub-12-3"><input type="checkbox" id="sub-12-3" name="subcategories[]" value="Профессиональное образование"> Профессиональное образование</label>
+                                <label class="calculator__checkbox-item" for="sub-12-4"><input type="checkbox" id="sub-12-4" name="subcategories[]" value="Работа, Карьера"> Работа, Карьера</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Одежда, Обувь" hidden>
+                                <label class="calculator__checkbox-item" for="sub-13-0"><input type="checkbox" id="sub-13-0" name="subcategories[]" value="Детские товары"> Детские товары</label>
+                                <label class="calculator__checkbox-item" for="sub-13-1"><input type="checkbox" id="sub-13-1" name="subcategories[]" value="Обувь"> Обувь</label>
+                                <label class="calculator__checkbox-item" for="sub-13-2"><input type="checkbox" id="sub-13-2" name="subcategories[]" value="Одежда, Аксессуары"> Одежда, Аксессуары</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Охрана, Безопасность" hidden>
+                                <label class="calculator__checkbox-item" for="sub-14-0"><input type="checkbox" id="sub-14-0" name="subcategories[]" value="Охрана, Безопасность"> Охрана, Безопасность</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Продукты питания, Напитки" hidden>
+                                <label class="calculator__checkbox-item" for="sub-15-0"><input type="checkbox" id="sub-15-0" name="subcategories[]" value="Напитки"> Напитки</label>
+                                <label class="calculator__checkbox-item" for="sub-15-1"><input type="checkbox" id="sub-15-1" name="subcategories[]" value="Продукты питания"> Продукты питания</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Реклама, Полиграфия, СМИ" hidden>
+                                <label class="calculator__checkbox-item" for="sub-16-0"><input type="checkbox" id="sub-16-0" name="subcategories[]" value="Издательское дело, Полиграфия"> Издательское дело, Полиграфия</label>
+                                <label class="calculator__checkbox-item" for="sub-16-1"><input type="checkbox" id="sub-16-1" name="subcategories[]" value="Наружная реклама"> Наружная реклама</label>
+                                <label class="calculator__checkbox-item" for="sub-16-2"><input type="checkbox" id="sub-16-2" name="subcategories[]" value="Рекламные услуги"> Рекламные услуги</label>
+                                <label class="calculator__checkbox-item" for="sub-16-3"><input type="checkbox" id="sub-16-3" name="subcategories[]" value="СМИ"> СМИ</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Спорт, Отдых, Туризм" hidden>
+                                <label class="calculator__checkbox-item" for="sub-17-0"><input type="checkbox" id="sub-17-0" name="subcategories[]" value="Спортивные клубы, школы"> Спортивные клубы, школы</label>
+                                <label class="calculator__checkbox-item" for="sub-17-1"><input type="checkbox" id="sub-17-1" name="subcategories[]" value="Спортивные комплексы"> Спортивные комплексы</label>
+                                <label class="calculator__checkbox-item" for="sub-17-2"><input type="checkbox" id="sub-17-2" name="subcategories[]" value="Спортивные товары"> Спортивные товары</label>
+                                <label class="calculator__checkbox-item" for="sub-17-3"><input type="checkbox" id="sub-17-3" name="subcategories[]" value="Туризм, Отдых"> Туризм, Отдых</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Строительные, отделочные материалы" hidden>
+                                <label class="calculator__checkbox-item" for="sub-18-0"><input type="checkbox" id="sub-18-0" name="subcategories[]" value="Отделочные материалы"> Отделочные материалы</label>
+                                <label class="calculator__checkbox-item" for="sub-18-1"><input type="checkbox" id="sub-18-1" name="subcategories[]" value="Строительные материалы, конструкции"> Строительные материалы, конструкции</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Строительство, Недвижимость, Ремонт" hidden>
+                                <label class="calculator__checkbox-item" for="sub-19-0"><input type="checkbox" id="sub-19-0" name="subcategories[]" value="Архитектура, Проектирование, Дизайн"> Архитектура, Проектирование, Дизайн</label>
+                                <label class="calculator__checkbox-item" for="sub-19-1"><input type="checkbox" id="sub-19-1" name="subcategories[]" value="Недвижимость"> Недвижимость</label>
+                                <label class="calculator__checkbox-item" for="sub-19-2"><input type="checkbox" id="sub-19-2" name="subcategories[]" value="Новостройки"> Новостройки</label>
+                                <label class="calculator__checkbox-item" for="sub-19-3"><input type="checkbox" id="sub-19-3" name="subcategories[]" value="Сантехническое оборудование"> Сантехническое оборудование</label>
+                                <label class="calculator__checkbox-item" for="sub-19-4"><input type="checkbox" id="sub-19-4" name="subcategories[]" value="Строительные, монтажные работы"> Строительные, монтажные работы</label>
+                                <label class="calculator__checkbox-item" for="sub-19-5"><input type="checkbox" id="sub-19-5" name="subcategories[]" value="Строительство зданий, сооружений"> Строительство зданий, сооружений</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Текстиль, Предметы интерьера" hidden>
+                                <label class="calculator__checkbox-item" for="sub-20-0"><input type="checkbox" id="sub-20-0" name="subcategories[]" value="Предметы интерьера, экстерьера"> Предметы интерьера, экстерьера</label>
+                                <label class="calculator__checkbox-item" for="sub-20-1"><input type="checkbox" id="sub-20-1" name="subcategories[]" value="Текстиль"> Текстиль</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Товары для животных, Ветеринария" hidden>
+                                <label class="calculator__checkbox-item" for="sub-21-0"><input type="checkbox" id="sub-21-0" name="subcategories[]" value="Ветеринария"> Ветеринария</label>
+                                <label class="calculator__checkbox-item" for="sub-21-1"><input type="checkbox" id="sub-21-1" name="subcategories[]" value="Животноводство"> Животноводство</label>
+                                <label class="calculator__checkbox-item" for="sub-21-2"><input type="checkbox" id="sub-21-2" name="subcategories[]" value="Товары, услуги для животных"> Товары, услуги для животных</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Торговые комплексы, Спецмагазины" hidden>
+                                <label class="calculator__checkbox-item" for="sub-22-0"><input type="checkbox" id="sub-22-0" name="subcategories[]" value="Спецмагазины"> Спецмагазины</label>
+                                <label class="calculator__checkbox-item" for="sub-22-1"><input type="checkbox" id="sub-22-1" name="subcategories[]" value="Торговые комплексы"> Торговые комплексы</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Транспорт, Грузоперевозки" hidden>
+                                <label class="calculator__checkbox-item" for="sub-23-0"><input type="checkbox" id="sub-23-0" name="subcategories[]" value="Авиатранспорт"> Авиатранспорт</label>
+                                <label class="calculator__checkbox-item" for="sub-23-1"><input type="checkbox" id="sub-23-1" name="subcategories[]" value="Автотранспорт"> Автотранспорт</label>
+                                <label class="calculator__checkbox-item" for="sub-23-2"><input type="checkbox" id="sub-23-2" name="subcategories[]" value="Аэропорты, Вокзалы"> Аэропорты, Вокзалы</label>
+                                <label class="calculator__checkbox-item" for="sub-23-3"><input type="checkbox" id="sub-23-3" name="subcategories[]" value="Водный транспорт"> Водный транспорт</label>
+                                <label class="calculator__checkbox-item" for="sub-23-4"><input type="checkbox" id="sub-23-4" name="subcategories[]" value="Городской транспорт"> Городской транспорт</label>
+                                <label class="calculator__checkbox-item" for="sub-23-5"><input type="checkbox" id="sub-23-5" name="subcategories[]" value="Грузоперевозки, Транспортные услуги"> Грузоперевозки, Транспортные услуги</label>
+                                <label class="calculator__checkbox-item" for="sub-23-6"><input type="checkbox" id="sub-23-6" name="subcategories[]" value="Железнодорожный транспорт"> Железнодорожный транспорт</label>
+                                <label class="calculator__checkbox-item" for="sub-23-7"><input type="checkbox" id="sub-23-7" name="subcategories[]" value="Продажа билетов"> Продажа билетов</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Хозтовары, Канцелярия, Упаковка" hidden>
+                                <label class="calculator__checkbox-item" for="sub-24-0"><input type="checkbox" id="sub-24-0" name="subcategories[]" value="Книги, Канцелярия"> Книги, Канцелярия</label>
+                                <label class="calculator__checkbox-item" for="sub-24-1"><input type="checkbox" id="sub-24-1" name="subcategories[]" value="Садово-хозяйственные товары"> Садово-хозяйственные товары</label>
+                                <label class="calculator__checkbox-item" for="sub-24-2"><input type="checkbox" id="sub-24-2" name="subcategories[]" value="Тара, Упаковка"> Тара, Упаковка</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Электроника, Электротехника" hidden>
+                                <label class="calculator__checkbox-item" for="sub-25-0"><input type="checkbox" id="sub-25-0" name="subcategories[]" value="Электроника"> Электроника</label>
+                                <label class="calculator__checkbox-item" for="sub-25-1"><input type="checkbox" id="sub-25-1" name="subcategories[]" value="Электротехника"> Электротехника</label>
+                            </div>
+                            <div class="calculator__checkbox-group" data-category="Юридические, финансовые, бизнес-услуги" hidden>
+                                <label class="calculator__checkbox-item" for="sub-26-0"><input type="checkbox" id="sub-26-0" name="subcategories[]" value="Банковские, финансовые услуги"> Банковские, финансовые услуги</label>
+                                <label class="calculator__checkbox-item" for="sub-26-1"><input type="checkbox" id="sub-26-1" name="subcategories[]" value="Бизнес-услуги"> Бизнес-услуги</label>
+                                <label class="calculator__checkbox-item" for="sub-26-2"><input type="checkbox" id="sub-26-2" name="subcategories[]" value="Промышленный аудит, оценка"> Промышленный аудит, оценка</label>
+                                <label class="calculator__checkbox-item" for="sub-26-3"><input type="checkbox" id="sub-26-3" name="subcategories[]" value="Услуги страхования"> Услуги страхования</label>
+                                <label class="calculator__checkbox-item" for="sub-26-4"><input type="checkbox" id="sub-26-4" name="subcategories[]" value="Юридические услуги"> Юридические услуги</label>
+                            </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="calculator__result">
-                        <div class="calculator__result-icon">📊</div>
-                        <div class="calculator__result-value calculator__result-value--saved"><span id="demoResultCount">2 000</span> компаний</div>
-                        <div class="calculator__result-desc">Ориентировочно доступно для сбора в этой нише. Первые 50 контактов — демо-версия бесплатно за 24 часа.</div>
+
+                    <div class="calculator__result" id="demoPrompt">
+                        <div class="calculator__result-icon">📋</div>
+                        <div class="calculator__result-desc">Отметьте хотя бы один регион и одну подкатегорию — тогда покажем, куда прислать демо-выгрузку.</div>
                     </div>
+
+                    <form class="audit-form calculator__result--hidden" id="demoContactForm" action="https://formsubmit.co/send@mngment.ru" method="POST" novalidate>
+                        <input type="hidden" name="_next" value="https://mngment.ru/thank-you/">
+                        <input type="hidden" name="_subject" value="Заявка: Парсинг и лидогенерация">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                        <p class="calculator__result-desc">Куда прислать демо-выгрузку (первые 50 контактов — бесплатно за 24 часа)</p>
+                        <input type="text" name="name" placeholder="Имя" required>
+                        <input type="tel" name="phone" placeholder="Телефон" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <select name="contact_method" id="demoContactMethod" required>
+                            <option value="" selected disabled>Удобный способ связи</option>
+                            <option value="Телефон">Телефон</option>
+                            <option value="WhatsApp">WhatsApp</option>
+                            <option value="Telegram">Telegram</option>
+                            <option value="Email">Email</option>
+                        </select>
+                        <input type="text" name="telegram_username" id="demoTelegramUsername" placeholder="Никнейм в Telegram (например, @ivanov)" hidden>
+                        <button type="submit" class="btn btn-primary btn-large">Получить демо-версию</button>
+                        <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="/privacy/">политикой обработки персональных данных</a></p>
+                        <p class="form-note">Без предоплаты. Первые 50 контактов — за 24 часа.</p>
+                    </form>
                 </div>
-                <form class="audit-form" action="https://formsubmit.co/send@mngment.ru" method="POST" novalidate>
-                    <input type="hidden" name="_next" value="https://mngment.ru/thank-you/">
-                    <input type="hidden" name="_subject" value="Заявка: Парсинг и лидогенерация">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-                    <input type="text" name="name" placeholder="Имя" required>
-                    <input type="tel" name="phone" placeholder="Телефон" required>
-                    <button type="submit" class="btn btn-primary btn-large">Получить демо-версию</button>
-                    <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="/privacy/">политикой обработки персональных данных</a></p>
-                    <p class="form-note">Без предоплаты. Первые 50 контактов — за 24 часа.</p>
-                </form>
+            </div>
+        </section>
+        <section class="ready-bases">
+            <div class="container">
+                <h2>Готовые базы</h2>
+                <p class="calculator__subtitle">Не хотите ждать парсинг под нишу — заберите готовую выгрузку прямо сейчас</p>
+                <div class="db-grid">
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База СБИС</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База export-base.ru</a>
+                    <span class="db-item db-item--soon">База 2GIS</span>
+                    <span class="db-item db-item--soon">База Реклама и Полиграфия РФ</span>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Образование Работа Карьера</a>
+                    <span class="db-item db-item--soon">База Яндекс Карты</span>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Пульс Цен</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Продукты питания Напитки</a>
+                    <span class="db-item db-item--soon">База Спорт Отдых Туризм</span>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Строительство, Недвижимость, Ремонт</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Строительные, Отделочные материалы</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Промышленные товары</a>
+                    <span class="db-item db-item--soon">База Товары для детей, дома, дачи, спорта, животных и хобби</span>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Одежда, Обувь</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Торговые комплексы Спецмагазины</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Текстиль Предметы интерьера</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Металлы, Топливо, Химия</a>
+                    <span class="db-item db-item--soon">База каталога rf-portal.ru</span>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Автосервис и Автотовары</a>
+                    <span class="db-item db-item--soon">База Охрана и Безопасность</span>
+                    <span class="db-item db-item--soon">База сельхозкомпаний по РФ</span>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Юридические, финансовые, бизнес-услуги</a>
+                    <a class="db-item" href="https://www.reformagkh.ru/" target="_blank" rel="noopener noreferrer nofollow">База управляющих компаний и ТСЖ (reformagkh.ru)</a>
+                    <a class="db-item" href="https://dom.gosuslugi.ru/" target="_blank" rel="noopener noreferrer nofollow">База ресурсоснабжающих и управляющих компаний ГИС ЖКХ (dom.gosuslugi.ru)</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База транспортных компаний (источник ati.su)</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База оптовых и розничных магазинов по РФ (112 000)</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Руспрофиль</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База заказчиков госзакупок</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База поставщиков госзакупок</a>
+                    <span class="db-item db-item--soon">База Росаккредитация</span>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Яндекс Маркет</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Новостройки</a>
+                    <span class="db-item db-item--soon">Участники СРО (reestr.nostroy.ru)</span>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База поставщиков с портала zakupki.mos.ru</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База управляющих компаний с dom.mos.ru</a>
+                    <span class="db-item db-item--soon">База клиентов, рекламирующихся в Яндекс.Директе</span>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База бюджетных компаний с bus.gov.ru</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Мебель, Материалы, Фурнитура</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Медицина, Здоровье, Красота</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Транспорт, Грузоперевозки</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Промышленность и производство</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Бизнес</a>
+                    <span class="db-item db-item--soon">База каталога list-org.com</span>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">Реестр медицинских компаний</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База компаний: Московский регион</a>
+                    <span class="db-item db-item--soon">База компаний: Ленинградский регион</span>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База b2brussia.ru</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Компании B2B</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База компаний-экспортёров</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База ТСЖ и УК с my-gkh.ru</a>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База Развлечения</a>
+                    <span class="db-item db-item--soon">База Интернет-магазины</span>
+                    <a class="db-item" href="[ссылка удалена]" target="_blank" rel="noopener noreferrer nofollow">База поставщиков Wildberries</a>
+                    <span class="db-item db-item--soon">База поставщиков Ozon</span>
+                    <span class="db-item db-item--soon">База поставщиков СберМегаМаркет (megamarket.ru)</span>
+                    <span class="db-item db-item--soon">База Supl.biz</span>
+                    <span class="db-item db-item--soon">База с BigSpravka</span>
+                    <span class="db-item db-item--soon">Реестр лицензий МЧС России (пожарная безопасность)</span>
+                    <span class="db-item db-item--soon">База Whatsapp-номеров компаний РФ</span>
+                    <span class="db-item db-item--soon">База Telegram компаний РФ</span>
+                    <span class="db-item db-item--soon">База мобильных телефонов компаний РФ</span>
+                    <span class="db-item db-item--soon">База Товары для животных, ветеринария</span>
+                    <span class="db-item db-item--soon">База Общественное питание</span>
+                </div>
             </div>
         </section>
     </main>
@@ -293,18 +656,66 @@
         document.addEventListener('DOMContentLoaded', function() {
             const countrySelect = document.getElementById('demoCountry');
             const categorySelect = document.getElementById('demoCategory');
-            const resultEl = document.getElementById('demoResultCount');
+            const regionGroups = document.querySelectorAll('#demoRegions .calculator__checkbox-group');
+            const subcategoryGroups = document.querySelectorAll('#demoSubcategories .calculator__checkbox-group');
+            const subcategoriesPlaceholder = document.getElementById('demoSubcategoriesPlaceholder');
+            const demoPrompt = document.getElementById('demoPrompt');
+            const demoContactForm = document.getElementById('demoContactForm');
+            const contactMethodSelect = document.getElementById('demoContactMethod');
+            const telegramInput = document.getElementById('demoTelegramUsername');
             if (!countrySelect || !categorySelect) return;
 
-            function calc() {
-                const multiplier = parseFloat(countrySelect.value);
-                const base = parseInt(categorySelect.value, 10);
-                const count = Math.round(base * multiplier);
-                resultEl.textContent = count.toLocaleString('ru-RU');
+            function showRegionsForCountry() {
+                const country = countrySelect.value;
+                regionGroups.forEach(function(group) {
+                    const active = group.dataset.country === country;
+                    group.hidden = !active;
+                    if (!active) {
+                        group.querySelectorAll('input[type="checkbox"]').forEach(function(cb) { cb.checked = false; });
+                    }
+                });
+                checkReveal();
             }
-            countrySelect.addEventListener('change', calc);
-            categorySelect.addEventListener('change', calc);
-            calc();
+
+            function showSubcategoriesForCategory() {
+                const category = categorySelect.value;
+                let found = false;
+                subcategoryGroups.forEach(function(group) {
+                    const active = group.dataset.category === category;
+                    group.hidden = !active;
+                    if (active) found = true;
+                    if (!active) {
+                        group.querySelectorAll('input[type="checkbox"]').forEach(function(cb) { cb.checked = false; });
+                    }
+                });
+                if (subcategoriesPlaceholder) subcategoriesPlaceholder.hidden = found;
+                checkReveal();
+            }
+
+            function checkReveal() {
+                const hasRegion = document.querySelector('#demoRegions input[type="checkbox"]:checked');
+                const hasSubcategory = document.querySelector('#demoSubcategories input[type="checkbox"]:checked');
+                const ready = !!(hasRegion && hasSubcategory);
+                if (demoPrompt) demoPrompt.hidden = ready;
+                if (demoContactForm) demoContactForm.classList.toggle('calculator__result--hidden', !ready);
+            }
+
+            countrySelect.addEventListener('change', showRegionsForCountry);
+            categorySelect.addEventListener('change', showSubcategoriesForCategory);
+            document.getElementById('demoRegions').addEventListener('change', checkReveal);
+            document.getElementById('demoSubcategories').addEventListener('change', checkReveal);
+
+            if (contactMethodSelect && telegramInput) {
+                contactMethodSelect.addEventListener('change', function() {
+                    const isTelegram = contactMethodSelect.value === 'Telegram';
+                    telegramInput.hidden = !isTelegram;
+                    telegramInput.required = isTelegram;
+                    if (!isTelegram) telegramInput.value = '';
+                });
+            }
+
+            showRegionsForCountry();
+            showSubcategoriesForCategory();
         });
     </script>
 </body>
