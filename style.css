@@ -1070,6 +1070,10 @@ main {
     flex-direction: column;
 }
 
+.calculator__step[hidden] {
+    display: none;
+}
+
 .calculator__step-label {
     font-weight: 600;
     font-size: var(--font-size-sm);
@@ -1163,6 +1167,10 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: var(--spacing-xs) var(--spacing-md);
+}
+
+.calculator__checkbox-group[hidden] {
+    display: none;
 }
 
 #demoSubcategories .calculator__checkbox-group:not([hidden]) ~ .calculator__checkbox-group:not([hidden]) {
