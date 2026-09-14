@@ -42,7 +42,6 @@
 
     <url><loc>https://mngment.ru/contacts/</loc><priority>0.7</priority></url>
 
-    <url><loc>https://mngment.ru/tools/audit-voronki/</loc><priority>0.6</priority></url>
     <url><loc>https://mngment.ru/tools/kalkulyator-stoimosti-parsinga/</loc><priority>0.6</priority></url>
     <url><loc>https://mngment.ru/tools/test-zrelosti-crm/</loc><priority>0.6</priority></url>
 </urlset>
