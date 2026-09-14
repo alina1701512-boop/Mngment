@@ -380,6 +380,8 @@ h6 { font-size: var(--font-size-base); }
 
 .nav {
     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     gap: var(--spacing-xl);
 }
 
@@ -408,6 +410,27 @@ h6 { font-size: var(--font-size-base); }
 }
 
 .nav a:hover {
+    color: var(--color-primary);
+}
+
+/* Быстрые кнопки-ссылки на топ-услуги в шапке — сразу видны, не теряются
+   среди обычных пунктов меню и не конкурируют с акцентом «Контакты» (btn-ghost) */
+.nav a.nav-quicklink {
+    padding: 6px 14px;
+    color: var(--color-primary);
+    background: color-mix(in srgb, var(--color-signal-teal) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-signal-teal) 28%, transparent);
+    border-radius: var(--radius-pill);
+    font-size: var(--font-size-xs);
+    white-space: nowrap;
+}
+
+.nav a.nav-quicklink::after {
+    content: none;
+}
+
+.nav a.nav-quicklink:hover {
+    background: color-mix(in srgb, var(--color-signal-teal) 22%, transparent);
     color: var(--color-primary);
 }
 
@@ -1582,6 +1605,9 @@ main {
     border-radius: var(--radius-lg);
     border: 1px solid var(--color-border);
     transition: all var(--transition-fast);
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
 }
 
 .contact-method:hover {
@@ -1598,7 +1624,7 @@ main {
     margin-bottom: 4px;
 }
 
-.contact-method a {
+.contact-method p {
     color: var(--color-primary);
     font-weight: 500;
 }
@@ -1992,6 +2018,7 @@ main {
 
     .nav--open { display: flex; }
     .nav a { display: block; padding: var(--spacing-md); font-size: var(--font-size-base); border-bottom: 1px solid var(--color-border); }
+    .nav a.nav-quicklink { border-bottom: none; margin-bottom: var(--spacing-sm); text-align: center; }
     .burger { display: flex; }
 
     .burger--active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
