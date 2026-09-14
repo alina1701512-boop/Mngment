@@ -1159,16 +1159,24 @@ main {
     background: var(--color-bg);
 }
 
-.calculator__checkbox-placeholder {
-    font-size: var(--font-size-sm);
-    color: var(--color-gray-light);
-    margin: var(--spacing-xs) 0;
-}
-
 .calculator__checkbox-group {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: var(--spacing-xs) var(--spacing-md);
+}
+
+#demoSubcategories .calculator__checkbox-group:not([hidden]) ~ .calculator__checkbox-group:not([hidden]) {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+}
+
+.calculator__checkbox-group-title {
+    grid-column: 1 / -1;
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+    color: var(--color-primary);
+    margin: 0;
 }
 
 .calculator__checkbox-item {
@@ -1184,6 +1192,14 @@ main {
 .calculator__checkbox-item input {
     accent-color: var(--color-primary);
     flex-shrink: 0;
+}
+
+.calculator__checkbox-item--all {
+    grid-column: 1 / -1;
+    font-weight: 700;
+    padding-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+    border-bottom: 1px solid var(--color-border);
 }
 
 /* Квиз */

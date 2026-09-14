@@ -120,9 +120,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // ============================================
     function recalculateCalculator(calculatorId) {
         switch (calculatorId) {
-            case 'calculatorTermometr':
-                updateTermometr();
-                break;
             case 'calculatorAiRentgen':
                 updateAiRentgen();
                 break;
@@ -141,24 +138,6 @@ document.addEventListener('DOMContentLoaded', function () {
             default:
                 break;
         }
-    }
-
-    // --- 4.1. Термометр холодной базы ---
-    function updateTermometr() {
-        const calls = parseInt(document.getElementById('callsPerDay')?.value || 50);
-        const deadPercent = parseInt(document.getElementById('deadPercent')?.value || 30);
-        const hourRate = parseInt(document.getElementById('hourRate')?.value || 500);
-
-        const deadCalls = Math.round(calls * (deadPercent / 100));
-        const timeWastedPerDay = deadCalls * 3;
-        const lossPerDay = Math.round((timeWastedPerDay / 60) * hourRate);
-        const lossPerMonth = lossPerDay * 22;
-
-        const lossEl = document.getElementById('termometrLoss');
-        const deadCallsEl = document.getElementById('termometrDeadCalls');
-
-        if (lossEl) lossEl.textContent = lossPerMonth.toLocaleString('ru-RU') + ' ₽';
-        if (deadCallsEl) deadCallsEl.textContent = deadCalls;
     }
 
     // --- 4.2. AI-Рентген ---
@@ -431,7 +410,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // МОДУЛЬ 10: ИНИЦИАЛИЗАЦИЯ КАЛЬКУЛЯТОРОВ
     // ============================================
     const calculatorIds = [
-        'calculatorTermometr',
         'calculatorAiRentgen',
         'calculatorSlivometr',
         'calculatorSeoChance',
