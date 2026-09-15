@@ -1241,6 +1241,21 @@ main {
     border-bottom: 1px solid var(--color-border);
 }
 
+.calculator__region-block[hidden] {
+    display: none;
+}
+
+.calculator__city-list {
+    display: flex;
+    flex-direction: column;
+    margin-left: var(--spacing-lg);
+}
+
+.calculator__checkbox-item--city {
+    font-size: var(--font-size-xs);
+    color: var(--color-gray);
+}
+
 /* Квиз */
 .calculator--quiz .calculator__quiz-question {
     margin-bottom: var(--spacing-lg);
