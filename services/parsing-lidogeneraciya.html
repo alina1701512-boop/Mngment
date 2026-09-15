@@ -1465,6 +1465,8 @@
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                        <input type="hidden" name="regions_summary" id="regionsSummaryField">
+                        <input type="hidden" name="categories_summary" id="categoriesSummaryField">
                         <p class="calculator__result-desc">Куда прислать демо-выгрузку (первые 50 контактов — бесплатно за 24 часа)</p>
                         <input type="text" name="name" placeholder="Имя" required>
                         <input type="tel" name="phone" placeholder="Телефон" required>
@@ -1723,6 +1725,64 @@
                 updateMatchCount(regionMatchCount, visibleBlocks, q, ['регион', 'региона', 'регионов']);
             }
 
+            // Turn the raw checkbox selection into a short human-readable line
+            // for the lead email: a fully-selected parent (a region with all
+            // its cities checked, "Вся Россия" itself, or a business sphere
+            // with every subcategory checked) is reported by its own name
+            // only — the exhaustive child list is spelled out only when the
+            // person actually trimmed it down to specific cities/subcategories.
+            function buildRegionsSummary() {
+                const country = countrySelect.value;
+                if (!country) return '';
+                const countryGroup = document.querySelector('#demoRegions .calculator__checkbox-group[data-country="' + country + '"]');
+                if (!countryGroup) return '';
+                const blocks = Array.from(countryGroup.querySelectorAll('.calculator__region-block'));
+                const checkedRegionBlocks = blocks.filter(function(block) {
+                    const cb = block.querySelector('.js-region-checkbox');
+                    return cb && cb.checked;
+                });
+                if (blocks.length > 0 && checkedRegionBlocks.length === blocks.length) {
+                    const allLabel = countryGroup.querySelector('.calculator__checkbox-item--all');
+                    return allLabel ? allLabel.textContent.trim() : ('Вся ' + country);
+                }
+                const lines = [];
+                blocks.forEach(function(block) {
+                    const regionCb = block.querySelector('.js-region-checkbox');
+                    const regionName = regionCb ? regionCb.value : '';
+                    const cityCbs = Array.from(block.querySelectorAll('.js-city-checkbox'));
+                    const checkedCities = cityCbs.filter(function(cb) { return cb.checked; });
+                    const partial = checkedCities.length > 0 && checkedCities.length < cityCbs.length;
+                    if (regionCb && regionCb.checked) {
+                        if (partial) {
+                            lines.push(regionName + ' (' + checkedCities.map(function(cb) { return cb.value.split(',')[0].trim(); }).join(', ') + ')');
+                        } else {
+                            lines.push(regionName);
+                        }
+                    } else if (checkedCities.length > 0) {
+                        lines.push(regionName + ' (' + checkedCities.map(function(cb) { return cb.value.split(',')[0].trim(); }).join(', ') + ')');
+                    }
+                });
+                return lines.join('; ');
+            }
+
+            function buildCategoriesSummary() {
+                const blocks = Array.from(document.querySelectorAll('#demoCategories .calculator__region-block'));
+                const lines = [];
+                blocks.forEach(function(block) {
+                    const catCb = block.querySelector('.js-category-checkbox');
+                    if (!catCb || !catCb.checked) return;
+                    const subCbs = Array.from(block.querySelectorAll('.js-subcategory-checkbox'));
+                    const checkedSubs = subCbs.filter(function(cb) { return cb.checked; });
+                    const partial = checkedSubs.length > 0 && checkedSubs.length < subCbs.length;
+                    if (partial) {
+                        lines.push(catCb.value + ' (' + checkedSubs.map(function(cb) { return cb.value; }).join(', ') + ')');
+                    } else {
+                        lines.push(catCb.value);
+                    }
+                });
+                return lines.join('; ');
+            }
+
             function filterCategorySearch(query) {
                 const q = query.trim().toLowerCase();
                 let visibleBlocks = 0;
@@ -1809,6 +1869,18 @@
                     if (!isTelegram) telegramInput.value = '';
                 });
             }
+
+            demoContactForm.addEventListener('submit', function() {
+                document.getElementById('regionsSummaryField').value = buildRegionsSummary();
+                document.getElementById('categoriesSummaryField').value = buildCategoriesSummary();
+                // The raw regions[]/cities[]/categories[]/subcategories[] checkboxes
+                // did their job feeding the two summary fields above — exclude them
+                // from the actual submission so the lead email shows the short
+                // summary instead of a hundred-line checkbox dump.
+                document.querySelectorAll('#demoRegions input[type="checkbox"], #demoCategories input[type="checkbox"]').forEach(function(cb) {
+                    cb.disabled = true;
+                });
+            });
         });
     </script>
 </body>
