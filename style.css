@@ -2019,7 +2019,7 @@ main {
 }
 
 .thank-you-cta {
-    margin-top: 40px;
+    margin-top: var(--spacing-md);
 }
 
 /* ============================================
