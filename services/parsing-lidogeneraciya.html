@@ -1290,14 +1290,17 @@
                     const regionText = regionLabel.textContent.trim().toLowerCase();
                     const regionMatches = !q || regionText.includes(q);
                     let anyCityMatches = false;
-                    block.querySelectorAll('.calculator__checkbox-item--city').forEach(function(cityLabel) {
+                    const cityLabels = block.querySelectorAll('.calculator__checkbox-item--city');
+                    cityLabels.forEach(function(cityLabel) {
                         const cityText = cityLabel.textContent.trim().toLowerCase();
-                        const cityMatches = regionMatches || cityText.includes(q);
-                        cityLabel.hidden = !cityMatches;
-                        if (cityMatches) anyCityMatches = true;
+                        if (cityText.includes(q)) anyCityMatches = true;
                     });
                     const blockVisible = regionMatches || anyCityMatches;
                     block.hidden = !blockVisible;
+                    // Show every city inside a matched region — don't hide siblings
+                    // that didn't match themselves, so a person can still pick a
+                    // neighbouring city or several regions at once.
+                    cityLabels.forEach(function(cityLabel) { cityLabel.hidden = false; });
                     if (blockVisible) visibleBlocks++;
                 });
                 if (regionNoResults) regionNoResults.hidden = visibleBlocks !== 0 || !q;
