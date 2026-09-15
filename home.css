@@ -130,6 +130,63 @@ body {
 }
 
 /* ============================================
+   HERO — визуал справа (голографические панели над ноутбуком)
+   ============================================ */
+.hero__visual {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: clamp(300px, 32vw, 430px);
+    z-index: 1;
+    pointer-events: none;
+    animation: heroVisualFloat 7s ease-in-out infinite;
+}
+
+.hero__visual svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero__visual-pulse {
+    animation: heroVisualPulse 2.4s ease-in-out infinite;
+}
+
+.hero__visual-live {
+    stroke-dasharray: 6 8;
+    animation: heroVisualDash 1.8s linear infinite;
+}
+
+@keyframes heroVisualFloat {
+    0%, 100% { transform: translateY(-50%); }
+    50% { transform: translateY(calc(-50% - 12px)); }
+}
+
+@keyframes heroVisualPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+@keyframes heroVisualDash {
+    to { stroke-dashoffset: -56; }
+}
+
+@media (max-width: 1100px) {
+    .hero__visual {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero__visual,
+    .hero__visual-pulse,
+    .hero__visual-live {
+        animation: none;
+    }
+}
+
+/* ============================================
    ПРОЗРАЧНЫЕ СЕКЦИИ — чтобы частицы было видно сквозь весь скролл,
    а не только в hero. Сами карточки внутри остаются непрозрачными
    для читаемости текста — просвечивает только фон вокруг них.
