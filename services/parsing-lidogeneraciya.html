@@ -163,7 +163,8 @@
                         </div>
                         <div class="calculator__step" id="demoRegionsStep" hidden>
                             <label class="calculator__step-label">Регионы</label>
-                            <input type="text" class="calculator__input calculator__search" id="demoRegionSearch" placeholder="Поиск региона…" autocomplete="off">
+                            <input type="text" class="calculator__input calculator__search" id="demoRegionSearch" placeholder="Поиск региона или города…" autocomplete="off">
+                            <p class="calculator__checkbox-match-count" id="demoRegionMatchCount" hidden></p>
                             <p class="calculator__checkbox-no-results" id="demoRegionNoResults" hidden>Ничего не найдено</p>
                             <div class="calculator__checkbox-list" id="demoRegions">
                             <div class="calculator__checkbox-group" data-country="Россия" hidden>
@@ -841,6 +842,7 @@
                         <div class="calculator__step" id="demoCategoryStep" hidden>
                             <label class="calculator__step-label">Сфера бизнеса</label>
                             <input type="text" class="calculator__input calculator__search" id="demoCategorySearch" placeholder="Поиск сферы бизнеса…" autocomplete="off">
+                            <p class="calculator__checkbox-match-count" id="demoCategoryMatchCount" hidden></p>
                             <p class="calculator__checkbox-no-results" id="demoCategoryNoResults" hidden>Ничего не найдено</p>
                             <div class="calculator__checkbox-list" id="demoCategories">
                                 <div class="calculator__checkbox-group">
@@ -1247,9 +1249,26 @@
             const categorySearch = document.getElementById('demoCategorySearch');
             const regionNoResults = document.getElementById('demoRegionNoResults');
             const categoryNoResults = document.getElementById('demoCategoryNoResults');
+            const regionMatchCount = document.getElementById('demoRegionMatchCount');
+            const categoryMatchCount = document.getElementById('demoCategoryMatchCount');
             if (!countrySelect) return;
 
-            function filterBySearch(query, itemSelector, visibleGroupSelector, noResultsEl) {
+            function pluralize(count, forms) {
+                const mod10 = count % 10;
+                const mod100 = count % 100;
+                if (mod100 >= 11 && mod100 <= 14) return forms[2];
+                if (mod10 === 1) return forms[0];
+                if (mod10 >= 2 && mod10 <= 4) return forms[1];
+                return forms[2];
+            }
+
+            function updateMatchCount(el, count, query, forms) {
+                if (!el) return;
+                el.hidden = !query || count === 0;
+                if (query && count > 0) el.textContent = 'Найдено: ' + count + ' ' + pluralize(count, forms);
+            }
+
+            function filterBySearch(query, itemSelector, visibleGroupSelector, noResultsEl, matchCountEl, noun) {
                 const q = query.trim().toLowerCase();
                 let visibleCount = 0;
                 document.querySelectorAll(visibleGroupSelector).forEach(function(group) {
@@ -1260,6 +1279,7 @@
                     });
                 });
                 if (noResultsEl) noResultsEl.hidden = visibleCount !== 0 || !q;
+                updateMatchCount(matchCountEl, visibleCount, q, noun);
             }
 
             function filterRegionSearch(query) {
@@ -1281,6 +1301,7 @@
                     if (blockVisible) visibleBlocks++;
                 });
                 if (regionNoResults) regionNoResults.hidden = visibleBlocks !== 0 || !q;
+                updateMatchCount(regionMatchCount, visibleBlocks, q, ['регион', 'региона', 'регионов']);
             }
 
             function uncheckAll(container) {
@@ -1352,12 +1373,14 @@
             if (regionSearch) {
                 regionSearch.addEventListener('input', function() {
                     filterRegionSearch(regionSearch.value);
+                    document.getElementById('demoRegions').scrollTop = 0;
                 });
             }
 
             if (categorySearch) {
                 categorySearch.addEventListener('input', function() {
-                    filterBySearch(categorySearch.value, '.calculator__checkbox-item', '#demoCategories .calculator__checkbox-group', categoryNoResults);
+                    filterBySearch(categorySearch.value, '.calculator__checkbox-item', '#demoCategories .calculator__checkbox-group', categoryNoResults, categoryMatchCount, ['сфера', 'сферы', 'сфер']);
+                    document.getElementById('demoCategories').scrollTop = 0;
                 });
             }
 

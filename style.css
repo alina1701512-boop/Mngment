@@ -1233,6 +1233,13 @@ main {
     margin: 0 0 var(--spacing-sm);
 }
 
+.calculator__checkbox-match-count {
+    font-size: var(--font-size-xs);
+    color: var(--color-primary);
+    font-weight: 600;
+    margin: 0 0 var(--spacing-sm);
+}
+
 .calculator__checkbox-item--all {
     grid-column: 1 / -1;
     font-weight: 700;
