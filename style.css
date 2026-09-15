@@ -2015,11 +2015,15 @@ main {
 .thank-you-page h1 {
     font-size: var(--font-size-4xl);
     margin-bottom: 16px;
-    color: var(--color-success);
+    color: var(--color-primary);
 }
 
 .thank-you-cta {
-    margin-top: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xl);
 }
 
 /* ============================================

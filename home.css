@@ -75,8 +75,8 @@ body {
     border: 1px solid var(--color-glass-edge);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
-    padding: 2.5rem 3rem;
-    max-width: 720px;
+    padding: 2.25rem 2.5rem;
+    max-width: 640px;
 }
 
 .hero__content h1 {
@@ -95,7 +95,7 @@ body {
 
 .hero__stats {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     margin-top: 2rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--color-glass-edge);
@@ -137,7 +137,7 @@ body {
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    width: clamp(300px, 32vw, 430px);
+    width: clamp(360px, 36vw, 500px);
     z-index: 1;
     pointer-events: none;
     animation: heroVisualFloat 7s ease-in-out infinite;
@@ -257,6 +257,17 @@ body {
 .services__grid .service-icon {
     font-size: 1.75rem;
     margin-bottom: var(--spacing-sm);
+}
+
+.service-icon svg {
+    width: 1.9rem;
+    height: 1.9rem;
+    display: block;
+    fill: none;
+    stroke: var(--color-signal-teal);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 .services__grid .service-card h3 {
