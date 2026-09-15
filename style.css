@@ -1196,14 +1196,6 @@ main {
     border-top: 1px solid var(--color-border);
 }
 
-.calculator__checkbox-group-title {
-    grid-column: 1 / -1;
-    font-weight: 700;
-    font-size: var(--font-size-sm);
-    color: var(--color-primary);
-    margin: 0;
-}
-
 .calculator__checkbox-item {
     display: flex;
     align-items: center;
@@ -1252,10 +1244,48 @@ main {
     display: none;
 }
 
+.calculator__region-row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.calculator__region-row .calculator__checkbox-item {
+    flex: 1;
+    min-width: 0;
+}
+
+.calculator__expand-btn {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    color: var(--color-primary);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: all var(--transition-fast);
+}
+
+.calculator__expand-btn:hover {
+    border-color: var(--color-primary);
+}
+
 .calculator__city-list {
     display: flex;
     flex-direction: column;
     margin-left: var(--spacing-lg);
+}
+
+.calculator__city-list[hidden] {
+    display: none;
 }
 
 .calculator__checkbox-item--city {
@@ -2258,6 +2288,8 @@ main {
 
     .nav--open { display: flex; }
     .nav a { display: block; padding: var(--spacing-md); font-size: var(--font-size-base); border-bottom: 1px solid var(--color-border); }
+
+    .calculator__expand-btn { width: 44px; height: 44px; font-size: var(--font-size-lg); }
     .nav a.nav-quicklink { border-bottom: none; margin-bottom: var(--spacing-sm); text-align: center; }
     .burger { display: flex; }
 
