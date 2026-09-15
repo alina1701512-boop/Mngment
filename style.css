@@ -1214,9 +1214,23 @@ main {
     padding: 4px 0;
 }
 
+.calculator__checkbox-item[hidden] {
+    display: none;
+}
+
 .calculator__checkbox-item input {
     accent-color: var(--color-primary);
     flex-shrink: 0;
+}
+
+.calculator__search {
+    margin-bottom: var(--spacing-sm);
+}
+
+.calculator__checkbox-no-results {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-light);
+    margin: 0 0 var(--spacing-sm);
 }
 
 .calculator__checkbox-item--all {

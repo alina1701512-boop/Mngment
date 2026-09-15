@@ -163,6 +163,8 @@
                         </div>
                         <div class="calculator__step" id="demoRegionsStep" hidden>
                             <label class="calculator__step-label">Регионы</label>
+                            <input type="text" class="calculator__input calculator__search" id="demoRegionSearch" placeholder="Поиск региона…" autocomplete="off">
+                            <p class="calculator__checkbox-no-results" id="demoRegionNoResults" hidden>Ничего не найдено</p>
                             <div class="calculator__checkbox-list" id="demoRegions">
                             <div class="calculator__checkbox-group" data-country="Россия" hidden>
                                 <label class="calculator__checkbox-item calculator__checkbox-item--all" for="region-0-all"><input type="checkbox" id="region-0-all" class="js-region-select-all" data-country="Россия"> Вся Россия</label>
@@ -277,7 +279,9 @@
                         </div>
                         <div class="calculator__step" id="demoCategoryStep" hidden>
                             <label class="calculator__step-label">Сфера бизнеса</label>
-                            <div class="calculator__checkbox-list">
+                            <input type="text" class="calculator__input calculator__search" id="demoCategorySearch" placeholder="Поиск сферы бизнеса…" autocomplete="off">
+                            <p class="calculator__checkbox-no-results" id="demoCategoryNoResults" hidden>Ничего не найдено</p>
+                            <div class="calculator__checkbox-list" id="demoCategories">
                                 <div class="calculator__checkbox-group">
                                 <label class="calculator__checkbox-item" for="cat-0"><input type="checkbox" id="cat-0" name="categories[]" value="Аварийные, справочные, экстренные службы" class="js-category-checkbox"> Аварийные, справочные, экстренные службы</label>
                                 <label class="calculator__checkbox-item" for="cat-1"><input type="checkbox" id="cat-1" name="categories[]" value="Автосервис, Автотовары" class="js-category-checkbox"> Автосервис, Автотовары</label>
@@ -678,7 +682,24 @@
             const subcategoryGroups = document.querySelectorAll('#demoSubcategories .calculator__checkbox-group');
             const contactMethodSelect = document.getElementById('demoContactMethod');
             const telegramInput = document.getElementById('demoTelegramUsername');
+            const regionSearch = document.getElementById('demoRegionSearch');
+            const categorySearch = document.getElementById('demoCategorySearch');
+            const regionNoResults = document.getElementById('demoRegionNoResults');
+            const categoryNoResults = document.getElementById('demoCategoryNoResults');
             if (!countrySelect) return;
+
+            function filterBySearch(query, itemSelector, visibleGroupSelector, noResultsEl) {
+                const q = query.trim().toLowerCase();
+                let visibleCount = 0;
+                document.querySelectorAll(visibleGroupSelector).forEach(function(group) {
+                    group.querySelectorAll(itemSelector).forEach(function(item) {
+                        const match = !q || item.textContent.trim().toLowerCase().includes(q);
+                        item.hidden = !match;
+                        if (match) visibleCount++;
+                    });
+                });
+                if (noResultsEl) noResultsEl.hidden = visibleCount !== 0 || !q;
+            }
 
             function uncheckAll(container) {
                 container.querySelectorAll('input[type="checkbox"]').forEach(function(cb) { cb.checked = false; });
@@ -697,6 +718,10 @@
                 });
                 regionsStep.hidden = !country;
                 if (!country) uncheckAll(document.getElementById('demoRegions'));
+                if (regionSearch) {
+                    regionSearch.value = '';
+                    filterBySearch('', '.calculator__checkbox-item:not(.calculator__checkbox-item--all)', '#demoRegions .calculator__checkbox-group', regionNoResults);
+                }
                 onRegionsChange();
             }
 
@@ -741,6 +766,18 @@
 
             document.getElementById('demoCategoryStep').addEventListener('change', onCategoriesChange);
             document.getElementById('demoSubcategories').addEventListener('change', onSubcategoriesChange);
+
+            if (regionSearch) {
+                regionSearch.addEventListener('input', function() {
+                    filterBySearch(regionSearch.value, '.calculator__checkbox-item:not(.calculator__checkbox-item--all)', '#demoRegions .calculator__checkbox-group:not([hidden])', regionNoResults);
+                });
+            }
+
+            if (categorySearch) {
+                categorySearch.addEventListener('input', function() {
+                    filterBySearch(categorySearch.value, '.calculator__checkbox-item', '#demoCategories .calculator__checkbox-group', categoryNoResults);
+                });
+            }
 
             if (contactMethodSelect && telegramInput) {
                 contactMethodSelect.addEventListener('change', function() {
