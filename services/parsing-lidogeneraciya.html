@@ -4140,6 +4140,22 @@
                 if (query && count > 0) el.textContent = 'Найдено: ' + count + ' ' + pluralize(count, forms);
             }
 
+            // Обычный indexOf находит запрос где угодно внутри слова, поэтому
+            // «спорт» находил «тран-спорт» и показывал случайные категории.
+            // Здесь совпадение засчитывается только там, где запрос начинает
+            // слово (перед ним — начало строки или не буква/цифра), так что
+            // «спорт» находит «Спортивные товары», но не «Транспорт».
+            function matchesQuery(text, query) {
+                if (!query) return true;
+                let idx = text.indexOf(query);
+                while (idx !== -1) {
+                    const prevChar = text.charAt(idx - 1);
+                    if (!prevChar || !/[a-zа-яё0-9]/i.test(prevChar)) return true;
+                    idx = text.indexOf(query, idx + 1);
+                }
+                return false;
+            }
+
             function uncheckAll(container) {
                 container.querySelectorAll('input[type="checkbox"]').forEach(function(cb) { cb.checked = false; });
             }
@@ -4180,11 +4196,11 @@
                 document.querySelectorAll('#demoRegions .calculator__checkbox-group:not([hidden]) .calculator__region-block').forEach(function(block) {
                     const regionLabel = block.querySelector('.calculator__checkbox-item--region');
                     const regionText = regionLabel.textContent.trim().toLowerCase();
-                    const regionMatches = !q || regionText.includes(q);
+                    const regionMatches = matchesQuery(regionText, q);
                     const cityLabels = block.querySelectorAll('.calculator__checkbox-item--city');
                     let anyCityMatches = false;
                     cityLabels.forEach(function(cityLabel) {
-                        if (cityLabel.textContent.trim().toLowerCase().includes(q)) anyCityMatches = true;
+                        if (matchesQuery(cityLabel.textContent.trim().toLowerCase(), q)) anyCityMatches = true;
                     });
                     const blockVisible = regionMatches || anyCityMatches;
                     block.hidden = !blockVisible;
@@ -4295,7 +4311,7 @@
                 let visibleBlocks = 0;
                 document.querySelectorAll('#demoCategories > .calculator__checkbox-group > .calculator__region-block').forEach(function(catBlock) {
                     const categoryLabel = catBlock.querySelector('.calculator__checkbox-item--region');
-                    const categoryMatches = !q || categoryLabel.textContent.trim().toLowerCase().includes(q);
+                    const categoryMatches = matchesQuery(categoryLabel.textContent.trim().toLowerCase(), q);
                     let anyDescendantMatches = false;
 
                     // Подкатегории с узкими подпунктами (третий уровень) — отдельный
@@ -4303,12 +4319,12 @@
                     // как саму сферу.
                     catBlock.querySelectorAll('.calculator__region-block').forEach(function(subBlock) {
                         const subLabel = subBlock.querySelector('.calculator__checkbox-item--region');
-                        const subMatches = !!subLabel && subLabel.textContent.trim().toLowerCase().includes(q);
+                        const subMatches = !!subLabel && matchesQuery(subLabel.textContent.trim().toLowerCase(), q);
                         const leafLabels = subBlock.querySelectorAll('.calculator__checkbox-item--city');
                         let anyLeafMatches = false;
                         leafLabels.forEach(function(leafLabel) {
                             leafLabel.hidden = false;
-                            if (leafLabel.textContent.trim().toLowerCase().includes(q)) anyLeafMatches = true;
+                            if (matchesQuery(leafLabel.textContent.trim().toLowerCase(), q)) anyLeafMatches = true;
                         });
                         const subVisible = subMatches || anyLeafMatches;
                         if (subVisible) anyDescendantMatches = true;
@@ -4324,7 +4340,7 @@
                     const flatSubLabels = Array.from(catBlock.querySelectorAll(':scope > .calculator__city-list > .calculator__checkbox-item--city'));
                     flatSubLabels.forEach(function(subLabel) {
                         subLabel.hidden = false;
-                        if (subLabel.textContent.trim().toLowerCase().includes(q)) anyDescendantMatches = true;
+                        if (matchesQuery(subLabel.textContent.trim().toLowerCase(), q)) anyDescendantMatches = true;
                     });
 
                     const blockVisible = categoryMatches || anyDescendantMatches;
