@@ -503,6 +503,53 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ============================================
+    // МОДУЛЬ 12: ПЛАВАЮЩАЯ КНОПКА «НАПИСАТЬ МЕНЕДЖЕРУ»
+    // ============================================
+    (function () {
+        const PREFILLED_MESSAGE = 'День добрый, пишу с сайта mngment.ru по вопросу: ';
+        const TELEGRAM_USERNAME = 'alinakoor';
+        const WHATSAPP_PHONE = '79172453543';
+        const EMAIL = 'info@mngment.ru';
+        const encodedMessage = encodeURIComponent(PREFILLED_MESSAGE);
+
+        const widget = document.createElement('div');
+        widget.className = 'manager-widget';
+        widget.innerHTML =
+            '<div class="manager-widget__menu" id="managerWidgetMenu" hidden>' +
+                '<a class="manager-widget__option" target="_blank" rel="noopener" href="https://t.me/' + TELEGRAM_USERNAME + '?text=' + encodedMessage + '"><span class="manager-widget__icon" aria-hidden="true">✈️</span> Telegram</a>' +
+                '<a class="manager-widget__option" target="_blank" rel="noopener" href="https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodedMessage + '"><span class="manager-widget__icon" aria-hidden="true">💬</span> WhatsApp</a>' +
+                '<a class="manager-widget__option" href="mailto:' + EMAIL + '?subject=' + encodeURIComponent('Вопрос с сайта mngment.ru') + '&body=' + encodedMessage + '"><span class="manager-widget__icon" aria-hidden="true">✉️</span> Email</a>' +
+            '</div>' +
+            '<button type="button" class="manager-widget__toggle" id="managerWidgetToggle" aria-haspopup="true" aria-expanded="false" aria-label="Написать менеджеру">' +
+                '<span aria-hidden="true">💬</span>' +
+            '</button>';
+        document.body.appendChild(widget);
+
+        const managerToggle = widget.querySelector('#managerWidgetToggle');
+        const managerMenu = widget.querySelector('#managerWidgetMenu');
+
+        function closeManagerMenu() {
+            managerMenu.hidden = true;
+            managerToggle.setAttribute('aria-expanded', 'false');
+        }
+
+        managerToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const isOpen = !managerMenu.hidden;
+            managerMenu.hidden = isOpen;
+            managerToggle.setAttribute('aria-expanded', String(!isOpen));
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!widget.contains(e.target)) closeManagerMenu();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeManagerMenu();
+        });
+    })();
+
+    // ============================================
     // ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
     // ============================================
     function hashCode(str) {

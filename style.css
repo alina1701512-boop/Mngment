@@ -2183,7 +2183,7 @@ main {
 /* СКРОЛЛ-ТУ-ТОП */
 .scroll-to-top {
     position: fixed;
-    bottom: 30px;
+    bottom: 100px;
     right: 30px;
     width: 48px;
     height: 48px;
@@ -2209,6 +2209,74 @@ main {
 .scroll-to-top:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 30px color-mix(in srgb, var(--color-signal-teal) 40%, transparent);
+}
+
+.manager-widget {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: var(--z-header);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--spacing-sm);
+}
+
+.manager-widget__toggle {
+    width: 56px;
+    height: 56px;
+    border: none;
+    border-radius: var(--radius-full);
+    background: var(--color-primary-gradient);
+    color: #fff;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 20px color-mix(in srgb, var(--color-signal-teal) 30%, transparent);
+    transition: transform var(--transition-fast);
+}
+
+.manager-widget__toggle:hover {
+    transform: translateY(-4px);
+}
+
+.manager-widget__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 200px;
+    background: var(--color-surface-solid);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    padding: var(--spacing-sm);
+}
+
+.manager-widget__menu[hidden] {
+    display: none;
+}
+
+.manager-widget__option {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 0.6rem 0.75rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    transition: background var(--transition-fast);
+}
+
+.manager-widget__option:hover {
+    background: var(--color-surface);
+}
+
+.manager-widget__icon {
+    font-size: 1.1rem;
 }
 
 /* ============================================
@@ -2276,9 +2344,11 @@ main {
     .contacts-grid { grid-template-columns: 1fr; }
     .not-found__links { grid-template-columns: 1fr; }
     .blog-grid { grid-template-columns: 1fr; }
-    .scroll-to-top { bottom: 20px; right: 20px; width: 44px; height: 44px; }
+    .scroll-to-top { bottom: 82px; right: 20px; width: 44px; height: 44px; }
     .calculator { padding: var(--spacing-md); }
     .calculator--quiz .calculator__quiz-options { flex-direction: column; }
+    .manager-widget { right: 20px; bottom: 20px; }
+    .manager-widget__toggle { width: 50px; height: 50px; font-size: 1.3rem; }
 }
 
 /* ============================================
@@ -2426,6 +2496,7 @@ body.is-home .header {
     background-clip: text;
     font-weight: 500;
     letter-spacing: normal;
+    margin-bottom: var(--spacing-lg);
 }
 
 /* reveal.js оборачивает каждое слово h1 в inline-block span — градиентная
@@ -2441,13 +2512,15 @@ body.is-home .header {
 .hero__subtitle {
     color: var(--color-fog-veil);
     font-weight: 400;
+    margin-bottom: var(--spacing-lg);
 }
 
 .hero__meta {
     color: var(--color-signal-teal);
     font-size: var(--font-size-sm);
     font-weight: 600;
-    margin-top: 0.75rem;
+    margin-top: 0;
+    margin-bottom: var(--spacing-lg);
 }
 
 .hero__stats {
