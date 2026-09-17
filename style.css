@@ -3,35 +3,35 @@
  * Маркетинговое агентство для B2B
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500&family=JetBrains+Mono:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=JetBrains+Mono:wght@400&display=swap');
 
 /* ============================================
    ПЕРЕМЕННЫЕ
    ============================================ */
 :root {
-    /* Authkit — Frosted glass cathedral at midnight */
-    --color-midnight-canvas: #05060F;
-    --color-steel-plate: #2F343E;
-    --color-fog-veil: #9DA7BA;
-    --color-moon-mist: #C7D3EA;
-    --color-frost-glow: #D1E4FA;
-    --color-ice-highlight: #D8ECF8;
-    --gradient-ice-highlight: linear-gradient(0deg, #D8ECF8 0%, #98C0EF 100%);
-    --color-signal-teal: #1AAE92;
-    --color-signal-teal-dark: #0E7E68;
-    --color-blueprint-blue: #B6D9FC;
-    --color-glass-edge: rgba(186, 215, 247, 0.12);
-    --color-luminous-fill: rgba(199, 211, 234, 0.12);
+    /* Рассвет — светлый розово-голубой градиент вместо тёмного стекла */
+    --color-midnight-canvas: #FAF3FA;
+    --color-steel-plate: #ECE3F1;
+    --color-fog-veil: #5B6390;
+    --color-moon-mist: #2A2F52;
+    --color-frost-glow: #171B36;
+    --color-ice-highlight: #1B2340;
+    --gradient-ice-highlight: linear-gradient(0deg, #1B2340 0%, #3D4B8C 100%);
+    --color-signal-teal: #D6316E;
+    --color-signal-teal-dark: #B0265A;
+    --color-blueprint-blue: #3D6FE0;
+    --color-glass-edge: rgba(27, 35, 64, 0.14);
+    --color-luminous-fill: rgba(27, 35, 64, 0.05);
 
-    /* Акцент — Signal Teal (единственный хроматический акцент) */
+    /* Акцент — розово-голубой градиент (был единственный teal-акцент) */
     --color-primary: var(--color-signal-teal);
     --color-primary-dark: var(--color-signal-teal-dark);
-    --color-primary-light: rgba(26, 174, 146, 0.14);
-    --color-primary-gradient: linear-gradient(135deg, #1AAE92 0%, #3FC7AC 100%);
+    --color-primary-light: rgba(214, 49, 110, 0.1);
+    --color-primary-gradient: linear-gradient(135deg, #FF5C93 0%, #5C8DFF 100%);
 
     --color-accent: var(--color-signal-teal);
     --color-accent-dark: var(--color-signal-teal-dark);
-    --color-accent-gradient: linear-gradient(135deg, #1AAE92 0%, #3FC7AC 100%);
+    --color-accent-gradient: linear-gradient(135deg, #FF5C93 0%, #5C8DFF 100%);
 
     --color-success: #4ADE80;
     --color-error: #EF4444;
@@ -40,16 +40,16 @@
     --color-black: var(--color-ice-highlight);
     --color-dark: var(--color-moon-mist);
     --color-gray: var(--color-fog-veil);
-    --color-gray-light: #7C8699;
+    --color-gray-light: #7A81AC;
     --color-border: var(--color-glass-edge);
     --color-bg: var(--color-midnight-canvas);
-    --color-bg-dark: #030309;
-    --color-white: #FFFFFF;
-    --color-surface: rgba(186, 214, 247, 0.04);
-    --color-surface-solid: #0B0D1A;
+    --color-bg-dark: #F2E7EF;
+    --color-white: #1B2340;
+    --color-surface: rgba(27, 35, 64, 0.035);
+    --color-surface-solid: #FFFFFF;
 
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-display: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-display: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-mono: 'JetBrains Mono', ui-monospace, monospace;
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
@@ -84,11 +84,11 @@
     --radius-pill: 999px;
     --radius-full: 50%;
 
-    --shadow-sm: rgba(186, 215, 247, 0.12) 0px 0px 0px 1px inset;
-    --shadow-md: rgba(199, 211, 234, 0.12) 0px 1px 1px 0px inset, rgba(199, 211, 234, 0.05) 0px 24px 48px 0px inset, rgba(6, 6, 14, 0.7) 0px 24px 32px 0px;
-    --shadow-lg: rgba(216, 236, 248, 0.2) 0px 1px 1px 0px inset, rgba(168, 216, 245, 0.06) 0px 24px 48px 0px inset, rgba(0, 0, 0, 0.35) 0px 16px 32px 0px;
-    --shadow-xl: rgba(216, 236, 248, 0.2) 0px 1px 1px 0px inset, rgba(168, 216, 245, 0.08) 0px 24px 48px 0px inset, rgba(0, 0, 0, 0.45) 0px 20px 40px 0px;
-    --shadow-glow: 0 0 40px rgba(26, 174, 146, 0.25);
+    --shadow-sm: rgba(27, 35, 64, 0.12) 0px 0px 0px 1px inset;
+    --shadow-md: rgba(27, 35, 64, 0.06) 0px 1px 1px 0px inset, rgba(27, 35, 64, 0.04) 0px 24px 48px 0px inset, rgba(27, 35, 64, 0.1) 0px 24px 32px 0px;
+    --shadow-lg: rgba(27, 35, 64, 0.08) 0px 1px 1px 0px inset, rgba(27, 35, 64, 0.05) 0px 24px 48px 0px inset, rgba(27, 35, 64, 0.12) 0px 16px 32px 0px;
+    --shadow-xl: rgba(27, 35, 64, 0.1) 0px 1px 1px 0px inset, rgba(27, 35, 64, 0.06) 0px 24px 48px 0px inset, rgba(27, 35, 64, 0.16) 0px 20px 40px 0px;
+    --shadow-glow: 0 0 40px rgba(214, 49, 110, 0.22);
 
     --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -98,40 +98,6 @@
     --z-header: 200;
     --z-modal: 300;
     --z-overlay: 400;
-}
-
-/* ============================================
-   СВЕТЛАЯ ТЕМА — переключается через [data-theme="light"] на <html>
-   ============================================ */
-:root[data-theme="light"] {
-    --color-midnight-canvas: #EDF6F3;
-    --color-steel-plate: #D3E4DF;
-    --color-fog-veil: #4A655F;
-    --color-moon-mist: #24413A;
-    --color-frost-glow: #0B2620;
-    --color-ice-highlight: #0B2620;
-    --gradient-ice-highlight: linear-gradient(0deg, #0B2620 0%, #0E7E68 100%);
-    --color-signal-teal: #0E7E68;
-    --color-signal-teal-dark: #0A5F4F;
-    --color-blueprint-blue: #0E7E68;
-    --color-glass-edge: rgba(14, 126, 104, 0.16);
-    --color-luminous-fill: rgba(14, 126, 104, 0.1);
-
-    --color-primary-light: rgba(14, 126, 104, 0.1);
-    --color-primary-gradient: linear-gradient(135deg, #0E7E68 0%, #1AAE92 100%);
-    --color-accent-gradient: linear-gradient(135deg, #0E7E68 0%, #1AAE92 100%);
-
-    --color-gray-light: #3D5650;
-    --color-bg-dark: #E1EFEA;
-    --color-white: #0B2620;
-    --color-surface: rgba(11, 38, 32, 0.035);
-    --color-surface-solid: #FFFFFF;
-
-    --shadow-sm: rgba(14, 126, 104, 0.14) 0px 0px 0px 1px inset;
-    --shadow-md: rgba(11, 38, 32, 0.06) 0px 1px 1px 0px inset, rgba(11, 38, 32, 0.04) 0px 24px 48px 0px inset, rgba(11, 38, 32, 0.1) 0px 24px 32px 0px;
-    --shadow-lg: rgba(11, 38, 32, 0.08) 0px 1px 1px 0px inset, rgba(11, 38, 32, 0.05) 0px 24px 48px 0px inset, rgba(11, 38, 32, 0.12) 0px 16px 32px 0px;
-    --shadow-xl: rgba(11, 38, 32, 0.1) 0px 1px 1px 0px inset, rgba(11, 38, 32, 0.06) 0px 24px 48px 0px inset, rgba(11, 38, 32, 0.16) 0px 20px 40px 0px;
-    --shadow-glow: 0 0 40px rgba(14, 126, 104, 0.18);
 }
 
 /* ============================================
@@ -481,7 +447,7 @@ h6 { font-size: var(--font-size-base); }
    ФУТЕР
    ============================================ */
 .footer {
-    background: var(--color-midnight-canvas);
+    background: var(--color-bg-dark);
     color: var(--color-white);
     padding: var(--spacing-3xl) 0 var(--spacing-lg);
     position: relative;
@@ -2401,24 +2367,10 @@ body.is-home .header {
     border-bottom: 1px solid var(--color-glass-edge);
 }
 
-/* Точечный фон — глобальный (см. body::before выше), здесь только spotlight-гало над hero */
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 1400px;
-    height: 700px;
-    transform: translateX(-50%);
-    background: conic-gradient(from 180deg at 50% -5%, transparent 45%, var(--color-glass-edge) 49%, var(--color-glass-edge) 51%, transparent 55%);
-    pointer-events: none;
-    z-index: 0;
-}
-
 .hero {
     position: relative;
     min-height: 100vh;
-    background: transparent;
+    background: linear-gradient(160deg, #FDEFF7 0%, #EDF2FF 55%, #E3ECFF 100%);
     overflow: hidden;
 }
 
@@ -2448,6 +2400,16 @@ body.is-home .header {
     background-clip: text;
     font-weight: 500;
     letter-spacing: normal;
+}
+
+/* reveal.js оборачивает каждое слово h1 в inline-block span — градиентная
+   заливка текста родителя к ним не применяется, поэтому клип задаём
+   ещё раз на каждом слове, иначе заголовок остаётся невидимым */
+.hero__content h1 .reveal-word__inner {
+    background: var(--gradient-ice-highlight);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .hero__subtitle {

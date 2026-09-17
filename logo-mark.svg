@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 90">
   <defs>
     <linearGradient id="mngGrad" x1="0" y1="0" x2="120" y2="90" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#1AAE92"/>
-      <stop offset="1" stop-color="#3FC7AC"/>
+      <stop offset="0" stop-color="#FF5C93"/>
+      <stop offset="1" stop-color="#5C8DFF"/>
     </linearGradient>
   </defs>
   <polyline points="12,68 42,16 60,48 78,16 108,68" fill="none" stroke="url(#mngGrad)" stroke-width="4"/>

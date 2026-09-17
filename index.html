@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="/logo-mark.svg">
@@ -83,7 +82,6 @@
                 <a href="/blog/">Блог</a>
                 <a href="/contacts/">Контакты</a>
             </nav>
-            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему" aria-pressed="false"><span class="theme-toggle__icon" aria-hidden="true">☀</span></button>
             <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">☰</button>
         </div>
     </header>
@@ -126,8 +124,8 @@
                         </g>
 
                         <polygon points="150,480 310,480 335,520 125,520" fill="var(--color-steel-plate)" stroke="var(--color-glass-edge)" stroke-width="1"/>
-                        <polygon points="163,486 297,486 316,506 144,506" fill="#12151F"/>
-                        <rect x="170" y="452" width="120" height="30" rx="4" fill="#0F2420" stroke="var(--color-glass-edge)" stroke-width="1"/>
+                        <polygon points="163,486 297,486 316,506 144,506" fill="#171A30"/>
+                        <rect x="170" y="452" width="120" height="30" rx="4" fill="#1B1A2E" stroke="var(--color-glass-edge)" stroke-width="1"/>
                         <rect x="170" y="452" width="120" height="3" rx="1.5" fill="var(--color-signal-teal)" opacity="0.75"/>
 
                         <g>
@@ -143,7 +141,7 @@
                         </g>
 
                         <g>
-                            <rect x="250" y="110" width="190" height="100" rx="12" fill="rgba(26,174,146,0.08)" stroke="var(--color-glass-edge)" stroke-width="1.2"/>
+                            <rect x="250" y="110" width="190" height="100" rx="12" fill="rgba(214,49,110,0.08)" stroke="var(--color-glass-edge)" stroke-width="1.2"/>
                             <text x="405" y="132" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="15" fill="var(--color-signal-teal)">×15</text>
                             <polyline points="268,180 292,166 316,170 340,142 364,152 388,124" fill="none" stroke="var(--color-signal-teal)" stroke-width="2" filter="url(#heroSoftBlur)"/>
                             <circle cx="388" cy="124" r="4" fill="var(--color-ice-highlight)" class="hero__visual-pulse"/>
@@ -305,7 +303,6 @@
     </footer>
 
     <script src="script.js" defer></script>
-    <script src="/theme-toggle.js" defer></script>
     <script src="preloader.js" defer></script>
     <script src="reveal.js" defer></script>
 </body>
