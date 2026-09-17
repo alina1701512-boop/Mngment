@@ -4272,21 +4272,19 @@
                     const selectedSubs = subInfo.filter(function(s) { return s.selected; });
                     if (!catCb.checked && selectedSubs.length === 0) return;
                     const partial = selectedSubs.length > 0 && selectedSubs.length < subCbs.length;
-                    // Сферы и подкатегории (1-й и 2-й уровень) — из исходного дерева,
-                    // собранного под парсер Яндекс.Карт. Узкие подкатегории (3-й
-                    // уровень, subsubcategories[]) добавлены позже из рубрикатора
-                    // 2ГИС — помечаем их отдельно, чтобы в письме было видно, каким
-                    // парсером собирать заявку.
+                    // Всё дерево сфер/подкатегорий/узких подкатегорий собрано из
+                    // рубрикатора 2ГИС — помечаем каждый пункт, чтобы в письме было
+                    // видно, каким парсером собирать заявку.
                     if (partial) {
                         const subLines = selectedSubs.map(function(s) {
                             if (s.leafPartial) {
-                                return s.value + ' [Яндекс.Карты] (' + s.checkedLeaves.map(function(cb) { return cb.value + ' [2ГИС]'; }).join(', ') + ')';
+                                return s.value + ' [2ГИС] (' + s.checkedLeaves.map(function(cb) { return cb.value + ' [2ГИС]'; }).join(', ') + ')';
                             }
-                            return s.value + ' [Яндекс.Карты]';
+                            return s.value + ' [2ГИС]';
                         });
-                        lines.push(catCb.value + ' [Яндекс.Карты] (' + subLines.join(', ') + ')');
+                        lines.push(catCb.value + ' [2ГИС] (' + subLines.join(', ') + ')');
                     } else {
-                        lines.push(catCb.value + ' [Яндекс.Карты]');
+                        lines.push(catCb.value + ' [2ГИС]');
                     }
                 });
                 return lines.join('; ');
