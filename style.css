@@ -1370,7 +1370,7 @@ main {
     margin: 0 0 var(--spacing-md) 20px;
     color: var(--color-gray);
     font-size: 0.95rem;
-    line-height: 1.7;
+    line-height: var(--line-height-base);
 }
 
 .agent-card li {
@@ -1585,7 +1585,7 @@ main {
 .faq-item p {
     padding: 20px 24px;
     color: var(--color-gray);
-    line-height: 1.8;
+    line-height: var(--line-height-relaxed);
 }
 
 /* Процесс */
@@ -1761,12 +1761,12 @@ main {
 
 .case-section p, .case-section li {
     color: var(--color-dark);
-    line-height: 1.8;
-    margin-bottom: 15px;
+    line-height: var(--line-height-relaxed);
+    margin-bottom: 20px;
 }
 
 .case-section ul {
-    margin: 15px 0 15px 20px;
+    margin: 20px 0 20px 20px;
 }
 
 .result-table {
