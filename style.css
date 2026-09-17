@@ -786,6 +786,10 @@ main {
     font-weight: 600;
 }
 
+.case-card__delta {
+    font-size: var(--font-size-sm);
+}
+
 /* ============================================
    ОТЗЫВЫ
    ============================================ */
@@ -804,6 +808,12 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-xl);
+}
+
+.testimonials__grid--single {
+    grid-template-columns: 1fr;
+    max-width: 640px;
+    margin: 0 auto;
 }
 
 .testimonial-card {
@@ -831,6 +841,11 @@ main {
     font-weight: 600;
     color: var(--color-black);
     font-size: var(--font-size-sm);
+}
+
+.testimonial-card .btn-link {
+    display: inline-block;
+    margin-top: var(--spacing-md);
 }
 
 .testimonial-card__role {
@@ -2415,6 +2430,13 @@ body.is-home .header {
 .hero__subtitle {
     color: var(--color-fog-veil);
     font-weight: 400;
+}
+
+.hero__meta {
+    color: var(--color-signal-teal);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    margin-top: 0.75rem;
 }
 
 .hero__stats {
