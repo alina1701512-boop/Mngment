@@ -1478,6 +1478,17 @@ main {
     box-shadow: none;
 }
 
+.calculator .audit-form {
+    margin: 0;
+    max-width: none;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-border);
+}
+
 .db-modal__close {
     position: absolute;
     top: 12px;
