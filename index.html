@@ -317,34 +317,24 @@
             </div>
         </section>
 
-        <section class="lead-magnet" id="lead-magnet">
+        <section class="tools-promo" id="lead-magnet">
             <div class="container">
-                <h2 data-reveal="split">Найдите точку роста за 2 минуты</h2>
-                <p class="lead-magnet__subtitle" data-reveal="fade-up" data-reveal-delay="300">5 вопросов о вашей воронке — пришлём разбор и чек-лист на email</p>
-                <form class="audit-form" action="https://formsubmit.co/send@mngment.ru" method="POST" novalidate>
-                    <input type="hidden" name="_next" value="https://mngment.ru/thank-you/">
-                    <input type="hidden" name="_subject" value="Заявка: аудит воронки (главная)">
-                    <input type="hidden" name="Страница" value="Главная — аудит воронки">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-                    <input type="text" name="name" placeholder="Имя" required>
-                    <input type="text" name="phone" placeholder="Телефон / Telegram" required>
-                    <select name="business_type" required>
-                        <option value="" disabled selected>Сфера бизнеса</option>
-                        <option>B2B-услуги</option><option>Товары</option><option>EdTech</option>
-                    </select>
-                    <div class="slider-container">
-                        <label for="leadsSlider">Заявок в месяц: <span id="sliderValue">1000</span></label>
-                        <input type="range" id="leadsSlider" min="10" max="5000" value="1000" step="10">
-                    </div>
-                    <select name="crm_type" required>
-                        <option value="" disabled selected>CRM</option>
-                        <option>AmoCRM</option><option>Bitrix24</option><option>Нет</option>
-                    </select>
-                    <button type="submit" class="btn btn-primary btn-large">Получить аудит и чек-лист</button>
-                    <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="/privacy/">политикой обработки персональных данных</a></p>
-                </form>
+                <h2 data-reveal="split">Проверьте себя за 2 минуты</h2>
+                <p class="section__subtitle" data-reveal="fade-up" data-reveal-delay="300">Два бесплатных инструмента — без звонка менеджеру и регистрации</p>
+                <div class="tools-promo__grid" data-reveal-stagger="90">
+                    <a href="/tools/test-zrelosti-crm/" class="tools-promo__card" data-reveal-child="fade-up">
+                        <span class="tools-promo__icon">🧭</span>
+                        <h3>Тест зрелости CRM</h3>
+                        <p>Узнайте, работает ли ваша CRM в полную силу или простаивает вхолостую</p>
+                        <span class="tools-promo__cta">Пройти тест →</span>
+                    </a>
+                    <a href="/tools/kalkulyator-stoimosti-parsinga/" class="tools-promo__card" data-reveal-child="fade-up">
+                        <span class="tools-promo__icon">🧮</span>
+                        <h3>Калькулятор стоимости парсинга</h3>
+                        <p>Рассчитайте примерную цену сбора базы контактов под вашу нишу</p>
+                        <span class="tools-promo__cta">Рассчитать →</span>
+                    </a>
+                </div>
             </div>
         </section>
     </main>

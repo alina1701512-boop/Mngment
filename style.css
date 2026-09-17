@@ -640,6 +640,77 @@ main {
 }
 
 /* ============================================
+   ИНСТРУМЕНТЫ (промо на главной)
+   ============================================ */
+.tools-promo {
+    padding: var(--spacing-4xl) 0;
+}
+
+.tools-promo h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+}
+
+.tools-promo .section__subtitle {
+    margin-bottom: var(--spacing-3xl);
+}
+
+.tools-promo__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tools-promo__card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacing-2xl);
+    background: var(--color-surface);
+    border: 1px solid var(--color-glass-edge);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+.tools-promo__card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-glow);
+    border-color: color-mix(in srgb, var(--color-signal-teal) 50%, transparent);
+}
+
+.tools-promo__icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+    display: block;
+}
+
+.tools-promo__card h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 700;
+}
+
+.tools-promo__card p {
+    color: var(--color-gray);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-lg);
+    flex-grow: 1;
+}
+
+.tools-promo__cta {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+}
+
+/* ============================================
    КАРТОЧКИ БОЛЕЙ
    ============================================ */
 .pain-points {
@@ -2466,7 +2537,7 @@ main {
     .hero { padding: var(--spacing-3xl) 0; }
     .hero__title { font-size: var(--font-size-3xl); }
 
-    .services__grid, .pain-grid, .cases__grid, .cases-grid, .testimonials__grid, .pricing-grid { grid-template-columns: 1fr; }
+    .services__grid, .pain-grid, .cases__grid, .cases-grid, .testimonials__grid, .pricing-grid, .tools-promo__grid { grid-template-columns: 1fr; }
     .pricing-card--featured { order: -1; }
     .article-page { grid-template-columns: 1fr; padding: 30px 0; }
     .sidebar { position: static; }
