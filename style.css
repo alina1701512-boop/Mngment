@@ -218,7 +218,7 @@ h6 { font-size: var(--font-size-base); }
     color: var(--color-gray);
     font-size: var(--font-size-lg);
     max-width: 700px;
-    margin: -var(--spacing-xl) auto var(--spacing-3xl);
+    margin: calc(-1 * var(--spacing-xl)) auto var(--spacing-3xl);
 }
 
 /* ============================================
@@ -648,13 +648,9 @@ main {
 
 .tools-promo h2 {
     text-align: center;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-3xl);
     font-size: var(--font-size-3xl);
     font-weight: 800;
-}
-
-.tools-promo .section__subtitle {
-    margin-bottom: var(--spacing-3xl);
 }
 
 .tools-promo__grid {
@@ -1736,13 +1732,9 @@ main {
 
 .pricing h2 {
     text-align: center;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-3xl);
     font-size: var(--font-size-3xl);
     font-weight: 800;
-}
-
-.pricing .section__subtitle {
-    margin-bottom: var(--spacing-3xl);
 }
 
 .pricing-grid {
