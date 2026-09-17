@@ -1249,6 +1249,7 @@
                                         <label class="calculator__checkbox-item calculator__checkbox-item--city" for="sub-9-1"><input type="checkbox" id="sub-9-1" name="subcategories[]" value="Медицинские товары" class="js-subcategory-checkbox" data-category="Медицина, Здоровье, Красота" form="demoContactForm"> Медицинские товары</label>
                                         <label class="calculator__checkbox-item calculator__checkbox-item--city" for="sub-9-2"><input type="checkbox" id="sub-9-2" name="subcategories[]" value="Медицинские услуги" class="js-subcategory-checkbox" data-category="Медицина, Здоровье, Красота" form="demoContactForm"> Медицинские услуги</label>
                                         <label class="calculator__checkbox-item calculator__checkbox-item--city" for="sub-9-3"><input type="checkbox" id="sub-9-3" name="subcategories[]" value="Медицинские учреждения" class="js-subcategory-checkbox" data-category="Медицина, Здоровье, Красота" form="demoContactForm"> Медицинские учреждения</label>
+                                        <label class="calculator__checkbox-item calculator__checkbox-item--city" for="sub-9-4"><input type="checkbox" id="sub-9-4" name="subcategories[]" value="Стоматология" class="js-subcategory-checkbox" data-category="Медицина, Здоровье, Красота" form="demoContactForm"> Стоматология</label>
                                 </div>
                             </div>
                             <div class="calculator__region-block">
@@ -1784,10 +1785,26 @@
                 const q = query.trim().toLowerCase();
                 let visibleBlocks = 0;
                 document.querySelectorAll('#demoCategories .calculator__region-block').forEach(function(block) {
-                    const label = block.querySelector('.calculator__checkbox-item--region');
-                    const matches = !q || label.textContent.trim().toLowerCase().includes(q);
-                    block.hidden = !matches;
-                    if (matches) visibleBlocks++;
+                    const categoryLabel = block.querySelector('.calculator__checkbox-item--region');
+                    const categoryMatches = !q || categoryLabel.textContent.trim().toLowerCase().includes(q);
+                    const subLabels = block.querySelectorAll('.calculator__checkbox-item--city');
+                    let anySubMatches = false;
+                    subLabels.forEach(function(subLabel) {
+                        if (subLabel.textContent.trim().toLowerCase().includes(q)) anySubMatches = true;
+                    });
+                    const blockVisible = categoryMatches || anySubMatches;
+                    block.hidden = !blockVisible;
+                    // Показываем все подкатегории найденной сферы — не прячем
+                    // соседние, которые сами не совпали с запросом, чтобы можно
+                    // было сразу выбрать несколько подкатегорий рядом с нужной.
+                    subLabels.forEach(function(subLabel) { subLabel.hidden = false; });
+
+                    const subList = block.querySelector('.calculator__city-list');
+                    const expandBtn = block.querySelector('.js-expand-btn');
+                    if (subList && expandBtn) {
+                        subList.hidden = (q && blockVisible) ? false : expandBtn.getAttribute('aria-expanded') !== 'true';
+                    }
+                    if (blockVisible) visibleBlocks++;
                 });
                 if (categoryNoResults) categoryNoResults.hidden = visibleBlocks !== 0 || !q;
                 updateMatchCount(categoryMatchCount, visibleBlocks, q, ['сфера', 'сферы', 'сфер']);
