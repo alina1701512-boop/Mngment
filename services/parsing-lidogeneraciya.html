@@ -4113,30 +4113,6 @@
                 </div>
             </div>
         </section>
-        <div class="db-modal" id="dbRequestModal" hidden>
-            <div class="db-modal__overlay" data-db-modal-close></div>
-            <div class="db-modal__box">
-                <button type="button" class="db-modal__close" data-db-modal-close aria-label="Закрыть">&times;</button>
-                <form class="audit-form" id="dbRequestForm" action="https://formsubmit.co/send@mngment.ru" method="POST" novalidate>
-                    <h3 class="db-modal__title">Запросить базу</h3>
-                    <p class="db-modal__db-name" id="dbRequestName"></p>
-                    <p class="db-modal__db-price" id="dbRequestPrice"></p>
-                    <input type="hidden" name="_next" value="https://mngment.ru/thank-you/">
-                    <input type="hidden" name="_subject" id="dbRequestSubject" value="Запрос готовой базы">
-                    <input type="hidden" name="Страница" value="Услуги — Парсинг и лидогенерация (готовые базы)">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-                    <input type="hidden" name="database" id="dbRequestDatabase" value="">
-                    <input type="hidden" name="price" value="6 000 ₽">
-                    <input type="text" name="name" placeholder="Имя" required>
-                    <input type="tel" name="phone" placeholder="Телефон" required>
-                    <input type="email" name="email" placeholder="Email" required>
-                    <button type="submit" class="btn btn-primary btn-large">Получить базу</button>
-                    <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="/privacy/">политикой обработки персональных данных</a></p>
-                </form>
-            </div>
-        </div>
     </main>
     <footer class="footer">
         <div class="container">
@@ -4149,6 +4125,30 @@
             <div class="footer-bottom"><p>© 2026 mngment</p></div>
         </div>
     </footer>
+    <div class="db-modal" id="dbRequestModal" hidden>
+        <div class="db-modal__overlay" data-db-modal-close></div>
+        <div class="db-modal__box">
+            <button type="button" class="db-modal__close" data-db-modal-close aria-label="Закрыть">&times;</button>
+            <form class="audit-form" id="dbRequestForm" action="https://formsubmit.co/send@mngment.ru" method="POST" novalidate>
+                <h3 class="db-modal__title">Запросить базу</h3>
+                <p class="db-modal__db-name" id="dbRequestName"></p>
+                <p class="db-modal__db-price" id="dbRequestPrice"></p>
+                <input type="hidden" name="_next" value="https://mngment.ru/thank-you/">
+                <input type="hidden" name="_subject" id="dbRequestSubject" value="Запрос готовой базы">
+                <input type="hidden" name="Страница" value="Услуги — Парсинг и лидогенерация (готовые базы)">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                <input type="hidden" name="database" id="dbRequestDatabase" value="">
+                <input type="hidden" name="price" value="6 000 ₽">
+                <input type="text" name="name" placeholder="Имя" required>
+                <input type="tel" name="phone" placeholder="Телефон" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <button type="submit" class="btn btn-primary btn-large">Получить базу</button>
+                <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="/privacy/">политикой обработки персональных данных</a></p>
+            </form>
+        </div>
+    </div>
     <script src="/script.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
