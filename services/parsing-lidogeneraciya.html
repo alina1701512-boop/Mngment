@@ -157,6 +157,11 @@
                                 <option value="Россия">Россия</option>
                                 <option value="Казахстан">Казахстан</option>
                                 <option value="Беларусь">Беларусь</option>
+                                <option value="Азербайджан">Азербайджан</option>
+                                <option value="Италия">Италия</option>
+                                <option value="Кипр">Кипр</option>
+                                <option value="Кыргызстан">Кыргызстан</option>
+                                <option value="ОАЭ">ОАЭ</option>
                             </select>
                         </div>
                         <div class="calculator__step" id="demoRegionsStep" hidden>
@@ -1121,6 +1126,69 @@
                                 <label class="calculator__checkbox-item calculator__checkbox-item--all" for="region-2-all"><input type="checkbox" id="region-2-all" class="js-region-select-all" data-country="Беларусь" form="demoContactForm"> Вся Беларусь</label>
                             <div class="calculator__region-block">
                                 <label class="calculator__checkbox-item calculator__checkbox-item--region" for="region-2-0"><input type="checkbox" id="region-2-0" name="regions[]" value="Минск" class="js-region-checkbox" data-country="Беларусь" form="demoContactForm"> Минск</label>
+                            </div>
+                            </div>
+                            <div class="calculator__checkbox-group" data-country="Азербайджан" hidden>
+                                <label class="calculator__checkbox-item calculator__checkbox-item--all" for="region-3-all"><input type="checkbox" id="region-3-all" class="js-region-select-all" data-country="Азербайджан" form="demoContactForm"> Весь Азербайджан</label>
+                            <div class="calculator__region-block">
+                                <label class="calculator__checkbox-item calculator__checkbox-item--region" for="region-3-0"><input type="checkbox" id="region-3-0" name="regions[]" value="Баку" class="js-region-checkbox" data-country="Азербайджан" form="demoContactForm"> Баку</label>
+                            </div>
+                            </div>
+                            <div class="calculator__checkbox-group" data-country="Италия" hidden>
+                                <label class="calculator__checkbox-item calculator__checkbox-item--all" for="region-4-all"><input type="checkbox" id="region-4-all" class="js-region-select-all" data-country="Италия" form="demoContactForm"> Вся Италия</label>
+                            <div class="calculator__region-block">
+                                <div class="calculator__region-row">
+                                    <label class="calculator__checkbox-item calculator__checkbox-item--region" for="region-4-0"><input type="checkbox" id="region-4-0" name="regions[]" value="Северо-Восточная Италия" class="js-region-checkbox" data-country="Италия" form="demoContactForm"> Северо-Восточная Италия</label>
+                                    <button type="button" class="calculator__expand-btn js-expand-btn" aria-expanded="false" aria-controls="city-list-4-0" aria-label="Показать города: Северо-Восточная Италия">+</button>
+                                </div>
+                                <div class="calculator__city-list" id="city-list-4-0" hidden>
+                                        <label class="calculator__checkbox-item calculator__checkbox-item--city" for="city-4-0-0"><input type="checkbox" id="city-4-0-0" name="cities[]" value="Venezia e Padova, Северо-Восточная Италия" class="js-city-checkbox" data-country="Италия" data-region="Северо-Восточная Италия" form="demoContactForm"> Venezia e Padova</label>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="calculator__checkbox-group" data-country="Кипр" hidden>
+                                <label class="calculator__checkbox-item calculator__checkbox-item--all" for="region-5-all"><input type="checkbox" id="region-5-all" class="js-region-select-all" data-country="Кипр" form="demoContactForm"> Весь Кипр</label>
+                            <div class="calculator__region-block">
+                                <div class="calculator__region-row">
+                                    <label class="calculator__checkbox-item calculator__checkbox-item--region" for="region-5-0"><input type="checkbox" id="region-5-0" name="regions[]" value="Республика Кипр" class="js-region-checkbox" data-country="Кипр" form="demoContactForm"> Республика Кипр</label>
+                                    <button type="button" class="calculator__expand-btn js-expand-btn" aria-expanded="false" aria-controls="city-list-5-0" aria-label="Показать города: Республика Кипр">+</button>
+                                </div>
+                                <div class="calculator__city-list" id="city-list-5-0" hidden>
+                                        <label class="calculator__checkbox-item calculator__checkbox-item--city" for="city-5-0-0"><input type="checkbox" id="city-5-0-0" name="cities[]" value="Cyprus, Республика Кипр" class="js-city-checkbox" data-country="Кипр" data-region="Республика Кипр" form="demoContactForm"> Cyprus</label>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="calculator__checkbox-group" data-country="Кыргызстан" hidden>
+                                <label class="calculator__checkbox-item calculator__checkbox-item--all" for="region-6-all"><input type="checkbox" id="region-6-all" class="js-region-select-all" data-country="Кыргызстан" form="demoContactForm"> Весь Кыргызстан</label>
+                            <div class="calculator__region-block">
+                                <div class="calculator__region-row">
+                                    <label class="calculator__checkbox-item calculator__checkbox-item--region" for="region-6-0"><input type="checkbox" id="region-6-0" name="regions[]" value="Ошская область" class="js-region-checkbox" data-country="Кыргызстан" form="demoContactForm"> Ошская область</label>
+                                    <button type="button" class="calculator__expand-btn js-expand-btn" aria-expanded="false" aria-controls="city-list-6-0" aria-label="Показать города: Ошская область">+</button>
+                                </div>
+                                <div class="calculator__city-list" id="city-list-6-0" hidden>
+                                        <label class="calculator__checkbox-item calculator__checkbox-item--city" for="city-6-0-0"><input type="checkbox" id="city-6-0-0" name="cities[]" value="Ош, Ошская область" class="js-city-checkbox" data-country="Кыргызстан" data-region="Ошская область" form="demoContactForm"> Ош</label>
+                                </div>
+                            </div>
+                            <div class="calculator__region-block">
+                                <div class="calculator__region-row">
+                                    <label class="calculator__checkbox-item calculator__checkbox-item--region" for="region-6-1"><input type="checkbox" id="region-6-1" name="regions[]" value="Чуйская область" class="js-region-checkbox" data-country="Кыргызстан" form="demoContactForm"> Чуйская область</label>
+                                    <button type="button" class="calculator__expand-btn js-expand-btn" aria-expanded="false" aria-controls="city-list-6-1" aria-label="Показать города: Чуйская область">+</button>
+                                </div>
+                                <div class="calculator__city-list" id="city-list-6-1" hidden>
+                                        <label class="calculator__checkbox-item calculator__checkbox-item--city" for="city-6-1-0"><input type="checkbox" id="city-6-1-0" name="cities[]" value="Бишкек, Чуйская область" class="js-city-checkbox" data-country="Кыргызстан" data-region="Чуйская область" form="demoContactForm"> Бишкек</label>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="calculator__checkbox-group" data-country="ОАЭ" hidden>
+                                <label class="calculator__checkbox-item calculator__checkbox-item--all" for="region-7-all"><input type="checkbox" id="region-7-all" class="js-region-select-all" data-country="ОАЭ" form="demoContactForm"> Все ОАЭ</label>
+                            <div class="calculator__region-block">
+                                <div class="calculator__region-row">
+                                    <label class="calculator__checkbox-item calculator__checkbox-item--region" for="region-7-0"><input type="checkbox" id="region-7-0" name="regions[]" value="Эмират Дубай" class="js-region-checkbox" data-country="ОАЭ" form="demoContactForm"> Эмират Дубай</label>
+                                    <button type="button" class="calculator__expand-btn js-expand-btn" aria-expanded="false" aria-controls="city-list-7-0" aria-label="Показать города: Эмират Дубай">+</button>
+                                </div>
+                                <div class="calculator__city-list" id="city-list-7-0" hidden>
+                                        <label class="calculator__checkbox-item calculator__checkbox-item--city" for="city-7-0-0"><input type="checkbox" id="city-7-0-0" name="cities[]" value="Dubai. Sharjah. Ajman, Эмират Дубай" class="js-city-checkbox" data-country="ОАЭ" data-region="Эмират Дубай" form="demoContactForm"> Dubai. Sharjah. Ajman</label>
+                                </div>
                             </div>
                             </div>
                             </div>
