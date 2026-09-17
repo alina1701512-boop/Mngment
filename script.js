@@ -467,7 +467,7 @@ document.addEventListener('DOMContentLoaded', function () {
             dbModal.hidden = false;
             body.style.overflow = 'hidden';
             const nameInput = dbModal.querySelector('input[name="name"]');
-            if (nameInput) nameInput.focus();
+            if (nameInput && window.innerWidth >= 768) nameInput.focus();
         };
 
         const closeDbModal = () => {

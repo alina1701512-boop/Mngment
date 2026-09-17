@@ -1549,6 +1549,7 @@ main {
     width: 100%;
     max-width: 420px;
     max-height: 90vh;
+    max-height: 90dvh;
     overflow-y: auto;
     background: var(--color-surface-solid);
     border-radius: var(--radius-xl);
