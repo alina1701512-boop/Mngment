@@ -550,6 +550,30 @@ document.addEventListener('DOMContentLoaded', function () {
     })();
 
     // ============================================
+    // МОДУЛЬ 13: ЦЕЛИ МЕТРИКИ ПО КЛИКАМ (CTA + КЕЙСЫ)
+    // ============================================
+    const METRIKA_COUNTER_ID = 111721939;
+
+    document.addEventListener('click', function (e) {
+        if (typeof ym !== 'function') return;
+
+        const ctaBtn = e.target.closest('.btn-primary');
+        if (ctaBtn) {
+            ym(METRIKA_COUNTER_ID, 'reachGoal', 'cta_click', {
+                cta_text: ctaBtn.textContent.trim(),
+                cta_url: ctaBtn.getAttribute('href') || ''
+            });
+        }
+
+        const caseLink = e.target.closest('.btn-link');
+        if (caseLink && (caseLink.getAttribute('href') || '').includes('/cases/')) {
+            ym(METRIKA_COUNTER_ID, 'reachGoal', 'case_read_click', {
+                case_url: caseLink.getAttribute('href')
+            });
+        }
+    });
+
+    // ============================================
     // ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
     // ============================================
     function hashCode(str) {
