@@ -659,9 +659,9 @@ main {
 
 .tools-promo__grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: var(--spacing-xl);
-    max-width: 800px;
+    max-width: 380px;
     margin: 0 auto;
 }
 
@@ -2537,7 +2537,7 @@ main {
     .hero { padding: var(--spacing-3xl) 0; }
     .hero__title { font-size: var(--font-size-3xl); }
 
-    .services__grid, .pain-grid, .cases__grid, .cases-grid, .testimonials__grid, .pricing-grid, .tools-promo__grid { grid-template-columns: 1fr; }
+    .services__grid, .pain-grid, .cases__grid, .cases-grid, .testimonials__grid, .pricing-grid { grid-template-columns: 1fr; }
     .pricing-card--featured { order: -1; }
     .article-page { grid-template-columns: 1fr; padding: 30px 0; }
     .sidebar { position: static; }
