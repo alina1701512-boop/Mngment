@@ -694,6 +694,15 @@ main {
 .pain-card__icon {
     font-size: 1.5rem;
     line-height: 1;
+    font-weight: 700;
+}
+
+.pain-card__col--problem .pain-card__icon {
+    color: var(--color-error);
+}
+
+.pain-card__col--solution .pain-card__icon {
+    color: var(--color-success);
 }
 
 .pain-card__problem {
@@ -703,9 +712,13 @@ main {
 }
 
 .pain-card__solution {
-    color: var(--color-success);
+    color: var(--color-dark);
     font-size: var(--font-size-sm);
-    font-weight: 600;
+    font-weight: 500;
+}
+
+.pain-card__solution strong {
+    color: var(--color-primary);
 }
 
 .center-btn {
@@ -1642,6 +1655,129 @@ main {
 }
 
 /* ============================================
+   ТАРИФЫ
+   ============================================ */
+.pricing {
+    padding: var(--spacing-4xl) 0;
+    background: var(--color-surface);
+}
+
+.pricing h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+}
+
+.pricing .section__subtitle {
+    margin-bottom: var(--spacing-3xl);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+    align-items: stretch;
+}
+
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface-solid);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-2xl);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    transition: all var(--transition-base);
+}
+
+.pricing-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+}
+
+.pricing-card--featured {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-glow);
+}
+
+.pricing-card__badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary-gradient);
+    color: #fff;
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    padding: 0.3rem 1rem;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+}
+
+.pricing-card__name {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+}
+
+.pricing-card__price {
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    background: var(--color-accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-sm);
+}
+
+.pricing-card__desc {
+    color: var(--color-gray);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.pricing-card__features {
+    list-style: none;
+    margin: 0 0 var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    flex-grow: 1;
+}
+
+.pricing-card__features li {
+    color: var(--color-dark);
+    font-size: var(--font-size-sm);
+    padding-left: 1.4rem;
+    position: relative;
+}
+
+.pricing-card__features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-success);
+    font-weight: 700;
+}
+
+.pricing-card .btn {
+    width: 100%;
+}
+
+.pricing-note {
+    max-width: 720px;
+    margin: var(--spacing-2xl) auto 0;
+    padding: var(--spacing-lg);
+    background: var(--color-primary-light);
+    border-radius: var(--radius-lg);
+    color: var(--color-dark);
+    font-size: var(--font-size-sm);
+    text-align: center;
+}
+
+/* ============================================
    БЛОГ
    ============================================ */
 .article-page {
@@ -2330,7 +2466,8 @@ main {
     .hero { padding: var(--spacing-3xl) 0; }
     .hero__title { font-size: var(--font-size-3xl); }
 
-    .services__grid, .pain-grid, .cases__grid, .cases-grid, .testimonials__grid { grid-template-columns: 1fr; }
+    .services__grid, .pain-grid, .cases__grid, .cases-grid, .testimonials__grid, .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-card--featured { order: -1; }
     .article-page { grid-template-columns: 1fr; padding: 30px 0; }
     .sidebar { position: static; }
     .footer-grid { grid-template-columns: 1fr; }
@@ -2655,8 +2792,8 @@ body.is-home .footer {
 .pain-grid .pain-card:hover,
 .cases__grid .case-card:hover {
     transform: scale(1.02);
-    border-color: rgba(26, 174, 146, 0.5);
-    box-shadow: 0 0 30px rgba(26, 174, 146, 0.22);
+    border-color: color-mix(in srgb, var(--color-signal-teal) 50%, transparent);
+    box-shadow: var(--shadow-glow);
 }
 
 /* Карточки услуг — компактный размер + раскрытие мини-инфо по клику */

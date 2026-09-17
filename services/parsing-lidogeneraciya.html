@@ -22,7 +22,7 @@
     "@type": "Offer",
     "url": "https://mngment.ru/services/parsing-lidogeneraciya.html",
     "priceCurrency": "RUB",
-    "price": 3500,
+    "price": 3000,
     "availability": "https://schema.org/InStock",
     "seller": {
       "@type": "Organization",
@@ -49,7 +49,7 @@
         {"@type":"Question","name":"Законно ли заниматься парсингом контактов компаний в России?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы собираем только публично доступные данные из открытых реестров."}},
         {"@type":"Question","name":"Чем ваш парсинг отличается от покупки готовой базы?","acceptedAnswer":{"@type":"Answer","text":"Готовые базы — хороший быстрый старт, но со временем устаревают. Наш парсинг — свежий слепок рынка на момент выгрузки, под вашу нишу и регион."}},
         {"@type":"Question","name":"Можно ли настроить сбор сразу в CRM?","acceptedAnswer":{"@type":"Answer","text":"Да. Интегрируем с AmoCRM/Bitrix24 через API. Контакт → сделка → задача менеджеру."}},
-        {"@type":"Question","name":"Сколько стоит парсинг?","acceptedAnswer":{"@type":"Answer","text":"От 3 500 ₽, точная сумма зависит от объёма и источников. Первые 50 контактов — бесплатно."}},
+        {"@type":"Question","name":"Сколько стоит парсинг?","acceptedAnswer":{"@type":"Answer","text":"От 3 000 ₽ до 9 000 ₽ в зависимости от сложности: один источник — 3 000 ₽, несколько источников с валидацией — 6 000 ₽, кастомный парсер под задачу — 9 000 ₽. Первые 50 контактов — бесплатно."}},
         {"@type":"Question","name":"На какой срок заключается договор?","acceptedAnswer":{"@type":"Answer","text":"Разовая выгрузка — без абонентской привязки."}}
       ]
     }
@@ -3977,6 +3977,49 @@
                 </div>
             </div>
         </section>
+        <section class="pricing">
+            <div class="container">
+                <h2>Тарифы</h2>
+                <p class="section__subtitle">Стоимость зависит от сложности задачи — от одного источника до кастомного парсера под вашу нишу</p>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3 class="pricing-card__name">Базовый</h3>
+                        <p class="pricing-card__price">3 000 ₽</p>
+                        <p class="pricing-card__desc">Один источник, готовый парсер без доработок</p>
+                        <ul class="pricing-card__features">
+                            <li>1 источник данных (2ГИС, Яндекс.Карты, отраслевой каталог)</li>
+                            <li>Фильтры по региону и нише</li>
+                            <li>Выгрузка в Excel/CSV</li>
+                        </ul>
+                        <a href="#serviceForm" class="btn btn-outline">Заказать</a>
+                    </div>
+                    <div class="pricing-card pricing-card--featured">
+                        <span class="pricing-card__badge">Популярный</span>
+                        <h3 class="pricing-card__name">Стандарт</h3>
+                        <p class="pricing-card__price">6 000 ₽</p>
+                        <p class="pricing-card__desc">Несколько источников и проверенные контакты</p>
+                        <ul class="pricing-card__features">
+                            <li>До 3 источников данных</li>
+                            <li>Валидация email и телефонов</li>
+                            <li>Дедупликация записей</li>
+                        </ul>
+                        <a href="#serviceForm" class="btn btn-primary">Заказать</a>
+                    </div>
+                    <div class="pricing-card">
+                        <h3 class="pricing-card__name">Комплекс</h3>
+                        <p class="pricing-card__price">9 000 ₽</p>
+                        <p class="pricing-card__desc">Кастомный парсер под вашу задачу</p>
+                        <ul class="pricing-card__features">
+                            <li>Нестандартный источник — пишем парсер на Python</li>
+                            <li>Полная валидация и дедупликация</li>
+                            <li>Интеграция выгрузки в AmoCRM/Bitrix24</li>
+                        </ul>
+                        <a href="#serviceForm" class="btn btn-outline">Заказать</a>
+                    </div>
+                </div>
+                <p class="pricing-note">Демо мы высылаем бесплатно — и это уже ваша будущая база: те же компании, те же поля. Разница одна: в демо часть строк закрыта, в оплаченной выгрузке открыты все строки.</p>
+            </div>
+        </section>
         <section class="case-full">
             <div class="container">
                 <h2>Кейс: 12 000 контактов за 7 дней</h2>
@@ -3994,7 +4037,7 @@
                     <details class="faq-item"><summary>Законно ли заниматься парсингом контактов компаний в России?</summary><p>Да. Мы собираем только публично доступные данные из открытых реестров.</p></details>
                     <details class="faq-item"><summary>Чем ваш парсинг отличается от покупки готовой базы?</summary><p>Готовые базы — хороший быстрый старт, но со временем устаревают. Наш парсинг — свежий слепок рынка на момент выгрузки, под вашу нишу и регион.</p></details>
                     <details class="faq-item"><summary>Можно ли настроить сбор сразу в CRM?</summary><p>Да. Интегрируем с AmoCRM/Bitrix24 через API. Контакт → сделка → задача менеджеру.</p></details>
-                    <details class="faq-item"><summary>Сколько стоит?</summary><p>От 3 500 ₽, точная сумма зависит от объёма и источников. Первые 50 контактов — бесплатно.</p></details>
+                    <details class="faq-item"><summary>Сколько стоит?</summary><p>От 3 000 ₽ до 9 000 ₽ в зависимости от сложности: один источник — 3 000 ₽, несколько источников с валидацией — 6 000 ₽, кастомный парсер под задачу — 9 000 ₽. Первые 50 контактов — бесплатно.</p></details>
                     <details class="faq-item"><summary>На какой срок заключается договор?</summary><p>Разовая выгрузка — без абонентской привязки.</p></details>
                 </div>
             </div>
