@@ -296,6 +296,39 @@ document.addEventListener('DOMContentLoaded', function () {
     // Режим 2: Обычные формы (GET/POST без data-ajax) — не перехватываем,
     // они работают стандартным способом. Для GitHub Pages это основной режим.
 
+    // Режим 3: Дублирование заявки в CRM через вебхук (параллельно с formsubmit.co).
+    // CRM_WEBHOOK_URL сейчас смотрит на localhost — обновить на публичный адрес CRM,
+    // когда система будет доступна из интернета, иначе заявки с реального сайта
+    // до неё доходить не будут.
+    const CRM_WEBHOOK_URL = 'http://localhost:4000/api/webhooks/website/1e7d2f32090836f27885ee1dee61e070';
+    const CRM_SKIP_FIELDS = new Set(['_next', '_subject', '_template', '_captcha', '_honey', 'name', 'phone', 'email']);
+
+    const crmForms = document.querySelectorAll('form[action*="formsubmit.co"]');
+
+    crmForms.forEach(form => {
+        form.addEventListener('submit', function () {
+            const formData = new FormData(form);
+            const messageParts = [];
+
+            formData.forEach((value, key) => {
+                if (CRM_SKIP_FIELDS.has(key) || !value) return;
+                messageParts.push(key + ': ' + value);
+            });
+
+            const crmPayload = new FormData();
+            crmPayload.append('name', formData.get('name') || '');
+            crmPayload.append('phone', formData.get('phone') || '');
+            crmPayload.append('email', formData.get('email') || '');
+            crmPayload.append('message', messageParts.join('\n'));
+
+            try {
+                navigator.sendBeacon(CRM_WEBHOOK_URL, crmPayload);
+            } catch (err) {
+                // Не мешаем стандартной отправке формы, если вебхук недоступен
+            }
+        });
+    });
+
     // ============================================
     // МОДУЛЬ 6: ПЛАВНЫЙ СКРОЛЛ К ЯКОРЯМ
     // ============================================
