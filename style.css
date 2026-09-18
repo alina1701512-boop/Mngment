@@ -2962,3 +2962,124 @@ body.is-home .footer {
         min-height: 85vh;
     }
 }
+
+/* ============================================
+   МОБИЛЬНАЯ ВЕРСИЯ — правки по аудиту 2026-09-18
+   Всё внутри @media (max-width: 768px): десктоп не затрагивается.
+   ============================================ */
+@media (max-width: 768px) {
+    /* Колонки сеток не растягиваются под содержимое (длинный <select>, кнопки без переноса) —
+       иначе страница шире экрана и уезжает вбок */
+    .contacts-grid > *,
+    .hero-service .container > *,
+    .pain-grid > * {
+        min-width: 0;
+    }
+
+    .btn { white-space: normal; }
+
+    .brief-form { padding: var(--spacing-lg); }
+
+    .brief-form select,
+    .calculator select,
+    .calculator__input {
+        max-width: 100%;
+    }
+
+    /* Карточки «болей»: две колонки в ~340px не помещались — ставим друг под другом */
+    .pain-card {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        padding: var(--spacing-lg);
+    }
+
+    .pain-card__col--solution {
+        border-left: none;
+        border-top: 1px solid var(--color-border);
+        padding-left: 0;
+        padding-top: var(--spacing-md);
+    }
+
+    /* Шапка страниц услуг с центрированным заголовком: на телефоне не сетка с большими
+       промежутками между заголовком, подзаголовком и кнопкой, а обычный поток */
+    .hero-service .container.hero-service--centered { display: block; }
+    .hero-service--centered h1 { margin-bottom: var(--spacing-xl); }
+
+    /* Мобильное меню: помещается в экран, прокручивается, фон сплошной
+       (без просвечивания текста страницы) */
+    .nav {
+        top: 100%;
+        flex-wrap: nowrap;
+        max-height: calc(100vh - 78px);
+        max-height: calc(100dvh - 78px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        background: var(--color-midnight-canvas);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    .nav > * { flex-shrink: 0; }
+
+    .nav a.nav-quicklink {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+    }
+
+    .logo { min-height: 44px; }
+
+    .burger {
+        width: 44px;
+        height: 44px;
+        margin-right: -8px;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        line-height: 1;
+        color: var(--color-dark);
+    }
+
+    /* Зоны нажатия не меньше 44px */
+    .footer-col li,
+    .sidebar-block li { margin-bottom: 0; }
+
+    .footer-col a,
+    .sidebar-block a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .btn-link { min-height: 44px; }
+
+    .radio-group-dark { gap: 0; }
+
+    .radio-group-dark label,
+    .calculator--quiz .calculator__quiz-option,
+    .quiz-option,
+    .calculator__checkbox-item {
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+    }
+
+    .radio-group-dark input[type="radio"],
+    .calculator--quiz .calculator__quiz-option input,
+    .quiz-option input,
+    .calculator__checkbox-item input {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+    }
+
+    .db-modal__close {
+        width: 44px;
+        height: 44px;
+        top: 8px;
+        right: 8px;
+        font-size: 28px;
+    }
+}

@@ -36,32 +36,43 @@ document.addEventListener('DOMContentLoaded', function () {
     const body = document.body;
 
     if (burgerBtn && mainNav) {
-        burgerBtn.addEventListener('click', function () {
-            const isOpen = mainNav.classList.toggle('nav--open');
-            burgerBtn.classList.toggle('burger--active');
-            burgerBtn.setAttribute('aria-expanded', isOpen);
+        const isMenuOpen = () => mainNav.classList.contains('nav--open');
+
+        // Единая точка смены состояния меню: класс, aria, иконка и блокировка прокрутки
+        const setMenuState = (isOpen) => {
+            mainNav.classList.toggle('nav--open', isOpen);
+            burgerBtn.classList.toggle('burger--active', isOpen);
+            burgerBtn.setAttribute('aria-expanded', String(isOpen));
+            burgerBtn.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+            burgerBtn.textContent = isOpen ? '✕' : '☰';
             body.style.overflow = isOpen ? 'hidden' : '';
+        };
+
+        burgerBtn.addEventListener('click', function () {
+            const isOpen = !isMenuOpen();
+            setMenuState(isOpen);
             trackGoal('burger_menu_click', { state: isOpen ? 'open' : 'close' });
         });
 
         // Закрытие меню при клике на ссылку
         mainNav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                mainNav.classList.remove('nav--open');
-                burgerBtn.classList.remove('burger--active');
-                burgerBtn.setAttribute('aria-expanded', 'false');
-                body.style.overflow = '';
+                if (isMenuOpen()) setMenuState(false);
             });
         });
 
-        // Закрытие меню при клике вне его
+        // Закрытие меню при клике вне его. Блокировку прокрутки снимаем только если
+        // меню было открыто — иначе клик по любому месту сбрасывал бы блокировку
+        // прокрутки под модальным окном.
         document.addEventListener('click', (e) => {
-            if (!mainNav.contains(e.target) && !burgerBtn.contains(e.target)) {
-                mainNav.classList.remove('nav--open');
-                burgerBtn.classList.remove('burger--active');
-                burgerBtn.setAttribute('aria-expanded', 'false');
-                body.style.overflow = '';
+            if (isMenuOpen() && !mainNav.contains(e.target) && !burgerBtn.contains(e.target)) {
+                setMenuState(false);
             }
+        });
+
+        // Если экран стал широким (поворот планшета), меню не должно оставаться открытым
+        window.addEventListener('resize', () => {
+            if (isMenuOpen() && window.innerWidth > 768) setMenuState(false);
         });
     }
 
@@ -255,6 +266,31 @@ document.addEventListener('DOMContentLoaded', function () {
     // ============================================
     // МОДУЛЬ 5: ОТПРАВКА ФОРМ (ДВА РЕЖИМА)
     // ============================================
+
+    // Проверка обязательных полей. У форм стоит novalidate, поэтому браузер сам
+    // не блокирует отправку пустой формы. Слушатель — на document в фазе захвата,
+    // чтобы сработать раньше остальных обработчиков форм (например, отправки в CRM
+    // и подготовки данных в калькуляторе): при ошибке они не должны выполниться.
+    document.addEventListener('input', function (e) {
+        if (e.target.type === 'tel') e.target.setCustomValidity('');
+    });
+
+    document.addEventListener('submit', function (e) {
+        const form = e.target;
+        if (!(form instanceof HTMLFormElement) || !form.noValidate) return;
+
+        // Маска подставляет «+7 (» в пустое поле, поэтому required одного его не ловит
+        form.querySelectorAll('input[type="tel"][required]').forEach(input => {
+            const digits = input.value.replace(/\D/g, '').replace(/^[78]/, '');
+            input.setCustomValidity(digits.length >= 10 ? '' : 'Введите номер телефона полностью');
+        });
+
+        if (!form.checkValidity()) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            form.reportValidity();
+        }
+    }, true);
 
     // Режим 1: Формы с data-ajax="true" — отправка через fetch (Formspree)
     const ajaxForms = document.querySelectorAll('form[data-ajax="true"]');
