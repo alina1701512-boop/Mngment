@@ -1,5 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    const METRIKA_COUNTER_ID = 111721939;
+    function trackGoal(name, params) {
+        if (typeof ym === 'function') {
+            ym(METRIKA_COUNTER_ID, 'reachGoal', name, params);
+        }
+    }
+
     // ============================================
     // МОДУЛЬ 1: АНИМАЦИЯ СХЕМЫ НА ГЛАВНОЙ
     // ============================================
@@ -34,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
             burgerBtn.classList.toggle('burger--active');
             burgerBtn.setAttribute('aria-expanded', isOpen);
             body.style.overflow = isOpen ? 'hidden' : '';
+            trackGoal('burger_menu_click', { state: isOpen ? 'open' : 'close' });
         });
 
         // Закрытие меню при клике на ссылку
@@ -78,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const show = filter === 'all' || card.dataset.category === filter;
                     card.style.display = show ? '' : 'none';
                 });
+                trackGoal('filter_click', { filter_value: filter, filter_label: btn.textContent.trim() });
             });
         });
     });
@@ -513,7 +522,11 @@ document.addEventListener('DOMContentLoaded', function () {
             item.setAttribute('tabindex', '0');
             item.setAttribute('role', 'button');
 
-            const trigger = () => openDbModal(item.dataset.dbName || item.textContent.trim(), item);
+            const trigger = () => {
+                const dbName = item.dataset.dbName || item.textContent.trim();
+                trackGoal('db_item_click', { db_name: dbName });
+                openDbModal(dbName, item);
+            };
 
             item.addEventListener('click', trigger);
             item.addEventListener('keydown', (e) => {
@@ -525,7 +538,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         dbModal.querySelectorAll('[data-db-modal-close]').forEach(el => {
-            el.addEventListener('click', closeDbModal);
+            el.addEventListener('click', () => {
+                trackGoal('modal_close_click', { modal: 'db_request' });
+                closeDbModal();
+            });
         });
 
         document.addEventListener('keydown', (e) => {
@@ -571,6 +587,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const isOpen = !managerMenu.hidden;
             managerMenu.hidden = isOpen;
             managerToggle.setAttribute('aria-expanded', String(!isOpen));
+            trackGoal('manager_widget_toggle_click', { state: isOpen ? 'close' : 'open' });
+        });
+
+        managerMenu.querySelectorAll('.manager-widget__option').forEach(option => {
+            option.addEventListener('click', function () {
+                const channel = option.textContent.trim();
+                trackGoal('manager_widget_option_click', { channel: channel });
+            });
         });
 
         document.addEventListener('click', function (e) {
@@ -585,14 +609,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // ============================================
     // МОДУЛЬ 13: ЦЕЛИ МЕТРИКИ ПО КЛИКАМ (CTA + КЕЙСЫ)
     // ============================================
-    const METRIKA_COUNTER_ID = 111721939;
-
     document.addEventListener('click', function (e) {
-        if (typeof ym !== 'function') return;
-
-        const ctaBtn = e.target.closest('.btn-primary');
+        const ctaBtn = e.target.closest('.btn-primary, .btn-outline, .btn-accent');
         if (ctaBtn) {
-            ym(METRIKA_COUNTER_ID, 'reachGoal', 'cta_click', {
+            trackGoal('cta_click', {
                 cta_text: ctaBtn.textContent.trim(),
                 cta_url: ctaBtn.getAttribute('href') || ''
             });
@@ -600,7 +620,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const caseLink = e.target.closest('.btn-link');
         if (caseLink && (caseLink.getAttribute('href') || '').includes('/cases/')) {
-            ym(METRIKA_COUNTER_ID, 'reachGoal', 'case_read_click', {
+            trackGoal('case_read_click', {
                 case_url: caseLink.getAttribute('href')
             });
         }
