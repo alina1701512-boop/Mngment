@@ -624,6 +624,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 case_url: caseLink.getAttribute('href')
             });
         }
+
+        const contactLink = e.target.closest('a[href^="tel:"], a[href^="mailto:"]');
+        if (contactLink) {
+            const href = contactLink.getAttribute('href') || '';
+            trackGoal('contact_click', {
+                channel: href.startsWith('tel:') ? 'phone' : 'email',
+                page: window.location.pathname
+            });
+        }
     });
 
     // ============================================
